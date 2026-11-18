@@ -48,6 +48,15 @@ details summary{cursor:pointer;font-weight:500}.tag{display:inline-block;backgro
 #of select{font:inherit;font-size:12px;border-radius:5px;padding:2px 6px;border:1px solid var(--line);background:transparent;color:var(--ink)}
 .fb input.t{margin:0}
 .xp{margin:8px 0;padding:10px 12px;border-radius:8px;background:var(--badbg);font-size:14px;line-height:1.5;text-align:left}.xp .k{text-decoration:line-through;color:var(--bad)}.xp div{color:var(--ink);margin-top:2px}
+
+:root{--amb:#b26a00;--vio:#7a3fc2}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--amb:#f0b35a;--vio:#c7a2ff}}
+:root[data-theme="dark"]{--amb:#f0b35a;--vio:#c7a2ff}
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:8px 0}
+.pc{border:1px solid var(--c);border-radius:10px;padding:10px;transition:opacity .2s}.pc.dim{opacity:.35}
+.ph{font-weight:600;color:var(--c);cursor:pointer}.ps{font-size:12px;color:var(--mut);margin:2px 0 8px;line-height:1.35}
+.pp{background:transparent;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:1px 10px;margin:2px 2px 0 0;font-size:13px}.pp.on{background:var(--c);color:var(--bg)}
+.pa{width:auto;margin:6px 0}.pa td,.pa th{padding:4px 14px 4px 0}.pa td:first-child{font-weight:600}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header><span class="logo" id="logo">C-Test Prep</span><span class="sp"></span><span id="hdr" style="display:flex;gap:8px;align-items:center"></span></header>
@@ -260,8 +269,8 @@ const DS={Dm:'em',Df:'er',Dn:'em',Dp:'en',Gm:'en',Gf:'er',Gn:'en',Gp:'er'};
 const endOf=(t,r)=>(r[0]==='D'||r[0]==='G')?(t==='s'?DS[r]:'en'):TB[t][r];
 const DEF={der:'Nm Df Gf Gp',die:'Nf Np Af Ap',das:'Nn An',den:'Am Dp',dem:'Dm Dn',des:'Gm Gn',dieser:'Nm Df Gf Gp',diese:'Nf Np Af Ap',dieses:'Nn An Gm Gn',diesen:'Am Dp',diesem:'Dm Dn',welchen:'Am Dp'};
 const EIN={'':'Nm Nn An',e:'Nf Af Np Ap',en:'Am Dp',em:'Dm Dn',er:'Df Gf Gp',es:'Gm Gn'};
-function why(c,m){if(c.it.k!=='a')return'';let k=-1,idx=-1;c.tok.forEach((x,i)=>{if(typeof x==='object'){k++;if(k===m.gap)idx=i}});
-const p=c.tok[idx-1];let w='';if(typeof p==='string')w=(p.trim().split(/\s+/).pop()||'').replace(/[^a-zäöüß]/gi,'').toLowerCase();else if(p)w=(p.g+p.m).toLowerCase();
+function why(c,m){if(c.it.k==='p')return pwhy(c.it);if(c.it.k!=='a')return'';let k=-1,idx=-1;c.tok.forEach((x,i)=>{if(typeof x==='object'){k++;if(k===m.gap)idx=i}});
+const gw=(c.tok[idx].g+c.tok[idx].m).toLowerCase();if(ALLP.includes(gw))return'Preposition: <b>'+gw+'</b>.';const p=c.tok[idx-1];let w='';if(typeof p==='string')w=(p.trim().split(/\s+/).pop()||'').replace(/[^a-zäöüß]/gi,'').toLowerCase();else if(p)w=(p.g+p.m).toLowerCase();
 const e=c.tok[idx].m;let t='s',rd=null;
 if(DEF[w]){t='w';rd=DEF[w].split(' ')}else{const x=/^(ein|kein|mein|dein|sein|ihr|unser|euer)(e|en|em|er|es)?$/.exec(w);if(x){t='m';rd=EIN[x[2]||''].split(' ');if(x[1]==='ein')rd=rd.filter(r=>r[1]!=='p')}}
 const all=['N','A'].flatMap(cs=>'mfnp'.split('').map(g=>cs+g)).concat(Object.keys(DS));
@@ -277,13 +286,13 @@ else rule='ein/kein/mein show no ending for masc. nominative and neut. nom./acc.
 const ty=m.typed?` You typed <i>-${esc(m.typed)}</i>.`:'';
 return`${head}. ${rule}${ty}`}
 const xpl=m=>`<div class="xp"><b>${esc(m.given)}<span class="k">${esc(m.typed||'…')}</span> → ${esc(m.correct)}</b>${m.why?'<div>'+m.why+'</div>':''}</div>`;
-let B=null,bmode='mix';
+let B=null,bapre=false,bmode='mix',bcase='mix',bgap='both',bpre=[];
 function bz(){if(B){clearInterval(B.iv);clearTimeout(B.to)}}
 R.blitz=function(){bz();B=null;
-const m=[['mix','Mix'],['a','Adjektivendungen'],['v','Wortschatz']];
-app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut">10 quick items. Each starts with an intact sentence for context, then a few gaps. The clock is short: <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><div class="lab" style="padding-left:0">Focus</div><div class="tabs">${m.map(([k,l])=>`<button class="${bmode===k?'on':''}" onclick="bmode='${k}';R.blitz()">${l}</button>`).join('')}</div><button onclick="bStart()">Start</button></div>`};
+const m=[['mix','Mix'],['a','Adjektivendungen'],['v','Wortschatz'],['p','Präpositionen']];
+app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut">10 quick items. Each starts with an intact sentence for context, then a few gaps. The clock is short: <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><div class="lab" style="padding-left:0">Focus</div><div class="tabs">${m.map(([k,l])=>`<button class="${bmode===k?'on':''}" onclick="bmode='${k}';R.blitz()">${l}</button>`).join('')}</div>${bmode==='a'||bmode==='mix'?`<label style="display:flex;gap:8px;align-items:center;margin:10px 0;cursor:pointer"><input type="checkbox" ${bapre?'checked':''} onchange="bapre=this.checked;R.blitz()"> Also gap the prepositions <span class="mut">(Adjektivendungen sentences: in, mit, wegen…)</span></label>`:''}${bmode==='p'?bPanel():''}<button onclick="bStart()">Start</button></div>`};
 function bStart(){const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-const q=sh(BLITZ.map((x,i)=>({i,k:x[0],t:x[1]})).filter(x=>bmode==='mix'||x.k===bmode)).slice(0,10);
+const q=sh(bmode==='p'?pItems():BLITZ.map((x,i)=>({i,k:x[0],t:x[0]==='a'&&bapre?apre(x[1]):x[1]})).filter(x=>bmode==='mix'||x.k===bmode)).slice(0,10);if(!q.length){alert('No sentences match this selection.');return}
 B={q,n:0,score:0,streak:0,res:[],iv:null,to:null};bNext()}
 function bNext(){if(!B)return;if(B.n>=B.q.length)return bEnd();
 const it=B.q[B.n],tok=parse({text:it.t}),g=tok.filter(x=>typeof x==='object').length;
@@ -310,6 +319,94 @@ document.addEventListener('keydown',e=>{if(B&&B.cur&&B.cur.done&&!e.repeat&&(e.k
 function bGo(){if(!B)return;clearTimeout(B.to);B.n++;bNext()}
 function bEnd(){const t=B.res.reduce((s,r)=>s+r.total,0),ok=B.res.reduce((s,r)=>s+r.ok,0),miss=B.res.flatMap(r=>r.mistakes);
 app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${B.score}</div><p><b>${ok}/${t}</b> gaps correct (${t?Math.round(ok/t*100):0}%)</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>`;B=null}
+// ----- Präpositionen mode -----
+// [prep, code, text]  code: A/D/G = fixed case, WA/WD = two-way (Wohin?/Wo?), VA/VD = fixed with a verb. [prep] becomes a half-word gap when "Preposition + article" is on.
+const PG={A:['für','durch','gegen','ohne','um','bis'],D:['aus','bei','mit','nach','seit','von','zu','gegenüber','ab','außer'],W:['an','auf','hinter','in','neben','über','unter','vor','zwischen'],G:['wegen','trotz','während','statt','innerhalb','außerhalb']};
+const PGI={A:['Akkusativ','always accusative','--acc'],D:['Dativ','always dative','--ok'],W:['Wechsel','Wo? → Dativ · Wohin? → Akkusativ','--amb'],G:['Genitiv','always genitive','--vio']};
+const PREP=[
+['für','A',"Morgen hat Lisa Geburtstag. Ich kaufe [für] {d|ie} Party einen Kuchen."],
+['für','A',"Dieses Geschenk ist [für] {mein|en} Bruder."],
+['durch','A',"Es regnet. Wir laufen schnell [durch] {d|en} Park zum Bahnhof."],
+['durch','A',"Das Licht kommt [durch] {d|as} Fenster in mein Zimmer."],
+['gegen','A',"Das Auto ist [gegen] {ein|en} Baum gefahren."],
+['gegen','A',"Ich bin [gegen] {d|ie} neue Regel."],
+['ohne','A',"Er geht nie [ohne] {sein|en} Schirm aus dem Haus."],
+['ohne','A',"Sie fährt [ohne] {ihr|e} Freundin in den Urlaub."],
+['um','A',"Wir sitzen alle [um] {d|en} Tisch und essen zusammen."],
+['um','A',"Ich kümmere mich [um] {mein|e} kranke Mutter."],
+['bis','A',"Die Bibliothek bleibt [bis] {nächst|en} Sonntag geschlossen."],
+['bis','A',"Ich bleibe noch [bis] {nächst|en} Montag in Berlin."],
+['aus','D',"Ich komme [aus] {d|er} Schweiz."],
+['aus','D',"Sie nimmt ein Buch [aus] {ihr|er} Tasche."],
+['bei','D',"Ich wohne noch [bei] {mein|en} Eltern."],
+['bei','D',"Er arbeitet [bei] {ein|er} großen Firma."],
+['mit','D',"Ich fahre jeden Tag [mit] {d|em} Bus zur Uni."],
+['mit','D',"Sie spricht [mit] {ihr|er} Chefin über das Projekt."],
+['nach','D',"Ich gehe [nach] {d|em} Unterricht sofort nach Hause."],
+['nach','D',"Wir treffen uns [nach] {d|er} Arbeit im Café."],
+['seit','D',"Ich lerne Deutsch [seit] {ein|em} Jahr."],
+['seit','D',"Er wohnt [seit] {d|er} Hochzeit in Berlin."],
+['von','D',"Das ist ein Geschenk [von] {mein|er} Oma."],
+['von','D',"Ich habe [von] {d|em} Problem nichts gewusst."],
+['zu','D',"Heute gehe ich [zu] {mein|em} Arzt."],
+['zu','D',"Wir fahren [zu] {d|er} Party von Anna."],
+['gegenüber','D',"Die Bank liegt [gegenüber] {d|em} Rathaus."],
+['ab','D',"Das Café ist [ab] {d|em} ersten Mai wieder offen."],
+['außer','D',"Alle sind gekommen, [außer] {mein|em} Bruder."],
+['an','WA',"Ich hänge das Bild [an] {d|ie} Wand."],
+['an','WD',"Das Bild hängt [an] {d|er} Wand."],
+['auf','WA',"Er legt das Buch [auf] {d|en} Tisch."],
+['auf','WD',"Das Buch liegt [auf] {d|em} Tisch."],
+['hinter','WA',"Der Hund läuft [hinter] {d|as} Haus."],
+['hinter','WD',"Der Hund schläft [hinter] {d|em} Haus."],
+['in','WA',"Am Samstag fahren wir [in] {d|ie} Stadt."],
+['in','WD',"Am Samstag sind wir [in] {d|er} Stadt."],
+['neben','WA',"Ich stelle den Stuhl [neben] {d|ie} Tür."],
+['neben','WD',"Der Stuhl steht [neben] {d|er} Tür."],
+['über','WA',"Sie hängt eine Lampe [über] {d|en} Tisch."],
+['über','WD',"Eine Lampe hängt [über] {d|em} Tisch."],
+['unter','WA',"Die Katze springt [unter] {d|as} Bett."],
+['unter','WD',"Die Katze liegt [unter] {d|em} Bett."],
+['vor','WA',"Ich stelle das Fahrrad [vor] {d|as} Haus."],
+['vor','WD',"Das Fahrrad steht [vor] {d|em} Haus."],
+['zwischen','WA',"Er stellt das Buch [zwischen] {d|ie} anderen Bücher."],
+['zwischen','WD',"Das Buch steht [zwischen] {d|en} anderen Büchern."],
+['auf','VA',"Ich warte schon lange [auf] {d|en} Bus."],
+['auf','VA',"Wir freuen uns [auf] {d|ie} Ferien."],
+['auf','VA',"Sie bereitet sich [auf] {d|ie} Prüfung vor."],
+['an','VA',"Er denkt oft [an] {sein|e} Familie."],
+['an','VA',"Ich glaube [an] {d|ie} Liebe."],
+['an','VD',"Er nimmt [an] {ein|em} Kurs teil."],
+['an','VD',"Sie arbeitet [an] {ihr|er} Hausarbeit."],
+['über','VA',"Ich freue mich [über] {d|as} Geschenk."],
+['über','VA',"Wir sprechen [über] {d|as} Thema."],
+['vor','VD',"Sie hat Angst [vor] {d|er} Prüfung."],
+['vor','VD',"Ich warne dich [vor] {d|em} Hund."],
+['in','VA',"Sie hat sich [in] {ein|en} Kollegen verliebt."],
+['wegen','G',"[Wegen] {d|es} schlechten Wetters bleiben wir zu Hause."],
+['wegen','G',"Der Zug fällt [wegen] {d|es} Streiks aus."],
+['trotz','G',"[Trotz] {d|es} Regens gehen wir spazieren."],
+['trotz','G',"Er arbeitet [trotz] {sein|er} Krankheit weiter."],
+['während','G',"[Während] {d|er} Ferien fahren wir ans Meer."],
+['statt','G',"[Statt] {d|es} Busses nehmen wir das Fahrrad."],
+['innerhalb','G',"[Innerhalb] {d|er} Stadt fahre ich meistens Fahrrad."],
+['außerhalb','G',"Das Dorf liegt [außerhalb] {d|er} Stadt."]];
+const PR={A:'always takes the <b>accusative</b>: den / die / das / die (only masculine changes).',D:'always takes the <b>dative</b>: dem / der / dem / den (plural nouns also add -n).',G:'takes the <b>genitive</b>: des / der / des / der (masc. and neuter nouns add -(e)s).',WA:'is a two-way preposition. Movement to a new place (<i>Wohin?</i>) → <b>accusative</b>.',WD:'is a two-way preposition. Position, no change of place (<i>Wo?</i>) → <b>dative</b>.',VA:'is fixed with this verb and takes the <b>accusative</b>. Learn verb + preposition as a pair.',VD:'is fixed with this verb and takes the <b>dative</b>. Learn verb + preposition as a pair.'};
+const pwhy=it=>`<b>${it.pre}</b> ${PR[it.cs]}`;
+const OK={mix:'ADWG',A:'AW',D:'DW',W:'W',G:'G'},CM={mix:()=>1,A:c=>/A$/.test(c),D:c=>/D$/.test(c),G:c=>c==='G',W:(c,p)=>PG.W.includes(p)};
+const half=w=>{const n=Math.ceil(w.length/2);return'{'+w.slice(0,n)+'|'+w.slice(n)+'}'};
+const gk=p=>Object.keys(PG).find(k=>PG[k].includes(p));
+const ALLP=Object.values(PG).flat();
+const apre=t=>t.replace(new RegExp('(?<![\\p{L}{|])('+ALLP.slice().sort((a,b)=>b.length-a.length).join('|')+')(?![\\p{L}])(?=\\s+(?:[^\\s{}]+\\s+)?\\{)','giu'),w=>half(w));
+function pItems(){return PREP.map((x,i)=>({i:'p'+i,k:'p',pre:x[0],cs:x[1],t:x[2].replace(/\[(.+?)\]/g,(_,w)=>bgap==='both'?half(w):w)})).filter(x=>CM[bcase](x.cs,x.pre)&&(!bpre.length||bpre.includes(x.pre)))}
+function bCase(v){bcase=v;bpre=bpre.filter(p=>OK[v].includes(gk(p)));R.blitz()}
+function bTog(p){if(!OK[bcase].includes(gk(p)))bcase='mix';const i=bpre.indexOf(p);i<0?bpre.push(p):bpre.splice(i,1);R.blitz()}
+function bPanel(){const L='<div class="lab" style="padding-left:0">',n=pItems().length;
+const ct=[['mix','Mixed'],['A','Akkusativ'],['D','Dativ'],['W','Wechsel'],['G','Genitiv']].map(([v,l])=>`<button class="${bcase===v?'on':''}" onclick="bCase('${v}')">${l}</button>`).join('');
+const gt=[['both','Preposition + article'],['art','Article only']].map(([v,l])=>`<button class="${bgap===v?'on':''}" onclick="bgap='${v}';R.blitz()">${l}</button>`).join('');
+const info=Object.keys(PG).map(k=>{const[nm,sub,c]=PGI[k];return`<div class="pc${OK[bcase].includes(k)?'':' dim'}" style="--c:var(${c})"><div class="ph" onclick="bCase(bcase==='${k}'?'mix':'${k}')">${nm}</div><div class="ps">${sub}</div>${PG[k].map(p=>`<button class="pp${bpre.includes(p)?' on':''}" onclick="bTog('${p}')">${p}</button>`).join('')}</div>`}).join('');
+const ar=[['Akk','--acc','den','die','das','die'],['Dat','--ok','dem','der','dem','den'],['Gen','--vio','des','der','des','der']].map(r=>`<tr><td style="color:var(${r[1]})">${r[0]}</td>${r.slice(2).map(x=>`<td>${x}</td>`).join('')}</tr>`).join('');
+return`${L}Case</div><div class="tabs">${ct}</div>${L}Gaps</div><div class="tabs">${gt}</div>${L}Cheat sheet · tap a heading to filter by case, tap a preposition to drill just that one</div><div class="pg">${info}</div><table class="pa"><tr><th></th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>${ar}</table><p class="mut">${n} sentence${n===1?'':'s'} match${n===1?'es':''}${bpre.length?' · '+bpre.join(', '):''} · a round plays up to 10</p>`}
 // ===== END BLITZ =====
 
 $('#logo').onclick=()=>go(D.me?'home':'users');
