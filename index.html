@@ -47,6 +47,7 @@ details summary{cursor:pointer;font-weight:500}.tag{display:inline-block;backgro
 .fb .tabs{margin:8px 0 0}
 #of select{font:inherit;font-size:12px;border-radius:5px;padding:2px 6px;border:1px solid var(--line);background:transparent;color:var(--ink)}
 .fb input.t{margin:0}
+.xp{margin:8px 0;padding:10px 12px;border-radius:8px;background:var(--badbg);font-size:14px;line-height:1.5;text-align:left}.xp .k{text-decoration:line-through;color:var(--bad)}.xp div{color:var(--ink);margin-top:2px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header><span class="logo" id="logo">C-Test Prep</span><span class="sp"></span><span id="hdr" style="display:flex;gap:8px;align-items:center"></span></header>
@@ -114,7 +115,7 @@ gaps.forEach((g,i)=>{const inp=els[i].querySelector('input'),v=inp.value.trim();
 const c=calc(gaps.length,correct,secs);const at={id:Date.now()+'-'+D.me,user:D.me,testId:T.test.id,testTitle:T.test.title,ts:Date.now(),secs,total:gaps.length,correct,score:c.score,mistakes};D.attempts.push(at);save();push('attempts',at);
 $('#ck').disabled=true;$('#res').innerHTML=`<div style="text-align:center;margin-top:26px"><div class="big">${c.score}</div><p><b>${correct}/${gaps.length}</b> correct · ${fmt(secs)}</p><p class="mut">${mistakes.length?'Hover the red gaps to see the right answers.':''}</p></div>`}
 function addTest(){const t=$('#nt').value.trim(),s=$('#ns').value.trim(),x=$('#nx').value.trim();if(!t||!/\{[^|{}]*\|[^{}]*\}/.test(x)){alert('Add a title and text with at least one {given|missing} gap.');return}const nt={id:'c'+Date.now(),title:t,source:s||'—',text:x};D.tests.push(nt);save();push('tests',nt);go('list')}
-// ===== BLITZ MODE: paste this whole block right ABOVE the line  $('#logo').onclick=...  =====
+// ===== BLITZ MODE =====
 // 'a' = Adjektivendungen (Nom/Akk/Dat/Gen), 'v' = Wortschatz/C-Test-Hälften
 const BLITZ=[
 ['a',"Ich suche eine {billig|e} Wohnung in einer {ruhig|en} Gegend."],
@@ -150,8 +151,132 @@ const BLITZ=[
 ['v',"Wir sind mit dem Bus gefahren. Die {Fa|hrt} {dau|erte} fast {ei|ne} Stunde."],
 ['v',"Ich interessiere mich sehr für Kunst. Deshalb {geh|e} ich oft in {Mus|een} und {Gale|rien}."],
 ['v',"Die Wohnung liegt im {zwei|ten} Stock. Leider gibt es {kei|nen} {Auf|zug}."],
-['v',"Im Winter ist es hier sehr kalt. Deshalb {tra|gen} die {Men|schen} {dic|ke} Jacken."]
+['v',"Im Winter ist es hier sehr kalt. Deshalb {tra|gen} die {Men|schen} {dic|ke} Jacken."],
+['a',"Wir besuchen morgen unsere Freunde. Der {klein|e} Sohn spielt schon Klavier."],
+['a',"Im Park ist viel los. Die {jung|en} Eltern schieben ihre Kinderwagen."],
+['a',"Ich liebe dieses Café. Das {gemütlich|e} Lokal hat guten Kuchen."],
+['a',"Am Bahnhof ist es voll. Der {nächst|e} Zug fährt erst in einer Stunde."],
+['a',"Meine Oma kocht gern. Die {frisch|e} Suppe riecht wunderbar."],
+['a',"Wir haben Besuch. Ein {alt|er} Freund meines Vaters ist gekommen."],
+['a',"Das Wetter ist schlecht. Heute gibt es kein {schön|es} Wetter."],
+['a',"Er hat eine Idee. Das ist wirklich eine {gut|e} Idee."],
+['a',"Sie sucht Arbeit. Ihre {neu|e} Chefin ist sehr freundlich."],
+['a',"Es klingelt an der Tür. Meine {best|e} Freundin steht davor."],
+['a',"In der Stadt gibt es Probleme. Leider sind keine {billig|en} Wohnungen mehr frei."],
+['a',"Er trinkt gern Tee. Heute trinkt er {heiß|en} Tee mit Zitrone."],
+['a',"Ich bestelle zum Essen Wasser. Ich nehme {kalt|es} Wasser ohne Gas."],
+['a',"Sie mag Musik. Sie hört gern {laut|e} Musik."],
+['a',"Im Supermarkt kaufe ich Eier. Ich kaufe immer {frisch|e} Eier."],
+['a',"Zum Geburtstag gab es Blumen. Ich habe {rot|e} Rosen bekommen."],
+['a',"Wir brauchen Brot. Ich hole {frisch|es} Brot beim Bäcker."],
+['a',"Ich war krank. Deshalb habe ich den {neu|en} Arzt angerufen."],
+['a',"Sie hat das Fenster geöffnet. Sie genießt die {frisch|e} Luft."],
+['a',"Wir lesen heute einen Text. Wir lesen den {schwierig|en} Text noch einmal."],
+['a',"Ich brauche ein Geschenk. Ich suche ein {schön|es} Buch für meine Mutter."],
+['a',"Mein Onkel hat Geld gespart. Er hat sich einen {schnell|en} Wagen gekauft."],
+['a',"Am Samstag war ich im Kino. Ich habe einen {lustig|en} Film gesehen."],
+['a',"Der Chef ruft an. Er hat keine {neu|en} Informationen."],
+['a',"Bitte lies das {ganz|e} Kapitel. Dann kannst du die {letzt|en} Aufgaben machen."],
+['a',"Ich wohne bei meiner Tante. Sie wohnt in einer {klein|en} Wohnung."],
+['a',"Das Kind spielt im Garten. Es spielt mit seinem {klein|en} Bruder."],
+['a',"Ich fahre jeden Tag zur Arbeit. Ich fahre mit dem {schnell|en} Zug."],
+['a',"Wir danken dir sehr. Wir danken dem {nett|en} Mann für seine Hilfe."],
+['a',"Ich trinke gern Kaffee. Ich trinke ihn mit {warm|er} Milch."],
+['a',"Der Salat schmeckt gut. Er ist mit {frisch|em} Gemüse gemacht."],
+['a',"Am Tisch sitzen die Gäste. Sie sprechen mit den {neu|en} Nachbarn."],
+['a',"Ich gehe früh ins Bett. Nach dem {lang|en} Arbeitstag bin ich sehr müde."],
+['a',"Ich bin gern unter Leuten. Mit {gut|en} Freunden macht alles mehr Spaß."],
+['a',"Sie ist umgezogen. Sie lebt seit Jahren in einem {fremd|en} Land."],
+['a',"Im Kino sind viele Plätze frei. Er sitzt in der {erst|en} Reihe."],
+['a',"Ich gehe nicht gern raus. Bei {schlecht|em} Wetter bleibe ich zu Hause."],
+['a',"Die Mutter wartet am Fenster. Sie wartet mit {groß|er} Geduld auf ihn."],
+['a',"Mein Opa war Tischler. Aus {alt|em} Holz hat er einen Tisch gebaut."],
+['a',"Mein Kollege ist neu hier. Er kommt aus einem {reich|en} Land und spricht vier Sprachen."],
+['a',"Ich habe ein Problem mit dem Computer. Von dem {nett|en} Verkäufer habe ich einen Tipp bekommen."],
+['a',"Wir sprechen über Max. Das ist der Name meines {best|en} Freundes."],
+['a',"Auf der Straße ist es gefährlich. Wegen des {dicht|en} Nebels fahren viele Autos langsam."],
+['a',"Die Preise sind gestiegen. Trotz der {hoh|en} Preise kaufen viele Leute dort ein."],
+['a',"Ich kenne die Familie gut. Das ist das Auto meiner {alt|en} Nachbarin."],
+['a',"Im Norden ist es sehr dunkel. Während des {lang|en} Winters bleiben viele Menschen drinnen."],
+['a',"Der Reporter schreibt über das Leben in der Stadt. Er erzählt von den Problemen {jung|er} Familien."],
+['a',"Wir machen einen Ausflug. Am Rand des {klein|en} Dorfes liegt ein See."],
+['a',"Ich schreibe eine E-Mail. Ich schreibe sie an meinen {alt|en} Lehrer."],
+['a',"Sie vermisst ihre Familie. Sie denkt oft an ihre {klein|e} Schwester."],
+['a',"Wir stehen an der Haltestelle. Wir warten auf den {nächst|en} Bus."],
+['a',"Sie hat einen neuen Job. Sie freut sich auf die {neu|e} Wohnung."],
+['a',"Der Nachbar hört Musik. Er ärgert sich über das {laut|e} Radio."],
+['a',"Am Wochenende gehe ich shoppen. Ich fahre heute in die {groß|e} Stadt."],
+['a',"Sie renoviert ihr Zimmer. Sie hängt das {neu|e} Bild an die {weiß|e} Wand."],
+['a',"Ich arbeite von morgens bis abends. Ohne meinen {gut|en} Computer kann ich nicht arbeiten."],
+['a',"Es gibt Kaffee im Büro. Für einen {klein|en} Kaffee brauche ich nur zwei Euro."],
+['a',"Im Zimmer ist es kühl. Durch das {offen|e} Fenster kommt frische Luft."],
+['a',"Der Bus ist voll. Sie steigt trotzdem in den {voll|en} Bus."],
+['a',"In der Schule ist viel los. Der {jung|e} Lehrer hilft den {fleißig|en} Schülern."],
+['a',"Wir haben uns verlaufen. Ein {freundlich|er} Mann hat uns den {kurz|en} Weg gezeigt."],
+['a',"Im Park sitzen viele Leute. Die {alt|e} Dame schenkt dem {klein|en} Mädchen eine {süß|e} Birne."],
+['a',"Es ist ruhig in der Bibliothek. Das {klein|e} Mädchen liest ein {dick|es} Buch."],
+['a',"Mein Bruder hat Glück gehabt. Mein {jünger|er} Bruder hat einen {neu|en} Job gefunden."],
+['a',"Sie hat bald Geburtstag. Ich schenke meiner {best|en} Freundin einen {klein|en} Blumenstrauß."],
+['a',"Wir sprechen über Kino. Hast du den {neu|en} Film mit dem {berühmt|en} Schauspieler gesehen?"],
+['a',"Wir sind umgezogen. Wir haben ein {groß|es} Zimmer in einem {alt|en} Haus gemietet."],
+['a',"Er geht zu einer Feier. Er trägt einen {schwarz|en} Anzug und eine {rot|e} Krawatte."],
+['a',"Im Restaurant ist die Karte lang. Ich möchte {frisch|en} Fisch und {gebraten|e} Kartoffeln."],
+['a',"Die Suppe kocht noch. Pass auf, die {heiß|e} Suppe verbrennt dir den Mund."],
+['a',"Das Zimmer ist zu klein. Ich suche ein {größer|es} Zimmer."],
+['a',"Das ist die Zugspitze. Sie ist der {höchst|e} Berg Deutschlands."],
+['a',"Alle haben stark gelernt. Er hat das {best|e} Ergebnis erreicht."],
+['a',"Im Winter ist es sehr kalt. Ich trage gern {warm|e} Socken und einen {dick|en} Schal."],
+['a',"Der Student schreibt eine Arbeit. Er braucht dringend {neu|e} Literatur zum Thema."],
+['v',"Ich lerne seit einem Jahr Deutsch. Die {Gramm|atik} finde ich {sch|wierig}, aber {int|eressant}."],
+['v',"Mein Zug fährt um acht Uhr ab. Ich muss {rechtz|eitig} am {Bahn|hof} {sei|n}."],
+['v',"Heute ist das Wetter schön. Die {Son|ne} {sch|eint} und es {we|ht} ein {leich|ter} Wind."],
+['v',"Am Montag beginnt der Kurs. Alle {Teil|nehmer} {müs|sen} {pünk|tlich} kommen."],
+['v',"Ich habe Hunger. Im {Kühl|schrank} {fin|de} ich nur {ei|n} Stück Käse."],
+['v',"Meine Schwester studiert Medizin. Sie {möch|te} später {Ärz|tin} {wer|den}."],
+['v',"Die Prüfung war sehr schwer. Viele {Stud|enten} haben sie {nic|ht} {bes|tanden}."],
+['v',"Ich suche eine neue Wohnung. Die {Mi|ete} darf nicht zu {ho|ch} sein, und sie soll {zentr|al} {lie|gen}."],
+['v',"Im Büro gibt es viel Arbeit. Mein {Kol|lege} {ha|t} gestern {Übers|tunden} {gem|acht}."],
+['v',"Wir gehen heute Abend essen. Hast du {Lu|st} auf {ita|lienisches} Essen?"],
+['v',"Mir ist kalt. Ich glaube, ich {bek|omme} eine {Erkäl|tung}."],
+['v',"Morgen schreibe ich einen Test. Deshalb {mu|ss} ich heute {Voka|beln} {ler|nen}."],
+['v',"Das Kind ist krank. Die {Mut|ter} bleibt {heu|te} zu {Ha|use}."],
+['v',"Wir fliegen im Sommer nach Spanien. Den {Urla|ub} haben wir schon {gebu|cht}."],
+['v',"Das Konzert war toll. Es waren {vie|le} {Zuh|örer} da."],
+['v',"Ich brauche ein neues Fahrrad. Mein altes ist {lei|der} {kap|utt}."],
+['v',"Die Bibliothek hat lange geöffnet. Man kann dort {Bü|cher} {aus|leihen} und in {Ru|he} {arb|eiten}."],
+['v',"Bei der Bank habe ich ein Konto eröffnet. Dafür {mus|ste} ich meinen {Pa|ss} {zei|gen}."],
+['v',"Mein Nachbar ist sehr hilfsbereit. Er {hi|lft} mir oft beim {Ein|kaufen} und {tr|ägt} die {Ta|schen}."],
+['v',"Im Herbst werden die Tage kürzer. Die {Blä|tter} {wer|den} gelb und {fal|len} von den {Bäu|men}."],
+['v',"Ich möchte ein Praktikum machen. Dafür muss ich eine {Bewer|bung} {schr|eiben}."],
+['v',"Wir haben nächste Woche Ferien. Die {Kin|der} {freu|en} sich schon {dar|auf}."],
+['v',"Der Arzt hat mir Tabletten gegeben. Ich {sol|l} sie {dre|imal} {tä|glich} {ne|hmen}."],
+['v',"Mein Handy ist leer. Hast du ein {Lade|gerät} für mich?"],
+['v',"Die Stadt ist bekannt für ihre Altstadt. Jedes Jahr {kom|men} viele {Tou|risten}."]
 ];
+// ----- Explainer: shows WHY the correct adjective ending is right -----
+const CN={N:'nominative',A:'accusative',D:'dative',G:'genitive'},GN={m:'masc.',f:'fem.',n:'neut.',p:'plural'};
+const TB={w:{Nm:'e',Nf:'e',Nn:'e',Np:'en',Am:'en',Af:'e',An:'e',Ap:'en'},m:{Nm:'er',Nf:'e',Nn:'es',Np:'en',Am:'en',Af:'e',An:'es',Ap:'en'},s:{Nm:'er',Nf:'e',Nn:'es',Np:'e',Am:'en',Af:'e',An:'es',Ap:'e'}};
+const DS={Dm:'em',Df:'er',Dn:'em',Dp:'en',Gm:'en',Gf:'er',Gn:'en',Gp:'er'};
+const endOf=(t,r)=>(r[0]==='D'||r[0]==='G')?(t==='s'?DS[r]:'en'):TB[t][r];
+const DEF={der:'Nm Df Gf Gp',die:'Nf Np Af Ap',das:'Nn An',den:'Am Dp',dem:'Dm Dn',des:'Gm Gn',dieser:'Nm Df Gf Gp',diese:'Nf Np Af Ap',dieses:'Nn An Gm Gn',diesen:'Am Dp',diesem:'Dm Dn',welchen:'Am Dp'};
+const EIN={'':'Nm Nn An',e:'Nf Af Np Ap',en:'Am Dp',em:'Dm Dn',er:'Df Gf Gp',es:'Gm Gn'};
+function why(c,m){if(c.it.k!=='a')return'';let k=-1,idx=-1;c.tok.forEach((x,i)=>{if(typeof x==='object'){k++;if(k===m.gap)idx=i}});
+const p=c.tok[idx-1];let w='';if(typeof p==='string')w=(p.trim().split(/\s+/).pop()||'').replace(/[^a-zäöüß]/gi,'').toLowerCase();else if(p)w=(p.g+p.m).toLowerCase();
+const e=c.tok[idx].m;let t='s',rd=null;
+if(DEF[w]){t='w';rd=DEF[w].split(' ')}else{const x=/^(ein|kein|mein|dein|sein|ihr|unser|euer)(e|en|em|er|es)?$/.exec(w);if(x){t='m';rd=EIN[x[2]||''].split(' ');if(x[1]==='ein')rd=rd.filter(r=>r[1]!=='p')}}
+const all=['N','A'].flatMap(cs=>'mfnp'.split('').map(g=>cs+g)).concat(Object.keys(DS));
+const cand=(rd||all).filter(r=>endOf(t,r)===e);if(!cand.length)return'';
+const lab=cand.map(r=>CN[r[0]]+' '+GN[r[1]]).join(' / ');
+const head=rd?`<b>${w}</b> = ${lab}`:`No article before the adjective: ${lab}`;
+let rule;
+if(t==='s')rule='With no article, the adjective must show the case itself. It takes the ending the article would have had (-er, -e, -es, -en, -em).';
+else if(e==='en')rule='After an article, -en is the default: dative, genitive, plural, plus masculine accusative (den / einen).';
+else if(t==='w')rule='After der/die/das, only nominative and fem./neut. accusative end in -e.';
+else if(e==='e')rule='Fem. nominative/accusative (and plural nominative/accusative after ein-words) take -e.';
+else rule='ein/kein/mein show no ending for masc. nominative and neut. nom./acc., so the adjective carries it: -er / -es.';
+const ty=m.typed?` You typed <i>-${esc(m.typed)}</i>.`:'';
+return`${head}. ${rule}${ty}`}
+const xpl=m=>`<div class="xp"><b>${esc(m.given)}<span class="k">${esc(m.typed||'…')}</span> → ${esc(m.correct)}</b>${m.why?'<div>'+m.why+'</div>':''}</div>`;
 let B=null,bmode='mix';
 function bz(){if(B){clearInterval(B.iv);clearTimeout(B.to)}}
 R.blitz=function(){bz();B=null;
@@ -168,22 +293,23 @@ const ins=[...document.querySelectorAll('#bt .gap input')];
 ins.forEach((el,i)=>{el.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();ins[i+1]?ins[i+1].focus():bSubmit()}else if(e.key===' '||e.key==='ArrowRight'){if(ins[i+1]){e.preventDefault();ins[i+1].focus()}}else if(e.key==='Backspace'&&!el.value&&ins[i-1]){e.preventDefault();ins[i-1].focus()}else if(e.key==='ArrowLeft'&&ins[i-1]&&el.selectionStart===0)ins[i-1].focus()}});
 ins[0].focus();const c=B.cur;
 B.iv=setInterval(()=>{const rem=c.total-(Date.now()-c.t0);$('#bb').style.width=Math.max(0,rem/c.total*100)+'%';$('#bc').textContent=Math.max(0,Math.ceil(rem/1000));if(rem<=0)bSubmit()},100)}
-function bSubmit(){const b=B;if(!b||b.cur.done)return;const c=b.cur;c.done=true;clearInterval(b.iv);
+function bSubmit(){const b=B;if(!b||b.cur.done)return;const c=b.cur;c.done=true;c.doneAt=Date.now();clearInterval(b.iv);
 const el=Math.min(c.total,Date.now()-c.t0),secs=Math.round(el/1000),frac=Math.max(0,1-el/c.total);
 const gaps=c.tok.filter(x=>typeof x==='object'),els=document.querySelectorAll('#bt .gap'),mistakes=[];let ok=0;
 gaps.forEach((g,i)=>{const inp=els[i].querySelector('input'),v=inp.value.trim();inp.disabled=true;if(g.m.split('/').some(x=>x.trim().toLowerCase()===v.toLowerCase())){ok++;els[i].classList.add('ok')}else{els[i].classList.add('wrong');mistakes.push({gap:i,given:g.g,typed:v,correct:g.g+g.m})}});
 const perfect=!mistakes.length;b.streak=perfect?b.streak+1:0;
 const pts=ok*10+Math.round(frac*ok*5)+(perfect?5+2*Math.min(b.streak,5):0);b.score+=pts;
-b.res.push({ok,total:gaps.length,mistakes});
+b.res.push({ok,total:gaps.length,mistakes:mistakes.map(m=>({...m,why:why(c,m)}))});
 const plain=c.it.t.replace(/\{[^|{}]*\|[^{}]*\}/g,'').replace(/\s+/g,' ').trim();
 const at={id:Date.now()+'-'+D.me,user:D.me,testId:'blitz-'+c.it.i,testTitle:'Blitz · '+plain.slice(0,30),ts:Date.now(),secs,total:gaps.length,correct:ok,score:pts,mistakes};
 D.attempts.push(at);save();push('attempts',at);
 $('#bs').textContent=b.score;
-$('#br').innerHTML=`<p class="mut">+${pts} pts${mistakes.length?' · '+mistakes.map(m=>'<span class="tag">'+esc(m.correct)+'</span>').join(''):' · perfect'}</p>${mistakes.length?'<button onclick="bGo()">Next</button>':''}`;
-b.to=setTimeout(()=>{if(B===b)bGo()},perfect?700:2600)}
+const full=c.tok.map(x=>typeof x==='string'?x:x.g+x.m).join('').replace(/\s+/g,' ');
+$('#br').innerHTML=`<p class="mut">+${pts} pts${perfect?' · perfect':''}</p>${b.res[b.res.length-1].mistakes.map(xpl).join('')}${perfect?'':`<p class="mut">${esc(full)}</p>`}<button onclick="bGo()">Next (Space)</button>`}
+document.addEventListener('keydown',e=>{if(B&&B.cur&&B.cur.done&&!e.repeat&&(e.key===' '||e.key==='Enter')&&Date.now()-B.cur.doneAt>300){e.preventDefault();bGo()}});
 function bGo(){if(!B)return;clearTimeout(B.to);B.n++;bNext()}
 function bEnd(){const t=B.res.reduce((s,r)=>s+r.total,0),ok=B.res.reduce((s,r)=>s+r.ok,0),miss=B.res.flatMap(r=>r.mistakes);
-app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${B.score}</div><p><b>${ok}/${t}</b> gaps correct (${t?Math.round(ok/t*100):0}%)</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(m=>'<span class="tag">'+esc(m.given+(m.typed||'…'))+' → '+esc(m.correct)+'</span>').join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>`;B=null}
+app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${B.score}</div><p><b>${ok}/${t}</b> gaps correct (${t?Math.round(ok/t*100):0}%)</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>`;B=null}
 // ===== END BLITZ =====
 
 $('#logo').onclick=()=>go(D.me?'home':'users');
