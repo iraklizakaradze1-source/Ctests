@@ -74,7 +74,7 @@ function tm(e,id){e.stopPropagation();const m=$('#m-'+id),was=m.classList.contai
 function cm(){document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'))}
 document.addEventListener('click',e=>{if(!e.target.closest('.menu'))cm()});
 function sw(u){D.me=u;save();cm();go('home')}
-function go(v){cm();view=v;if(T&&T.timer)clearInterval(T.timer);T=null;hdr();R[v]();window.scrollTo(0,0)}
+function go(v){cm();bz();view=v;if(T&&T.timer)clearInterval(T.timer);T=null;hdr();R[v]();window.scrollTo(0,0)}
 let lf={q:'',g:[],s:'all',o:'def'};
 const grp=t=>t.title.includes(' · ')?t.title.split(' · ')[0]:'Eigene';
 function tg(v){const i=lf.g.indexOf(v);i<0?lf.g.push(v):lf.g.splice(i,1);LR()}
@@ -94,7 +94,7 @@ const S={hi:(a,c)=>c.b-a.b,lo:(a,c)=>a.b-c.b,gh:(a,c)=>c.n-a.n,gl:(a,c)=>a.n-c.n
 $('#lr').innerHTML=r.length?r.map(({t,b,n})=>`<div class="row" onclick="openTest('${t.id}')"><div><div class="rt">${esc(t.title)}</div><div class="mut">${esc(t.source)}</div></div><div class="rr"><span class="mut">${n} gaps</span><b>${b?b+' pts':'–'}</b></div></div>`).join(''):'<div class="mut" style="padding:18px">No tests match.</div>'}
 const R={
 users(){app.innerHTML=`<div style="text-align:center;margin-top:40px"><h1>Wer übt heute?</h1><p class="mut">Choose your profile</p></div><div class="users">${USERS.map(u=>`<div class="ucard" onclick="D.me='${u}';save();go('home')"><div class="av">${u[0]}</div><h3>${u}</h3></div>`).join('')}</div>`},
-home(){app.innerHTML=`<h1>Hallo, ${esc(D.me[0].toUpperCase()+D.me.slice(1))}.</h1><div class="grid"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div></div>`},
+home(){app.innerHTML=`<h1>Hallo, ${esc(D.me[0].toUpperCase()+D.me.slice(1))}.</h1><div class="grid"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div><div class="card tile" onclick="go('blitz')"><h2>⚡ Blitz</h2><p class="mut">10 quick rounds, timed</p></div></div>`},
 list(){app.innerHTML=`<h1>C-Tests</h1><div class="card fb"><input class="t" id="q" type="search" placeholder="Search title, source or text…" value="${esc(lf.q)}" oninput="lf.q=this.value;LR()" autocomplete="off"><div class="tabs" id="gf"></div><div class="tabs" id="sf"></div></div><div id="of" style="display:flex;justify-content:flex-end;margin:-4px 2px 8px"></div><div class="card" id="lr" style="padding:8px"></div>`;LR()},
 test(){const t=T.test;app.innerHTML=`<div class="bar"><div class="clock" id="clk">0:00</div><div class="btns"><button id="st" onclick="start()">Start</button><button id="ck" onclick="check()" disabled>Check</button><button class="g" onclick="openTest('${t.id}')">Retry</button></div></div><div class="card"><div class="src">Source: ${esc(t.source)}</div><h2>${esc(t.title)}</h2><div class="wrap"><div class="txt blur" id="txt">${T.tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(x.g+x.m)}">${esc(x.g)}<input disabled autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div class="ov" id="ov">Press Start to show the text</div></div><div id="res"></div></div>`;
 document.querySelectorAll('.gap input').forEach((el,i,all)=>{el.onkeydown=e=>{if(e.key==='Backspace'&&!el.value&&all[i-1]){e.preventDefault();all[i-1].focus()}else if((e.key===' '||e.key==='Enter'||e.key==='ArrowRight')&&all[i+1]){e.preventDefault();all[i+1].focus()}else if(e.key==='ArrowLeft'&&all[i-1]&&el.selectionStart===0)all[i-1].focus()}})},
@@ -114,6 +114,78 @@ gaps.forEach((g,i)=>{const inp=els[i].querySelector('input'),v=inp.value.trim();
 const c=calc(gaps.length,correct,secs);const at={id:Date.now()+'-'+D.me,user:D.me,testId:T.test.id,testTitle:T.test.title,ts:Date.now(),secs,total:gaps.length,correct,score:c.score,mistakes};D.attempts.push(at);save();push('attempts',at);
 $('#ck').disabled=true;$('#res').innerHTML=`<div style="text-align:center;margin-top:26px"><div class="big">${c.score}</div><p><b>${correct}/${gaps.length}</b> correct · ${fmt(secs)}</p><p class="mut">${mistakes.length?'Hover the red gaps to see the right answers.':''}</p></div>`}
 function addTest(){const t=$('#nt').value.trim(),s=$('#ns').value.trim(),x=$('#nx').value.trim();if(!t||!/\{[^|{}]*\|[^{}]*\}/.test(x)){alert('Add a title and text with at least one {given|missing} gap.');return}const nt={id:'c'+Date.now(),title:t,source:s||'—',text:x};D.tests.push(nt);save();push('tests',nt);go('list')}
+// ===== BLITZ MODE: paste this whole block right ABOVE the line  $('#logo').onclick=...  =====
+// 'a' = Adjektivendungen (Nom/Akk/Dat/Gen), 'v' = Wortschatz/C-Test-Hälften
+const BLITZ=[
+['a',"Ich suche eine {billig|e} Wohnung in einer {ruhig|en} Gegend."],
+['a',"Gestern habe ich meine Tante besucht. Sie wohnt in einem {klein|en} Haus mit einem {groß|en} Garten."],
+['a',"Mein Bruder braucht ein neues Handy. Sein {alt|es} Gerät ist kaputt."],
+['a',"Der {alt|e} Mann gibt dem {klein|en} Kind einen {rot|en} Apfel."],
+['a',"Es ist kalt draußen. Heute trage ich meinen {neu|en} Mantel und meine {schwarz|en} Schuhe."],
+['a',"Zum Frühstück gibt es {frisch|es} Brot. Mit {kalt|er} Milch schmeckt es besonders gut."],
+['a',"Das ist Jonas. Er ist ein {gut|er} Freund von mir und hat ein {wunderbar|es} Auto."],
+['a',"Wir bleiben heute zu Hause. Wegen des {schlecht|en} Wetters fällt das Fest aus."],
+['a',"Sie geht zu einer Hochzeit. Dafür trägt sie ein {lang|es} Kleid und {hoch|e} Schuhe."],
+['a',"Ich bin neu in Deutschland. Ich kenne schon viele {nett|e} Leute in dieser {groß|en} Stadt."],
+['a',"Das Zimmer ist klein. Es hat ein {breit|es} Bett und einen {schmal|en} Schrank."],
+['a',"Im Unterricht ist heute Grammatik dran. Der Lehrer erklärt den {neu|en} Studenten die {schwierig|e} Regel."],
+['a',"Es hat die ganze Nacht geregnet. Trotz des {stark|en} Regens sind wir spazieren gegangen."],
+['a',"Ein {jung|er} Mann hat mir geholfen. Er hat mit meinem {schwer|en} Koffer die Treppe genommen."],
+['a',"Kennst du das {neu|e} Café? Es liegt neben dem {alt|en} Bahnhof."],
+['a',"Leider hat Max schlecht gelernt. Er hat keine {gut|en} Noten bekommen."],
+['a',"Wir haben tolle Ferien gehabt. Im {letzt|en} Sommer waren wir in einem {klein|en} Dorf am {groß|en} See."],
+['a',"Die Kinder sind im Garten. Sie spielen mit dem {neu|en} Ball und den {bunt|en} Spielzeugen."],
+['a',"Ich habe großen Durst. Ich möchte ein Glas {kalt|es} Wasser."],
+['a',"Schau mal dort drüben! Da steht eine {alt|e} Frau mit einem {schwer|en} Rucksack."],
+['a',"Ich kaufe einen Pullover. Welchen {rot|en} soll ich nehmen, den {blau|en} oder den {grün|en}?"],
+['a',"Meine Schwester ist sehr sportlich. Sie hat einen {nett|en} Trainer und eine {modern|e} Sporthalle."],
+['a',"Das Wetter ist schön. Der {warm|e} Sommer macht {glücklich|e} Menschen."],
+['a',"Heute ist ein wichtiger Tag. Mit meinem {best|en} Freund fahre ich in die {groß|e} Stadt."],
+['v',"Am Wochenende fahre ich zu meinen Eltern. Sie {woh|nen} auf dem {La|nd} und haben einen {gro|ßen} {Gar|ten}."],
+['v',"Mir geht es nicht gut. Ich habe seit {gest|ern} starke Kopfschmerzen und kann {nic|ht} arbeiten."],
+['v',"Die Universität bietet viele Kurse an. Man muss sich {rechtz|eitig} {anme|lden}, weil die {Plä|tze} begrenzt sind."],
+['v',"Mein Vater arbeitet als Ingenieur. Er {verd|ient} ein {gu|tes} Gehalt, {ab|er} hat wenig Freizeit."],
+['v',"Der Zug hat Verspätung. Die {Fahr|gäste} {müs|sen} auf dem {Bahn|steig} warten."],
+['v',"Letzte Woche habe ich mich um einen {Prakt|ikumsplatz} {bew|orben}. Jetzt {war|te} ich auf eine {Ant|wort}."],
+['v',"Wir sind mit dem Bus gefahren. Die {Fa|hrt} {dau|erte} fast {ei|ne} Stunde."],
+['v',"Ich interessiere mich sehr für Kunst. Deshalb {geh|e} ich oft in {Mus|een} und {Gale|rien}."],
+['v',"Die Wohnung liegt im {zwei|ten} Stock. Leider gibt es {kei|nen} {Auf|zug}."],
+['v',"Im Winter ist es hier sehr kalt. Deshalb {tra|gen} die {Men|schen} {dic|ke} Jacken."]
+];
+let B=null,bmode='mix';
+function bz(){if(B){clearInterval(B.iv);clearTimeout(B.to)}}
+R.blitz=function(){bz();B=null;
+const m=[['mix','Mix'],['a','Adjektivendungen'],['v','Wortschatz']];
+app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut">10 quick items. Each starts with an intact sentence for context, then a few gaps. The clock is short: <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><div class="lab" style="padding-left:0">Focus</div><div class="tabs">${m.map(([k,l])=>`<button class="${bmode===k?'on':''}" onclick="bmode='${k}';R.blitz()">${l}</button>`).join('')}</div><button onclick="bStart()">Start</button></div>`};
+function bStart(){const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const q=sh(BLITZ.map((x,i)=>({i,k:x[0],t:x[1]})).filter(x=>bmode==='mix'||x.k===bmode)).slice(0,10);
+B={q,n:0,score:0,streak:0,res:[],iv:null,to:null};bNext()}
+function bNext(){if(!B)return;if(B.n>=B.q.length)return bEnd();
+const it=B.q[B.n],tok=parse({text:it.t}),g=tok.filter(x=>typeof x==='object').length;
+B.cur={it,tok,g,total:(g*5+4)*1000,t0:Date.now(),done:false};
+app.innerHTML=`<div class="bar"><div class="clock" id="bc">0</div><div class="mut">${B.n+1}/${B.q.length} · Score <b id="bs">${B.score}</b> · 🔥 ${B.streak}</div><button class="g" onclick="go('blitz')">Quit</button></div><div class="card"><div style="height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:14px"><div id="bb" style="height:100%;width:100%;background:var(--acc)"></div></div><div class="txt" id="bt">${tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(x.g+x.m)}">${esc(x.g)}<input autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div id="br" style="margin-top:10px"></div></div>`;
+const ins=[...document.querySelectorAll('#bt .gap input')];
+ins.forEach((el,i)=>{el.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();ins[i+1]?ins[i+1].focus():bSubmit()}else if(e.key===' '||e.key==='ArrowRight'){if(ins[i+1]){e.preventDefault();ins[i+1].focus()}}else if(e.key==='Backspace'&&!el.value&&ins[i-1]){e.preventDefault();ins[i-1].focus()}else if(e.key==='ArrowLeft'&&ins[i-1]&&el.selectionStart===0)ins[i-1].focus()}});
+ins[0].focus();const c=B.cur;
+B.iv=setInterval(()=>{const rem=c.total-(Date.now()-c.t0);$('#bb').style.width=Math.max(0,rem/c.total*100)+'%';$('#bc').textContent=Math.max(0,Math.ceil(rem/1000));if(rem<=0)bSubmit()},100)}
+function bSubmit(){const b=B;if(!b||b.cur.done)return;const c=b.cur;c.done=true;clearInterval(b.iv);
+const el=Math.min(c.total,Date.now()-c.t0),secs=Math.round(el/1000),frac=Math.max(0,1-el/c.total);
+const gaps=c.tok.filter(x=>typeof x==='object'),els=document.querySelectorAll('#bt .gap'),mistakes=[];let ok=0;
+gaps.forEach((g,i)=>{const inp=els[i].querySelector('input'),v=inp.value.trim();inp.disabled=true;if(g.m.split('/').some(x=>x.trim().toLowerCase()===v.toLowerCase())){ok++;els[i].classList.add('ok')}else{els[i].classList.add('wrong');mistakes.push({gap:i,given:g.g,typed:v,correct:g.g+g.m})}});
+const perfect=!mistakes.length;b.streak=perfect?b.streak+1:0;
+const pts=ok*10+Math.round(frac*ok*5)+(perfect?5+2*Math.min(b.streak,5):0);b.score+=pts;
+b.res.push({ok,total:gaps.length,mistakes});
+const plain=c.it.t.replace(/\{[^|{}]*\|[^{}]*\}/g,'').replace(/\s+/g,' ').trim();
+const at={id:Date.now()+'-'+D.me,user:D.me,testId:'blitz-'+c.it.i,testTitle:'Blitz · '+plain.slice(0,30),ts:Date.now(),secs,total:gaps.length,correct:ok,score:pts,mistakes};
+D.attempts.push(at);save();push('attempts',at);
+$('#bs').textContent=b.score;
+$('#br').innerHTML=`<p class="mut">+${pts} pts${mistakes.length?' · '+mistakes.map(m=>'<span class="tag">'+esc(m.correct)+'</span>').join(''):' · perfect'}</p>${mistakes.length?'<button onclick="bGo()">Next</button>':''}`;
+b.to=setTimeout(()=>{if(B===b)bGo()},perfect?700:2600)}
+function bGo(){if(!B)return;clearTimeout(B.to);B.n++;bNext()}
+function bEnd(){const t=B.res.reduce((s,r)=>s+r.total,0),ok=B.res.reduce((s,r)=>s+r.ok,0),miss=B.res.flatMap(r=>r.mistakes);
+app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${B.score}</div><p><b>${ok}/${t}</b> gaps correct (${t?Math.round(ok/t*100):0}%)</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(m=>'<span class="tag">'+esc(m.given+(m.typed||'…'))+' → '+esc(m.correct)+'</span>').join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>`;B=null}
+// ===== END BLITZ =====
+
 $('#logo').onclick=()=>go(D.me?'home':'users');
 if(D.me&&!USERS.includes(D.me))D.me=null;
 // ===== FIREBASE: your Realtime Database URL (Data tab, top of the page) =====
