@@ -95,7 +95,7 @@ const win=cats.map(c=>{const v=S.map(c[3]),d=v.filter(z=>z!=null),mx=Math.max(..
 const cap=u=>`<span style="text-transform:capitalize">${esc(u)}</span>`;
 return`<div class="lab" style="padding-left:0">Leaderboard</div><div style="display:flex;gap:18px;flex-wrap:wrap;margin:4px 0 10px">${S.map((x,i)=>`<div><span style="font-size:22px;font-weight:600">${crowns[i]?'👑 ':''}${crowns[i]}</span> <span class="mut">${cap(x.u)}</span></div>`).join('')}</div>
 <table><tr><th>Category</th>${S.map(x=>`<th>${cap(x.u)}</th>`).join('')}</tr>${cats.map((c,r)=>`<tr><td>${c[0]}${c[1]?`<div class="mut" style="font-size:12px">${c[1]}</div>`:''}</td>${S.map((x,i)=>`<td class="${win[r]===i?'win':''}">${win[r]===i?'👑 ':''}${c[2](x)}</td>`).join('')}</tr>`).join('')}</table>
-<p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Ties and categories without enough data get none. Time is tracked since this version was first opened; improvement needs 4+ attempts.</p>
+<p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Ties and categories without enough data get none. Time is tracked since this version was first opened; improvement needs 4+ attempts.</p><p class="mut" style="font-size:12px;margin:4px 0 0">${cloudOk?'☁ Synced across devices':'⚠ Cloud not connected – showing this device only'}</p>
 <details style="margin-top:12px"><summary>Progress charts</summary><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px">${S.map(x=>`<div><h3>${cap(x.u)}</h3><div class="lab" style="padding-left:0">Minutes per day · 14 days</div>${barSvg(x.u)}<div class="lab" style="padding-left:0">Accuracy per attempt · line = avg of 5</div>${trendSvg(x.s.A)}</div>`).join('')}</div></details>
 <details style="margin-top:10px"><summary>Head to head, best accuracy per test</summary><table style="margin-top:6px"><tr><th>Test</th>${USERS.map(u=>`<th>${cap(u)}</th>`).join('')}</tr>${tests().map(t=>{const v=USERS.map(u=>tstat(u,t.id).n?best(u,t.id):-1),mx=Math.max(...v),w=v.filter(x=>x>=0).length>1&&v.filter(x=>x===mx).length===1?v.indexOf(mx):-1;return`<tr><td>${esc(t.title)}</td>${v.map((x,i)=>`<td class="${w===i?'win':''}">${w===i?'👑 ':''}${x<0?'–':Math.round(x*100)+'%'}</td>`).join('')}</tr>`}).join('')}</table></details>`}
 function hdr(){$('#hdr').innerHTML=D.me?`<div class="dd"><button class="g" onclick="tm(event,'tasks')">Tasks ▾</button><div class="menu s" id="m-tasks" style="width:min(340px,calc(100vw - 24px))"></div></div><div class="dd"><button class="g" onclick="tm(event,'lb')">Leaderboard ▾</button><div class="menu" id="m-lb"></div></div><div class="dd"><button class="pill" onclick="tm(event,'acc')"><span class="av">${D.me[0]}</span>${D.me} ▾</button><div class="menu s" id="m-acc"><div class="lab">Switch account</div>${USERS.map(u=>`<div class="mi ${u===D.me?'on':''}" onclick="sw('${u}')"><span class="av">${u[0]}</span>${u}${u===D.me?' ✓':''}</div>`).join('')}<div class="lab">More</div><div class="mi" onclick="go('stats')">Statistics</div><div class="mi" onclick="go('add')">Add a C-test</div><div class="lab">Cloud sync: ${cloud?'on':'off'}</div></div></div>`:''}
@@ -446,12 +446,12 @@ return`<div class="card"><div class="lab" style="padding-left:0">Präpositionen 
 // ===== ACTIVITY TRACKING =====
 const DAY=ts=>{const d=new Date(ts);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const DEV=(()=>{try{let d=localStorage.getItem('ctdev');if(!d){d=Math.random().toString(36).slice(2,8);localStorage.setItem('ctdev',d)}return d}catch(e){return'x'}})();
-let RT={},tkL=Date.now(),tkA=Date.now(),tkD=false,tkU=null,tkDay=null,tkP=Date.now(),ac={m:'all',p:'all'};
+const DIRTY=new Set();let RT={},tkL=Date.now(),tkA=Date.now(),tkD=false,tkU=null,tkDay=null,tkP=Date.now(),ac={m:'all',p:'all'};
 ['keydown','mousedown','mousemove','touchstart','scroll','click'].forEach(ev=>addEventListener(ev,()=>{tkA=Date.now()},{passive:true}));
-function pushTime(u,d){if(cloud&&D.time[u]&&D.time[u][d]!=null)cloud.set('time',{id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(D.time[u][d])}).catch(e=>console.warn(e))}
-function flushTime(){if(!tkD)return;tkD=false;save();if(tkU)pushTime(tkU,tkDay);lbRefresh()}
+function pushTime(u,d){if(cloud&&D.time[u]&&D.time[u][d]!=null)cloud.set('time',{id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(D.time[u][d])}).catch(e=>{cloudOk=false;console.warn(e)})}
+function flushTime(){if(!tkD&&!DIRTY.size)return;tkD=false;save();if(cloud){DIRTY.forEach(k=>{const[u,d]=k.split('|');pushTime(u,d)});DIRTY.clear()}lbRefresh()}
 setInterval(()=>{const now=Date.now(),dt=Math.min(10,(now-tkL)/1000);tkL=now;
-if(D.me&&!document.hidden&&now-tkA<=120000){tkU=D.me;tkDay=DAY(now);const u=D.time[D.me]=D.time[D.me]||{};u[tkDay]=(u[tkDay]||0)+dt;tkD=true}
+if(D.me&&!document.hidden&&now-tkA<=120000){tkU=D.me;tkDay=DAY(now);DIRTY.add(tkU+'|'+tkDay);const u=D.time[D.me]=D.time[D.me]||{};u[tkDay]=(u[tkDay]||0)+dt;tkD=true}
 if(now-tkP>=30000){tkP=now;flushTime()}},5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flushTime()});addEventListener('pagehide',flushTime);
 function timeRows(){const o=[];Object.entries(D.time||{}).forEach(([u,m])=>Object.entries(m).forEach(([day,secs])=>o.push({user:u,day,secs})));Object.values(RT).forEach(r=>{if(r.dev!==DEV)o.push({user:r.user,day:r.day,secs:r.secs})});return o}
@@ -480,16 +480,16 @@ if(D.me&&!USERS.includes(D.me))D.me=null;
 // ===== FIREBASE: your Realtime Database URL (Data tab, top of the page) =====
 const FIREBASE_CONFIG={databaseURL:"https://c-test-f8f8f-default-rtdb.firebaseio.com"};
 // ============================================================================
-let cloud=null;const seeded={};
+let cloud=null,cloudOk=false;const seeded={};
 D.attempts.forEach(a=>{a.id=a.id||a.ts+'-'+a.user});
-function push(col,o){if(cloud)cloud.set(col,o).catch(e=>console.warn(e))}
+function push(col,o){if(cloud)cloud.set(col,o).catch(e=>{cloudOk=false;console.warn(e)})}
 (async()=>{try{if(!FIREBASE_CONFIG.databaseURL||FIREBASE_CONFIG.databaseURL.includes('YOUR'))return;
 const B='https://www.gstatic.com/firebasejs/10.12.2/',{initializeApp}=await import(B+'firebase-app.js'),F=await import(B+'firebase-database.js');
 const rt=F.getDatabase(initializeApp(FIREBASE_CONFIG));cloud={set:(col,o)=>F.set(F.ref(rt,col+'/'+String(o.id)),o)};
-const sub=(col,key)=>F.onValue(F.ref(rt,col),s=>{const v=s.val()||{},rows=Object.values(v).map(r=>{if(key==='attempts')r.mistakes=r.mistakes||[];return r}),ids=new Set(rows.map(r=>String(r.id))),loc=D[key];rows.forEach(r=>{if(!loc.some(x=>String(x.id)===String(r.id)))loc.push(r)});if(!seeded[col]){seeded[col]=1;loc.forEach(x=>{if(!ids.has(String(x.id)))push(col,x)})}save();hdr();if(['home','list','stats'].includes(view))R[view]()},e=>console.warn(e));
+const sub=(col,key)=>F.onValue(F.ref(rt,col),s=>{const v=s.val()||{},rows=Object.values(v).map(r=>{if(key==='attempts')r.mistakes=r.mistakes||[];return r}),ids=new Set(rows.map(r=>String(r.id))),loc=D[key];rows.forEach(r=>{if(!loc.some(x=>String(x.id)===String(r.id)))loc.push(r)});if(!seeded[col]){seeded[col]=1;loc.forEach(x=>{if(!ids.has(String(x.id)))push(col,x)})}cloudOk=true;save();hdr();if(['home','list','stats'].includes(view))R[view]();lbRefresh()},e=>{cloudOk=false;console.warn(e)});
 sub('attempts','attempts');sub('tests','tests');
 F.onValue(F.ref(rt,'time'),sn=>{const v=sn.val()||{};RT={};Object.values(v).forEach(r=>{if(r&&r.user&&r.day&&r.id)RT[r.id]=r});
 if(!seeded.time){seeded.time=1;Object.entries(D.time).forEach(([u,m])=>Object.entries(m).forEach(([d,x])=>{const q=RT[u+'_'+d+'_'+DEV];if(!q||q.secs<x)pushTime(u,d)}))}
-lbRefresh()},e=>console.warn(e));hdr()}catch(e){console.warn(e)}})();
+cloudOk=true;lbRefresh()},e=>{cloudOk=false;console.warn(e)});hdr()}catch(e){cloudOk=false;console.warn(e)}})();
 go(D.me?'home':'users');
 </script></body></html>
