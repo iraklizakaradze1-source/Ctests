@@ -74,6 +74,8 @@ details summary{cursor:pointer;font-weight:500}.tag{display:inline-block;backgro
 .pv{font:22px ui-serif,Georgia,serif;margin:4px 0 6px}.pv u{text-decoration:none;color:var(--acc);border-bottom:2px solid var(--acc)}
 .mdl{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.45);display:grid;place-items:center;padding:20px}.mc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;max-width:380px;width:100%}
 button.dng{background:var(--bad);color:var(--bg)}
+.tw{display:flex;gap:12px;align-items:baseline;padding:7px 0;border-top:1px solid var(--line)}.tw b{flex:none;min-width:4.6em;font:600 18px ui-serif,Georgia,serif}.tw b u{text-decoration:none;color:var(--acc)}.tw span{font-size:14px;color:var(--mut);line-height:1.4}.tw.dim{opacity:.45}
+details.card>summary{font-size:17px;font-weight:600}.tipb{margin-top:10px;font-size:15px}.tipb p{margin:8px 0}.tipb ul{margin:8px 0;padding-left:20px}.tipb li{margin:5px 0}.tipb table{margin:8px 0}.tipb td,.tipb th{vertical-align:top}.tipb .mut{font-size:13px}
 </style></head><body>
 <header><span class="logo" id="logo">C-Test Prep</span><span class="sp"></span><span id="hdr" style="display:flex;gap:8px;align-items:center"></span></header>
 <main id="app"></main>
@@ -93,7 +95,7 @@ function best(u,id){return D.attempts.filter(a=>a.user===u&&a.testId===id).reduc
 function lbR(){const m=document.getElementById('m-lb');if(m)m.innerHTML=lbHtml()}
 function lbRefresh(){const m=document.getElementById('m-lb');if(m&&m.classList.contains('open'))m.innerHTML=lbHtml()}
 function lbHtml(){const S=USERS.map(u=>({u,s:uStats(u)})),bl=ac.m==='bl';
-const cats=[['Time on site','tab open and active',x=>fmtDur(x.s.time),x=>x.s.time],
+const cats=[['Time on site','active only: focused tab, recent typing/clicks',x=>fmtDur(x.s.time),x=>x.s.time],
 ['Texts completed','finished texts · Blitz not counted',x=>x.s.nt,x=>x.s.nt],
 ['Correct gaps','',x=>x.s.correct,x=>x.s.correct],
 ['Accuracy','correct ÷ all gaps',x=>x.s.acc==null?'–':Math.round(x.s.acc*100)+'%',x=>x.s.acc],
@@ -134,7 +136,7 @@ const S={hi:(a,c)=>(c.st.n?c.b:-1)-(a.st.n?a.b:-1),lo:(a,c)=>(a.st.n?a.b:2)-(c.s
 $('#lr').innerHTML=r.length?r.map(({t,b,n,st})=>`<div class="row" onclick="openTest('${t.id}')"><div><div class="rt">${esc(t.title)}</div><div class="mut">${esc(t.source)}</div></div><div class="rr"><span class="chip" style="--c:var(${st.c})" title="${st.n?st.n+' attempt'+(st.n>1?'s':'')+' · weighted accuracy '+Math.round(st.acc*100)+'%':'Not tried yet'}">${st.label}${st.n?' · '+Math.round(st.acc*100)+'%':''}</span><span class="mut">${n} gaps</span><b>${st.n?'best '+Math.round(b*100)+'%':'–'}</b></div></div>`).join(''):'<div class="mut" style="padding:18px">No tests match.</div>'}
 const R={
 users(){app.innerHTML=`<div style="text-align:center;margin-top:40px"><h1>Wer übt heute?</h1><p class="mut">Choose your profile</p></div><div class="users">${USERS.map(u=>`<div class="ucard" onclick="D.me='${u}';save();go('home')"><div class="av">${u[0]}</div><h3>${u}</h3></div>`).join('')}</div>`},
-home(){app.innerHTML=`<h1>Hallo, ${esc(D.me[0].toUpperCase()+D.me.slice(1))}.</h1><div class="grid"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div><div class="card tile" onclick="go('blitz')"><h2>⚡ Blitz</h2><p class="mut">10 quick rounds, timed</p></div></div>`},
+home(){app.innerHTML=`<h1>Hallo, ${esc(D.me[0].toUpperCase()+D.me.slice(1))}.</h1><div class="grid"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div><div class="card tile" onclick="go('blitz')"><h2>⚡ Blitz</h2><p class="mut">Endless quick rounds, timed</p></div><div class="card tile" onclick="go('tips')"><h2>💡 Hints &amp; Tricks</h2><p class="mut">Which word fits these letters</p></div></div>`},
 list(){app.innerHTML=`<h1>C-Tests</h1><div class="card fb"><input class="t" id="q" type="search" placeholder="Search title, source or text…" value="${esc(lf.q)}" oninput="lf.q=this.value;LR()" autocomplete="off"><div class="tabs" id="gf"></div><div class="tabs" id="sf"></div></div><div id="of" style="display:flex;justify-content:flex-end;margin:-4px 2px 8px"></div><div class="card" id="lr" style="padding:8px"></div>`;LR()},
 test(){const t=T.test;app.innerHTML=`<div class="bar"><div class="clock" id="clk">0:00</div><div class="btns"><button id="st" onclick="start()">Start</button><button id="ck" onclick="check()" disabled>Check</button><button class="g" onclick="openTest('${t.id}')">Retry</button><button class="g" id="nxt" onclick="nextTest()">Next ▸</button></div></div><div class="card"><div class="src">Source: ${esc(t.source)}</div><h2>${esc(t.title)}</h2>${T.why?`<p class="mut" style="margin:0 0 8px">${T.why}</p>`:''}<div class="wrap"><div class="txt blur" id="txt">${T.tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(gAns(x))}">${esc(x.g)}<input disabled autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div class="ov" id="ov">Press Start to show the text</div></div><div id="edbtn" style="margin-top:14px"><button class="g" id="edb" onclick="edStart()">✎ Edit gaps</button></div><div id="edit" style="display:none"><p class="mut" style="margin:0 0 6px">Tap a word to make it a gap. Tap a gap to change its answers or remove it.</p><div class="edtxt" id="edtxt"></div><div id="ep" style="display:none"></div></div><div id="res"></div></div><div class="card" id="att"></div>`;
 document.querySelectorAll('.gap input').forEach((el,i,all)=>{el.onkeydown=e=>{if(e.key==='Backspace'&&!el.value&&all[i-1]){e.preventDefault();all[i-1].focus()}else if((e.key===' '||e.key==='Enter'||e.key==='ArrowRight')&&all[i+1]){e.preventDefault();all[i+1].focus()}else if(e.key==='ArrowLeft'&&all[i-1]&&el.selectionStart===0)all[i-1].focus()}})},
@@ -215,6 +217,390 @@ function edReset(){if(!isEdited(T.test.id))return;mdlX();const m=document.create
 m.innerHTML=`<div class="mc" role="alertdialog" aria-modal="true"><h3>Reset this text?</h3><p class="mut" style="margin:8px 0 16px">This removes all your gap changes in this text and brings back the original gaps, on all your devices. This can't be undone.</p><div class="btns" style="justify-content:flex-end"><button class="g" onclick="mdlX()">Cancel</button><button class="dng" onclick="edDoReset()">Yes, reset</button></div></div>`;
 m.onclick=e=>{if(e.target===m)mdlX()};document.body.appendChild(m)}
 function edDoReset(){mdlX();const id=T.test.id,r={id,text:'',reset:true,ts:Date.now(),by:D.me};D.edits[id]=r;save();push('edits',r);T.test=baseTests().find(x=>x.id===id);T.ed={u:toUnits(T.test.text),sel:-1,n:1};edBar();edTxt();edPanel()}
+// ===== HINTS & TRICKS =====
+const HW=`ab|prep + Dat: starting from (ab Montag, ab 8 Uhr); "ab und zu" = sometimes
+am|an + dem: days, dates, parts of the day (am Montag, am Abend); "am besten" (superlative); am Fenster/See
+an|prep: denken an, teilnehmen an, sich erinnern an; an der Wand, an einem Tag
+auf|warten auf, sich freuen auf, achten auf; on top of (auf dem Tisch); auf Deutsch
+aus|origin/material: aus Berlin, aus Holz; bestehen aus; aus dem Haus
+als|after a comparative (größer als); single past event (als ich klein war); als Lehrer
+also|so / therefore, often at the start of a sentence
+aber|but – contrast; verb stays in normal position
+auch|also / too; "nicht nur … sondern auch"
+alle|all (plural): alle Leute; "alles" = everything
+allein|alone
+alt|old – adjective, check the ending
+andere|other(s) – adjective ending: die anderen, ein anderer
+anders|differently
+außer|prep + Dat: except, besides
+außerdem|besides, in addition (verb right after it)
+bei|prep + Dat: at/with a person, firm or situation (bei mir, bei der Arbeit, bei Regen)
+beim|bei + dem
+bis|until/up to (bis morgen, von … bis, bis zu)
+bin|ich bin
+bist|du bist
+besser|better (comparative)
+bald|soon
+beide|both
+bitte|please
+da|there; or "since/because" (da er krank ist)
+dann|then (verb comes right after it)
+dass|that-clause: comma before, verb at the END (ich glaube, dass er kommt)
+das|article neuter / pronoun; you could replace it with "dieses/welches"
+dem|article Dat masc/neut (mit dem Auto, bei dem Kind)
+den|article Akk masc (ich sehe den Mann) or Dat plural (den Kindern, noun ends in -n)
+denn|because – main-clause order, verb right after the subject
+der|article Nom masc; Dat fem (der Frau); Gen fem/plural (der Kinder)
+des|article Gen masc/neut – the noun ends in -s/-es (des Mannes)
+die|article Nom/Akk fem and plural
+doch|but / yet / "yes, it does"
+dort|there
+durch|prep + Akk: through, by means of
+du|you (informal) – verb ends in -st
+dir|you (Dat): ich helfe dir
+dich|you (Akk): ich sehe dich; reflexive with du
+dein|your – ending like "ein"
+dabei|at the same time / with it
+dafür|for it, instead
+damit|so that (verb at the end) / with it
+dadurch|through that
+daher|therefore (verb right after)
+davon|of it, from it
+dazu|to it, in addition
+deshalb|therefore (verb right after)
+deswegen|therefore (verb right after)
+dienstags|on Tuesdays (adverb with -s)
+er|he/it – verb ends in -t
+es|it – verb ends in -t
+ein|a/one (m, n Nom; n Akk) – look at the noun's gender
+eine|a (fem Nom/Akk)
+einen|a (masc Akk)
+einem|a (masc/neut Dat)
+einer|a (fem Dat/Gen)
+eines|a (masc/neut Gen) – noun ends in -s/-es
+euch|you (plural, Akk/Dat)
+euer|your (plural)
+etwa|about / approximately
+endlich|finally
+erst|only / first
+entweder|either (… oder)
+für|prep + Akk: for (für mich, sich interessieren für, danken für)
+fast|almost
+früh|early
+frei|free
+gegen|prep + Akk: against; around a time (gegen 8 Uhr); "Mittel gegen"
+gern|like to do something (verb + gern)
+gerne|like to do something
+ganz|whole / quite
+gar|at all: gar nicht, gar kein
+gut|good
+genug|enough
+gestern|yesterday
+genau|exactly
+hat|er/sie/es hat (haben)
+habe|ich habe
+haben|wir/sie haben; also infinitive
+hast|du hast
+hatte|had (past of haben)
+hier|here
+her|towards the speaker (komm her)
+hin|away from the speaker (geh hin)
+heute|today
+hinter|prep (two-way): behind
+hoch|high (hohe, hohen with ending)
+hoffentlich|hopefully
+ich|I – verb ends in -e
+in|prep (two-way): in cities, countries, months, rooms; "in zwei Wochen"
+im|in + dem: months, seasons, years (im Juli, im Winter), im Haus
+ins|in + das: direction into something neuter (ins Kino, ins Bett)
+ihr|you (plural) / her / their / to her (Dat fem)
+ihm|to him / to it (Dat masc/neut)
+ihn|him (Akk masc)
+ihnen|to them (Dat plural)
+ist|er/sie/es ist (sein)
+immer|always
+innerhalb|prep + Gen: within
+irgend|some… (irgendein, irgendwo)
+ja|yes
+je|ever / "je … desto"
+jede|every (fem/Nom/Akk)
+jeden|every (masc Akk): jeden Tag
+jedem|every (Dat)
+jeder|every (masc Nom)
+jedes|every (neut)
+jetzt|now
+jedoch|however (verb right after)
+jemand|somebody
+jung|young
+kann|er kann (können)
+kannst|du kannst
+können|wir/sie können
+konnte|could
+kein|no / not a – replaces "ein" or no article before a noun
+keine|no (fem / plural)
+keinen|no (masc Akk / plural Dat)
+kaum|hardly
+kommt|er kommt
+klein|small
+kurz|short
+lang|long
+lange|for a long time
+leider|unfortunately
+lieber|rather / preferably
+letzte|last – adjective ending
+man|one / people in general (man kann …) – verb ends in -t
+mehr|more
+mein|my – ending like "ein"
+meine|my (fem / plural)
+meinen|my (masc Akk, Dat plural)
+mich|me (Akk)
+mir|to me (Dat)
+mit|prep + Dat: with, by (mit dem Bus, sprechen mit)
+muss|er muss / ich muss
+musst|du musst
+müssen|wir/sie müssen
+möchte|would like (ich/er möchte)
+mal|once / just (komm mal her)
+möglich|possible
+meistens|mostly
+morgen|tomorrow / morning
+nach|prep + Dat: after; to cities/countries (nach Berlin); nach Hause; suchen nach, fragen nach
+nicht|not – negates a verb, adjective or adverb
+noch|still / yet / another; "noch nicht"
+nur|only
+nun|now
+nein|no
+neben|prep (two-way): next to
+nichts|nothing
+niemand|nobody
+nie|never
+natürlich|of course
+oder|or
+oft|often
+ob|whether / if (indirect question; verb at the end)
+ohne|prep + Akk: without
+oben|up there
+obwohl|although (verb at the end)
+sehr|very – stands before an adjective or adverb
+sich|reflexive: er/sie/es/sie(pl) – refers to the subject
+sie|she / they / her / them (check the verb: -t or -en)
+sind|wir/sie/Sie sind
+sein|to be / his
+seine|his (fem / plural)
+seinen|his (masc Akk, Dat plural)
+seit|prep + Dat: since / for (seit zwei Jahren, seit dem Tag)
+sondern|but rather – only after a negation (nicht A, sondern B)
+selbst|oneself / even
+schon|already
+statt|prep + Gen: instead of
+sonst|otherwise
+soll|er soll (sollen)
+so|so / like that; "so … wie"
+später|later
+spät|late
+und|and
+um|prep + Akk: around; clock time (um 8 Uhr); um … zu; sich kümmern um, bitten um
+uns|us (Akk/Dat)
+unter|prep (two-way): under / among
+unser|our
+unsere|our (fem / plural)
+unseren|our (masc Akk, Dat plural)
+über|prep (two-way): over; "sprechen über", "sich ärgern über" (+ Akk)
+übrigens|by the way
+von|prep + Dat: from / of / by (von … bis, träumen von, Passiv: von)
+vom|von + dem
+vor|prep (two-way): before / ago (vor drei Tagen) / in front of; Angst vor
+viel|much – singular: viel Geld, viel Zeit
+viele|many – plural: viele Leute
+voll|full
+wir|we – verb ends in -en
+was|what / which / something
+wie|how / as / like; equality "so groß wie"
+wo|where
+wer|who (Nom)
+wem|to whom (Dat)
+wen|whom (Akk)
+wenn|if / whenever / when (present, future, repeated)
+wann|when? (question)
+warum|why
+weil|because (verb at the end)
+werden|wir/sie werden; future and passive
+wird|er/sie/es wird
+wurde|became / was (passive past)
+wurden|became / were (passive past plural)
+war|was (sein, ich/er)
+waren|were (wir/sie)
+wäre|would be
+wegen|prep + Gen: because of
+während|prep + Gen: during / conjunction: while
+wenig|little
+weiter|further
+wieder|again
+wohl|probably
+will|er will / ich will
+wollen|wir/sie wollen
+weg|away
+welche|which (fem / plural)
+welcher|which (masc)
+welches|which (neut)
+zu|prep + Dat: to; zu Hause, zu Fuß; "zu + Infinitiv"; too (zu teuer)
+zum|zu + dem
+zur|zu + der
+zwischen|prep (two-way): between
+zwei|two
+zurück|back
+zusammen|together
+ziemlich|quite
+zuerst|first
+zuletzt|last
+zwar|admittedly (… zwar …, aber …)`.trim().split('\n').map(l=>{const i=l.indexOf('|');return[l.slice(0,i),l.slice(i+1)]});
+let tipQ='';
+function tipSeen(p){const c={};tests().forEach(t=>parse(t).forEach(x=>{if(typeof x!=='object'||x.g.toLowerCase()!==p)return;const w=(x.g+x.m.split('/')[0].trim()).toLowerCase();c[w]=(c[w]||0)+1}));return Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,12)}
+function tipSet(v){tipQ=v;const i=$('#tp');if(i)i.value=v;tipDraw()}
+function tipDraw(){const p=tipQ.trim().toLowerCase(),box=$('#tres');if(!box)return;
+if(!p){box.innerHTML='<p class="mut" style="margin:6px 0 0">Type the letters the test gives you, or tap a letter. You get the possible short words and how to choose.</p>';return}
+const k=[...p].length,fit=w=>[...w].length===2*k||[...w].length===2*k+1;
+const all=HW.filter(([w])=>w.startsWith(p)&&w.length>p.length),m=all.filter(([w])=>fit(w)).sort((a,b)=>a[0].length-b[0].length||a[0].localeCompare(b[0])),extra=all.length-m.length;
+const seen=tipSeen(p);
+box.innerHTML=`<p class="mut" style="margin:10px 0 4px">Usual rule: the word has <b>${2*k} or ${2*k+1}</b> letters (you type ${k} or ${k+1} more).</p>`
++(seen.length?`<p style="margin:6px 0"><span class="mut">In your texts, <b>${esc(p)}…</b> was:</span> ${seen.map(([w,n])=>`<span class="chip" style="--c:var(--acc);margin:2px 3px 2px 0">${esc(w)} · ${n}×</span>`).join('')}</p>`:'')
++(m.length?m.map(([w,c])=>`<div class="tw"><b>${esc(p)}<u>${esc(w.slice(p.length))}</u></b><span>${esc(c)}</span></div>`).join(''):`<p class="mut">${extra?'Nothing matches the usual length.':'No short function word starts with these letters, so it is probably a noun, verb or adjective. See the sections below.'}</p>`)
++(extra?`<p class="mut" style="font-size:12px;margin:8px 0 0">${m.length?'+ ':''}${extra} more word${extra===1?'':'s'} only if the text rounds up: see point 13 below.</p>`:'')}
+const rupHtml=()=>{let h='';for(const L of [3,5,7,9]){const k=Math.ceil(L/2),ws=HW.filter(([w])=>[...w].length===L).sort((a,b)=>a[0].localeCompare(b[0]));if(!ws.length)continue;h+=`<div class="lab" style="padding-left:0;margin-top:10px">${L}-letter words · usual ${Math.floor(L/2)} given, rounded up ${k} given</div>`+ws.map(([w,c])=>`<div class="tw"><b>${esc(w.slice(0,k))}<u>${esc(w.slice(k))}</u></b><span>${esc(c)}</span></div>`).join('')}return h};
+const TIPS=[
+['1 · Count the letters first (the biggest trick)',`<p>In official C-Tests the <b>second half</b> of the word is deleted and the first half is kept (rounded down). So the missing part is <b>as long as the given part, or one letter longer</b>.</p>
+<table><tr><th>Letters given</th><th>Whole word has</th><th>Examples</th></tr>
+<tr><td>1</td><td>2–3 letters</td><td>d → der, die, das, dem, den · a → am, an, auf, aus, als</td></tr>
+<tr><td>2</td><td>4–5 letters</td><td>au → auch · ei → eine, einen · da → dann, dass</td></tr>
+<tr><td>3</td><td>6–7 letters</td><td>ein → einmal · nac → nachher</td></tr>
+<tr><td>4</td><td>8–9 letters</td><td>Kilo → Kilometer</td></tr>
+<tr><td>5</td><td>10–11 letters</td><td>Wohn → Wohnung… (check by counting)</td></tr></table>
+<p class="mut">A few texts (and the Blitz mini-texts) round the other way, so the word can be one letter shorter. If your best candidate is one letter off, check point 13.</p>`],
+['2 · Capital letter or lowercase?',`<ul><li><b>Capital letter in the middle of a sentence</b> → a <b>noun</b> (or formal Sie / Ihr / Ihnen). Look at the article before it for gender and case, then think plural (-en, -e, -er, -n) and dative plural (+n).</li>
+<li><b>Lowercase</b> → verb, adjective, adverb or a function word (article, preposition, pronoun, conjunction).</li>
+<li>At the start of a sentence everything is capitalised, so ignore the capital there.</li></ul>`],
+['3 · Quick table: first letter → likely words',`<table><tr><th>Given</th><th>Most likely answers</th></tr>
+<tr><td>a</td><td>am, an, auf, aus, als, ab, auch, aber, alle</td></tr>
+<tr><td>b</td><td>bei, beim, bis, bin, bist</td></tr>
+<tr><td>d</td><td>der, die, das, dem, den, des, dass, dann, denn, doch, durch, du, dir, dich</td></tr>
+<tr><td>e</td><td>er, es, ein / eine / einen / einem / einer / eines</td></tr>
+<tr><td>f</td><td>für, fast</td></tr>
+<tr><td>g</td><td>gegen, gern, ganz, gar</td></tr>
+<tr><td>h</td><td>hat, habe, haben, hast, hatte, hier, hinter</td></tr>
+<tr><td>i</td><td>in, im, ins, ich, ist, ihr, ihm, ihn, ihnen, immer</td></tr>
+<tr><td>j</td><td>ja, je, jede, jeden, jedem, jeder, jetzt</td></tr>
+<tr><td>k</td><td>kann, können, kein, keine, keinen</td></tr>
+<tr><td>m</td><td>man, mehr, mit, mein-forms, mich, mir, muss, müssen, mal</td></tr>
+<tr><td>n</td><td>nach, nicht, noch, nur, nun, neben, nichts, nie</td></tr>
+<tr><td>o</td><td>oder, oft, ob, ohne</td></tr>
+<tr><td>s</td><td>sich, sie, sind, sein-forms, sehr, seit, schon, so, sondern, statt</td></tr>
+<tr><td>u</td><td>und, um, uns, unter, unser-forms</td></tr>
+<tr><td>ü</td><td>über, übrigens</td></tr>
+<tr><td>v</td><td>von, vom, vor, viel, viele</td></tr>
+<tr><td>w</td><td>wir, was, wie, wo, wer, wenn, wann, weil, wird, werden, war, wegen, während, wieder</td></tr>
+<tr><td>z</td><td>zu, zum, zur, zwei, zwischen, zurück</td></tr></table>
+<p class="mut">Use the finder at the top for the reason behind each word.</p>`],
+['4 · Look-alikes: how to decide',`<table>
+<tr><th>Pair</th><th>Decide like this</th></tr>
+<tr><td><b>das / dass</b></td><td>Can you replace it with <i>dieses / welches</i>? → <b>das</b>. Does it start a clause after a comma, after verbs like sagen, glauben, wissen, hoffen, with the verb at the end? → <b>dass</b>.</td></tr>
+<tr><td><b>den / denn / dann</b></td><td><b>den</b> = article (masc. Akk / Dat plural). <b>denn</b> = "because", verb right after the subject. <b>dann</b> = "then", verb right after it.</td></tr>
+<tr><td><b>wenn / als / wann</b></td><td><b>wenn</b> = if, or whenever (repeated, present, future). <b>als</b> = one single event in the past, or after a comparative. <b>wann</b> = a question about time.</td></tr>
+<tr><td><b>wie / als</b></td><td>Equal → <b>wie</b> (so groß wie, genauso … wie). Unequal comparative → <b>als</b> (größer als).</td></tr>
+<tr><td><b>weil / denn / da</b></td><td><b>weil</b> and <b>da</b>: verb at the end. <b>denn</b>: normal order.</td></tr>
+<tr><td><b>aber / sondern</b></td><td><b>sondern</b> only after a negation: nicht heute, <i>sondern</i> morgen. Otherwise <b>aber</b>.</td></tr>
+<tr><td><b>kein / nicht</b></td><td><b>kein</b> replaces <i>ein</i> or no article before a noun. <b>nicht</b> negates verbs, adjectives, adverbs, and nouns with a definite article.</td></tr>
+<tr><td><b>an / auf / in</b></td><td><b>an</b> = at a side, wall, edge, water (an der Wand, am See). <b>auf</b> = on top of a flat surface, or at public places and events (auf der Post, auf der Party). <b>in</b> = inside something, cities, countries, months.</td></tr>
+<tr><td><b>in / im / ins</b>, <b>an / am / ans</b>, <b>zu / zum / zur</b>, <b>bei / beim</b>, <b>von / vom</b></td><td>Contractions: <b>im, am, zum, beim, vom</b> = + dem (masc/neut Dat). <b>zur</b> = zu der (fem). <b>ins, ans</b> = + das (neuter direction).</td></tr>
+<tr><td><b>ihn / ihm / ihr / ihnen</b></td><td><b>ihn</b> = him (Akk). <b>ihm</b> = to him (Dat). <b>ihr</b> = to her, or "you all", or "her". <b>ihnen</b> = to them.</td></tr>
+<tr><td><b>sie / sich</b></td><td><b>sich</b> refers back to the subject (er freut sich). <b>sie</b> is a different person: she / they / her.</td></tr>
+<tr><td><b>viel / viele</b></td><td><b>viel</b> + uncountable singular (viel Geld). <b>viele</b> + plural (viele Leute).</td></tr>
+<tr><td><b>wird / werden / wurde</b></td><td><b>wird</b> = er/sie/es. <b>werden</b> = wir/sie, or infinitive after a modal. <b>wurde</b> = past, often passive with a Partizip II at the end.</td></tr>
+<tr><td><b>sein / seit / seine</b></td><td><b>seit</b> + time period (seit zwei Jahren). <b>sein/seine</b> = his, or the verb "to be".</td></tr>
+<tr><td><b>noch / nach / nur / nun</b></td><td><b>noch</b> still/another; <b>nach</b> after/to; <b>nur</b> only; <b>nun</b> now.</td></tr></table>`],
+['5 · Cases: articles and pronouns',`<table><tr><th></th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>
+<tr><td>Nom</td><td>der / ein</td><td>die / eine</td><td>das / ein</td><td>die / –</td></tr>
+<tr><td>Akk</td><td>den / einen</td><td>die / eine</td><td>das / ein</td><td>die / –</td></tr>
+<tr><td>Dat</td><td>dem / einem</td><td>der / einer</td><td>dem / einem</td><td>den (+n) / –</td></tr>
+<tr><td>Gen</td><td>des / eines</td><td>der / einer</td><td>des / eines</td><td>der / –</td></tr></table>
+<p><b>kein-, mein-, dein-, sein-, ihr-, unser-, euer-</b> take the same endings as <i>ein</i>; the plural is keine, meine… (Dat plural: keinen, meinen).</p>
+<table><tr><th>Nom</th><th>Akk</th><th>Dat</th></tr>
+<tr><td>ich</td><td>mich</td><td>mir</td></tr><tr><td>du</td><td>dich</td><td>dir</td></tr><tr><td>er</td><td>ihn</td><td>ihm</td></tr><tr><td>sie</td><td>sie</td><td>ihr</td></tr><tr><td>es</td><td>es</td><td>ihm</td></tr><tr><td>wir</td><td>uns</td><td>uns</td></tr><tr><td>ihr</td><td>euch</td><td>euch</td></tr><tr><td>sie / Sie</td><td>sie / Sie</td><td>ihnen / Ihnen</td></tr></table>
+<p><b>Find the case:</b> Wer/Was? → Nominativ. Wen/Was? → Akkusativ. Wem? → Dativ. Wessen? → Genitiv. Check the preposition and the verb first.</p>
+<p><b>Verbs with Dativ:</b> helfen, danken, gehören, gefallen, schmecken, passen, antworten, gratulieren, folgen, fehlen, zuhören, begegnen, raten, glauben (jemandem).</p>`],
+['6 · Prepositions',`<table><tr><th>Group</th><th>Words</th></tr>
+<tr><td><b>Always Akkusativ</b></td><td>durch, für, gegen, ohne, um, bis</td></tr>
+<tr><td><b>Always Dativ</b></td><td>aus, bei, mit, nach, seit, von, zu, gegenüber, ab, außer</td></tr>
+<tr><td><b>Always Genitiv</b></td><td>wegen, trotz, während, statt, innerhalb, außerhalb</td></tr>
+<tr><td><b>Two-way</b></td><td>an, auf, hinter, in, neben, über, unter, vor, zwischen: <b>Wo?</b> (position) → Dativ · <b>Wohin?</b> (movement) → Akkusativ</td></tr></table>
+<p><b>Time:</b> <b>am</b> days, dates, parts of the day (am Montag, am 5. Mai, am Abend) · <b>im</b> months, seasons, years (im Juli, im Winter) · <b>um</b> clock times (um 8 Uhr) · <b>in</b> "from now" (in zwei Tagen) · <b>seit</b> since, still going on · <b>vor</b> ago · <b>nach</b> after · <b>bis</b> until · <b>von … bis</b> · <b>ab</b> starting from · <b>gegen</b> around (gegen 8 Uhr) · <b>während</b> during · <b>für</b> duration.</p>
+<p><b>Place:</b> <b>in</b> cities, countries, rooms, buildings · <b>nach</b> + city/country without article, nach Hause · <b>zu</b> + person or place you go to · <b>bei</b> + person/firm (bei meiner Tante) · <b>aus</b> / <b>von</b> origin and starting point · <b>an</b> water, wall, edge · <b>auf</b> flat surfaces and public places.</p>
+<p><b>Verb + preposition (learn as a pair):</b></p>
+<ul><li><b>auf:</b> warten, sich freuen (future), hoffen, achten, aufpassen, antworten, reagieren, sich verlassen, sich konzentrieren</li>
+<li><b>an:</b> denken, sich erinnern, teilnehmen, glauben, sich gewöhnen, sich beteiligen</li>
+<li><b>über:</b> sich ärgern, sich freuen (present/past), sprechen, nachdenken, sich wundern</li>
+<li><b>für:</b> sich interessieren, sich entscheiden, danken, sich bedanken, sorgen</li>
+<li><b>um:</b> sich kümmern, bitten, sich bewerben, es geht um</li>
+<li><b>von:</b> träumen, abhängen, erzählen, halten</li>
+<li><b>vor:</b> Angst haben, warnen, sich fürchten, schützen</li>
+<li><b>mit:</b> sprechen, anfangen, aufhören, rechnen, sich beschäftigen</li>
+<li><b>nach:</b> suchen, fragen, riechen, schmecken</li>
+<li><b>aus:</b> bestehen, kommen &nbsp;·&nbsp; <b>zu:</b> gehören, einladen, passen</li></ul>`],
+['7 · Conjunctions and word order',`<table><tr><th>Type</th><th>Words</th><th>What the verb does</th></tr>
+<tr><td><b>Subordinating</b></td><td>dass, weil, wenn, als, ob, obwohl, damit, bevor, nachdem, während, bis, seit(dem), falls, sobald, indem, sodass</td><td>goes to the <b>end</b> of the clause</td></tr>
+<tr><td><b>Main-clause links</b></td><td>und, aber, oder, denn, sondern</td><td>no change (position 2)</td></tr>
+<tr><td><b>Adverb connectors</b></td><td>deshalb, deswegen, darum, daher, trotzdem, dann, danach, außerdem, also, sonst, dennoch, jedoch</td><td>comes <b>right after</b> the connector</td></tr></table>
+<p><b>The trick:</b> look at the next verb. If it is at the end of the clause (or a Partizip + helper at the end), the gap is a subordinating word. If the verb comes straight after the gap, it is an adverb connector.</p>
+<p><b>Pairs:</b> entweder … oder · sowohl … als auch · nicht nur … sondern auch · weder … noch · zwar … aber · je … desto · um … zu · ohne … zu · (an)statt … zu.</p>`],
+['8 · Adjective endings',`<table><tr><th></th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>
+<tr><td colspan="5"><b>after der / die / das / dieser…</b></td></tr>
+<tr><td>Nom</td><td>-e</td><td>-e</td><td>-e</td><td>-en</td></tr><tr><td>Akk</td><td>-en</td><td>-e</td><td>-e</td><td>-en</td></tr><tr><td>Dat / Gen</td><td>-en</td><td>-en</td><td>-en</td><td>-en</td></tr>
+<tr><td colspan="5"><b>after ein / kein / mein…</b></td></tr>
+<tr><td>Nom</td><td>-er</td><td>-e</td><td>-es</td><td>-en</td></tr><tr><td>Akk</td><td>-en</td><td>-e</td><td>-es</td><td>-en</td></tr><tr><td>Dat / Gen</td><td>-en</td><td>-en</td><td>-en</td><td>-en</td></tr>
+<tr><td colspan="5"><b>no article</b></td></tr>
+<tr><td>Nom</td><td>-er</td><td>-e</td><td>-es</td><td>-e</td></tr><tr><td>Akk</td><td>-en</td><td>-e</td><td>-es</td><td>-e</td></tr><tr><td>Dat</td><td>-em</td><td>-er</td><td>-em</td><td>-en</td></tr><tr><td>Gen</td><td>-en</td><td>-er</td><td>-en</td><td>-er</td></tr></table>
+<ul><li>If the article <b>already shows</b> the case (der, die, das, den, dem, des), the adjective is almost always <b>-e</b> or <b>-en</b>.</li>
+<li>If the article does <b>not</b> show it (ein, kein, mein or nothing), the adjective carries the ending: <b>-er, -es, -em</b> …</li>
+<li><b>-en</b> is the most common answer overall. Dative and genitive after an article are always -en.</li>
+<li>Spelling changes: hoch → hohe, teuer → teure, dunkel → dunkle.</li>
+<li>Comparative: -er (+ als). Superlative: am …-sten, or der/die/das …-ste.</li></ul>`],
+['9 · Verb forms',`<table><tr><th>Person</th><th>Ending</th><th>Example</th></tr>
+<tr><td>ich</td><td>-e</td><td>ich lerne</td></tr><tr><td>du</td><td>-st</td><td>du lernst</td></tr><tr><td>er / sie / es / man</td><td>-t</td><td>er lernt</td></tr><tr><td>wir</td><td>-en</td><td>wir lernen</td></tr><tr><td>ihr</td><td>-t</td><td>ihr lernt</td></tr><tr><td>sie / Sie</td><td>-en</td><td>sie lernen</td></tr></table>
+<ul><li><b>Find the subject first.</b> The ending must match it.</li>
+<li>Vowel change in du / er: fahren → fährt, sprechen → spricht, lesen → liest. Stems ending in -t/-d add -e-: arbeitet, findet.</li>
+<li><b>Modals</b> (können, müssen, wollen, sollen, dürfen, möchte): ich and er have no ending (ich kann, er muss). The second verb is an infinitive at the end, <b>without</b> zu.</li>
+<li><b>Perfekt:</b> haben / sein + Partizip II at the end. Regular: <b>ge-…-t</b> (gemacht). Irregular: <b>ge-…-en</b> (gegangen).</li>
+<li><b>Separable prefix:</b> ge goes in the middle (aufgestanden, eingekauft). <b>Inseparable</b> be-, ent-, er-, ver-, zer-, miss-, ge- and verbs on -ieren have <b>no ge-</b> (bekommen, verstanden, studiert).</li>
+<li><b>sein</b> is used for movement and change of state: gehen, fahren, kommen, bleiben, werden, aufstehen, passieren.</li>
+<li><b>Präteritum:</b> regular -te, -test, -te, -ten, -tet, -ten; sein war/waren, haben hatte; modals konnte, musste, wollte, sollte, durfte.</li>
+<li><b>Separable verbs:</b> the particle sits at the end of the clause (Der Zug fährt um acht ab). A short gap at the end is often ab, an, auf, aus, ein, mit, vor, zu, zurück, weg.</li>
+<li><b>zu + infinitive:</b> zu arbeiten, but aufzustehen with a separable verb (zu goes in the middle).</li>
+<li><b>Passiv:</b> werden + Partizip II (Das Haus wird gebaut). <b>Konjunktiv II:</b> wäre, hätte, würde + infinitive.</li></ul>`],
+['10 · Nouns: gender and plural',`<table><tr><th>Suffix</th><th>Gender</th></tr>
+<tr><td>-ung, -heit, -keit, -schaft, -ion, -tät, -ur, -ik, -ei, -in</td><td>die (feminine)</td></tr>
+<tr><td>-er (people), -ismus, -ling, -or</td><td>der (masculine)</td></tr>
+<tr><td>-chen, -lein, -ment, -um</td><td>das (neuter)</td></tr></table>
+<ul><li><b>Plural:</b> feminine mostly -en / -n (Frau → Frauen, -ung → -ungen, -in → -innen). Masculine often -e, sometimes with umlaut (Tag → Tage, Sohn → Söhne). Neuter -e or -er with umlaut (Kind → Kinder, Haus → Häuser). Words on -er / -el / -en often do not change (Lehrer, Mädchen). Foreign words often -s (Autos).</li>
+<li><b>Dative plural</b> adds -n (den Kindern, mit den Freunden).</li>
+<li><b>Genitive</b> masculine/neuter adds -s or -es (des Mannes, des Hauses).</li>
+<li><b>n-nouns</b> (der Student, der Name, der Kollege) end in -n/-en in every case except Nominativ singular.</li>
+<li><b>Compound nouns:</b> the <b>last part</b> decides gender and plural (der Bahnhof). A gap is often the second part: Arbeits|platz, Bahn|hof.</li></ul>`],
+['11 · Word-building clues',`<ul><li><b>Adjective suffixes:</b> -lich, -ig, -isch, -bar, -los, -voll, -sam, -haft (freundlich, wichtig, typisch, machbar, arbeitslos).</li>
+<li><b>Adverb suffixes:</b> -weise, -lich with time words (täglich), -s with time words (montags, abends).</li>
+<li><b>Prefixes:</b> un- negates (unmöglich), vor- / nach- (before / after), über- / unter-, zusammen-, wieder-.</li>
+<li><b>Verb prefixes:</b> be-, ent-, er-, ver-, zer-, miss- are inseparable; an-, auf-, aus-, ein-, mit-, vor-, zu-, zurück-, weg- are separable.</li>
+<li><b>Verb → noun:</b> -ung (Wohnung), -er for the person (Lehrer), infinitive as a neuter noun (das Lernen).</li></ul>`],
+['12 · Strategy',`<ul><li><b>Read the first sentence</b>, which has no gaps. It gives you the topic and vocabulary.</li>
+<li><b>Do the easy gaps first</b> (short function words), then the topic words.</li>
+<li><b>Use the word after the gap, not only before it.</b> An article tells you the gender, <i>zu</i> before a gap means an infinitive, a verb at the end means <i>dass / weil / wenn</i>.</li>
+<li><b>Count letters</b> (see section 1) and check the capital letter (section 2).</li>
+<li>You only type the <b>missing part</b>. Your answer has to continue the letters that are shown.</li>
+<li><b>Never leave a gap empty.</b> A guess costs nothing.</li>
+<li>Check spelling: ß / ss, umlauts, double letters. Capitals do not matter in this app.</li>
+<li>Don't spend more than about 20 seconds on one gap. Come back to it.</li>
+<li>After checking, look at the red answers and ask which rule above you missed.</li></ul>`],
+['13 · When the text rounds up',`<p>Some texts (and the Blitz mini-texts) give half the letters rounded <b>up</b>. An odd-length word then shows one more letter than usual: <b>der</b> is <b>d|er</b> normally, but <b>de|r</b> here. The finder hides these words by default. Below are all odd-length words split that way, with the clue for each.</p>`+rupHtml()]
+];
+R.tips=function(){app.innerHTML=`<h1>💡 Hints &amp; Tricks</h1><div class="card"><h2>Which word fits these letters?</h2><input class="t" id="tp" placeholder="Letters given, e.g. a, d, au, ei…" value="${esc(tipQ)}" oninput="tipQ=this.value;tipDraw()" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="tabs">${[...'abdefghijkmnosuüvwz'].map(c=>`<button onclick="tipSet('${c}')">${c}</button>`).join('')}</div><div id="tres"></div></div>${TIPS.map(([t,h],i)=>`<details class="card"${i===0?' open':''}><summary>${t}</summary><div class="tipb">${h}</div></details>`).join('')}`;tipDraw()};
 // ===== BLITZ MODE =====
 // 'a' = Adjektivendungen (Nom/Akk/Dat/Gen), 'v' = Wortschatz/C-Test-Hälften
 const BLITZ=[
@@ -435,7 +821,261 @@ const BLITZ=[
 ['v',"Die Straße ist gesperrt. Autofahrer {müs|sen} eine {Umle|itung} {neh|men}."],
 ['v',"Wir haben die Wohnung besichtigt. Der {Verm|ieter} war sehr {freun|dlich}."],
 ['v',"Sie lernt für den Test. Sie {wiede|rholt} die {Voka|beln} jeden {Ab|end}."],
-['v',"Es gibt viele Möglichkeiten, Deutsch zu lernen. Man kann einen {Ku|rs} {besu|chen} oder {Fi|lme} {ansc|hauen}."]
+['v',"Es gibt viele Möglichkeiten, Deutsch zu lernen. Man kann einen {Ku|rs} {besu|chen} oder {Fi|lme} {ansc|hauen}."],
+['a',"Ich habe gestern einen {interessant|en} Mann kennengelernt."],
+['a',"Das ist ein {kompliziert|es} Thema."],
+['a',"Sie wohnt in einer {schön|en} Altbauwohnung."],
+['a',"Wir haben ein {gemütlich|es} Zimmer gebucht."],
+['a',"Der {höflich|e} Kellner bringt die {heiß|e} Suppe."],
+['a',"Ich spreche gern mit der {neu|en} Kollegin."],
+['a',"Das Buch gehört dem {klein|en} Jungen."],
+['a',"Die {klug|e} Studentin hat die Prüfung bestanden."],
+['a',"Er kauft sich ein {teur|es} Auto."],
+['a',"Im Sommer essen wir gern {italienisch|es} Eis."],
+['a',"Sie trinkt jeden Morgen {stark|en} Kaffee."],
+['a',"Im {klein|en} Zimmer steht nur ein Bett."],
+['a',"Ich brauche eine {neu|e} Brille."],
+['a',"Das ist der Mantel meines {älter|en} Bruders."],
+['a',"Mit {laut|er} Stimme rief er nach seinem Hund."],
+['a',"Ich lese gern {spannend|e} Krimis."],
+['a',"Meine Schwester hat {braun|e} Augen."],
+['a',"Der {kalt|e} Wind weht über die {leer|e} Straße."],
+['a',"Hast du den {neu|en} Chef schon getroffen?"],
+['a',"Sie hat zwei {süß|e} Katzen."],
+['a',"Wir wohnen in einer {laut|en} Straße."],
+['a',"Das {groß|e} Gebäude dort ist die Schule."],
+['a',"Er schreibt mit einem {schwarz|en} Stift."],
+['a',"Meine {jünger|e} Schwester studiert in Wien."],
+['a',"Wir treffen uns bei meiner {nett|en} Tante."],
+['a',"Das Kind hat ein {neu|es} Fahrrad bekommen."],
+['a',"Gib mir bitte das {rot|e} Heft."],
+['a',"Ich suche einen {ruhig|en} Platz zum Lernen."],
+['a',"Die Kinder lieben {lustig|e} Geschichten."],
+['a',"Ich trage heute meine {bequem|en} Schuhe."],
+['a',"Er wohnt in einem {hell|en} Zimmer."],
+['a',"Sie hat einen {gut|en} Job gefunden."],
+['a',"Bei {heiß|em} Wetter trinke ich viel Wasser."],
+['a',"Nach dem {anstrengend|en} Tag gehe ich früh schlafen."],
+['a',"Das war ein {wunderbar|er} Tag."],
+['a',"Sie sucht eine {preiswert|e} Wohnung."],
+['a',"Der Lehrer lobt die {fleißig|en} Schüler."],
+['a',"Wir haben ein {lecker|es} Essen gekocht."],
+['a',"Mein Vater fährt einen {alt|en} Wagen."],
+['a',"Er ist ein {bekannt|er} Schauspieler."],
+['a',"Hast du das {neu|e} Spiel gekauft?"],
+['a',"Der {ander|e} Weg ist kürzer."],
+['a',"Ich gebe der {klein|en} Katze etwas Milch."],
+['a',"Die Katze schläft auf dem {weich|en} Sofa."],
+['a',"Mit {frisch|en} Kräutern schmeckt die Suppe besser."],
+['a',"Trotz des {kalt|en} Wassers sind sie geschwommen."],
+['a',"Wegen des {defekt|en} Autos kam er zu spät."],
+['a',"Der Preis des {neu|en} Handys ist hoch."],
+['a',"Das ist die Idee eines {klug|en} Kindes."],
+['a',"Das Zimmer meiner {klein|en} Tochter ist gelb."],
+['a',"Die Eltern der {krank|en} Kinder sind besorgt."],
+['a',"Er hat kein {eigen|es} Auto."],
+['a',"Ich habe leider keine {frei|e} Zeit."],
+['a',"Wir brauchen keine {neu|en} Stühle."],
+['a',"Sie trägt einen {lang|en} Mantel."],
+['a',"Dieser {alt|e} Film gefällt mir sehr."],
+['a',"Ich mag diesen {süß|en} Tee nicht."],
+['a',"Gefällt dir dieses {klein|e} Haus?"],
+['a',"Ich habe heute einen {anstrengend|en} Tag gehabt."],
+['a',"Er hört gern {klassisch|e} Musik."],
+['a',"Ich trinke gern {kalt|e} Milch."],
+['a',"Wir fahren mit dem {neu|en} Auto nach Hamburg."],
+['a',"Die {freundlich|e} Frau an der Kasse lächelt."],
+['a',"Das {klein|e} Restaurant ist immer voll."],
+['a',"Ich schenke meinem {best|en} Freund ein Buch."],
+['a',"Sie sitzt neben einer {alt|en} Dame."],
+['a',"Wir sprechen über den {neu|en} Film."],
+['a',"Ich warte auf die {nächst|e} U-Bahn."],
+['a',"Das ist ein {schwierig|es} Wort."],
+['a',"Sie hat ein {rot|es} Auto."],
+['a',"Er trägt einen {blau|en} Anzug."],
+['a',"Mein {älter|er} Bruder wohnt in Köln."],
+['a',"Ihre {klein|e} Tochter geht schon zur Schule."],
+['a',"Unser {neu|er} Nachbar ist Arzt."],
+['a',"Dein {gut|er} Rat hat mir geholfen."],
+['a',"Euer {groß|er} Garten ist wunderschön."],
+['a',"Ich liebe eure {klein|e} Wohnung."],
+['a',"Sie hilft ihrem {alt|en} Vater im Garten."],
+['a',"Er telefoniert mit seiner {krank|en} Mutter."],
+['a',"Wir danken unseren {nett|en} Gästen."],
+['a',"Das sind meine {neu|en} Freunde."],
+['a',"Wo sind deine {schwarz|en} Schuhe?"],
+['a',"Er hat sein {alt|es} Fahrrad verkauft."],
+['a',"Ich habe mein {neu|es} Handy verloren."],
+['a',"Sein {schnell|es} Auto ist sehr teuer."],
+['a',"Das ist ihr {neu|es} Zuhause."],
+['a',"Ich besuche meine {alt|e} Lehrerin."],
+['a',"Wir feiern das Fest im {groß|en} Saal."],
+['a',"Er sitzt am {offen|en} Fenster."],
+['a',"Das ist das Haus des {alt|en} Mannes."],
+['a',"Die Farbe des {neu|en} Autos gefällt mir."],
+['a',"Der Name der {jung|en} Lehrerin ist Frau Meyer."],
+['a',"Die Hobbys der {jung|en} Leute sind verschieden."],
+['a',"Am Ende des {lang|en} Films haben alle geklatscht."],
+['a',"Während des {kurz|en} Urlaubs hat es nur geregnet."],
+['a',"Trotz der {schlecht|en} Noten ist sie nicht traurig."],
+['a',"Wegen des {dicht|en} Verkehrs komme ich später."],
+['a',"Innerhalb der {nächst|en} Tage melde ich mich."],
+['a',"Statt des {alt|en} Sofas kaufen wir ein neues."],
+['a',"Ich helfe dem {alt|en} Mann über die Straße."],
+['a',"Sie gibt der {jung|en} Frau die Schlüssel."],
+['a',"Wir fahren mit den {klein|en} Kindern ins Schwimmbad."],
+['a',"Er erzählt den {klein|en} Kindern eine Geschichte."],
+['a',"Ich gratuliere meiner {best|en} Freundin zum Geburtstag."],
+['a',"Das Kind spielt mit dem {rot|en} Ball."],
+['a',"Nach der {lang|en} Reise waren alle müde."],
+['a',"Seit dem {schlecht|en} Wetter sind alle erkältet."],
+['a',"Aus dem {alt|en} Haus kommt Musik."],
+['a',"Bei dem {heiß|en} Wetter schwitzen alle."],
+['a',"Von seinem {klein|en} Gehalt kann er nicht leben."],
+['a',"Zu meinem {groß|en} Glück war niemand verletzt."],
+['a',"Gegenüber dem {neu|en} Bahnhof gibt es ein Hotel."],
+['a',"Ich trinke den {heiß|en} Tee sofort."],
+['a',"Er liest das {dick|e} Buch zu Ende."],
+['a',"Sie kauft die {frisch|en} Brötchen beim Bäcker."],
+['a',"Wir besuchen unsere {alt|en} Großeltern."],
+['a',"Er hat seinen {klein|en} Bruder abgeholt."],
+['a',"Ich nehme das {klein|e} Zimmer."],
+['a',"Für meine {krank|e} Mutter koche ich Suppe."],
+['a',"Ohne seinen {alt|en} Hund geht er nie spazieren."],
+['a',"Durch das {offen|e} Tor kamen viele Leute."],
+['a',"Gegen den {stark|en} Wind kann man kaum fahren."],
+['a',"Um die {groß|e} Ecke gibt es einen Supermarkt."],
+['a',"Der {klein|e} Hund bellt laut."],
+['a',"Das {schön|e} Wetter hält nicht lange."],
+['a',"Die {neu|en} Nachbarn sind sehr leise."],
+['a',"Der {nett|e} Taxifahrer hat mir geholfen."],
+['a',"Das {alt|e} Haus am See gehört meiner Oma."],
+['a',"Die {rot|e} Jacke steht dir gut."],
+['a',"Der {blau|e} Himmel ist wolkenlos."],
+['a',"Die {fleißig|en} Studenten lernen in der Bibliothek."],
+['a',"Ich esse gern {frisch|es} Gemüse."],
+['a',"Sie hat {lang|es} Haar."],
+['a',"Heute gibt es {gebraten|en} Fisch."],
+['a',"Wir brauchen {warm|e} Kleidung."],
+['a',"Er trinkt gern {kalt|es} Bier."],
+['a',"Ich liebe {alt|e} Filme."],
+['a',"Sie kocht {lecker|es} Essen."],
+['a',"Das ist {echt|er} Käse."],
+['a',"Er hat {groß|en} Hunger."],
+['a',"Es gibt {schlecht|e} Nachrichten."],
+['a',"Wir hatten {schön|es} Wetter."],
+['a',"Ich brauche {frisch|e} Luft."],
+['a',"Sie trägt {rot|e} Schuhe."],
+['v',"Ich habe heute frei. Deshalb {ble|ibe} ich zu {Hau|se} und {le|se} ein Buch."],
+['v',"Mein Computer ist kaputt. Ich {mu|ss} ihn zur {Repar|atur} {brin|gen}."],
+['v',"Es ist schon spät. Die {Gesch|äfte} haben {bere|its} {geschl|ossen}."],
+['v',"Wir planen eine Reise. Im {Som|mer} {fah|ren} wir nach {Ital|ien}."],
+['v',"Ich habe Kopfschmerzen. Ich {neh|me} eine {Tabl|ette} und {le|ge} mich ins Bett."],
+['v',"Das Essen im Restaurant war gut. Der {Kell|ner} war {freun|dlich} und die {Porti|onen} waren {gr|oß}."],
+['v',"Heute Abend kommen Gäste. Ich {mu|ss} noch {einka|ufen} und {koc|hen}."],
+['v',"Der Unterricht beginnt um acht. Die {Stude|nten} {war|ten} schon vor dem {Klassen|zimmer}."],
+['v',"Ich suche meinen Schlüssel. Ich {ha|be} ihn {über|all} {gesu|cht}, aber nicht {gefu|nden}."],
+['v',"Meine Großeltern leben auf dem Land. Sie {hab|en} einen {Bauer|nhof} mit vielen {Tie|ren}."],
+['v',"Im Herbst gehen wir wandern. Die {Ber|ge} sind dann {beson|ders} {sch|ön}."],
+['v',"Der Chef hat eine Besprechung. Alle {Mitarb|eiter} {müs|sen} {teiln|ehmen}."],
+['v',"Mein Bruder lernt Gitarre. Er übt {jed|en} Tag eine {Stu|nde}."],
+['v',"Ich möchte Geld sparen. Deshalb {kau|fe} ich {kei|ne} {teu|ren} Sachen."],
+['v',"Das Wetter wird besser. Morgen {sche|int} wieder die {Son|ne} und es wird {wa|rm}."],
+['v',"Wir haben einen neuen Fernseher. Das {Bi|ld} ist {se|hr} {sch|arf}."],
+['v',"Die Ausstellung ist sehr beliebt. Jeden Tag {kom|men} {Hund|erte} {Besu|cher}."],
+['v',"Ich muss zum Arzt. Mein {Ter|min} ist {mor|gen} um zehn Uhr."],
+['v',"Sie arbeitet im Ausland. Ihre {Fami|lie} {verm|isst} sie {se|hr}."],
+['v',"Die Straße ist glatt. Bitte {fah|ren} Sie {lang|sam} und {vorsi|chtig}."],
+['v',"Mein Handy klingelt. Eine {unbek|annte} {Num|mer} {ru|ft} an."],
+['v',"Ich habe Durst. Hast du etwas zu {trin|ken} {dab|ei}?"],
+['v',"Wir feiern Geburtstag. Meine {Mut|ter} {bac|kt} einen {Kuc|hen}."],
+['v',"Er ist Fußballfan. Jedes {Woche|nende} {ge|ht} er ins {Stad|ion}."],
+['v',"Das Hotel liegt am Strand. Von unserem {Zim|mer} {seh|en} wir das {Me|er}."],
+['v',"Sie hat heute Geburtstag. Ich {sche|nke} ihr {Blu|men} und eine {Kar|te}."],
+['v',"Ich lerne für die Prüfung. Die {Aufg|aben} sind {schwi|erig}, aber {mach|bar}."],
+['v',"Das Kind weint. Es hat sich das {Kn|ie} {verl|etzt}."],
+['v',"Wir brauchen einen neuen Schrank. Der {al|te} ist zu {kle|in} und {kap|utt}."],
+['v',"In der Mensa ist viel los. Die {Stude|nten} {ste|hen} {Schl|ange}."],
+['v',"Mein Onkel ist Busfahrer. Er {begi|nnt} seine {Arb|eit} {fr|üh} am Morgen."],
+['v',"Die Pizza ist fertig. Sie {rie|cht} {wunde|rbar} und {schm|eckt} {lec|ker}."],
+['v',"Ich habe einen Termin verpasst. Der {Verk|ehr} war {schrec|klich} und ich kam zu {sp|ät}."],
+['v',"Im Garten blühen die Blumen. Der {Früh|ling} ist {endl|ich} {geko|mmen}."],
+['v',"Sie spricht fünf Sprachen. Das {fin|de} ich {beeindr|uckend}."],
+['v',"Wir haben einen Ausflug gemacht. Am {Abe|nd} waren alle {mü|de} und {glück|lich}."],
+['v',"Die Bank öffnet um neun. Man {brau|cht} einen {Ausw|eis} für die {Anmel|dung}."],
+['v',"Ich habe meine Brille vergessen. Ohne sie kann ich die {Schr|ift} nicht {les|en}."],
+['v',"Der Zug nach München fährt gleich. Die {Reise|nden} {stei|gen} {schn|ell} ein."],
+['v',"Meine Katze ist krank. Ich {bri|nge} sie zum {Tier|arzt}."],
+['v',"Am Montag fängt die Arbeit wieder an. Ich {fre|ue} mich {nic|ht} {dar|auf}."],
+['v',"Das Zimmer ist sehr dunkel. Bitte {scha|lte} das {Lic|ht} ein."],
+['v',"Unsere Nachbarn sind im Urlaub. Wir {gie|ßen} ihre {Blu|men} und {lee|ren} den {Briefk|asten}."],
+['v',"Heute ist es sehr windig. Die {Wäs|che} {troc|knet} {schn|ell}."],
+['v',"Der Lehrer erklärt die Aufgabe. Die {Schü|ler} {hör|en} {aufme|rksam} zu."],
+['v',"Wir müssen sparen. Ein {neu|es} Auto können wir uns {nic|ht} {leis|ten}."],
+['v',"Der Film beginnt gleich. Die {Zusch|auer} {set|zen} sich {lei|se} hin."],
+['v',"Ich habe einen neuen Job. Die {Koll|egen} sind {ne|tt} und die {Arb|eit} macht {Sp|aß}."],
+['v',"Es klopft an der Tür. Der {Brieft|räger} {bri|ngt} ein {Pak|et}."],
+['v',"Mein Auto springt nicht an. Ich {ru|fe} die {Werks|tatt} an."],
+['v',"Das Museum ist montags geschlossen. Am {Dien|stag} {öff|net} es {wie|der}."],
+['v',"Meine Freundin wohnt in Berlin. Wir {telefo|nieren} {jed|en} {Sonn|tag}."],
+['v',"Die Suppe ist zu salzig. Du hast zu {vi|el} {Sa|lz} {geno|mmen}."],
+['v',"Der Student schreibt eine Hausarbeit. Er {brau|cht} noch {me|hr} {Liter|atur}."],
+['v',"Wir haben Gäste aus Spanien. Sie {spre|chen} {lei|der} kein {Deut|sch}."],
+['v',"Im Kühlschrank ist nichts mehr. Ich {ge|he} {gle|ich} {einka|ufen}."],
+['v',"Mein Fahrrad hat einen Platten. Ich {mu|ss} es {repar|ieren} {las|sen}."],
+['v',"Die Sonne geht unter. Der {Him|mel} {fär|bt} sich rot."],
+['v',"Am Abend gehen wir tanzen. Die {Mus|ik} ist {la|ut} und die {Stim|mung} {großa|rtig}."],
+['v',"Er hat viel Stress. Er {schl|äft} {schl|echt} und {is|st} {unrege|lmäßig}."],
+['v',"Die Kinder sind müde. Sie {geh|en} {fr|üh} ins {Be|tt}."],
+['v',"Ich suche einen Kindergarten. Die {Betre|uung} ist {teu|er}, aber {wich|tig}."],
+['v',"Das Telefon ist kaputt. Wir {brau|chen} ein {neu|es} {Ger|ät}."],
+['v',"Meine Tante ist Krankenschwester. Sie {arbe|itet} oft {nac|hts} im {Kranke|nhaus}."],
+['v',"Der Park ist sehr schön. Viele {Mens|chen} {mac|hen} dort {Spo|rt}."],
+['v',"Das Konzert fällt aus. Der {Sän|ger} ist {lei|der} {kra|nk}."],
+['v',"Ich habe Zahnschmerzen. Ich {verei|nbare} einen {Ter|min} beim {Zahn|arzt}."],
+['v',"Wir bauen ein Haus. Die {Arbe|iter} {kom|men} {mor|gen} {fr|üh}."],
+['v',"Das Schwimmbad ist heute voll. Viele {Kin|der} {geni|eßen} die {Fer|ien}."],
+['v',"Sie studiert Biologie. Im {Lab|or} {mac|ht} sie {intere|ssante} {Vers|uche}."],
+['v',"Der Hund bellt laut. Er {möc|hte} {spazi|eren} {geh|en}."],
+['v',"Ich koche gern. Heute {gi|bt} es {Nud|eln} mit {Tomate|nsoße}."],
+['v',"Das Hotelzimmer ist teuer. Das {Frühs|tück} ist {lei|der} nicht {inbegr|iffen}."],
+['v',"Er hat die Prüfung bestanden. Seine {Elt|ern} sind sehr {sto|lz} auf ihn."],
+['v',"Im Bus ist es eng. Viele {Fahrg|äste} {müs|sen} {ste|hen}."],
+['v',"Ich wohne im dritten Stock. Der {Auf|zug} ist {lei|der} {kap|utt}."],
+['v',"Im Büro ist es kalt. Bitte {schl|ieße} das {Fens|ter}, {bev|or} du gehst."],
+['v',"Ich habe meine Hausaufgaben gemacht. Jetzt {möc|hte} ich {ferns|ehen}."],
+['v',"Wir gehen morgen ins Theater. Die {Kar|ten} habe ich {sch|on} {geka|uft}."],
+['v',"Mein Mitbewohner kocht schlecht. Deshalb {es|se} ich oft {alle|ine} in der {Men|sa}."],
+['v',"Der Winter war lang. Endlich {kom|mt} der {Früh|ling} mit {war|mem} Wetter."],
+['v',"Sie hat einen Unfall gehabt. Zum {Glü|ck} ist nichts {Schli|mmes} {pass|iert}."],
+['v',"Das Dokument ist wichtig. Bitte {untersc|hreiben} Sie {hi|er} {unt|en}."],
+['v',"Ich fahre morgen nach Wien. Die {Fahrk|arte} {kos|tet} vierzig {Eu|ro}."],
+['v',"Der Kuchen schmeckt toll. Kannst du mir das {Rez|ept} {geb|en}?"],
+['v',"Mein Freund hat ein Problem. Er {fin|det} keine {Wohn|ung} in der {Sta|dt}."],
+['v',"Die Vorlesung dauert zwei Stunden. Am {En|de} gibt es {Ze|it} für {Fra|gen}."],
+['v',"Meine Eltern rufen jeden Sonntag an. Sie {möch|ten} wissen, wie es mir {ge|ht}."],
+['v',"Heute ist Feiertag. Alle {Gesch|äfte} sind {geschl|ossen} und die {Stra|ßen} {le|er}."],
+['v',"Er verdient wenig Geld. Er {arbe|itet} nur {halb|tags} in einem {Gesc|häft}."],
+['v',"Sie liebt Tiere. Zu {Hau|se} hat sie zwei {Hun|de} und eine {Kat|ze}."],
+['v',"Das Wochenende war entspannend. Wir {hab|en} lange {gesch|lafen} und {sp|ät} gefrühstückt."],
+['v',"Der Spielplatz ist neu. Die {Kin|der} {ruts|chen} und {schau|keln} den ganzen Tag."],
+['v',"Meine Wohnung ist zu laut. Ich {möc|hte} {umzi|ehen}."],
+['v',"Im Zug ist kein Platz frei. Ich {mu|ss} leider {ste|hen}."],
+['v',"Er lernt Autofahren. Die {Prüf|ung} ist {näch|ste} {Woc|he}."],
+['v',"Die Lieferung ist verspätet. Das {Pak|et} {kom|mt} erst {mor|gen}."],
+['v',"Wir haben ein Picknick gemacht. Das {Wet|ter} war {ide|al} und die {Stim|mung} {sup|er}."],
+['v',"Ich habe neue Schuhe gekauft. Sie {pas|sen} {perf|ekt} und sind sehr {beq|uem}."],
+['v',"Mein Lehrer ist streng. Er {verl|angt} {pünkt|liche} {Abg|abe} der Hausarbeiten."],
+['v',"Die Party war lustig. Wir {tanz|ten} bis {Mitter|nacht} und {lach|ten} viel."],
+['v',"Das Auto ist zu teuer. Wir {suc|hen} ein {günsti|geres} {Mod|ell}."],
+['v',"Im Winter fahren wir Ski. Die {Pis|ten} sind {perf|ekt} {präpa|riert}."],
+['v',"Meine Nachbarin ist sehr nett. Sie {bri|ngt} mir oft {selbstge|backenen} Kuchen."],
+['v',"Er hat Fieber. Der {Ar|zt} {empfi|ehlt} ihm {Bett|ruhe}."],
+['v',"Ich gehe jeden Morgen joggen. Das {mac|ht} mich {ges|und} und {glück|lich}."],
+['v',"Die Stadt ist sehr alt. Im {Zent|rum} gibt es viele {histor|ische} {Gebä|ude}."],
+['v',"Das Buch ist spannend. Ich {ka|nn} es {nic|ht} aus der {Ha|nd} legen."],
+['v',"Wir müssen die Rechnung bezahlen. Der {Bet|rag} ist {fäl|lig} bis {Frei|tag}."],
+['v',"Meine Schwester hat ein Baby. Es {schl|äft} {lei|der} nachts {ka|um}."]
 ];
 // ----- Explainer: shows WHY the correct adjective ending is right -----
 const CN={N:'nominative',A:'accusative',D:'dative',G:'genitive'},GN={m:'masc.',f:'fem.',n:'neut.',p:'plural'};
@@ -463,14 +1103,14 @@ return`${head}. ${rule}${ty}`}
 const xpl=m=>`<div class="xp"><b>${esc(m.given)}<span class="k">${esc(m.typed||'…')}</span> → ${esc(m.correct)}</b>${m.why?'<div>'+m.why+'</div>':''}</div>`;
 let B=null;
 function bz(){if(B){clearInterval(B.iv);clearTimeout(B.to)}}
-R.blitz=function(){bz();B=null;app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut" style="margin-top:0">10 quick items. Each starts with an intact sentence for context, then a few gaps. <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><button onclick="bStart()">Start</button></div>${bInfo()}`};
-function bStart(){const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-const bl0=BLITZ.map((x,i)=>({i,k:x[0],t:x[1]})),q=sh([...sh(pItems()).slice(0,4),...sh(bl0.filter(x=>x.k==='a')).slice(0,3),...sh(bl0.filter(x=>x.k==='v')).slice(0,3)]);
-B={q,n:0,streak:0,res:[],iv:null,to:null};bNext()}
-function bNext(){if(!B)return;if(B.n>=B.q.length)return bEnd();
+R.blitz=function(){bz();B=null;app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut" style="margin-top:0">Endless quick items – it only stops when you press <b>End Blitz</b>, then you see your score. Each starts with an intact sentence for context, then a few gaps. <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><button onclick="bStart()">Start</button></div>${bInfo()}`};
+function bQueue(){const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const bl0=BLITZ.map((x,i)=>({i,k:x[0],t:x[1]}));return sh([...sh(pItems()).slice(0,4),...sh(bl0.filter(x=>x.k==='a')).slice(0,3),...sh(bl0.filter(x=>x.k==='v')).slice(0,3)])}
+function bStart(){bz();B={q:bQueue(),n:0,streak:0,max:0,res:[],iv:null,to:null};bNext()}
+function bNext(){if(!B)return;if(B.n>=B.q.length){const nq=bQueue(),last=B.q[B.q.length-1];if(nq.length>1&&nq[0].i===last.i)nq.push(nq.shift());B.q=B.q.concat(nq)}
 const it=B.q[B.n],tok=parse({text:it.t}),g=tok.filter(x=>typeof x==='object').length;
 B.cur={it,tok,g,total:(g*5+4)*1000,t0:Date.now(),done:false};
-app.innerHTML=`<div class="bar"><div class="clock" id="bc">0</div><div class="mut">${B.n+1}/${B.q.length} · 🔥 ${B.streak}</div><button class="g" onclick="go('blitz')">Quit</button></div><div class="card"><div style="height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:14px"><div id="bb" style="height:100%;width:100%;background:var(--acc)"></div></div><div class="txt" id="bt">${tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(x.g+x.m)}">${esc(x.g)}<input autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div id="br" style="margin-top:10px"></div></div>`;
+app.innerHTML=`<div class="bar"><div class="clock" id="bc">0</div><div class="mut">#${B.n+1} · 🔥 ${B.streak}</div><button class="g" onclick="bEnd()">End Blitz</button></div><div class="card"><div style="height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:14px"><div id="bb" style="height:100%;width:100%;background:var(--acc)"></div></div><div class="txt" id="bt">${tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(x.g+x.m)}">${esc(x.g)}<input autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div id="br" style="margin-top:10px"></div></div>`;
 const ins=[...document.querySelectorAll('#bt .gap input')];
 ins.forEach((el,i)=>{el.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();ins[i+1]?ins[i+1].focus():bSubmit()}else if(e.key===' '||e.key==='ArrowRight'){if(ins[i+1]){e.preventDefault();ins[i+1].focus()}}else if(e.key==='Backspace'&&!el.value&&ins[i-1]){e.preventDefault();ins[i-1].focus()}else if(e.key==='ArrowLeft'&&ins[i-1]&&el.selectionStart===0)ins[i-1].focus()}});
 ins[0].focus();const c=B.cur;
@@ -479,7 +1119,7 @@ function bSubmit(){const b=B;if(!b||b.cur.done)return;const c=b.cur;c.done=true;
 const el=Math.min(c.total,Date.now()-c.t0),secs=Math.round(el/1000),frac=Math.max(0,1-el/c.total);
 const gaps=c.tok.filter(x=>typeof x==='object'),els=document.querySelectorAll('#bt .gap'),mistakes=[];let ok=0;
 gaps.forEach((g,i)=>{const inp=els[i].querySelector('input'),v=inp.value.trim();inp.disabled=true;if(g.m.split('/').some(x=>x.trim().toLowerCase()===v.toLowerCase())){ok++;els[i].classList.add('ok')}else{els[i].classList.add('wrong');mistakes.push({gap:i,given:g.g,typed:v,correct:g.g+g.m})}});
-const perfect=!mistakes.length;b.streak=perfect?b.streak+1:0;
+const perfect=!mistakes.length;b.streak=perfect?b.streak+1:0;b.max=Math.max(b.max,b.streak);
 b.res.push({ok,total:gaps.length,mistakes:mistakes.map(m=>({...m,why:why(c,m)}))});
 const plain=c.it.t.replace(/\{[^|{}]*\|[^{}]*\}/g,'').replace(/\s+/g,' ').trim();
 const at={id:Date.now()+'-'+D.me,user:D.me,testId:'blitz-'+c.it.i,testTitle:'Blitz · '+plain.slice(0,30),ts:Date.now(),secs,total:gaps.length,correct:ok,mistakes};
@@ -488,8 +1128,8 @@ const full=c.tok.map(x=>typeof x==='string'?x:x.g+x.m).join('').replace(/\s+/g,'
 $('#br').innerHTML=`<p class="mut">${perfect?'Perfect':''}</p>${b.res[b.res.length-1].mistakes.map(xpl).join('')}${perfect?'':`<p class="mut">${esc(full)}</p>`}<button onclick="bGo()">Next (Space)</button>`}
 document.addEventListener('keydown',e=>{if(B&&B.cur&&B.cur.done&&!e.repeat&&(e.key===' '||e.key==='Enter')&&Date.now()-B.cur.doneAt>300){e.preventDefault();bGo()}});
 function bGo(){if(!B)return;clearTimeout(B.to);B.n++;bNext()}
-function bEnd(){const t=B.res.reduce((s,r)=>s+r.total,0),ok=B.res.reduce((s,r)=>s+r.ok,0),miss=B.res.flatMap(r=>r.mistakes);
-app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?Math.round(ok/t*100):0}%</div><p><b>${ok}/${t}</b> gaps correct</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>${bInfo()}`;B=null}
+function bEnd(){if(!B)return;bz();const t=B.res.reduce((s,r)=>s+r.total,0),ok=B.res.reduce((s,r)=>s+r.ok,0),miss=B.res.flatMap(r=>r.mistakes);
+app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?Math.round(ok/t*100):0}%</div><p><b>${ok}/${t}</b> gaps correct · ${B.res.length} item${B.res.length===1?'':'s'} · best streak 🔥 ${B.max}</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>${bInfo()}`;B=null}
 // ----- Präpositionen mode -----
 // [prep, code, text]  code: A/D/G = fixed case, WA/WD = two-way (Wohin?/Wo?), VA/VD = fixed with a verb. [prep] becomes a half-word gap when "Preposition + article" is on.
 const PG={A:['für','durch','gegen','ohne','um','bis'],D:['aus','bei','mit','nach','seit','von','zu','gegenüber','ab','außer'],W:['an','auf','hinter','in','neben','über','unter','vor','zwischen'],G:['wegen','trotz','während','statt','innerhalb','außerhalb']};
@@ -576,15 +1216,29 @@ return`<div class="card"><div class="lab" style="padding-left:0">Präpositionen 
 // ===== ACTIVITY TRACKING =====
 const DAY=ts=>{const d=new Date(ts);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const DEV=(()=>{try{let d=localStorage.getItem('ctdev');if(!d){d=Math.random().toString(36).slice(2,8);localStorage.setItem('ctdev',d)}return d}catch(e){return'x'}})();
-const DIRTY=new Set();let RT={},tkL=Date.now(),tkA=Date.now(),tkD=false,tkU=null,tkDay=null,tkP=Date.now(),ac={m:'all',p:'all'};
-['keydown','mousedown','mousemove','touchstart','scroll','click'].forEach(ev=>addEventListener(ev,()=>{tkA=Date.now()},{passive:true}));
-function pushTime(u,d){if(cloud&&D.time[u]&&D.time[u][d]!=null)cloud.set('time',{id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(D.time[u][d])}).catch(e=>{cloudOk=false;console.warn(e)})}
+const DIRTY=new Set();let RT={},tkL=Date.now(),tkA=0,tkD=false,tkP=Date.now(),ac={m:'all',p:'all'};
+const IDLE=60000,MAXD=16*3600; // active = tab visible + window focused + real input in the last 60s; >16h/day is impossible
+D.tmeta=D.tmeta||{};
+['keydown','mousedown','touchstart','scroll','wheel','click','input'].forEach(ev=>addEventListener(ev,()=>{tkA=Date.now()},{passive:true,capture:true}));
+// a time row is only trusted if it is physically possible: sane number, real date, not in the future, and never more active seconds than wall-clock time between its first and last tick
+function okRow(r){const now=Date.now();
+if(!r||typeof r.secs!=='number'||!isFinite(r.secs)||r.secs<0||r.secs>MAXD||!/^\d{4}-\d\d-\d\d$/.test(r.day||''))return false;
+if(r.day>DAY(now+864e5))return false;
+if(r.t0!=null){if(typeof r.t0!=='number'||typeof r.ts!=='number'||r.ts>now+3e5||r.t0>r.ts||r.secs>(r.ts-r.t0)/1000+120)return false}
+else if(r.day===DAY(now)){const d0=new Date(now);d0.setHours(0,0,0,0);if(r.secs>(now-d0)/1000+120)return false}
+return true}
+const mrow=(u,day)=>{const m=(D.tmeta[u]||{})[day]||{};return{user:u,day,secs:D.time[u][day],t0:m.t0,ts:m.ts}};
+(function cleanTime(){const now=Date.now();Object.keys(D.time).forEach(u=>Object.keys(D.time[u]).forEach(day=>{
+if(!okRow(mrow(u,day))){delete D.time[u][day];if(D.tmeta[u])delete D.tmeta[u][day];return}
+const mm=D.tmeta[u]=D.tmeta[u]||{};if(!mm[day])mm[day]={t0:now-D.time[u][day]*1000,ts:now}}));save()})();
+function pushTime(u,d){const s=D.time[u]&&D.time[u][d];if(!cloud||s==null)return;const m=(D.tmeta[u]||{})[d]||{},row={id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(s),t0:m.t0,ts:m.ts};if(row.t0==null||!okRow(row))return;cloud.set('time',row).catch(e=>{cloudOk=false;console.warn(e)})}
 function flushTime(){if(!tkD&&!DIRTY.size)return;tkD=false;save();if(cloud){DIRTY.forEach(k=>{const[u,d]=k.split('|');pushTime(u,d)});DIRTY.clear()}lbRefresh()}
 setInterval(()=>{const now=Date.now(),dt=Math.min(10,(now-tkL)/1000);tkL=now;
-if(D.me&&!document.hidden&&now-tkA<=120000){tkU=D.me;tkDay=DAY(now);DIRTY.add(tkU+'|'+tkDay);const u=D.time[D.me]=D.time[D.me]||{};u[tkDay]=(u[tkDay]||0)+dt;tkD=true}
+if(D.me&&!document.hidden&&document.hasFocus()&&now-tkA<=IDLE){const day=DAY(now),u=D.time[D.me]=D.time[D.me]||{},mm=D.tmeta[D.me]=D.tmeta[D.me]||{};
+if(!mm[day])mm[day]={t0:now-(u[day]||0)*1000};mm[day].ts=now;u[day]=(u[day]||0)+dt;DIRTY.add(D.me+'|'+day);tkD=true}
 if(now-tkP>=30000){tkP=now;flushTime()}},5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flushTime()});addEventListener('pagehide',flushTime);
-function timeRows(){const o=[];Object.entries(D.time||{}).forEach(([u,m])=>Object.entries(m).forEach(([day,secs])=>o.push({user:u,day,secs})));Object.values(RT).forEach(r=>{if(r.dev!==DEV)o.push({user:r.user,day:r.day,secs:r.secs})});return o}
+function timeRows(){const o=[];Object.entries(D.time||{}).forEach(([u,m])=>Object.keys(m).forEach(day=>{if(okRow(mrow(u,day)))o.push({user:u,day,secs:m[day]})}));Object.values(RT).forEach(r=>{if(r.dev!==DEV)o.push({user:r.user,day:r.day,secs:r.secs})});return o}
 const fmtDur=x=>{x=Math.round(x);if(x<60)return x+'s';const m=Math.round(x/60);return m<60?m+' min':Math.floor(m/60)+'h '+String(m%60).padStart(2,'0')+'m'};
 const isBl=a=>String(a.testId).startsWith('blitz-'),sum=(l,f)=>l.reduce((s,x)=>s+f(x),0);
 function uStats(u){const cut=ac.p==='all'?'':DAY(Date.now()-(+ac.p-1)*864e5);
@@ -619,8 +1273,9 @@ const rt=F.getDatabase(initializeApp(FIREBASE_CONFIG));cloud={set:(col,o)=>F.set
 const sub=(col,key)=>F.onValue(F.ref(rt,col),s=>{const v=s.val()||{},rows=Object.values(v).map(r=>{if(key==='attempts')r.mistakes=r.mistakes||[];return r}),ids=new Set(rows.map(r=>String(r.id))),loc=D[key];rows.forEach(r=>{if(!loc.some(x=>String(x.id)===String(r.id)))loc.push(r)});if(!seeded[col]){seeded[col]=1;loc.forEach(x=>{if(!ids.has(String(x.id)))push(col,x)})}cloudOk=true;save();hdr();if(['home','list','stats'].includes(view))R[view]();lbRefresh()},e=>{cloudOk=false;console.warn(e)});
 sub('attempts','attempts');sub('tests','tests');
 F.onValue(F.ref(rt,'edits'),sn=>{const v=sn.val()||{};let ch=false;Object.values(v).forEach(r=>{if(!r||!r.id)return;const l=D.edits[r.id];if(!l||(l.ts||0)<(r.ts||0)){D.edits[r.id]=r;ch=true}});Object.values(D.edits).forEach(l=>{const r=v[l.id];if(!r||(r.ts||0)<(l.ts||0))push('edits',l)});cloudOk=true;if(ch){save();if(['home','list','stats'].includes(view))R[view]()}},e=>{cloudOk=false;console.warn(e)});
-F.onValue(F.ref(rt,'time'),sn=>{const v=sn.val()||{};RT={};Object.values(v).forEach(r=>{if(r&&r.user&&r.day&&r.id)RT[r.id]=r});
-if(!seeded.time){seeded.time=1;Object.entries(D.time).forEach(([u,m])=>Object.entries(m).forEach(([d,x])=>{const q=RT[u+'_'+d+'_'+DEV];if(!q||q.secs<x)pushTime(u,d)}))}
+F.onValue(F.ref(rt,'time'),sn=>{const v=sn.val()||{};RT={};Object.values(v).forEach(r=>{if(r&&r.user&&r.day&&r.id&&okRow(r))RT[r.id]=r});
+Object.values(RT).forEach(r=>{if(r.dev!==DEV||!USERS.includes(r.user))return;const u=D.time[r.user]=D.time[r.user]||{};if((u[r.day]||0)<r.secs){u[r.day]=r.secs;(D.tmeta[r.user]=D.tmeta[r.user]||{})[r.day]={t0:r.t0!=null?r.t0:Date.now()-r.secs*1000,ts:r.ts!=null?r.ts:Date.now()}}});
+if(!seeded.time){seeded.time=1;Object.entries(D.time).forEach(([u,m])=>Object.keys(m).forEach(d=>{const q=RT[u+'_'+d+'_'+DEV];if(!q||q.secs<m[d])pushTime(u,d)}))}
 cloudOk=true;lbRefresh()},e=>{cloudOk=false;console.warn(e)});hdr()}catch(e){cloudOk=false;console.warn(e)}})();
 go(D.me?'home':'users');
 </script></body></html>
