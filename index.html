@@ -1103,14 +1103,44 @@ return`${head}. ${rule}${ty}`}
 const xpl=m=>`<div class="xp"><b>${esc(m.given)}<span class="k">${esc(m.typed||'…')}</span> → ${esc(m.correct)}</b>${m.why?'<div>'+m.why+'</div>':''}</div>`;
 let B=null;
 function bz(){if(B){clearInterval(B.iv);clearTimeout(B.to)}}
-R.blitz=function(){bz();B=null;app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut" style="margin-top:0">Endless quick items – it only stops when you press <b>End Blitz</b>, then you see your score. Each starts with an intact sentence for context, then a few gaps. <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><button onclick="bStart()">Start</button></div>${bInfo()}`};
+// ----- Smart Blitz: picks items from your own mistakes -----
+const PLAB={A:'Akkusativ prepositions',D:'Dativ prepositions',G:'Genitiv prepositions',WA:'two-way, Wohin? (Akk)',WD:'two-way, Wo? (Dat)',VA:'verb + Akk preposition',VD:'verb + Dat preposition'};
+const bLabel=c=>c==='v'?'vocabulary half-words':c.startsWith('a:')?'adjective ending -'+c.slice(2):c.startsWith('p:')?(PLAB[c.slice(2)]||'prepositions'):c;
+const gapsOf=t=>parse({text:t}).filter(x=>typeof x==='object');
+const catsOf=it=>it.k==='a'?gapsOf(it.t).map(g=>'a:'+g.m.split('/')[0].trim()):[it.k==='p'?'p:'+it.cs:'v'];
+function bItemOf(id){const k=String(id).slice(6);if(k[0]==='p'){const n=+k.slice(1),x=PREP[n];return x?{k:'p',cs:x[1],i:'p'+n,t:x[2].replace(/\[(.+?)\]/g,'$1')}:null}const x=BLITZ[+k];return x?{k:x[0],t:x[1],i:+k}:null}
+const bPlain=t=>t.replace(/\{([^|{}]*)\|([^{}]*)\}/g,(_,g,m)=>g+m.split('/')[0].trim());
+function bStats(u){const ex={},ms={},items={};
+D.attempts.filter(a=>a.user===u&&isBl(a)).sort((x,y)=>x.ts-y.ts).forEach(a=>{const it=bItemOf(a.testId);if(!it)return;(items[a.testId]=items[a.testId]||[]).push(a);
+const add=(c,e,m)=>{ex[c]=(ex[c]||0)+e;ms[c]=(ms[c]||0)+m},mis=a.mistakes||[];
+if(it.k==='a')catsOf(it).forEach((c,gi)=>add(c,1,mis.some(m=>m.gap===gi)?1:0));else add(catsOf(it)[0],a.total,mis.length)});
+return{ex,ms,items}}
+const bRate=(st,c)=>((st.ms[c]||0)+1)/((st.ex[c]||0)+4);
+// score = baseline + recent error rate + "due for review" (interval grows with each perfect run) + weakness of the item's categories; unseen items get an exploration bonus
+function bScore(it,st){const cats=catsOf(it),rates=cats.map(c=>bRate(st,c)),wk=rates.reduce((a,b)=>a+b,0)/rates.length,wr=Math.max(...rates),wl=bLabel(cats[rates.indexOf(wr)]),h=st.items['blitz-'+it.i];
+if(!h)return{s:.55+.9*wk,why:wr>=.4?'new item · targets your weak spot: '+wl:'new item'};
+let ws=0,es=0;h.slice().reverse().forEach((a,age)=>{const w=Math.pow(.6,age);ws+=w;es+=w*(1-a.correct/a.total)});const e=es/ws,last=h[h.length-1];
+let streak=0;for(let j=h.length-1;j>=0&&h[j].correct===h[j].total;j--)streak++;
+const d=(Date.now()-last.ts)/864e5,iv=[.25,1,3,7,14][Math.min(streak,4)],due=Math.min(2,d/iv);
+let s=.15+1.6*e+.5*due*(.4+e)+.9*wk;if(streak>=3&&e<.1)s*=.3;
+const why=streak===0&&last.correct<last.total?'you missed this last time':e>=.3?'you often miss this one':wr>=.4?'weak spot: '+wl:due>=1?'due for review':'refresher';
+return{s,why}}
+function bPick(){const st=bStats(D.me),rec=new Set(B.recent),pool=[...BLITZ.map((x,i)=>({i,k:x[0],t:x[1]})),...pItems()].filter(it=>!rec.has(it.i)&&gapsOf(it.t).length);
+const sc=pool.map(it=>{const r=bScore(it,st);return{it,w:r.s*r.s+.02,why:r.why}}),tot=sc.reduce((a,x)=>a+x.w,0);let r=Math.random()*tot,pick=sc[sc.length-1];for(const x of sc){r-=x.w;if(r<=0){pick=x;break}}
+B.recent.push(pick.it.i);if(B.recent.length>25)B.recent.shift();pick.it.why=pick.why;return pick.it}
+function bWeak(){const st=bStats(D.me);if(!Object.keys(st.items).length)return'';
+const cats=Object.keys(st.ex).filter(c=>st.ex[c]>=4&&st.ms[c]>0).sort((a,b)=>bRate(st,b)-bRate(st,a)).slice(0,4);
+const its=Object.entries(st.items).map(([id,h])=>[id,h.reduce((a,x)=>a+x.total-x.correct,0)]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,3);
+if(!cats.length&&!its.length)return'';
+return`<div class="card"><div class="lab" style="padding-left:0">Your weak spots in Blitz</div>${cats.map(c=>`<div class="tw"><b style="min-width:3.5em;font:600 16px system-ui,sans-serif">${Math.round(st.ms[c]/st.ex[c]*100)}%</b><span style="color:var(--ink)">${esc(bLabel(c))} <span class="mut">· ${st.ms[c]} of ${st.ex[c]} missed</span></span></div>`).join('')}${its.length?`<div class="lab" style="padding-left:0;margin-top:10px">Most missed sentences</div>`+its.map(([id,n])=>{const it=bItemOf(id);return it?`<div class="mut" style="margin:4px 0">${n}× · ${esc(bPlain(it.t).slice(0,90))}</div>`:''}).join(''):''}</div>`}
+R.blitz=function(){bz();B=null;app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut" style="margin-top:0">Endless quick items – it only stops when you press <b>End Blitz</b>, then you see your score. Each starts with an intact sentence for context, then a few gaps. <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><button onclick="bStart()">Start</button> <button class="g" onclick="bStart('smart')">🎯 Smart Blitz</button><p class="mut" style="margin:10px 0 0;font-size:13px">Smart Blitz picks sentences from your own mistakes: items you missed recently, items due for review, and the endings and prepositions you get wrong most.</p></div>${bWeak()}${bInfo()}`};
 function bQueue(){const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const bl0=BLITZ.map((x,i)=>({i,k:x[0],t:x[1]}));return sh([...sh(pItems()).slice(0,4),...sh(bl0.filter(x=>x.k==='a')).slice(0,3),...sh(bl0.filter(x=>x.k==='v')).slice(0,3)])}
-function bStart(){bz();B={q:bQueue(),n:0,streak:0,max:0,res:[],iv:null,to:null};bNext()}
-function bNext(){if(!B)return;if(B.n>=B.q.length){const nq=bQueue(),last=B.q[B.q.length-1];if(nq.length>1&&nq[0].i===last.i)nq.push(nq.shift());B.q=B.q.concat(nq)}
+function bStart(mode){bz();B={q:mode==='smart'?[]:bQueue(),n:0,streak:0,max:0,res:[],iv:null,to:null,mode:mode==='smart'?'smart':'',recent:[]};bNext()}
+function bNext(){if(!B)return;if(B.n>=B.q.length){if(B.mode==='smart')B.q.push(bPick());else{const nq=bQueue(),last=B.q[B.q.length-1];if(nq.length>1&&nq[0].i===last.i)nq.push(nq.shift());B.q=B.q.concat(nq)}}
 const it=B.q[B.n],tok=parse({text:it.t}),g=tok.filter(x=>typeof x==='object').length;
 B.cur={it,tok,g,total:(g*5+4)*1000,t0:Date.now(),done:false};
-app.innerHTML=`<div class="bar"><div class="clock" id="bc">0</div><div class="mut">#${B.n+1} · 🔥 ${B.streak}</div><button class="g" onclick="bEnd()">End Blitz</button></div><div class="card"><div style="height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:14px"><div id="bb" style="height:100%;width:100%;background:var(--acc)"></div></div><div class="txt" id="bt">${tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(x.g+x.m)}">${esc(x.g)}<input autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div id="br" style="margin-top:10px"></div></div>`;
+app.innerHTML=`<div class="bar"><div class="clock" id="bc">0</div><div class="mut">#${B.n+1} · 🔥 ${B.streak}</div><button class="g" onclick="bEnd()">End Blitz</button></div><div class="card"><div style="height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:14px"><div id="bb" style="height:100%;width:100%;background:var(--acc)"></div></div>${B.mode==='smart'&&it.why?`<div class="mut" style="font-size:12px;margin:-4px 0 8px">🎯 ${esc(it.why)}</div>`:''}<div class="txt" id="bt">${tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(x.g+x.m)}">${esc(x.g)}<input autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div id="br" style="margin-top:10px"></div></div>`;
 const ins=[...document.querySelectorAll('#bt .gap input')];
 ins.forEach((el,i)=>{el.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();ins[i+1]?ins[i+1].focus():bSubmit()}else if(e.key===' '||e.key==='ArrowRight'){if(ins[i+1]){e.preventDefault();ins[i+1].focus()}}else if(e.key==='Backspace'&&!el.value&&ins[i-1]){e.preventDefault();ins[i-1].focus()}else if(e.key==='ArrowLeft'&&ins[i-1]&&el.selectionStart===0)ins[i-1].focus()}});
 ins[0].focus();const c=B.cur;
@@ -1129,7 +1159,7 @@ $('#br').innerHTML=`<p class="mut">${perfect?'Perfect':''}</p>${b.res[b.res.leng
 document.addEventListener('keydown',e=>{if(B&&B.cur&&B.cur.done&&!e.repeat&&(e.key===' '||e.key==='Enter')&&Date.now()-B.cur.doneAt>300){e.preventDefault();bGo()}});
 function bGo(){if(!B)return;clearTimeout(B.to);B.n++;bNext()}
 function bEnd(){if(!B)return;bz();const t=B.res.reduce((s,r)=>s+r.total,0),ok=B.res.reduce((s,r)=>s+r.ok,0),miss=B.res.flatMap(r=>r.mistakes);
-app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?Math.round(ok/t*100):0}%</div><p><b>${ok}/${t}</b> gaps correct · ${B.res.length} item${B.res.length===1?'':'s'} · best streak 🔥 ${B.max}</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>${bInfo()}`;B=null}
+app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?Math.round(ok/t*100):0}%</div><p><b>${ok}/${t}</b> gaps correct · ${B.res.length} item${B.res.length===1?'':'s'} · best streak 🔥 ${B.max}</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart('${B.mode}')">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>${bInfo()}`;B=null}
 // ----- Präpositionen mode -----
 // [prep, code, text]  code: A/D/G = fixed case, WA/WD = two-way (Wohin?/Wo?), VA/VD = fixed with a verb. [prep] becomes a half-word gap when "Preposition + article" is on.
 const PG={A:['für','durch','gegen','ohne','um','bis'],D:['aus','bei','mit','nach','seit','von','zu','gegenüber','ab','außer'],W:['an','auf','hinter','in','neben','über','unter','vor','zwischen'],G:['wegen','trotz','während','statt','innerhalb','außerhalb']};
