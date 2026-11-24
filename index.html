@@ -76,8 +76,64 @@ details summary{cursor:pointer;font-weight:500}.tag{display:inline-block;backgro
 button.dng{background:var(--bad);color:var(--bg)}
 .tw{display:flex;gap:12px;align-items:baseline;padding:7px 0;border-top:1px solid var(--line)}.tw b{flex:none;min-width:4.6em;font:600 18px ui-serif,Georgia,serif}.tw b u{text-decoration:none;color:var(--acc)}.tw span{font-size:14px;color:var(--mut);line-height:1.4}.tw.dim{opacity:.45}
 details.card>summary{font-size:17px;font-weight:600}.tipb{margin-top:10px;font-size:15px}.tipb p{margin:8px 0}.tipb ul{margin:8px 0;padding-left:20px}.tipb li{margin:5px 0}.tipb table{margin:8px 0}.tipb td,.tipb th{vertical-align:top}.tipb .mut{font-size:13px}
+
+.mnav{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line)}
+.mnav button{width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:8px;background:transparent;color:var(--ink);border:1px solid var(--line);font-variant-numeric:tabular-nums}
+.mnav button:hover{background:var(--bg);opacity:1}.mnav button.dn{border-color:var(--acc);color:var(--acc)}
+.mnav button.on{background:var(--btn);color:var(--bi);border-color:var(--btn)}
+.mnav button.ok{border-color:var(--ok);background:var(--okbg);color:var(--ok)}.mnav button.bd{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
+.mnav button.on.ok{background:var(--ok);color:var(--bg)}.mnav button.on.bd{background:var(--bad);color:var(--bg)}
+.mnav button:disabled{opacity:.35}
+
+.mh{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 4px}
+.mn{font-weight:600;font-size:15px;color:var(--acc);letter-spacing:.02em;text-transform:uppercase}.mn small{color:var(--mut);font-weight:500}
+.mpb{flex:0 0 110px;height:5px;border-radius:3px;background:var(--line);overflow:hidden}.mpb i{display:block;height:100%;background:var(--acc);border-radius:3px}
+.mq{font-size:17px;line-height:1.55;margin:8px 0 10px}
+.meq{font:24px/1.3 ui-serif,Georgia,"Times New Roman",serif;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+.meq i,.mpv i,.mr i{font-style:italic}
+.mo{margin:0 .32em}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .15em;font-size:.92em;line-height:1.25}
+.int{display:inline-grid;grid-template-columns:auto auto;vertical-align:middle;margin:0 .3em 0 .1em;line-height:1}.int .is{grid-column:1;grid-row:1/3;align-self:center;font-size:2.3em;font-weight:300;line-height:1;transform:scaleX(.8)}.int .ih{grid-column:2;grid-row:1;align-self:start;font-size:.68em;margin-left:.1em;white-space:nowrap}.int .il{grid-column:2;grid-row:2;align-self:end;font-size:.68em;margin-left:-.5em;white-space:nowrap}.int.n0 .is{grid-row:1}
+.fr>.nu{border-bottom:1.5px solid currentColor;padding:0 .3em .05em}.fr>.de{padding:.05em .3em 0}
+.sq{display:inline-flex;align-items:stretch}.sg{font-size:1.15em;line-height:1}.rd{border-top:1.5px solid currentColor;padding:0 .2em;margin-left:-.05em}
+.meq sup,.mpv sup,.mr sup{font-size:.62em;line-height:0;margin-left:.05em}
+.mfig{margin:8px 0}
+.man{border:1px solid var(--line);border-radius:10px;padding:12px 16px 8px;margin-top:14px}
+.mf{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;padding:7px 0}.mf+.mf{border-top:1px dashed var(--line)}
+.mf label{display:flex;align-items:center;gap:10px}.ml{font:600 19px ui-serif,Georgia,serif;min-width:2.4em}
+.mf input.t{width:11em;font-size:18px;padding:8px 12px;margin:0}
+.mpv{font:22px/1.2 ui-serif,Georgia,serif;color:var(--mut)}.mr{flex-basis:100%;color:var(--ok);font:19px/1.4 ui-serif,Georgia,serif;padding-left:2px}
+.mnv{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.mkp{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.mkp button{min-width:40px;height:36px;padding:0 10px;font:18px ui-serif,Georgia,serif}.mkp .mut{font-size:12px;flex-basis:100%}
+.mhint{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--mut);margin:8px 0 0}
+
+.mfld{display:inline-flex;align-items:center;min-width:11em;max-width:100%;min-height:46px;padding:4px 14px;border:1px solid var(--line);border-radius:8px;font:24px/1.35 ui-serif,Georgia,"Times New Roman",serif;color:var(--ink);cursor:text;position:relative;overflow-x:auto;transition:border-color .15s}
+.mfld.foc{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 20%,transparent)}.mfld.dis{cursor:default}
+.mfv{white-space:nowrap}.mfld i{font-style:italic}.mfld .fr{font-size:.95em}.mfld sup{font-size:.65em;line-height:0}
+.mhid{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;border:0;padding:0;margin:0;font-size:16px;pointer-events:none}
+.cur{display:inline-block;width:2px;height:1.15em;background:var(--acc);vertical-align:text-bottom;margin:0 -1px;animation:mblink 1s steps(1) infinite}
+.mfld:not(.foc) .cur{display:none}@keyframes mblink{50%{opacity:0}}
+.mph{display:inline-block;min-width:.7em;min-height:1em;border:1.5px dashed var(--mut);border-radius:3px;vertical-align:middle;text-align:center;line-height:1}
+.mph:has(.cur){border-color:var(--acc)}
+.mvec{display:inline-flex;align-items:center;vertical-align:middle;margin:0 .12em}
+.mvec>b{font-weight:400;font-size:2.3em;line-height:.85}
+.mvec>span{display:inline-flex;flex-direction:column;align-items:center;padding:0 .15em;font-size:.82em;line-height:1.15}
+.mch{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.mch button{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font:19px/1.3 ui-serif,Georgia,serif;display:inline-flex;align-items:center;gap:8px}
+.mch button:hover:not(:disabled){background:var(--bg);opacity:1}
+.mch button.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 14%,transparent)}
+.mch button.ok{border-color:var(--ok);background:var(--okbg);color:var(--ok)}
+.mch button.bd{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
+.mch button:disabled{opacity:1;cursor:default}
+.mch .mcid{font:600 13px system-ui,sans-serif;color:var(--mut)}
+.gw{cursor:help}
+body.nogl .gw{border-bottom:0;cursor:auto}
+#gtip{position:fixed;z-index:70;display:none;max-width:min(320px,calc(100vw - 16px));background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:13px/1.4 system-ui,sans-serif;box-shadow:0 6px 22px rgba(0,0,0,.22);pointer-events:none}
+#gtip b{display:block;color:var(--acc);margin-bottom:2px}
+.gtg{cursor:pointer;text-decoration:underline dotted}
 </style></head><body>
-<header><span class="logo" id="logo">C-Test Prep</span><span class="sp"></span><span id="hdr" style="display:flex;gap:8px;align-items:center"></span></header>
+<header><button class="g" id="bk" onclick="goBack()" aria-label="Back" title="Back" style="display:none;padding:5px 11px;font-size:18px;line-height:1">←</button><span class="logo" id="logo">C-Test Prep</span><span class="sp"></span><span id="hdr" style="display:flex;gap:8px;align-items:center"></span></header>
 <main id="app"></main>
 <script>
 const BUILTIN=[{"id": "mun1-t1", "title": "München 1 · Text 1 – Südsee in Bayern", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 1, Text 1", "text": "Südsee und bayerische Provinz – das passt ungefähr so gut zusammen wie Piña Colada und Weißwurst. Trotzdem läuft in dem Städtchen Erding, 45 {Kilo|meter} nordöstlich {v|on} München, {d|er} Versuch, {di|ese} so {untersch|iedlichen} Lebensgefühle {un|ter} dem {gro|ßen} Glasdach {ei|nes} Thermalbades {z|u} vereinen. {I|m} Strandrestaurant »Caribbean’s« {wer|den} Cocktails {so|wie} bayerische {Spezia|litäten} zubereitet, {wäh|rend} im {war|men} Lagunenbecken Senioren Wassergymnastik zu der Reggae-Musik von Bob Marley machen. Den alten Badegästen scheint dieser Hauch von Karibik genauso gut zu gefallen wie den vielen Familien mit Kindern."}, {"id": "mun1-t2", "title": "München 1 · Text 2 – Reisekosten", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 1, Text 2", "text": "Viele Unternehmen melden in den letzten Jahren sinkende Umsätze und Gewinne, sodass sie sparen müssen. In der aktuellen Wirtschaftskrise haben deutsche Firmen einen {wich|tigen} Bereich {f|ür} Einsparungen {entd|eckt}: Sie {reduz|ieren} die {Kos|ten} für {Rei|sen} um {b|is} zu 30 {Pro|zent}. Dies {betr|ifft} einfache {Mitar|beiter} ebenso {w|ie} Geschäftsführer, {de|ren} Reisekostenabrechnung {frü|her} natürlich {au|ch} ein {teu|res} Business-Class-Ticket nach Asien beinhalten durfte. Heute reist man billiger oder gar nicht, wenn man auch per Video-Konferenz mit Geschäftspartnern verhandeln kann."}, {"id": "mun1-t3", "title": "München 1 · Text 3 – Farben", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 1, Text 3", "text": "Jede Kultur, jeder Mensch verbindet mit Farben bestimmte Gefühle, Aussagen, Wirkungen. Allgemein bekannt ist, dass {je|de} Farbe {ei|ne} spezifische {Ene|rgie} besitzt {u|nd} dass {si|ch} diese {a|uf} den {Mens|chen} übertragen {ka|nn}. Dabei {mu|ss} man {ab|er} wissen, {da|ss} der {psychol|ogische} Einfluss {v|on} Farben {a|uf} einem {vollk|ommen} anderen Prinzip basiert als die Wirkung, die farbiges Licht hat, wenn es direkt auf die Haut trifft: In diesem Fall kann es auch die körperliche Gesundheit beeinflussen, nicht nur die seelische."}, {"id": "mun1-t4", "title": "München 1 · Text 4 – Klimawandel", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 1, Text 4", "text": "Der Klimawandel bedroht die Existenz unzähliger Menschen. So warnen Experten vom UN-Klimarat {da|vor}, dass {sc|hon} in {unge|fähr} 70 Jahren {vi|ele} Küstengebiete {du|rch} große {Überschw|emmungen} zerstört {wer|den} könnten. {Da|von} betroffen {wä|ren} Millionen {v|on} Menschen, {beso|nders} in {As|ien}. Unvorstellbar, {wel|che} sozialen {Prob|leme} dadurch {verur|sacht} würden, wenn auf einmal all diese Menschen eine neue Heimat suchen müssten! Dabei ist laut der Experten der Anstieg des Meeresspiegels nur eine von vielen erwartbaren Folgen des Klimawandels."}, {"id": "mun1-t5", "title": "München 1 · Text 5 – Sport", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 1, Text 5", "text": "Viele Menschen bewegen sich zu wenig, oft aus Faulheit oder weil sie viel arbeiten müssen. Dabei {we|iß} jeder, {w|ie} gesund {regelm|äßiger} Sport {i|st}. Doch {w|ie} viel {Ze|it} muss {m|an} tatsächlich {inves|tieren}, um {sei|nem} Körper {et|was} Gutes {z|u} tun? {D|ie} Weltgesundheitsorganisation {empf|iehlt} eine {ha|lbe} Stunde {p|ro} Tag – mindestens! Den meisten Menschen erscheint das jedoch in ihrem Alltag nicht machbar. Nun belegen neueste Studien: Bereits eine Viertelstunde Sport am Tag verlängert die Lebensdauer statistisch um ca. drei Jahre."}, {"id": "mun2-t1", "title": "München 2 · Text 1 – Rauchverbote", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 2, Text 1", "text": "Ein Forscherteam der WHO hat positive Auswirkungen von Rauchverboten, Warnhinweisen auf Zigarettenschachteln und Abgaben für Tabak nachgewiesen: {Üb|er} sieben {Mill|ionen} Menschen {hät|ten} dadurch {v|or} einem {frühze|itigen} Tod {bewa|hrt} werden {kön|nen}. Dass {staat|liche} Maßnahmen {ge|gen} das {risk|ante} Rauchen {z|u} einem {s|o} guten {Resu|ltat} führen {wür|den}, sei {ka|um} vorhersehbar {gew|esen}. Man {empf|iehlt} daher, {d|ie} Tabaksteuer {schrit|tweise} zu {erh|öhen}, um {me|hr} Menschen {a|ls} bisher {v|om} Rauchen {abzuh|alten}. Viele {Jugen|dliche} würden schon jetzt ihr Geld lieber für ein Smartphone sparen. Das ist sicher sinnvoller als zu qualmen."}, {"id": "mun2-t2", "title": "München 2 · Text 2 – Zimmersuche", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 2, Text 2", "text": "Die Würzburger Studentin Kristina Helmreich erfand im Jahr 2012 das sogenannte Speed-Dating bei der Zimmersuche: „Meine {eig|ene} Suche {na|ch} einer {Wohngeme|inschaft} hatte {mi|ch} unglaublich {vi|el} Mühe {geko|stet}. Deshalb {besc|hloss} ich, {regel|mäßig} ein {zeitsp|arendes}, unkompliziertes {Tre|ffen} für {intere|ssierte} Zimmersuchende {u|nd} Zimmeranbieter {z|u} organisieren. {Fü|nf} Minuten {müs|sen} jeweils {ausre|ichen}, um {herausz|ufinden}, ob {si|ch} die {bei|den} Gesprächspartner {über|haupt} ein {Le|ben} in {ei|ner} gemeinsamen {Woh|nung} vorstellen {kön|nen}. Nur {da|nn} gibt es einen Besichtigungstermin und im Idealfall auch einen Mietvertrag.“ Ein Erfolgsprojekt, wie ihre „Kunden“ meinen!"}, {"id": "mun2-t3", "title": "München 2 · Text 3 – Buchstabengröße", "source": "Studienkolleg Bayern – Beispiel Testteil A.1 (Stand Mai 2015), Muster C-Test 2, Text 3", "text": "Neurowissenschaftler haben mit Hirnmessungen herausgefunden, wie uns die Größe von Buchstaben beeinflusst. {S|ie} dient {ni|cht} nur {d|er} Lenkung {uns|erer} Aufmerksamkeit. {I|st} etwas {i|n} besonders {gro|ßen} Buchstaben {gedr|uckt}, löst {e|s} auch {stär|kere} Emotionen {a|us}. Dabei {st|eht} jedoch {d|er} Inhalt {des|sen}, was {m|an} gerade {li|est}, überraschenderweise {er|st} an {zwe|iter} Stelle. {Oh|ne} Zweifel {wei|sen} diese {mess|baren} Gefühlsreaktionen {a|uf} die {eno|rme} Bedeutung {v|on} Schrift {i|n} alphabetisierten Gesellschaften hin. Testen Sie sich selbst, wenn Sie das nächste Mal ein Werbeplakat sehen."}, {"id": "bo-t1", "title": "Bochum · Text 1 – Berufsverkehr", "source": "Studienkolleg Bochum – Die sprachliche Aufnahmeprüfung (10/2008), Text 1", "text": "Jeden Morgen müssen viele Leute pünktlich am Arbeitsplatz sein. Dazu {fah|ren} sie {entw|eder} mit {d|em} eigenen {Au|to} oder {s|ie} benutzen {öffen|tliche} Verkehrsmittel {w|ie} z.B. {Ba|hn}, Bus {od|er} Straßenbahn. {Ein|ige} fahren {m|it} dem {Fahrr|ad}. In {al|len} Fällen {si|nd} die {Str|aßen} zu {d|en} Hauptverkehrszeiten {verst|opft}; denn {im|mer} mehr {Mens|chen} wohnen {he|ute} nicht {me|hr} in {d|er} Innenstadt. {S|ie} leben {i|n} Vororten; {de|nn} da ist das Wohnen angenehmer. So nimmt die Zahl der Berufstätigen, die täglich hin und her fahren, weiter zu."}, {"id": "bo-t2", "title": "Bochum · Text 2 – Herr Peters", "source": "Studienkolleg Bochum – Die sprachliche Aufnahmeprüfung (10/2008), Text 2", "text": "Herr Peters will seinen Sohn Robert vom Flughafen abholen. Robert {ha|t} in {d|er} Türkei {Url|aub} gemacht; {e|r} will {he|ute} Nachmittag {m|it} dem {Flugz|eug} zurückkommen. {Se|in} Vater {ste|igt} ins {Au|to} und {wi|ll} gerade {abfa|hren}, als {Fr|au} Peters {ru|ft}: „Bleib {hi|er}! Robert {ha|t} eben {m|it} mir {telef|oniert}, leider {h|at} er {kei|nen} Platz {me|hr} in {d|er} Maschine {beko|mmen} und {ka|nn} erst {mor|gen} kommen.“ Herr Peters steigt aus und geht wieder ins Haus."}, {"id": "bo-t3", "title": "Bochum · Text 3 – Frau Müller", "source": "Studienkolleg Bochum – Die sprachliche Aufnahmeprüfung (10/2008), Text 3", "text": "Frau Müller erzählt ihrem Mann beim Mittagessen, was sie am Morgen erledigt hat: „Ich {b|in} zur {Spark|asse} gefahren, {ha|be} die {Mi|ete}, die {Telefonr|echnung} und {d|ie} Fernsehgebühren {bez|ahlt}. Ich {ha|be} auch 200 € {v|on} unserem {Ko|nto} abgehoben. {Dan|ach} bin {i|ch} zur {Po|st} gelaufen, {ha|be} dort {Postk|arten} gekauft {u|nd} das {Pa|ket} an {uns|ere} Tochter {abges|chickt}. Eben {b|in} ich {no|ch} bei {d|er} Stadtverwaltung {gew|esen}, um {m|ir} einen {Pa|ss} ausstellen zu lassen. Du siehst also: Ich war ununterbrochen unterwegs.“"}, {"id": "bo-t4", "title": "Bochum · Text 4 – Arbeitstag", "source": "Studienkolleg Bochum – Die sprachliche Aufnahmeprüfung (10/2008), Text 4", "text": "Die Deutschen haben in der Regel einen Arbeitstag von etwa acht Stunden. Sie {arbe|iten} an {fü|nf} Tagen {i|n} der {Wo|che} und {mac|hen} mehrere {Woc|hen} im {Ja|hr} Urlaub. {E|in} Arbeitnehmer {h|at} normalerweise {dreiß|ig} Arbeitstage {jähr|lich} frei. {M|it} den {Wochene|nden} kann {m|an} auf {ei|ne} Urlaubsdauer {v|on} sechs {Woc|hen} kommen. {D|ie} Durchschnittszahlen {gel|ten} zwar {ni|cht} für {je|den} Erwerbstätigen {u|nd} für {je|den} Beruf, {ab|er} sie {ge|ben} doch den Berufsalltag vieler Menschen in Deutschland recht genau wieder."}, {"id": "bo-t5", "title": "Bochum · Text 5 – Parteien", "source": "Studienkolleg Bochum – Die sprachliche Aufnahmeprüfung (10/2008), Text 5", "text": "In einer politischen Partei kommen Menschen mit gemeinsamen politischen Ansichten zusammen. Sie {kön|nen} das {Prog|ramm} ihrer {Par|tei} beeinflussen. {D|ie} Bürger {ei|nes} Staates {best|immen} in {fre|ien} Wahlen, {wel|che} Partei {d|ie} Regierung {bil|den} soll. {D|ie} Wahlen {si|nd} frei {u|nd} geheim. {S|o} darf {nie|mand} gezwungen {wer|den}, bestimmte {Poli|tiker} oder {Part|eien} zu {wäh|len} und {z|u} sagen, {w|en} er {gew|ählt} hat. {Na|ch} einigen {Jah|ren} gibt {e|s} wieder Wahlen, denn zu einem demokratischen Staat gehört der Regierungswechsel."}, {"id": "bo-t6", "title": "Bochum · Text 6 – Energie", "source": "Studienkolleg Bochum – Die sprachliche Aufnahmeprüfung (10/2008), Text 6", "text": "Energie tritt in verschiedenen Formen auf, und sie hat von Anfang an die Geschichte des Menschen beeinflusst. Alles, {w|as} ein {Men|sch} tut, {d|ie} kleinste {Bewe|gung} wie {au|ch} die {grö|ßte} Anstrengung, {bra|ucht} Energie. {D|ie} menschliche {Kul|tur} von {ih|ren} Anfängen {b|is} heute {ka|nn} man {a|ls} eine {Gesch|ichte} immer {stär|kerer}, komplizierterer {Energien|utzung} betrachten. {Zue|rst} hatte {m|an} nur {Muskelk|raft} zur {Verf|ügung}. Schon {fr|üh} benutzten {Mens|chen} auch {Fe|uer}, um {Spe|isen} zu {koc|hen}. Aber es dauerte Jahrtausende, bis Wärmekraftmaschinen erfunden wurden."}, {"id": "da-t1", "title": "Darmstadt · Text 1 – Urlaubsreise", "source": "Internationales Studienkolleg TU Darmstadt – Beispiel für einen Deutsch-Aufnahmetest, Text 1", "text": "Bei der Planung von Urlaubsreisen ins Ausland sollte man bedenken: Nur {d|as} mitnehmen, {w|as} man {wirk|lich} braucht! {Da|zu} gehören {i|n} jedem {Fa|ll} die {Reisedoku|mente}, ein {gu|ter} Reiseführer {u|nd} ein {Wörter|buch}, die {Ti|ckets} sowie {ei|ne} Adressenliste. {We|lche} Kleidung {m|an} einpackt, {hä|ngt} vom {Zi|el} ab. {W|er} alleine {unte|rwegs} ist, {br|aucht} für {Notf|älle} eine {kle|ine} Reiseapotheke. {Obw|ohl} man {Ge|ld} fast {übe|rall} einfach {wech|seln} oder {abh|eben} kann, {empf|iehlt} es {si|ch}, eine {kle|ine} Summe {sc|hon} vor {d|er} Reise {umzuta|uschen}: Und {schli|eßlich} gehört {no|ch} etwas {i|m} Gepäck: Der eigene Hausschlüssel."}, {"id": "da-t2", "title": "Darmstadt · Text 2 – Einstein", "source": "Internationales Studienkolleg TU Darmstadt – Beispiel für einen Deutsch-Aufnahmetest, Text 2", "text": "Lange lebte die Familie Einstein in einer Mietwohnung in Berlin. Im Frühjahr 1929 {pl|ante} Albert Einstein {d|en} Bau {ei|nes} eigenen {Hau|ses}. Die {Fam|ilie} hatte {zw|ar} nur {we|nig} Geld, {ab|er} Einsteins {Tra|um} war {e|in} kleines {Ha|us} im {Grü|nen}, wo {e|r} in {Ru|he} nachdenken {kon|nte}. Als {e|s} dann {m|it} der {Pl|anung} endlich {sow|eit} war, {kontro|llierte} Einstein {d|ie} statischen {Berech|nungen} des {gepl|anten} Baus, {k|am} aber {z|u} anderen {Ergeb|nissen} als {vor|her} der {Arch|itekt}. Einsteins {Ass|istent} überprüfte {al|les} noch {ein|mal}. Zu {sei|ner} großen {Überra|schung} aber {mus|ste} er etwas {fests|tellen}: Der berühmte Physiker hatte sich beim Multiplizieren vertan."}, {"id": "da-t3", "title": "Darmstadt · Text 3 – Moung Yin", "source": "Internationales Studienkolleg TU Darmstadt – Beispiel für einen Deutsch-Aufnahmetest, Text 3", "text": "Moung Yin stammt aus Taiwan. Sie {le|bt} aber {sc|hon} lange {i|n} Deutschland. Sie {erz|ählt}: “Wenn {me|ine} Familie {a|us} Taiwan {z|u} Besuch {ko|mmt}, merke {i|ch} immer, {w|ie} sehr {w|ir} uns {hi|er} schon {angep|asst} haben. {Me|in} Vater {z|um} Beispiel {ka|nn} es {überh|aupt} nicht {vers|tehen}, dass {me|in} Mann {sc|hon} seit {üb|er} zehn {Jah|ren} bei {derse|lben} großen {Fi|rma} arbeitet. {E|r} hat {au|ch} kein {Verst|ändnis} dafür, {da|ss} wir {ge|rn} in {Url|aub} fahren, {we|nn} wir {e|in} {Bedür|fnis} nach {Ru|he} und {Erho|lung} haben. Im Vergleich zu Asien wird in Deutschland sehr wenig gearbeitet.”"}, {"id": "da-t4", "title": "Darmstadt · Text 4 – Märchenerzählerin", "source": "Internationales Studienkolleg TU Darmstadt – Beispiel für einen Deutsch-Aufnahmetest, Text 4", "text": "Eine Märchenerzählerin sitzt auf gleicher Höhe mit ihrem Publikum. Dieses {sit|zt} direkt {u|m} sie {he|rum}. Ihre {Au|gen} suchen {im|mer} wieder {d|en} Blickkontakt {m|it} einzelnen {Pers|onen} als {o|b} sie {ei|ne} Antwort {erwa|rten} würde. {Ih|re} Körperhaltung {i|st} zuerst {völ|lig} entspannt, {da|nn} wieder {dyna|misch} angespannt. {Ih|re} Hände {si|nd} immer {i|n} Bewegung: {Ges|ten} laden {al|le} zum {Mitd|enken} und {Fra|gen} ein, {verdeu|tlichen} die {Fig|uren}, zeigen {au|ch}, wie {gr|oß} oder {kl|ein} die {Zuh|örer} sich {et|was} vorstellen {sol|len}. Das {wicht|igste} Requisit {ble|ibt} aber {oh|ne} Zweifel {ih|re} Stimme. Mit dieser verzaubert sie ihre Zuhörer."}, {"id": "t-bo-g1", "cat": "task", "title": "Grammatik · Präpositionen & Endungen", "source": "Studienkolleg Bochum – Prüfungsbeispiel Grammatik, Aufgabe 1", "text": "Edwin Land wurde {|am} 7. Mai 1909 in Bridgetown an der Ostküste Nordamerika{|s} geboren. {|Mit} 17 Jahren nahm er {|an} der Aufnahmeprüfung für d{|ie} berühmte Harvard-Universität teil. Er gehörte {|zu} den besten Kandidaten und bekam ein{|en} Studienplatz. Aber schon {|nach} ein paar Monaten brach der hochbegabt{|e} Mann sein Studium ab, zog in d{|ie} Millionenstadt New York, wohnte dort in ein{|er} Kellerwohnung und arbeitete an ungelöst{|en} Problemen d{|er} Physik. Erst Jahre später kehrte er {|an} die Harvard-Universität zurück."}, {"id": "t-bo-g2", "cat": "task", "title": "Grammatik · Konjunktionen", "source": "Studienkolleg Bochum – Prüfungsbeispiel Grammatik, Aufgabe 2", "text": "Die Harvard-Universität stellte dem hochbegabten Edwin Land ein eigenes Labor zur Verfügung, {|damit/so dass} er die besten Bedingungen für seine Forschung hatte. {|Nachdem} er einige interessante Erfindungen gemacht hatte, gründete Land eine eigene Firma, {|um} seine Ideen vermarkten zu können. Er verließ die Universität, {|denn} er wollte sich mit ganzer Kraft um seine Firma kümmern. {|Als} er 1943 am Geburtstag seiner Tochter viele Photos von dem dreijährigen Mädchen machte, fragte die Kleine, {|ob} sie die Bilder sofort sehen könne. Diese naive Frage des Kindes führte dazu, {|dass} der Vater eine geniale Idee entwickelte. {|Während} die Kinder im Garten spielten, dachte der Vater darüber nach, {|wie} er eine Sofortbildkamera konstruieren könnte. Noch {|bevor} der Tag zu Ende war, hatte er die Lösung. Seine Tochter Jennifer war sehr zufrieden, {|weil} sie in Zukunft ihre Geburtstagsbilder sofort ansehen konnte. {|Obwohl} Edwin Land durch seine nächste Erfindung 70 Millionen Dollar verlor, blieb er einer der reichsten Männer Amerikas."}, {"id": "t-ki-g", "cat": "task", "title": "Grammatik · Akkusativ oder Dativ", "source": "Studienkolleg Kiel – Aufnahmetest Deutsch, Aufgabe 4.3", "text": "Der Zug fuhr {|in den} Bahnhof ein.\nSeit wann lebst du {|in der} Schweiz?\n{|Hinter dem} Tisch befindet sich eine Wand.\nSie zweifeln {|an der} Richtigkeit der Aussage.\nSie steigt jeden Abend um 18:00 Uhr {|in den} Bus.\nIch komme {|aus der} Kleinstadt.\n{|An die} Wand hänge ich ein großes Bild.\nDer Vogel landete {|auf dem} Dach.\nDarf ich {|hinter dem} Bahnhof parken?"}, {"id": "t-ki-w1", "cat": "task", "title": "Wortschatz · Wortfamilien", "source": "Studienkolleg Kiel – Aufnahmetest Deutsch, Aufgabe 3.1", "text": "hoch – Komparativ: {|höher} · Nomen: {|die Höhe}\nwarm – Komparativ: {|wärmer} · Nomen: {|die Wärme}\ntrocken – Komparativ: {|trockener} · Nomen: {|die Trockenheit}\nfrisch – Komparativ: {|frischer} · Nomen: {|die Frische}\nleicht – Komparativ: {|leichter} · Nomen: {|die Leichtigkeit}\nhart – Komparativ: {|härter} · Nomen: {|die Härte}"}, {"id": "t-ki-w2", "cat": "task", "title": "Wortschatz · Synonyme", "source": "Studienkolleg Kiel – Aufnahmetest Deutsch, Aufgabe 3.2", "text": "reich – {|wohlhabend}\narm – {|mittellos}\ndirekt – {|unmittelbar}\ngeeignet – {|passend}\nhübsch – {|attraktiv}\nvollständig – {|komplett}\neinfach – {|leicht}\nkompliziert – {|komplex}"}, {"id": "wiki-t1", "title": "Wikipedia · Text 1 – Kaffee", "source": "Wikipedia (de) – Artikel „Kaffee“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Kaffee gehört zu den beliebtesten Getränken der Welt. Er {wi|rd} aus {d|en} gerösteten {Sam|en} der {Kaffeep|flanze} hergestellt, {d|ie} vor {all|em} in {tropi|schen} Ländern {w|ie} Brasilien {u|nd} Vietnam {wäc|hst}. Nach {d|er} Ernte {wer|den} die {Früc|hte} getrocknet, {gesc|hält} und {anschl|ießend} bei {hoh|en} Temperaturen {gerö|stet}. Dabei {entst|ehen} erst {d|ie} typischen {Aro|men}. In Deutschland trinkt jeder Einwohner im Durchschnitt mehr als 150 Liter Kaffee pro Jahr."}, {"id": "wiki-t2", "title": "Wikipedia · Text 2 – Fahrrad", "source": "Wikipedia (de) – Artikel „Fahrrad“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Das Fahrrad ist eines der wichtigsten Verkehrsmittel für kurze Strecken. Der {ers|te} Vorläufer {wur|de} von {d|em} Mannheimer {Ka|rl} Drais {erfu|nden} und {hat|te} noch {kei|ne} Pedale. {M|an} schob {si|ch} mit {d|en} Füßen {v|om} Boden {a|b}. Erst {Jahrz|ehnte} später {wur|den} Kurbeln {a|m} Vorderrad {angeb|racht}, wodurch {d|as} Fahren {deut|lich} bequemer {u|nd} schneller {wur|de}. Heute gibt es weltweit mehr als eine Milliarde Fahrräder."}, {"id": "wiki-t3", "title": "Wikipedia · Text 3 – Rhein", "source": "Wikipedia (de) – Artikel „Rhein“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Der Rhein zählt zu den längsten und wichtigsten Flüssen Europas. Er {entsp|ringt} in {d|en} Schweizer {Alp|en} und {fli|eßt} durch {mehr|ere} Länder, {bev|or} er {i|n} den {Nieder|landen} in {d|ie} Nordsee {mün|det}. Besonders {beka|nnt} ist {d|as} Obere {Mittelr|heintal} mit {sei|nen} steilen {Weinb|ergen} und {vie|len} Burgen. {D|er} Fluss {die|nt} außerdem {a|ls} bedeutende {Wasser|straße} für den Güterverkehr. Das Mittelrheintal gehört zum UNESCO-Welterbe."}, {"id": "wiki-t4", "title": "Wikipedia · Text 4 – Buchdruck", "source": "Wikipedia (de) – Artikel „Buchdruck“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Der Buchdruck mit beweglichen Lettern veränderte Europa grundlegend. Mitte {d|es} fünfzehnten {Jahrhu|nderts} entwickelte {Joha|nnes} Gutenberg {i|n} Mainz {e|in} Verfahren, {b|ei} dem {einz|elne} Buchstaben {a|us} Metall {gego|ssen} wurden. {Die|se} Lettern {kon|nte} man {beli|ebig} zusammensetzen {u|nd} immer {wie|der} verwenden. {Dadu|rch} wurden {Büc|her} viel {bill|iger} und {f|ür} breitere {Schic|hten} erschwinglich. So verbreiteten sich neue Ideen schneller als je zuvor."}, {"id": "wiki-t5", "title": "Wikipedia · Text 5 – Mond", "source": "Wikipedia (de) – Artikel „Mond“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Der Mond ist der einzige natürliche Satellit der Erde. Er {umkr|eist} unseren {Plan|eten} in {kna|pp} vier {Woc|hen} und {zei|gt} uns {dab|ei} immer {dies|elbe} Seite. {We|il} er {sel|bst} nicht {leuc|htet}, reflektiert {e|r} nur {d|as} Licht {d|er} Sonne. {D|ie} wechselnden {Mondp|hasen} entstehen {dadu|rch}, dass {w|ir} den {beleuc|hteten} Teil {a|us} unterschiedlichen {Wink|eln} sehen. Im Jahr 1969 betraten erstmals Menschen seine Oberfläche."}, {"id": "wiki-t6", "title": "Wikipedia · Text 6 – Honigbiene", "source": "Wikipedia (de) – Artikel „Westliche Honigbiene“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Die Honigbiene ist ein wichtiges Nutztier des Menschen. Sie {le|bt} in {gro|ßen} Völkern, {d|ie} aus {ein|er} Königin, {eini|gen} hundert {Droh|nen} und {vie|len} tausend {Arbeite|rinnen} bestehen. {D|ie} Arbeiterinnen {samm|eln} Nektar {u|nd} Pollen, {bau|en} Waben {u|nd} versorgen {d|ie} Brut. {Auße|rdem} bestäuben {s|ie} zahlreiche {Blü|ten}, wodurch {d|ie} Ernte {v|on} Obst {u|nd} Gemüse gesichert wird. Deshalb gilt ihr Rückgang als ernstes Problem für die Landwirtschaft."}, {"id": "wiki-t7", "title": "Wikipedia · Text 7 – Alpen", "source": "Wikipedia (de) – Artikel „Alpen“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Die Alpen erstrecken sich über acht Länder in Mitteleuropa. Der {höch|ste} Berg {i|st} der {Mo|nt} Blanc {a|n} der {Gre|nze} zwischen {Frank|reich} und {Ital|ien}. Das {Gebi|rge} entstand, {a|ls} die {afrika|nische} und {d|ie} eurasische {Pla|tte} zusammenstießen. {Heu|te} kommen {jed|es} Jahr {Milli|onen} Touristen {z|um} Wandern {u|nd} Skifahren {i|n} die {Reg|ion}. Dadurch ist der Tourismus für viele Alpentäler die wichtigste Einnahmequelle."}, {"id": "wiki-t8", "title": "Wikipedia · Text 8 – Schokolade", "source": "Wikipedia (de) – Artikel „Schokolade“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Schokolade wird aus den Samen des Kakaobaums hergestellt. Der {Ba|um} wächst {n|ur} in {d|er} Nähe {d|es} Äquators, {v|or} allem {i|n} Westafrika {u|nd} Südamerika. {D|ie} Kakaobohnen {wer|den} fermentiert, {getro|cknet} und {anschl|ießend} zu {ein|er} Masse {gema|hlen}. Für {Milchsch|okolade} mischt {m|an} diese {Mas|se} mit {Zuc|ker} und {Milchp|ulver}. Danach {wi|rd} sie {gewa|lzt}, erhitzt und in Form gebracht. Schon die Azteken tranken Kakao als bitteres Getränk."}, {"id": "wiki-t9", "title": "Wikipedia · Text 9 – Eisbär", "source": "Wikipedia (de) – Artikel „Eisbär“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Der Eisbär ist das größte an Land lebende Raubtier der Erde. Er {le|bt} in {d|er} Arktis {u|nd} jagt {hauptsä|chlich} Robben, {d|ie} er {a|n} Atemlöchern {i|m} Eis {erwa|rtet}. Sein {dich|tes} Fell {u|nd} eine {dic|ke} Fettschicht {schü|tzen} ihn {v|or} der {extr|emen} Kälte. {We|il} das {Meer|eis} durch {d|ie} Erderwärmung {imm|er} früher {schm|ilzt}, hat {e|r} weniger Zeit für die Jagd. Deshalb gilt die Art als gefährdet."}, {"id": "wiki-t10", "title": "Wikipedia · Text 10 – Internet", "source": "Wikipedia (de) – Artikel „Internet“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Das Internet verbindet heute Milliarden von Geräten auf der ganzen Welt. Seine {Urspr|ünge} liegen {i|n} einem {amerika|nischen} Forschungsnetz, {m|it} dem {Univers|itäten} Daten {austau|schen} konnten. {Spä|ter} entwickelte {T|im} Berners-Lee {a|m} Forschungszentrum {CE|RN} die {Grund|lagen} des {Wor|ld} Wide {W|eb}. Dadurch {konn|ten} auch {Lai|en} Seiten {aufr|ufen} und {mitein|ander} verknüpfen. {Inzwi|schen} nutzen {e|s} Menschen {fa|st} überall zum Lernen und Arbeiten. Ohne diese Entwicklung wäre unser Alltag kaum vorstellbar."}, {"id": "wiki-t11", "title": "Wikipedia · Text 11 – Wasser", "source": "Wikipedia (de) – Artikel „Wasser“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Wasser ist die Grundlage allen Lebens auf der Erde. Rund {sieb|zig} Prozent {d|er} Erdoberfläche {si|nd} von {Was|ser} bedeckt, {do|ch} nur {e|in} kleiner {Te|il} davon {i|st} Süßwasser. {E|s} kommt {a|ls} Flüssigkeit, {a|ls} Eis {u|nd} als {Dam|pf} vor. {Dur|ch} Verdunstung, {Wolkenb|ildung} und {Reg|en} befindet {si|ch} das {Was|ser} in {ein|em} ständigen {Kreis|lauf}. Dieser Kreislauf sorgt dafür, dass es auf dem Land immer wieder frisches Wasser gibt. Ein erwachsener Mensch besteht zu mehr als der Hälfte aus Wasser."}, {"id": "wiki-t12", "title": "Wikipedia · Text 12 – Fußball", "source": "Wikipedia (de) – Artikel „Fußball“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Fußball ist die beliebteste Sportart der Welt. Zwei {Mannsc|haften} mit {jewe|ils} elf {Spie|lern} versuchen, {d|en} Ball {i|ns} gegnerische {T|or} zu {beför|dern}. Außer {d|em} Torwart {dür|fen} die {Spie|ler} den {Ba|ll} nicht {m|it} den {Hän|den} berühren. {E|in} Spiel {dau|ert} neunzig {Minu|ten} und {wi|rd} von {ein|em} Schiedsrichter {gele|itet}. Wenn {ei|ne} Mannschaft das Regelwerk verletzt, bekommt die andere einen Freistoß oder sogar einen Elfmeter zugesprochen. Die Weltmeisterschaft findet alle vier Jahre statt."}, {"id": "wiki-t13", "title": "Wikipedia · Text 13 – Vulkan", "source": "Wikipedia (de) – Artikel „Vulkan“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Ein Vulkan ist eine Stelle der Erdoberfläche, an der Magma austritt. Tief {i|m} Inneren {d|er} Erde {schm|ilzt} Gestein {dur|ch} die {ho|he} Hitze. {Die|ses} flüssige {Gest|ein} steigt {na|ch} oben, {we|il} es {leic|hter} ist {a|ls} seine {Umge|bung}. Bei {ein|em} Ausbruch {wer|den} Lava, {Asc|he} und {Ga|se} aus {d|em} Krater {geschl|eudert}. Viele {Vulk|ane} liegen {a|n} den Rändern der Erdplatten, zum Beispiel rund um den Pazifik. Der Ätna auf Sizilien gehört zu den aktivsten Vulkanen Europas."}, {"id": "wiki-t14", "title": "Wikipedia · Text 14 – Elefanten", "source": "Wikipedia (de) – Artikel „Elefanten“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Elefanten sind die größten Landtiere der Erde. Man {untersc|heidet} den {Afrikan|ischen} und {d|en} Asiatischen {Elefa|nten}, die {si|ch} vor {all|em} an {d|er} Größe {ihr|er} Ohren {erke|nnen} lassen. {D|ie} Tiere {leb|en} in {Her|den}, die {v|on} einer {erfah|renen} Kuh {angef|ührt} werden. {M|it} ihrem {Rüs|sel} können {s|ie} greifen, {trin|ken} und {riec|hen}. Pro Tag fressen sie mehr als hundert Kilogramm Pflanzen und legen dafür oft weite Strecken zurück. Wegen der Jagd nach Elfenbein sind viele Bestände stark zurückgegangen."}, {"id": "wiki-t15", "title": "Wikipedia · Text 15 – Mozart", "source": "Wikipedia (de) – Artikel „Wolfgang Amadeus Mozart“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Wolfgang Amadeus Mozart wurde im Jahr 1756 in Salzburg geboren. Schon {a|ls} kleines {Ki|nd} spielte {e|r} hervorragend {Klav|ier} und {Gei|ge} und {tr|at} mit {sei|nem} Vater {u|nd} seiner {Schwe|ster} an {europä|ischen} Fürstenhöfen {a|uf}. Später {z|og} er {na|ch} Wien, {w|o} er {a|ls} freier {Kompo|nist} arbeitete. {E|r} schrieb {zahlr|eiche} Sinfonien, {Konz|erte} und {Ope|rn}, darunter die Zauberflöte. Seine Musik wird bis heute auf der ganzen Welt gespielt. Mozart starb bereits mit fünfunddreißig Jahren."}, {"id": "wiki-t16", "title": "Wikipedia · Text 16 – Solarenergie", "source": "Wikipedia (de) – Artikel „Solarenergie“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Solarenergie nutzt die Strahlung der Sonne zur Gewinnung von Strom oder Wärme. In {Solarz|ellen} wird {d|as} Licht {dir|ekt} in {elektr|ischen} Strom {umgewa|ndelt}. Solche {Zel|len} bestehen {mei|st} aus {Sili|zium} und {wer|den} zu {gro|ßen} Modulen {zusamme|ngefügt}. Man {fin|det} sie {a|uf} Hausdächern {ebe|nso} wie {a|uf} freien {Feld|ern}. Ein {Nach|teil} ist, {da|ss} nachts {u|nd} bei {bewöl|ktem} Himmel weniger Energie erzeugt wird. Deshalb braucht man Batterien, um den Strom zu speichern."}, {"id": "wiki-t17", "title": "Wikipedia · Text 17 – Schlaf", "source": "Wikipedia (de) – Artikel „Schlaf“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Schlaf ist ein natürlicher Ruhezustand, der für die Gesundheit unverzichtbar ist. Während {w|ir} schlafen, {erh|olt} sich {d|er} Körper {u|nd} das {Geh|irn} verarbeitet {d|ie} Eindrücke {d|es} Tages. {D|ie} Nacht {best|eht} aus {mehr|eren} Zyklen, {d|ie} jeweils {et|wa} neunzig {Minu|ten} dauern. {Erwac|hsene} brauchen {i|m} Durchschnitt {sie|ben} bis {ne|un} Stunden {Sch|laf}. Wer {dauer|haft} zu {wen|ig} schläft, kann sich schlechter konzentrieren und wird häufiger krank. Deshalb sollte man auf regelmäßige Schlafzeiten achten."}, {"id": "wiki-t18", "title": "Wikipedia · Text 18 – Tee", "source": "Wikipedia (de) – Artikel „Tee“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Tee gehört nach Wasser zu den meistgetrunkenen Getränken der Welt. Er {wi|rd} aus {d|en} Blättern {d|er} Teepflanze {herges|tellt}, die {ursprü|nglich} aus {Chi|na} stammt. {J|e} nach {Verarb|eitung} unterscheidet {m|an} zum {Beis|piel} grünen {u|nd} schwarzen {T|ee}. Für {schwa|rzen} Tee {wer|den} die {Blät|ter} fermentiert, {wodu|rch} sie {dun|kel} werden {u|nd} ein {kräfti|geres} Aroma {beko|mmen}. Heute wird Tee auch in Indien, Kenia und Sri Lanka angebaut. In Ostfriesland trinkt man besonders viel davon."}, {"id": "wiki-t19", "title": "Wikipedia · Text 19 – Regenwald", "source": "Wikipedia (de) – Artikel „Tropischer Regenwald“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Tropische Regenwälder wachsen in warmen Gebieten mit sehr viel Niederschlag. Der {grö|ßte} zusammenhängende {Regen|wald} der {Er|de} liegt {i|m} Amazonasbecken {i|n} Südamerika. {Obw|ohl} diese {Wäl|der} nur {ein|en} kleinen {Te|il} der {Landf|läche} bedecken, {le|bt} dort {e|in} großer {Te|il} aller Tier- und {Pflanze|narten}. Außerdem {speic|hern} die {Bäu|me} große {Men|gen} Kohlenstoff. {Dur|ch} Rodung {f|ür} Ackerland {ge|ht} jedes Jahr ein Stück davon verloren. Deshalb fordern viele Experten einen besseren Schutz."}, {"id": "wiki-t20", "title": "Wikipedia · Text 20 – Eisenbahn", "source": "Wikipedia (de) – Artikel „Eisenbahn“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Die Eisenbahn veränderte im neunzehnten Jahrhundert das Reisen und den Handel. Die {ers|te} Strecke {i|n} Deutschland {wur|de} 1835 {zwis|chen} Nürnberg {u|nd} Fürth {eröf|fnet}. Sie {w|ar} nur {wen|ige} Kilometer {la|ng}, doch {ba|ld} entstand {e|in} dichtes {Ne|tz} aus {Schi|enen}. Dadurch {konn|ten} Waren {u|nd} Menschen {vi|el} schneller {transpo|rtiert} werden {a|ls} mit {Pferde|wagen}. Auch {d|ie} Industrie profitierte, weil Kohle und Stahl leicht in alle Regionen gelangten. Heute fahren viele Züge elektrisch."},{"id": "wiki-t21", "title": "Wikipedia · Text 21 – Berliner Mauer", "source": "Wikipedia (de) – Artikel „Berliner Mauer“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Die Berliner Mauer teilte von 1961 bis 1989 die Stadt Berlin in einen östlichen und einen westlichen Teil. Die {Regi|erung} der DDR ließ {s|ie} im {Aug|ust} 1961 {ba|uen}, weil {im|mer} mehr {Mens|chen} das {La|nd} in {Rich|tung} Westen {verl|assen} hatten. {D|ie} Grenzanlage {w|ar} insgesamt {ru|nd} 155 {Kilo|meter} lang {u|nd} umschloss {ga|nz} West-Berlin. {W|er} trotzdem {vers|uchte} zu {fli|ehen}, geriet {i|n} große {Gef|ahr}, und {vi|ele} Menschen {verl|oren} dabei {i|hr} Leben. {A|m} 9. November 1989 öffneten die Behörden überraschend die Grenze, und Tausende feierten an der Mauer. Danach wurde der größte Teil der Anlage abgerissen. Heute erinnern nur noch einzelne Reste und eine Gedenkstätte an die Teilung der Stadt. Die Wiedervereinigung Deutschlands folgte am 3. Oktober 1990."},{"id": "wiki-t22", "title": "Wikipedia · Text 22 – Photosynthese", "source": "Wikipedia (de) – Artikel „Photosynthese“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Die Photosynthese ist ein Prozess, bei dem Pflanzen, Algen und manche Bakterien Lichtenergie in chemische Energie umwandeln. Dafür {neh|men} sie {Kohlenst|offdioxid} aus {d|er} Luft {u|nd} Wasser {a|us} dem {Bo|den} auf. {Mith|ilfe} des {grü|nen} Farbstoffs {Chlor|ophyll}, der {si|ch} in {d|en} Chloroplasten {befi|ndet}, entstehen {dar|aus} Traubenzucker {u|nd} Sauerstoff. {D|er} Zucker {di|ent} der {Pfl|anze} als {Baus|toff} und {Energi|equelle}, während {d|er} Sauerstoff {a|n} die {Umge|bung} abgegeben {wi|rd}. Ohne {die|sen} Vorgang {gä|be} es auf der Erde weder genügend Nahrung noch ausreichend Sauerstoff zum Atmen. Die Geschwindigkeit der Photosynthese hängt unter anderem von der Lichtmenge, der Temperatur und dem Angebot an Kohlenstoffdioxid ab. Deshalb wachsen Pflanzen im Sommer meist schneller als im Winter."},{"id": "wiki-t23", "title": "Wikipedia · Text 23 – Olympische Spiele", "source": "Wikipedia (de) – Artikel „Olympische Spiele“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Die Olympischen Spiele sind das größte Sportereignis der Welt. Schon {i|m} antiken {Griech|enland} fanden {s|ie} alle {vi|er} Jahre {z|u} Ehren {d|es} Gottes {Ze|us} in {Oly|mpia} statt. {D|er} französische {Päda|goge} Pierre de Coubertin {bel|ebte} die {Id|ee} im {neunz|ehnten} Jahrhundert {n|eu}, sodass 1896 in {At|hen} die {ers|ten} modernen {Spi|ele} veranstaltet {wur|den}. Seitdem {fin|den} Sommerspiele {u|nd} Winterspiele {st|att}, die {jew|eils} in {ei|ner} anderen {St|adt} ausgetragen werden. Tausende Sportlerinnen und Sportler aus über 200 Ländern nehmen daran teil und kämpfen um Medaillen. Die fünf olympischen Ringe stehen für die fünf Kontinente. Kritiker bemängeln allerdings, dass die Ausrichtung für die Gastgeber sehr teuer ist."},{"id": "wiki-t24", "title": "Wikipedia · Text 24 – Windenergie", "source": "Wikipedia (de) – Artikel „Windenergie“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Windenergie ist die Energie, die in bewegter Luft steckt und mit Windkraftanlagen in Strom umgewandelt wird. Der {Wi|nd} dreht {d|ie} Rotorblätter, {d|ie} über {ei|ne} Welle {ei|nen} Generator {antr|eiben}. Besonders {vi|el} Strom {lie|fern} Anlagen {a|n} der {Kü|ste} und {a|uf} dem {Me|er}, weil {do|rt} der {Wi|nd} stärker {u|nd} gleichmäßiger {we|ht}. In {Deuts|chland} stammt {inzwi|schen} ein {gro|ßer} Teil {d|es} erzeugten {Str|oms} aus {die|ser} Quelle. {D|ie} Technik {verur|sacht} im {Bet|rieb} kein Kohlenstoffdioxid und braucht keinen Brennstoff. Allerdings stören manche Anwohner der Lärm und der Anblick der hohen Türme, und auch Vögel können durch die Rotoren zu Schaden kommen. Außerdem liefert der Wind nicht immer gleich viel Energie, sodass man Strom speichern oder anders erzeugen muss."},{"id": "wiki-t25", "title": "Wikipedia · Text 25 – Venedig", "source": "Wikipedia (de) – Artikel „Venedig“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Venedig ist eine Stadt in Norditalien, die auf mehr als hundert kleinen Inseln in einer Lagune liegt. Statt {Str|aßen} durchziehen {ru|nd} 170 {Kan|äle} die {Alts|tadt}, und {d|ie} Bewohner {nut|zen} Boote {u|nd} Brücken, {u|m} sich {fortzu|bewegen}. Die {Häu|ser} stehen {a|uf} Holzpfählen, {d|ie} tief {i|n} den {wei|chen} Boden {getr|ieben} wurden. {I|m} Mittelalter {w|ar} Venedig {a|ls} Handelsmacht {se|hr} reich, {u|nd} Schiffe {brac|hten} Gewürze {u|nd} Seide {a|us} dem {Ori|ent}. Davon {zeu|gen} heute noch der Markusplatz und der Dogenpalast. Jedes Jahr besuchen Millionen Touristen die Stadt, was für die Einwohner auch Probleme mit sich bringt. Außerdem steigt der Meeresspiegel, sodass bei Hochwasser oft Plätze und Gassen überflutet werden."},{"id": "wiki-t26", "title": "Wikipedia · Text 26 – Mount Everest", "source": "Wikipedia (de) – Artikel „Mount Everest“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Der Mount Everest ist mit knapp 8850 Metern der höchste Berg der Erde. Er {li|egt} im {Hima|laya} an {d|er} Grenze {zwis|chen} Nepal {u|nd} China. {I|m} Jahr 1953 erreichten {e|in} neuseeländischer {Bergs|teiger} und {e|in} nepalesischer {She|rpa} als {Er|ste} den {Gip|fel}. Seitdem {vers|uchen} jedes {Ja|hr} viele {Bergs|teiger}, dieses {Zi|el} ebenfalls {z|u} erreichen. {Da|bei} müssen {s|ie} gegen {eis|ige} Kälte, {sta|rken} Wind {u|nd} dünne {Lu|ft} kämpfen, {we|il} in {die|ser} Höhe kaum Sauerstoff vorhanden ist. Ohne die Hilfe der einheimischen Träger und Bergführer wäre eine Besteigung kaum möglich. Leider bleibt auf dem Berg auch viel Müll zurück, den Helfer inzwischen regelmäßig einsammeln."},{"id": "wiki-t27", "title": "Wikipedia · Text 27 – Dinosaurier", "source": "Wikipedia (de) – Artikel „Dinosaurier“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Dinosaurier sind Reptilien, die vor vielen Millionen Jahren auf der Erde lebten. Sie {tra|ten} vor {et|wa} 230 {Mill|ionen} Jahren {erst|mals} auf {u|nd} beherrschten {la|nge} Zeit {d|as} Leben {a|n} Land. {Man|che} Arten {wa|ren} so {kl|ein} wie {e|in} Huhn, {and|ere} wurden {me|hr} als {dre|ißig} Meter {la|ng}. Einige {ernä|hrten} sich {v|on} Pflanzen, {wäh|rend} andere {a|ls} gefährliche {Raub|tiere} jagten. {V|or} rund 66 Millionen {Jah|ren} starben {d|ie} meisten {Ar|ten} aus, vermutlich nach dem Einschlag eines riesigen Asteroiden. Wissenschaftler erforschen heute anhand von Knochen und Fußspuren, wie diese Tiere gelebt haben. Die Vögel gelten als die letzten Nachfahren der Dinosaurier."},{"id": "wiki-t28", "title": "Wikipedia · Text 28 – Penicillin", "source": "Wikipedia (de) – Artikel „Penicillin“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Penicillin war das erste Antibiotikum und hat die Medizin grundlegend verändert. Ein {schott|ischer} Forscher {entd|eckte} es {i|m} Jahr 1928 zufällig, {a|ls} er {a|uf} einer {Sch|ale} mit {Bakt|erien} einen {Schimm|elpilz} bemerkte. {Die|ser} Pilz {ha|tte} die {Bakt|erien} in {sei|ner} Umgebung {abge|tötet}. Es {dau|erte} jedoch {vi|ele} Jahre, {b|is} andere {Fors|cher} daraus {e|in} brauchbares {Medik|ament} herstellen {kon|nten}. Seit {d|en} vierziger {Jah|ren} rettet {e|s} Millionen {Mens|chen} das {Le|ben}, die an gefährlichen Infektionen erkrankt sind. Heute geben Ärzte Antibiotika allerdings nur noch vorsichtig, weil manche Bakterien dagegen unempfindlich geworden sind. Gegen Viren, zum Beispiel bei einer Grippe, helfen diese Mittel überhaupt nicht."},{"id": "wiki-t29", "title": "Wikipedia · Text 29 – Schach", "source": "Wikipedia (de) – Artikel „Schach“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Schach ist ein Brettspiel für zwei Personen, das auf einem Feld mit vierundsechzig Quadraten gespielt wird. Jeder {Spi|eler} besitzt {sech|zehn} Figuren, {daru|nter} einen {Kö|nig}, eine {Da|me} und {ac|ht} Bauern. {Zi|el} des {Spi|els} ist {e|s}, den {Kö|nig} des {Geg|ners} so {z|u} bedrohen, {da|ss} er {ni|cht} mehr {entk|ommen} kann. {D|as} nennt {m|an} Schachmatt. {D|as} Spiel {ents|tand} vor {et|wa} anderthalbtausend {Jah|ren} in {Ind|ien} und {gela|ngte} später {üb|er} Persien {na|ch} Europa. Heute spielen Millionen Menschen weltweit Schach, sogar im Internet gegen Computer. Bei Turnieren denken die Spieler oft stundenlang über einen einzigen Zug nach."},{"id": "wiki-t30", "title": "Wikipedia · Text 30 – Blauwal", "source": "Wikipedia (de) – Artikel „Blauwal“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Der Blauwal ist das größte Tier, das jemals auf der Erde gelebt hat. Er {ka|nn} bis {z|u} dreißig {Me|ter} lang {u|nd} über {hun|dert} Tonnen {sch|wer} werden. {Tr|otz} seiner {Gr|öße} ernährt {e|r} sich {fa|st} nur {v|on} winzigen {Kre|bsen}, dem {sogen|annten} Krill. {Da|zu} nimmt {e|r} riesige {Men|gen} Wasser {i|ns} Maul {u|nd} filtert {d|ie} Nahrung {m|it} seinen {Bar|ten} heraus. {Blau|wale} leben {i|n} allen {Weltm|eeren} und {le|gen} auf der Suche nach Nahrung weite Strecken zurück. Im zwanzigsten Jahrhundert wurden sie von Walfängern fast ausgerottet. Heute stehen sie unter Schutz, doch ihre Zahl ist noch immer gering."},{"id": "wiki-t31", "title": "Wikipedia · Text 31 – Sonnensystem", "source": "Wikipedia (de) – Artikel „Sonnensystem“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Das Sonnensystem besteht aus der Sonne und allen Himmelskörpern, die sie umkreisen. Dazu {geh|ören} acht {Plan|eten}, zahlreiche {Mo|nde} sowie {Aster|oiden} und {Kom|eten}. Die {vi|er} inneren {Plan|eten}, darunter {d|ie} Erde, {best|ehen} hauptsächlich {a|us} Gestein. {D|ie} vier {äuß|eren} Planeten {si|nd} dagegen {vi|el} größer {u|nd} bestehen {v|or} allem {a|us} Gas. {Jup|iter} ist {d|er} größte {v|on} ihnen, {wäh|rend} Merkur {d|er} Sonne {a|m} nächsten {li|egt}. Das {Sonnen|system} entstand vor etwa viereinhalb Milliarden Jahren aus einer riesigen Wolke aus Gas und Staub. Bis heute haben Raumsonden alle Planeten erkundet."},{"id": "wiki-t32", "title": "Wikipedia · Text 32 – Universität", "source": "Wikipedia (de) – Artikel „Universität“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Eine Universität ist eine Hochschule, an der Studierende wissenschaftlich ausgebildet werden und Forscher neues Wissen erarbeiten. Die {ält|este} Universität {Eur|opas} wurde {i|m} elften {Jahrh|undert} in {Bol|ogna} gegründet. {I|n} Deutschland {entst|anden} die {ers|ten} Universitäten {i|m} vierzehnten {Jahrh|undert}, zum {Beis|piel} in {Heide|lberg}. Wer {stud|ieren} möchte, {bra|ucht} in {d|er} Regel {e|in} Abitur {od|er} einen {gleichw|ertigen} Abschluss. {Auslän|dische} Bewerber {müs|sen} außerdem {nachw|eisen}, dass {s|ie} die {deut|sche} Sprache {g|ut} genug {beher|rschen}. Viele Studierende besuchen zunächst ein Studienkolleg, um sich auf das Fachstudium vorzubereiten. Nach einigen Jahren schließen sie ihr Studium mit einem Bachelor oder Master ab."},{"id": "wiki-t33", "title": "Wikipedia · Text 33 – Kartoffel", "source": "Wikipedia (de) – Artikel „Kartoffel“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Die Kartoffel gehört heute zu den wichtigsten Nahrungspflanzen der Welt. Ursprünglich {sta|mmt} sie {a|us} den {An|den} in {Südam|erika}, wo {Mens|chen} sie {sc|hon} vor {Taus|enden} von {Jah|ren} anbauten. {I|m} sechzehnten {Jahrh|undert} brachten {span|ische} Seefahrer {d|ie} Knollen {na|ch} Europa. {Zunä|chst} misstrauten {vi|ele} Menschen {d|er} fremden {Pfl|anze} und {verwe|ndeten} sie {n|ur} als {Zierp|flanze}. Erst {i|m} achtzehnten {Jahrh|undert} förderte {d|er} preußische {Kö|nig} den {An|bau}, weil die Kartoffel Hungersnöte verhindern konnte. Heute isst jeder Deutsche im Jahr mehr als fünfzig Kilogramm davon. Man bereitet sie als Salzkartoffeln, Pommes frites oder Püree zu."},{"id": "wiki-t34", "title": "Wikipedia · Text 34 – Erdbeben", "source": "Wikipedia (de) – Artikel „Erdbeben“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Ein Erdbeben ist eine Erschütterung des Erdbodens, die meist durch Bewegungen in der Erdkruste ausgelöst wird. Die {Kru|ste} besteht {a|us} großen {Pla|tten}, die {si|ch} langsam {gegene|inander} verschieben. {We|nn} sich {da|bei} Spannungen {plöt|zlich} lösen, {ents|tehen} Wellen, {d|ie} sich {b|is} an {d|ie} Oberfläche {ausbr|eiten}. Besonders {gefä|hrdet} sind {Geb|iete} an {d|en} Rändern {die|ser} Platten, {z|um} Beispiel {Ja|pan}, Chile {od|er} Kalifornien. {D|ie} Stärke {ei|nes} Bebens {wi|rd} mit {d|er} Magnitude {ange|geben}. Unter dem Meer kann ein Beben einen Tsunami auslösen, der Küstenstädte überflutet. Vorhersagen lassen sich Erdbeben bisher leider nicht, deshalb bauen Ingenieure erdbebensichere Gebäude."},{"id": "wiki-t35", "title": "Wikipedia · Text 35 – Mobiltelefon", "source": "Wikipedia (de) – Artikel „Mobiltelefon“ (Inhalt gekürzt und als C-Test bearbeitet)", "text": "Das Mobiltelefon hat unseren Alltag in wenigen Jahrzehnten stark verändert. Das {er|ste} Gespräch {m|it} einem {Ha|ndy} führte {e|in} amerikanischer {Inge|nieur} im {Ja|hr} 1973. {D|ie} frühen {Ger|äte} waren {gr|oß}, schwer {u|nd} sehr {te|uer}, sodass {n|ur} wenige {Mens|chen} sie {bes|aßen}. In {d|en} neunziger {Jah|ren} wurden {Han|dys} kleiner {u|nd} günstiger, {u|nd} bald {kon|nte} man {da|mit} auch {Kurznac|hrichten} verschicken. {He|ute} nutzen {d|ie} meisten {Mens|chen} ein Smartphone, mit dem sie fotografieren, einkaufen und im Internet surfen. Viele Eltern und Lehrer sorgen sich allerdings, dass Jugendliche zu viel Zeit am Bildschirm verbringen. Deshalb gelten an manchen Schulen strenge Regeln für die Nutzung."}];
@@ -94,8 +150,8 @@ function parse(t){const tok=[];let last=0,i=0,m;const re=/\{([^|{}]*)\|([^{}]*)\
 function best(u,id){return D.attempts.filter(a=>a.user===u&&a.testId===id).reduce((m,a)=>Math.max(m,a.correct/a.total),0)}
 function lbR(){const m=document.getElementById('m-lb');if(m)m.innerHTML=lbHtml()}
 function lbRefresh(){const m=document.getElementById('m-lb');if(m&&m.classList.contains('open'))m.innerHTML=lbHtml()}
-function lbHtml(){const S=USERS.map(u=>({u,s:uStats(u)})),bl=ac.m==='bl';
-const cats=[['Time on site','active only: focused tab, recent typing/clicks',x=>fmtDur(x.s.time),x=>x.s.time],
+function glbHtml(){const S=USERS.map(u=>({u,s:uStats(u)})),bl=ac.m==='bl';
+const cats=[['Time in German','active only: focused tab, recent typing/clicks',x=>fmtDur(x.s.time),x=>x.s.time],
 ['Texts completed','finished texts · Blitz not counted',x=>x.s.nt,x=>x.s.nt],
 ['Correct gaps','',x=>x.s.correct,x=>x.s.correct],
 ['Accuracy','correct ÷ all gaps',x=>x.s.acc==null?'–':Math.round(x.s.acc*100)+'%',x=>x.s.acc],
@@ -109,12 +165,12 @@ return`<div class="lab" style="padding-left:0">Leaderboard</div><div style="disp
 <p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Ties and categories without enough data get none. Time is tracked since this version was first opened; improvement needs 4+ attempts.</p><p class="mut" style="font-size:12px;margin:4px 0 0">${cloudOk?'☁ Synced across devices':'⚠ Cloud not connected – showing this device only'}</p>
 <details style="margin-top:12px"><summary>Progress charts</summary><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px">${S.map(x=>`<div><h3>${cap(x.u)}</h3><div class="lab" style="padding-left:0">Minutes per day · 14 days</div>${barSvg(x.u)}<div class="lab" style="padding-left:0">Accuracy per attempt · line = avg of 5</div>${trendSvg(x.s.A)}</div>`).join('')}</div></details>
 <details style="margin-top:10px"><summary>Head to head, best accuracy per test</summary><table style="margin-top:6px"><tr><th>Test</th>${USERS.map(u=>`<th>${cap(u)}</th>`).join('')}</tr>${tests().map(t=>{const v=USERS.map(u=>tstat(u,t.id).n?best(u,t.id):-1),mx=Math.max(...v),w=v.filter(x=>x>=0).length>1&&v.filter(x=>x===mx).length===1?v.indexOf(mx):-1;return`<tr><td>${esc(t.title)}</td>${v.map((x,i)=>`<td class="${w===i?'win':''}">${w===i?'👑 ':''}${x<0?'–':Math.round(x*100)+'%'}</td>`).join('')}</tr>`}).join('')}</table></details>`}
-function hdr(){$('#hdr').innerHTML=D.me?`<div class="dd"><button class="g" onclick="tm(event,'tasks')">Tasks ▾</button><div class="menu s" id="m-tasks" style="width:min(340px,calc(100vw - 24px))"></div></div><div class="dd"><button class="g" onclick="tm(event,'lb')">Leaderboard ▾</button><div class="menu" id="m-lb"></div></div><div class="dd"><button class="pill" onclick="tm(event,'acc')"><span class="av">${D.me[0]}</span>${D.me} ▾</button><div class="menu s" id="m-acc"><div class="lab">Switch account</div>${USERS.map(u=>`<div class="mi ${u===D.me?'on':''}" onclick="sw('${u}')"><span class="av">${u[0]}</span>${u}${u===D.me?' ✓':''}</div>`).join('')}<div class="lab">More</div><div class="mi" onclick="go('stats')">Statistics</div><div class="mi" onclick="go('add')">Add a C-test</div><div class="lab">Cloud sync: ${cloud?'on':'off'}</div></div></div>`:''}
-function tm(e,id){e.stopPropagation();const m=$('#m-'+id),was=m.classList.contains('open');cm();if(!was){if(id==='lb')m.innerHTML=lbHtml();if(id==='tasks')m.innerHTML='<div class="lab">Other tasks</div>'+tests().filter(t=>t.cat==='task').map(t=>`<div class="mi" style="text-transform:none" onclick="openTest('${t.id}')">${esc(t.title)}</div>`).join('');m.classList.add('open')}}
+function hdr(){$('#hdr').innerHTML=D.me?`<div class="dd"><button class="g" onclick="tm(event,'tasks')">Tasks ▾</button><div class="menu s" id="m-tasks" style="width:min(340px,calc(100vw - 24px))"></div></div><div class="dd"><button class="g" onclick="tm(event,'lb')">Leaderboard ▾</button><div class="menu" id="m-lb"></div></div><div class="dd"><button class="pill" onclick="tm(event,'acc')"><span class="av">${D.me[0]}</span>${D.me} ▾</button><div class="menu s" id="m-acc"><div class="lab">Switch account</div>${USERS.map(u=>`<div class="mi ${u===D.me?'on':''}" onclick="sw('${u}')"><span class="av">${u[0]}</span>${u}${u===D.me?' ✓':''}</div>`).join('')}<div class="lab">More</div><div class="mi" onclick="go('subject')">Switch subject</div><div class="mi" onclick="go('stats')">Statistics</div><div class="mi" onclick="go('add')">Add a C-test</div><div class="lab">Cloud sync: ${cloud?'on':'off'}</div></div></div>`:''}
+function tm(e,id){e.stopPropagation();const m=$('#m-'+id),was=m.classList.contains('open');cm();if(!was){if(id==='lb'){lbSec=(view==='math'||view==='mtest')?'m':'g';m.innerHTML=lbHtml()}if(id==='tasks')m.innerHTML='<div class="lab">Other tasks</div>'+tests().filter(t=>t.cat==='task').map(t=>`<div class="mi" style="text-transform:none" onclick="openTest('${t.id}')">${esc(t.title)}</div>`).join('');m.classList.add('open')}}
 function cm(){document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'))}
 document.addEventListener('click',e=>{if(!e.target.closest('.menu'))cm()});
-function sw(u){D.me=u;save();cm();go('home')}
-function go(v){cm();bz();view=v;if(T&&T.timer)clearInterval(T.timer);T=null;hdr();R[v]();window.scrollTo(0,0)}
+function sw(u){D.me=u;save();cm();go('subject')}
+function go(v){navPush(v);cm();bz();if(MT&&MT.timer)clearInterval(MT.timer);view=v;if(T&&T.timer)clearInterval(T.timer);T=null;hdr();R[v]();window.scrollTo(0,0)}
 let lf={q:'',g:[],s:'all',o:'need'};
 const grp=t=>t.title.includes(' · ')?t.title.split(' · ')[0]:'Eigene';
 function tg(v){const i=lf.g.indexOf(v);i<0?lf.g.push(v):lf.g.splice(i,1);LR()}
@@ -135,8 +191,10 @@ const r=all.map(t=>({t,b:best(D.me,t.id),n:parse(t).filter(x=>typeof x==='object
 const S={hi:(a,c)=>(c.st.n?c.b:-1)-(a.st.n?a.b:-1),lo:(a,c)=>(a.st.n?a.b:2)-(c.st.n?c.b:2),gh:(a,c)=>c.n-a.n,gl:(a,c)=>a.n-c.n,need:(a,c)=>c.st.need-a.st.need,mast:(a,c)=>(a.st.n?a.st.need:9)-(c.st.n?c.st.need:9),new:(a,c)=>(!a.st.n-!c.st.n)||c.st.need-a.st.need,old:(a,c)=>a.st.last-c.st.last};if(S[lf.o])r.sort(S[lf.o]);
 $('#lr').innerHTML=r.length?r.map(({t,b,n,st})=>`<div class="row" onclick="openTest('${t.id}')"><div><div class="rt">${esc(t.title)}</div><div class="mut">${esc(t.source)}</div></div><div class="rr"><span class="chip" style="--c:var(${st.c})" title="${st.n?st.n+' attempt'+(st.n>1?'s':'')+' · weighted accuracy '+Math.round(st.acc*100)+'%':'Not tried yet'}">${st.label}${st.n?' · '+Math.round(st.acc*100)+'%':''}</span><span class="mut">${n} gaps</span><b>${st.n?'best '+Math.round(b*100)+'%':'–'}</b></div></div>`).join(''):'<div class="mut" style="padding:18px">No tests match.</div>'}
 const R={
-users(){app.innerHTML=`<div style="text-align:center;margin-top:40px"><h1>Wer übt heute?</h1><p class="mut">Choose your profile</p></div><div class="users">${USERS.map(u=>`<div class="ucard" onclick="D.me='${u}';save();go('home')"><div class="av">${u[0]}</div><h3>${u}</h3></div>`).join('')}</div>`},
-home(){app.innerHTML=`<h1>Hallo, ${esc(D.me[0].toUpperCase()+D.me.slice(1))}.</h1><div class="grid"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div><div class="card tile" onclick="go('blitz')"><h2>⚡ Blitz</h2><p class="mut">Endless quick rounds, timed</p></div><div class="card tile" onclick="go('tips')"><h2>💡 Hints &amp; Tricks</h2><p class="mut">Which word fits these letters</p></div></div>`},
+users(){app.innerHTML=`<div style="text-align:center;margin-top:40px"><h1>Wer übt heute?</h1><p class="mut">Choose your profile</p></div><div class="users">${USERS.map(u=>`<div class="ucard" onclick="D.me='${u}';save();go('subject')"><div class="av">${u[0]}</div><h3>${u}</h3></div>`).join('')}</div>`},
+subject(){const nm=esc(D.me[0].toUpperCase()+D.me.slice(1));app.innerHTML=`<div style="text-align:center;margin-top:40px"><h1>Hallo, ${nm}.</h1><p class="mut">What do you want to practice?</p></div><div class="users"><div class="ucard" onclick="D.subj='de';save();go('home')"><div style="font-size:52px;line-height:1;margin-bottom:12px">🇩🇪</div><h3>Deutsch</h3><p class="mut" style="margin:4px 0 0">C-Tests, Blitz, Plurals</p></div><div class="ucard" onclick="D.subj='math';save();go('home')"><div style="font-size:52px;line-height:1;margin-bottom:12px">∑</div><h3>Mathe</h3><p class="mut" style="margin:4px 0 0">Math practice tests</p></div></div>`},
+home(){if(D.subj!=='de'&&D.subj!=='math')return go('subject');const de=D.subj==='de',nm=esc(D.me[0].toUpperCase()+D.me.slice(1)),sw=`<button class="g" style="float:right;margin-top:6px" onclick="go('subject')">Switch subject</button>`;
+app.innerHTML=sw+`<h1>Hallo, ${nm}.</h1>`+(de?`<div class="lab" style="padding-left:0">🇩🇪 Deutsch</div><div class="grid" style="margin-bottom:24px"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div><div class="card tile" onclick="go('blitz')"><h2>⚡ Blitz</h2><p class="mut">Endless quick rounds, timed</p></div><div class="card tile" onclick="go('plural')"><h2>🧩 Plurals</h2><p class="mut">Singular → plural, common nouns</p></div><div class="card tile" onclick="go('tips')"><h2>💡 Hints &amp; Tricks</h2><p class="mut">Which word fits these letters</p></div>`:`<div class="lab" style="padding-left:0">∑ Mathe</div><div class="grid"><div class="card tile" onclick="go('math')"><h2>Math tests</h2><p class="mut">${MATH.length} test${MATH.length>1?'s':''} available</p></div></div>`)},
 list(){app.innerHTML=`<h1>C-Tests</h1><div class="card fb"><input class="t" id="q" type="search" placeholder="Search title, source or text…" value="${esc(lf.q)}" oninput="lf.q=this.value;LR()" autocomplete="off"><div class="tabs" id="gf"></div><div class="tabs" id="sf"></div></div><div id="of" style="display:flex;justify-content:flex-end;margin:-4px 2px 8px"></div><div class="card" id="lr" style="padding:8px"></div>`;LR()},
 test(){const t=T.test;app.innerHTML=`<div class="bar"><div class="clock" id="clk">0:00</div><div class="btns"><button id="st" onclick="start()">Start</button><button id="ck" onclick="check()" disabled>Check</button><button class="g" onclick="openTest('${t.id}')">Retry</button><button class="g" id="nxt" onclick="nextTest()">Next ▸</button></div></div><div class="card"><div class="src">Source: ${esc(t.source)}</div><h2>${esc(t.title)}</h2>${T.why?`<p class="mut" style="margin:0 0 8px">${T.why}</p>`:''}<div class="wrap"><div class="txt blur" id="txt">${T.tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(gAns(x))}">${esc(x.g)}<input disabled autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div class="ov" id="ov">Press Start to show the text</div></div><div id="edbtn" style="margin-top:14px"><button class="g" id="edb" onclick="edStart()">✎ Edit gaps</button></div><div id="edit" style="display:none"><p class="mut" style="margin:0 0 6px">Tap a word to make it a gap. Tap a gap to change its answers or remove it.</p><div class="edtxt" id="edtxt"></div><div id="ep" style="display:none"></div></div><div id="res"></div></div><div class="card" id="att"></div>`;
 document.querySelectorAll('.gap input').forEach((el,i,all)=>{el.onkeydown=e=>{if(e.key==='Backspace'&&!el.value&&all[i-1]){e.preventDefault();all[i-1].focus()}else if((e.key===' '||e.key==='Enter'||e.key==='ArrowRight')&&all[i+1]){e.preventDefault();all[i+1].focus()}else if(e.key==='ArrowLeft'&&all[i-1]&&el.selectionStart===0)all[i-1].focus()}})},
@@ -170,7 +228,7 @@ const g={};A.forEach(a=>a.mistakes.forEach(m=>{(g[m.gap]=g[m.gap]||{m,l:[]}).l.p
 if(ks.length){h+=T&&T.checked&&T.test.id===t.id?`<div class="lab" style="padding-left:0;margin-top:14px">Most-missed gaps</div><table><tr><th>Gap</th><th>Answer</th><th>Your mistakes</th><th>Wrong</th></tr>${ks.slice(0,8).map(k=>{const{m,l}=g[k];return`<tr><td>#${+k+1}</td><td><b>${esc(m.correct)}</b></td><td>${l.map(x=>`<span class="tag">${esc(x.given+(x.typed||'…'))}</span>`).join('')}</td><td>${l.length}/${n}</td></tr>`}).join('')}</table>`:'<p class="mut" style="margin:12px 0 0">Your most-missed gaps appear here after you check this run.</p>'}
 return h}
 function renderAtt(){const e=document.getElementById('att');if(e&&T)e.innerHTML=attHtml(T.test)}
-function openTest(id,pick){cm();const t=tests().find(x=>x.id===id);if(T&&T.timer)clearInterval(T.timer);view='test';
+function openTest(id,pick){navPush('test:'+id);cm();const t=tests().find(x=>x.id===id);if(T&&T.timer)clearInterval(T.timer);view='test';
 const why=pick?(pick.n?`Picked for you · ${pick.label.toLowerCase()}, ${Math.round(pick.acc*100)}% weighted accuracy over ${pick.n} ${pick.n>1?'tries':'try'}`:'Picked for you · not tried yet'):'';
 T={test:t,tok:parse(t),started:false,checked:false,t0:0,why};R.test();renderAtt();window.scrollTo(0,0)}
 function start(){T.started=true;T.t0=Date.now();$('#txt').classList.remove('blur');$('#ov').style.opacity=0;$('#ov').style.pointerEvents='none';document.querySelectorAll('.gap input').forEach(e=>e.disabled=false);$('#st').disabled=true;$('#edb').disabled=true;$('#ck').disabled=false;document.querySelector('.gap input').focus();T.timer=setInterval(()=>{$('#clk').textContent=fmt((Date.now()-T.t0)/1000)},250)}
@@ -1133,10 +1191,10 @@ const cats=Object.keys(st.ex).filter(c=>st.ex[c]>=4&&st.ms[c]>0).sort((a,b)=>bRa
 const its=Object.entries(st.items).map(([id,h])=>[id,h.reduce((a,x)=>a+x.total-x.correct,0)]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,3);
 if(!cats.length&&!its.length)return'';
 return`<div class="card"><div class="lab" style="padding-left:0">Your weak spots in Blitz</div>${cats.map(c=>`<div class="tw"><b style="min-width:3.5em;font:600 16px system-ui,sans-serif">${Math.round(st.ms[c]/st.ex[c]*100)}%</b><span style="color:var(--ink)">${esc(bLabel(c))} <span class="mut">· ${st.ms[c]} of ${st.ex[c]} missed</span></span></div>`).join('')}${its.length?`<div class="lab" style="padding-left:0;margin-top:10px">Most missed sentences</div>`+its.map(([id,n])=>{const it=bItemOf(id);return it?`<div class="mut" style="margin:4px 0">${n}× · ${esc(bPlain(it.t).slice(0,90))}</div>`:''}).join(''):''}</div>`}
-R.blitz=function(){bz();B=null;app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut" style="margin-top:0">Endless quick items – it only stops when you press <b>End Blitz</b>, then you see your score. Each starts with an intact sentence for context, then a few gaps. <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><button onclick="bStart()">Start</button> <button class="g" onclick="bStart('smart')">🎯 Smart Blitz</button><p class="mut" style="margin:10px 0 0;font-size:13px">Smart Blitz picks sentences from your own mistakes: items you missed recently, items due for review, and the endings and prepositions you get wrong most.</p></div>${bWeak()}${bInfo()}`};
+R.blitz=function(){bz();B=null;app.innerHTML=`<h1>⚡ Blitz</h1><div class="card"><p class="mut" style="margin-top:0">Endless quick items – it only stops when you press <b>End Blitz</b>, then you see your score. Each starts with an intact sentence for context, then a few gaps. <b>Space / Enter</b> jumps to the next gap, Enter in the last gap submits. Timeout submits automatically.</p><button onclick="bStart()">Start</button><p class="mut" style="margin:10px 0 0;font-size:13px">Sentences are picked from your own mistakes: items you missed recently, items due for review, and the endings and prepositions you get wrong most.</p></div>${bWeak()}${bInfo()}`};
 function bQueue(){const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const bl0=BLITZ.map((x,i)=>({i,k:x[0],t:x[1]}));return sh([...sh(pItems()).slice(0,4),...sh(bl0.filter(x=>x.k==='a')).slice(0,3),...sh(bl0.filter(x=>x.k==='v')).slice(0,3)])}
-function bStart(mode){bz();B={q:mode==='smart'?[]:bQueue(),n:0,streak:0,max:0,res:[],iv:null,to:null,mode:mode==='smart'?'smart':'',recent:[]};bNext()}
+function bStart(){bz();B={q:[],n:0,streak:0,max:0,res:[],iv:null,to:null,mode:'smart',recent:[]};bNext()}
 function bNext(){if(!B)return;if(B.n>=B.q.length){if(B.mode==='smart')B.q.push(bPick());else{const nq=bQueue(),last=B.q[B.q.length-1];if(nq.length>1&&nq[0].i===last.i)nq.push(nq.shift());B.q=B.q.concat(nq)}}
 const it=B.q[B.n],tok=parse({text:it.t}),g=tok.filter(x=>typeof x==='object').length;
 B.cur={it,tok,g,total:(g*5+4)*1000,t0:Date.now(),done:false};
@@ -1159,7 +1217,7 @@ $('#br').innerHTML=`<p class="mut">${perfect?'Perfect':''}</p>${b.res[b.res.leng
 document.addEventListener('keydown',e=>{if(B&&B.cur&&B.cur.done&&!e.repeat&&(e.key===' '||e.key==='Enter')&&Date.now()-B.cur.doneAt>300){e.preventDefault();bGo()}});
 function bGo(){if(!B)return;clearTimeout(B.to);B.n++;bNext()}
 function bEnd(){if(!B)return;bz();const t=B.res.reduce((s,r)=>s+r.total,0),ok=B.res.reduce((s,r)=>s+r.ok,0),miss=B.res.flatMap(r=>r.mistakes);
-app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?Math.round(ok/t*100):0}%</div><p><b>${ok}/${t}</b> gaps correct · ${B.res.length} item${B.res.length===1?'':'s'} · best streak 🔥 ${B.max}</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart('${B.mode}')">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>${bInfo()}`;B=null}
+app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?Math.round(ok/t*100):0}%</div><p><b>${ok}/${t}</b> gaps correct · ${B.res.length} item${B.res.length===1?'':'s'} · best streak 🔥 ${B.max}</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(xpl).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="bStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>${bInfo()}`;B=null}
 // ----- Präpositionen mode -----
 // [prep, code, text]  code: A/D/G = fixed case, WA/WD = two-way (Wohin?/Wo?), VA/VD = fixed with a verb. [prep] becomes a half-word gap when "Preposition + article" is on.
 const PG={A:['für','durch','gegen','ohne','um','bis'],D:['aus','bei','mit','nach','seit','von','zu','gegenüber','ab','außer'],W:['an','auf','hinter','in','neben','über','unter','vor','zwischen'],G:['wegen','trotz','während','statt','innerhalb','außerhalb']};
@@ -1241,6 +1299,711 @@ function pItems(){return PREP.map((x,i)=>({i:'p'+i,k:'p',pre:x[0],cs:x[1],t:x[2]
 function bInfo(){const info=Object.keys(PG).map(k=>{const[nm,sub,c]=PGI[k];return`<div class="pc" style="--c:var(${c})"><div class="ph" style="cursor:default">${nm}</div><div class="ps">${sub}</div>${PG[k].map(p=>`<span class="pp">${p}</span>`).join('')}</div>`}).join('');
 const ar=[['Akk','--acc','den','die','das','die'],['Dat','--ok','dem','der','dem','den'],['Gen','--vio','des','der','des','der']].map(r=>`<tr><td style="color:var(${r[1]})">${r[0]}</td>${r.slice(2).map(x=>`<td>${x}</td>`).join('')}</tr>`).join('');
 return`<div class="card"><div class="lab" style="padding-left:0">Präpositionen cheat sheet</div><div class="pg">${info}</div><table class="pa"><tr><th></th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>${ar}</table></div>`}
+// ===== PLURAL MODE =====
+// one noun per line: gender singular plural(/alternative). Append new nouns at the END so history stays attached.
+const PL=`m Tag Tage
+m Mann Männer
+m Freund Freunde
+m Kollege Kollegen
+m Student Studenten
+m Lehrer Lehrer
+m Vater Väter
+m Bruder Brüder
+m Sohn Söhne
+m Onkel Onkel
+m Arzt Ärzte
+m Hund Hunde
+m Vogel Vögel
+m Fisch Fische
+m Baum Bäume
+m Apfel Äpfel
+m Tisch Tische
+m Stuhl Stühle
+m Schrank Schränke
+m Koffer Koffer
+m Schlüssel Schlüssel
+m Zug Züge
+m Bus Busse
+m Bahnhof Bahnhöfe
+m Flughafen Flughäfen
+m Weg Wege
+m Berg Berge
+m Fluss Flüsse
+m See Seen
+m Park Parks
+m Platz Plätze
+m Brief Briefe
+m Computer Computer
+m Film Filme
+m Kurs Kurse
+m Test Tests
+m Termin Termine
+m Monat Monate
+m Gast Gäste
+m Chef Chefs
+m Preis Preise
+m Satz Sätze
+m Text Texte
+m Name Namen
+m Gedanke Gedanken
+m Junge Jungen
+m Mensch Menschen
+m Patient Patienten
+m Nachbar Nachbarn
+m Herr Herren
+m Kunde Kunden
+m Fehler Fehler
+m Unterschied Unterschiede
+m Grund Gründe
+m Vorschlag Vorschläge
+m Anruf Anrufe
+m Ausweis Ausweise
+m Abend Abende
+m Stift Stifte
+m Kuchen Kuchen
+m Garten Gärten
+m Balkon Balkone/Balkons
+m Raum Räume
+m Arm Arme
+m Finger Finger
+m Fuß Füße
+m Zahn Zähne
+m Hut Hüte
+m Mantel Mäntel
+m Schuh Schuhe
+m Pullover Pullover
+m Wagen Wagen
+m Erfolg Erfolge
+m Beruf Berufe
+m Euro Euro
+f Frau Frauen
+f Tochter Töchter
+f Mutter Mütter
+f Schwester Schwestern
+f Tante Tanten
+f Freundin Freundinnen
+f Lehrerin Lehrerinnen
+f Ärztin Ärztinnen
+f Studentin Studentinnen
+f Familie Familien
+f Stadt Städte
+f Straße Straßen
+f Wohnung Wohnungen
+f Küche Küchen
+f Tür Türen
+f Wand Wände
+f Hand Hände
+f Nacht Nächte
+f Woche Wochen
+f Stunde Stunden
+f Minute Minuten
+f Sekunde Sekunden
+f Zeit Zeiten
+f Uhr Uhren
+f Zahl Zahlen
+f Frage Fragen
+f Antwort Antworten
+f Aufgabe Aufgaben
+f Sprache Sprachen
+f Schule Schulen
+f Universität Universitäten
+f Prüfung Prüfungen
+f Übung Übungen
+f Stimme Stimmen
+f Zeitung Zeitungen
+f Tasche Taschen
+f Lampe Lampen
+f Blume Blumen
+f Katze Katzen
+f Maus Mäuse
+f Kuh Kühe
+f Bank Banken/Bänke
+f Kirche Kirchen
+f Reise Reisen
+f Karte Karten
+f Flasche Flaschen
+f Tasse Tassen
+f Nummer Nummern
+f Firma Firmen
+f Idee Ideen
+f Meinung Meinungen
+f Regel Regeln
+f Lösung Lösungen
+f Arbeit Arbeiten
+f Information Informationen
+f Erfahrung Erfahrungen
+f Möglichkeit Möglichkeiten
+f Brille Brillen
+f Nase Nasen
+f Kamera Kameras
+f Hose Hosen
+f Jacke Jacken
+f Bibliothek Bibliotheken
+f Wurst Würste
+f Angst Ängste
+f Gruppe Gruppen
+f Seite Seiten
+f Rechnung Rechnungen
+n Kind Kinder
+n Haus Häuser
+n Buch Bücher
+n Bild Bilder
+n Land Länder
+n Wort Wörter/Worte
+n Auto Autos
+n Fenster Fenster
+n Zimmer Zimmer
+n Mädchen Mädchen
+n Ei Eier
+n Jahr Jahre
+n Problem Probleme
+n Beispiel Beispiele
+n Geschenk Geschenke
+n Ding Dinge
+n Heft Hefte
+n Blatt Blätter
+n Glas Gläser
+n Fahrrad Fahrräder
+n Handy Handys
+n Hotel Hotels
+n Restaurant Restaurants
+n Café Cafés
+n Tier Tiere
+n Pferd Pferde
+n Schwein Schweine
+n Kleid Kleider
+n Hemd Hemden
+n Geschäft Geschäfte
+n Büro Büros
+n Museum Museen
+n Theater Theater
+n Thema Themen
+n Datum Daten
+n Gespräch Gespräche
+n Spiel Spiele
+n Lied Lieder
+n Gesicht Gesichter
+n Bett Betten
+n Messer Messer
+n Ohr Ohren
+n Auge Augen
+n Herz Herzen
+n Bein Beine
+n Knie Knie
+n Zeugnis Zeugnisse
+n Ergebnis Ergebnisse
+n Ticket Tickets
+n Hobby Hobbys
+n Foto Fotos
+n Konto Konten
+n Regal Regale
+n Sofa Sofas
+n Brötchen Brötchen
+n Medikament Medikamente
+n Gebäude Gebäude
+n Gleis Gleise
+n Gericht Gerichte
+n Mitglied Mitglieder
+n Ziel Ziele
+n Interesse Interessen
+n Ende Enden
+n Stück Stücke
+n Jahrhundert Jahrhunderte
+n Semester Semester
+n Praktikum Praktika`.split('\n').map(l=>{const[g,s,p]=l.trim().split(' ');return{g,s,p,a:p.split('/')}});
+const PART={m:'der',f:'die',n:'das'};
+const noUm=x=>x.replace(/[äöüÄÖÜ]/g,c=>({ä:'a',ö:'o',ü:'u',Ä:'A',Ö:'O',Ü:'U'}[c]));
+const plHist=()=>(D.plu=D.plu||{})[D.me]||(D.plu[D.me]={});
+function plKind(x){const p=x.a[0],s0=noUm(x.s),p0=noUm(p),um=noUm(p)!==p&&noUm(x.s)===x.s||(p.match(/[äöü]/gi)||[]).length>(x.s.match(/[äöü]/gi)||[]).length;
+let e=p0===s0?'no ending':p0.startsWith(s0)?'-'+p0.slice(s0.length):'irregular (foreign word)';if(um)e=e==='no ending'?'umlaut only':e+' + umlaut';return e}
+function plPick(){const h=plHist(),rec=PS.recent,ex={},ms={};
+PL.forEach(x=>{const r=h[x.s];if(!r)return;const c=plKind(x);ex[c]=(ex[c]||0)+r.n;ms[c]=(ms[c]||0)+r.m});
+const rate=c=>((ms[c]||0)+1)/((ex[c]||0)+4);
+const sc=PL.map((x,i)=>{if(rec.includes(i))return{i,w:0};const c=plKind(x),wk=rate(c),r=h[x.s];
+if(!r)return{i,w:Math.pow(.55+.9*wk,2)+.02,why:wk>=.4?'new word · targets your weak pattern: '+c:'new word'};
+const ws=r.ws==null?r.n:r.ws,es=r.es==null?r.m:r.es,e=es/ws,st=r.st||0,d=(Date.now()-r.ts)/864e5,iv=[.25,1,3,7,14][Math.min(st,4)],due=Math.min(2,d/iv);
+let s=.15+1.6*e+.5*due*(.4+e)+.9*wk;if(st>=3&&e<.1)s*=.3;
+const why=r.lm?'you missed this last time':e>=.3?'you often miss this one':wk>=.4?'weak pattern: '+c:due>=1?'due for review':'refresher';
+return{i,w:s*s+.02,why}}),tot=sc.reduce((a,x)=>a+x.w,0);
+let r=Math.random()*tot,pick=sc.find(x=>x.w>0);for(const x of sc){r-=x.w;if(r<=0&&x.w>0){pick=x;break}}
+PS.recent.push(pick.i);if(PS.recent.length>25)PS.recent.shift();return pick}
+let PS=null;
+R.plural=function(){PS=null;const h=plHist(),seen=PL.filter(x=>h[x.s]),mastered=seen.filter(x=>h[x.s].n>=2&&h[x.s].m/h[x.s].n<.2).length;
+const weak=PL.filter(x=>h[x.s]&&h[x.s].m>0).sort((a,b)=>h[b.s].m/h[b.s].n-h[a.s].m/h[a.s].n).slice(0,6);
+app.innerHTML=`<h1>🧩 Plurals</h1><div class="card"><p class="mut" style="margin-top:0">You see a noun in the singular, you type the plural. Endless – press <b>End</b> to see your score. Words you miss come back more often. <b>Enter</b> checks, <b>Enter</b> again goes on.</p><button onclick="plStart()">Start</button><p class="mut" style="margin:10px 0 0;font-size:13px">${PL.length} nouns in the database · ${seen.length} tried · ${mastered} mastered</p></div>${weak.length?`<div class="card"><div class="lab" style="padding-left:0">Your trouble nouns</div>${weak.map(x=>`<div class="tw"><b style="min-width:7em;font:600 16px system-ui,sans-serif">${PART[x.g]} ${x.s}</b><span style="color:var(--ink)">${x.p.replace('/',' / ')} <span class="mut">· missed ${h[x.s].m} of ${h[x.s].n}</span></span></div>`).join('')}</div>`:''}`};
+function plStart(){PS={n:0,streak:0,max:0,ok:0,res:[],recent:[]};plNext()}
+function plNext(){if(!PS)return;const pk=plPick(),i=pk.i,x=PL[i];PS.cur={i,x,done:false,why:pk.why};PS.n++;
+app.innerHTML=`<div class="bar"><div class="mut">#${PS.n} · 🔥 ${PS.streak}</div><button class="g" onclick="plEnd()">End</button></div><div class="card">${pk.why?`<div class="mut" style="font-size:12px;margin:0 0 8px">🎯 ${esc(pk.why)}</div>`:''}<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end"><div><div class="mut" style="font-size:13px">Singular</div><div style="font:26px/1.4 ui-serif,Georgia,serif">${PART[x.g]} ${esc(x.s)}</div></div><div><div class="mut" style="font-size:13px">Plural</div><div style="display:flex;gap:8px;align-items:baseline;font:26px/1.4 ui-serif,Georgia,serif">die <input class="t" id="pi" style="margin:0;font:inherit" autocomplete="off" autocapitalize="sentences" autocorrect="off" spellcheck="false"></div></div></div><div id="pr" style="margin-top:14px"></div></div>`;
+const el=$('#pi');el.oninput=()=>{const v=el.value;if(v&&v[0]!==v[0].toUpperCase()){const a=el.selectionStart;el.value=v[0].toUpperCase()+v.slice(1);el.setSelectionRange(a,a)}};el.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();plSubmit()}};el.focus()}
+function plSubmit(){const c=PS&&PS.cur;if(!c||c.done)return;c.done=true;c.doneAt=Date.now();const el=$('#pi'),v=el.value.trim().replace(/^die\s+/i,''),x=c.x,ok=x.a.some(a=>a.toLowerCase()===v.toLowerCase());el.disabled=true;el.style.borderColor=ok?'var(--ok)':'var(--bad)';el.style.color=ok?'var(--ok)':'var(--bad)';
+const h=plHist(),r=h[x.s]=h[x.s]||{n:0,m:0,ts:0};if(r.ws==null){r.ws=r.n;r.es=r.m}r.ws=r.ws*.6+1;r.es=r.es*.6+(ok?0:1);r.n++;if(!ok)r.m++;r.st=ok?(r.st||0)+1:0;r.lm=!ok;r.ts=Date.now();save();
+PS.streak=ok?PS.streak+1:0;PS.max=Math.max(PS.max,PS.streak);if(ok)PS.ok++;PS.res.push({x,ok,v});
+$('#pr').innerHTML=`${ok?'<p style="color:var(--ok);margin:0 0 8px"><b>✓ Richtig</b></p>':`<div class="xp"><b><span class="k">${esc(v||'…')}</span> → ${esc(x.a.join(' / '))}</b></div>`}<p class="mut" style="margin:6px 0 12px">${PART[x.g]} ${esc(x.s)} → <b style="color:var(--ink)">die ${esc(x.a.join(' / '))}</b> · pattern: ${plKind(x)}</p><button onclick="plGo()">Next (Enter)</button>`}
+document.addEventListener('keydown',e=>{if(view==='plural'&&PS&&PS.cur&&PS.cur.done&&!e.repeat&&(e.key===' '||e.key==='Enter')&&Date.now()-PS.cur.doneAt>300){e.preventDefault();plGo()}});
+function plGo(){if(PS)plNext()}
+function plEnd(){if(!PS)return;const t=PS.res.length,miss=PS.res.filter(r=>!r.ok);
+app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?Math.round(PS.ok/t*100):0}%</div><p><b>${PS.ok}/${t}</b> correct · best streak 🔥 ${PS.max}</p>${miss.length?'<p class="mut">Missed:</p><div>'+miss.map(r=>`<div class="xp"><b><span class="k">${esc(r.v||'…')}</span> → ${esc(r.x.a.join(' / '))}</b><div>${PART[r.x.g]} ${esc(r.x.s)} · ${plKind(r.x)}</div></div>`).join('')+'</div>':'<p class="mut">Flawless.</p>'}<p style="margin-top:20px"><button onclick="plStart()">Again</button> <button class="g" onclick="go('home')">Home</button></p></div>`;PS=null}
+// ===== MATH SECTION =====
+// Each test: {id,title,source,mins (null = no limit -> plain timer),tasks:[{q,s:[lines],fig,f:[{l:label,a:answer,v:variable (for expressions),g:group (order-free answers),d:shown answer}]}]}
+// Answers accept fractions (1/14), decimals with , or ., sqrt/√, powers (^), and for v: any equivalent expression.
+const FIG9='<svg viewBox="0 0 440 250" style="max-width:340px;width:100%;margin:6px 0"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M97 220H285L392 56H205Z"/><path d="M160 220V124L97 220M160 124H266L305 56"/></g><g fill="currentColor" font-size="14" font-family="system-ui,sans-serif"><text x="244" y="48">12 cm</text><text x="190" y="100">y</text><text x="240" y="98" font-weight="700">P</text><text x="228" y="178" font-weight="700">R</text><text x="112" y="206" font-weight="700">D</text><text x="125" y="236">x</text><text x="200" y="244">20 cm</text><text x="166" y="176">12 cm</text><text x="40" y="170">13 cm</text></g></svg>';
+const FIG_BO2='<svg viewBox="0 0 280 175" style="max-width:250px;width:100%"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M35 140H245V35H105Z"/><path d="M105 35V140" stroke-dasharray="4 4"/><path d="M105 130H115V140"/></g><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="30" y="156">A</text><text x="101" y="156">E</text><text x="242" y="156">B</text><text x="242" y="28">C</text><text x="100" y="28">D</text><text x="148" y="102">F = 26 cm²</text></g></svg>';
+const FIG_BO7='<svg viewBox="0 0 240 215" style="max-width:210px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="110" cy="180" rx="68" ry="18"/><ellipse cx="110" cy="100" rx="34" ry="9" stroke-dasharray="4 3"/><path d="M42 180L110 20L178 180"/><path d="M42 180A68 18 0 0 0 178 180" fill="currentColor" fill-opacity=".12"/></g><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="184" y="104">h = 10 cm (Kegel)</text><text x="184" y="146">Kegelstumpf: h/2</text></g></svg>';
+const FIG_KL1_7='<svg viewBox="0 0 230 190" style="max-width:210px;width:100%"><circle cx="95" cy="95" r="70" fill="currentColor" fill-opacity=".15" stroke="currentColor" stroke-width="2"/><polygon points="95,25 95,165 165,95" fill="var(--card)" stroke="currentColor" stroke-width="1.8"/><g fill="currentColor" font-size="12" font-family="system-ui,sans-serif"><text x="172" y="64">7 cm</text><text x="172" y="134">7 cm</text><text x="52" y="182">7 cm</text><text x="115" y="182">7 cm</text></g></svg>';
+const FIG_KL1_8='<svg viewBox="0 0 280 140" style="max-width:250px;width:100%"><g fill="none" stroke="currentColor" stroke-width="2"><polygon points="25,112 255,112 185,28"/><path d="M185 28V112" stroke-dasharray="4 3"/><path d="M185 102H195V112"/></g><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="54" y="104">α</text><text x="226" y="104">β</text><text x="180" y="46">γ</text><text x="95" y="62">b</text><text x="226" y="68">a</text><text x="172" y="78">h</text><text x="105" y="128">p</text><text x="216" y="128">q</text></g></svg>';
+const FIG_KL1_12='<svg viewBox="0 0 240 165" style="max-width:220px;width:100%"><path d="M60 120 Q120 0 180 120 Z" fill="currentColor" fill-opacity=".18"/><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 120H220M120 15V145"/><path d="M48 142 Q120 -18 192 142" stroke-width="2"/></g><g fill="currentColor" font-size="12" font-family="system-ui,sans-serif"><text x="50" y="135">-1</text><text x="176" y="135">1</text><text x="108" y="34">1</text><text x="155" y="34">y = f(x)</text></g></svg>';
+const FIG_KL2_10='<svg viewBox="0 0 240 240" style="max-width:220px;width:100%"><g stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"><path d="M20 40H220M20 73H220M20 107H220M20 173H220M20 207H220M40 20V220M73 20V220M107 20V220M173 20V220M207 20V220"/></g><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 140H225M140 15V225"/><path d="M57 20L157 220" stroke-width="2.2"/></g><g fill="currentColor" font-size="11" font-family="system-ui,sans-serif"><text x="102" y="153">-1</text><text x="69" y="153">-2</text><text x="171" y="153">1</text><text x="204" y="153">2</text><text x="126" y="110">1</text><text x="126" y="77">2</text><text x="122" y="177">-1</text><text x="122" y="210">-2</text></g></svg>';
+const FIG_KL2_11='<svg viewBox="0 0 240 240" style="max-width:220px;width:100%"><g stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"><path d="M20 40H220M20 73H220M20 107H220M20 173H220M20 207H220M40 20V220M73 20V220M107 20V220M173 20V220M207 20V220"/></g><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 140H225M107 15V225"/><path d="M40 220 Q140 -10 218 220" stroke-width="2.2"/></g><g fill="currentColor" font-size="11" font-family="system-ui,sans-serif"><text x="68" y="153">-1</text><text x="138" y="153">1</text><text x="171" y="153">2</text><text x="204" y="153">3</text><text x="94" y="110">1</text><text x="94" y="77">2</text><text x="90" y="177">-1</text><text x="90" y="210">-2</text></g></svg>';
+const FIG_KL2_12='<svg viewBox="0 0 260 220" style="max-width:240px;width:100%"><g stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"><path d="M20 35H240M20 70H240M20 140H240M20 175H240M45 20V200M80 20V200M150 20V200M185 20V200M220 20V200"/></g><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 105H245M115 15V205"/><path d="M45 60 C62 105, 80 105, 88 105 C98 105, 125 35, 143 35 C160 35, 182 105, 198 105 C215 105, 232 50, 240 40" stroke-width="2.2"/></g><g fill="currentColor" font-size="11" font-family="system-ui,sans-serif"><text x="76" y="118">-1</text><text x="148" y="118">1</text><text x="183" y="118">2</text><text x="218" y="118">3</text><text x="103" y="74">1</text><text x="103" y="39">2</text><text x="99" y="144">-1</text></g></svg>';
+const FIG_KL2_14='<svg viewBox="0 0 180 180" style="max-width:155px;width:100%"><circle cx="90" cy="90" r="72" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-width="2"/><rect x="39" y="39" width="102" height="102" fill="var(--card)" stroke="currentColor" stroke-width="1.8"/><line x1="90" y1="90" x2="141" y2="39" stroke="currentColor" stroke-width="1.6"/><circle cx="90" cy="90" r="2.5" fill="currentColor"/><text x="106" y="62" fill="currentColor" font-size="14" font-family="serif" font-style="italic">r</text></svg>';
+const FIG_KL2_15='<svg viewBox="0 0 190 180" style="max-width:165px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="30" y="30" width="115" height="115"/><line x1="30" y1="145" x2="145" y2="30"/><line x1="30" y1="92" x2="145" y2="30"/></g><g fill="currentColor" font-size="13" font-family="serif" font-style="italic"><text x="84" y="22">a</text><text x="152" y="92">a</text><text x="36" y="116">α</text><text x="105" y="74">β</text></g></svg>';
+const FIG_KL2_16='<svg viewBox="0 0 220 120" style="max-width:200px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="25,88 195,88 68,24"/><line x1="68" y1="24" x2="68" y2="88"/><path d="M68 78H78V88"/><line x1="25" y1="98" x2="195" y2="98" stroke-width="1.2"/></g><g fill="currentColor" font-size="13" font-family="serif" font-style="italic"><text x="74" y="62">h</text><text x="160" y="83">α</text><text x="106" y="112">c</text></g></svg>';
+const FIG_KL2_17='<svg viewBox="0 0 460 220" style="max-width:440px;width:100%"><g stroke="currentColor" stroke-width="1.4" fill="none"><g transform="translate(275,10)"><rect x="32" y="0" width="14" height="14"/><rect x="32" y="14" width="32" height="32"/><rect x="0" y="46" width="32" height="32"/><rect x="32" y="46" width="32" height="32" fill="currentColor" fill-opacity=".28"/><rect x="64" y="46" width="32" height="32"/><rect x="96" y="46" width="14" height="14" fill="currentColor" fill-opacity=".28"/><rect x="32" y="78" width="32" height="32"/><rect x="46" y="110" width="14" height="14"/></g><g transform="translate(15,135)"><rect x="0" y="12" width="28" height="28"/><polygon points="0,12 12,0 40,0 28,12"/><polygon points="28,12 40,0 40,28 28,40" fill="currentColor" fill-opacity=".28"/><text x="0" y="56" fill="currentColor" stroke="none" font-size="13">a</text></g><g transform="translate(75,135)"><rect x="0" y="12" width="28" height="28"/><rect x="14" y="26" width="14" height="14" fill="currentColor" fill-opacity=".28"/><polygon points="0,12 12,0 40,0 28,12" fill="currentColor" fill-opacity=".28"/><polygon points="28,12 40,0 40,28 28,40"/><text x="0" y="56" fill="currentColor" stroke="none" font-size="13">b</text></g><g transform="translate(135,135)"><rect x="0" y="12" width="28" height="28" fill="currentColor" fill-opacity=".28"/><polygon points="0,12 12,0 40,0 28,12"/><polygon points="28,12 40,0 40,28 28,40"/><text x="0" y="56" fill="currentColor" stroke="none" font-size="13">c</text></g><g transform="translate(195,135)"><rect x="0" y="12" width="28" height="28"/><rect x="14" y="26" width="14" height="14" fill="currentColor" fill-opacity=".28"/><polygon points="0,12 12,0 40,0 28,12"/><polygon points="28,12 40,0 40,28 28,40"/><text x="0" y="56" fill="currentColor" stroke="none" font-size="13">d</text></g><g transform="translate(255,135)"><rect x="0" y="12" width="28" height="28" fill="currentColor" fill-opacity=".28"/><polygon points="0,12 12,0 40,0 28,12"/><polygon points="28,12 40,0 40,28 28,40"/><polygon points="28,26 34,20 34,34 28,40" fill="currentColor" fill-opacity=".28"/><text x="0" y="56" fill="currentColor" stroke="none" font-size="13">e</text></g><g transform="translate(315,135)"><rect x="0" y="12" width="28" height="28"/><polygon points="0,12 12,0 40,0 28,12"/><polygon points="6,6 20,6 14,12 0,12" fill="currentColor" fill-opacity=".28"/><polygon points="20,6 34,6 40,0 26,0" fill="currentColor" fill-opacity=".28"/><polygon points="28,12 40,0 40,28 28,40"/><text x="0" y="56" fill="currentColor" stroke="none" font-size="13">f</text></g><g transform="translate(375,135)"><rect x="0" y="12" width="28" height="28"/><rect x="14" y="26" width="14" height="14" fill="currentColor" fill-opacity=".28"/><polygon points="0,12 12,0 40,0 28,12"/><polygon points="20,6 34,6 40,0 26,0" fill="currentColor" fill-opacity=".28"/><polygon points="28,12 40,0 40,28 28,40"/><text x="0" y="56" fill="currentColor" stroke="none" font-size="13">g</text></g></g></svg>';
+const FIG_KL2_18='<svg viewBox="0 0 230 220" style="max-width:210px;width:100%"><g stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"><path d="M25 25H205M25 55H205M25 85H205M25 115H205M25 145H205M25 25V205M85 25V205M115 25V205M145 25V205M175 25V205"/></g><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 175H215M55 15V210"/><path d="M85 145L115 55" stroke-width="2.2"/><path d="M85 145L145 175" stroke-width="2.2"/></g><g fill="currentColor" font-size="12" font-family="system-ui,sans-serif"><text x="43" y="188">0</text><text x="81" y="188">1</text><text x="111" y="188">2</text><text x="141" y="188">3</text><text x="171" y="188">4</text><text x="43" y="149">1</text><text x="43" y="119">2</text><text x="43" y="89">3</text><text x="43" y="59">4</text><text x="43" y="29">5</text><text x="92" y="75" font-style="italic">a</text><text x="130" y="155" font-style="italic">b</text></g></svg>';
+const FIG_FU7='<svg viewBox="0 0 380 185" style="max-width:350px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="80" cy="80" r="62"/><rect x="36" y="36" width="88" height="88" stroke-dasharray="4 3"/><line x1="36" y1="158" x2="124" y2="158" stroke-dasharray="4 3"/><polygon points="210,142 330,142 270,22"/><line x1="270" y1="22" x2="270" y2="82" stroke-dasharray="4 3"/><line x1="240" y1="82" x2="300" y2="82" stroke-dasharray="4 3"/><line x1="300" y1="82" x2="330" y2="142" stroke-width="3" stroke-dasharray="2 3"/><line x1="210" y1="158" x2="330" y2="158" stroke-dasharray="4 3"/></g><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="76" y="174">3</text><text x="266" y="174">2</text><text x="328" y="112">√5</text></g></svg>';
+const FIG_FU8='<svg viewBox="0 0 460 155" style="max-width:440px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 75H140M65 10V140"/><path d="M15 95 C35 95, 45 45, 65 75 C85 105, 95 105, 115 75 C125 60, 132 55, 138 55" stroke-width="2"/><path d="M165 25H295M230 10V140"/><path d="M185 15 C195 75, 205 90, 230 85 C255 80, 265 95, 275 138" stroke-width="2"/><path d="M320 125H450M385 10V140"/><path d="M342 15 Q385 225 428 15" stroke-width="2"/></g><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="68" y="150">a)</text><text x="224" y="150">b)</text><text x="378" y="150">c)</text></g></svg>';
+
+const MATH=[
+{id:'han-m1',title:'Hannover · Mathe 1',source:'Niedersächsisches Studienkolleg Hannover – Aufnahmetest Mathematik',uni:'Niedersächsisches Studienkolleg · Universität Hannover',mins:null,calc:null,tasks:[
+{q:'Berechnen Sie a, b und c.',s:['a = 2,5 − 3 : 0,5','b = 6,3 / 0,045','c = √(49 + 1) / √2'],f:[{l:'a =',a:'-3.5'},{l:'b =',a:'140'},{l:'c =',a:'5'}]},
+{q:'Ordnen Sie 4/9, 8/19 und 5/8 der Größe nach.',f:[{l:'größte Zahl:',a:'5/8',d:'5/8'},{l:'mittlere Zahl:',a:'4/9',d:'4/9'},{l:'kleinste Zahl:',a:'8/19',d:'8/19'}]},
+{q:'Vereinfachen Sie so weit wie möglich.',s:['p = (3a − 1/(3a)) / (1 − 1/(3a))'],f:[{l:'p =',a:'3a+1',v:'a',d:'3a + 1'}]},
+{q:'Berechnen Sie x, y und z.',s:['27 · 27 = 9^x','(1/8) · 7^(−3) = y^3','(√5 − 2)² − z = (1 − √20)²'],f:[{l:'x =',a:'3'},{l:'y =',a:'1/14',d:'1/14'},{l:'z =',a:'-12'}]},
+{q:'Berechnen Sie die Lösungen der Gleichung.',s:['(x + 10)/7 − 2 = 3/x'],f:[{l:'x =',a:'7',g:1},{l:'oder x =',a:'-3',g:1}]},
+{q:'In einem Dreieck verhalten sich die Winkel α : β : γ = 2 : 3 : 7. Wie groß sind α, β und γ (in °)?',f:[{l:'α =',a:'30'},{l:'β =',a:'45'},{l:'γ =',a:'105'}]},
+{q:'Eine Gruppe mietet einen Bus für einen Ausflug. Wenn 50 Personen mitfahren, muss jeder 72 Euro bezahlen. Wieviel beträgt der Preis pro Person, wenn 2 Personen weniger mitfahren?',f:[{l:'Der Preis beträgt (Euro):',a:'75'}]},
+{q:'Gegeben sind die Punkte A(−3/−3), B(3/−1) und die Gerade g: y = −x + 1. a) Die Gerade h geht durch A und B. Gleichung von h? b) Die Gerade k ist parallel zu g und geht durch A. Gleichung von k?',f:[{l:'h: y =',a:'x/3-2',v:'x',d:'y = x/3 − 2'},{l:'k: y =',a:'-x-6',v:'x',d:'y = −x − 6'}]},
+{q:'Das Dreieck D (Katheten x und 12 cm, Hypotenuse 13 cm) hat denselben Flächeninhalt wie das Parallelogramm P (Grundseite 12 cm, Höhe y). Das große Parallelogramm (Grundseite 20 cm) besteht aus D, P und der Restfläche R. Wie lang sind x und y? Welchen Inhalt hat R?',fig:FIG9,f:[{l:'x (cm) =',a:'5'},{l:'y (cm) =',a:'5/2',d:'2,5'},{l:'R (cm²) =',a:'230'}]}
+]},
+{id:'bo-m1',title:'Bochum · Mathe',source:'Studienkolleg Bochum – Der mathematische Zusatztest (Stand September 2012)',mins:30,tasks:[
+{q:'Vereinfachen Sie beide Terme.',s:['1 + (2 + 3(x − 4 + (5x − 6)))','(4x³ − 19x² + 16x − 16) / (x − 4)'],f:[{l:'Term 1 =',a:'18x-27',v:'x',d:'18x − 27'},{l:'Term 2 =',a:'4x^2-3x+4',v:'x',d:'4x² − 3x + 4'}]},
+{q:'Im Trapez ABCD gilt AE = 3 cm, AB = 8 cm und der Flächeninhalt beträgt F = 26 cm². Berechnen Sie die Längen DC, DE und AD (in cm).',fig:FIG_BO2,f:[{l:'DC (cm) =',a:'5'},{l:'DE (cm) =',a:'4'},{l:'AD (cm) =',a:'5'}]},
+{q:'Bestimmen Sie alle reellen Lösungen x der Wurzelgleichung.',s:['√(x − 2) + 2 = x'],f:[{l:'x₁ =',a:'2',g:1},{l:'x₂ =',a:'3',g:1}]},
+{q:'Gegeben sind die Vektoren a = (2; −3; 5) und b = (1; 2; −1). Berechnen Sie die Linearkombination 3a − 4b (in der Form (x; y; z)) sowie das Skalarprodukt a · b.',s:['a = (2; -3; 5) ,   b = (1; 2; -1)'],f:[{l:'3a − 4b =',a:'(2;-17;19)',d:'(2; −17; 19)'},{l:'a · b =',a:'-9'}]},
+{q:'Lösen Sie das lineare Gleichungssystem.',s:['x − y = −1','−2x − y = −4'],f:[{l:'x =',a:'1'},{l:'y =',a:'2'}]},
+{q:'An welchen Punkten schneiden sich die Graphen von y = x² + 1 und y = 3 − x?',f:[{l:'x₁ =',a:'-2'},{l:'y₁ =',a:'5'},{l:'x₂ =',a:'1'},{l:'y₂ =',a:'2'}]},
+{q:'Die Höhe eines Kegels beträgt h = 10 cm, der Radius der Grundfläche beträgt r = 3 cm. Der Kegelstumpf hat die halbe Höhe (5 cm). Berechnen Sie das Volumen V des Kegelstumpfs (mit π).',fig:FIG_BO7,f:[{l:'V (cm³) =',a:'105/4*pi',d:'(105/4)π'}]},
+{q:'Berechnen Sie cos(π/4) und die kleinste positive Lösung x (im Bogenmaß) von tan(x) = 1.',f:[{l:'cos(π/4) =',a:'sqrt(2)/2',d:'√2 / 2'},{l:'x =',a:'pi/4',d:'π/4'}]},
+{q:'Bestimmen Sie jeweils die erste Ableitung.',s:['f(x) = sin(x²)','g(x) = x² + 2x + 1','h(x) = 1 / (2 − 3x)'],f:[{l:"f'(x) =",a:'2*x*cos(x^2)',v:'x',d:'2x · cos(x²)'},{l:"g'(x) =",a:'2*x+2',v:'x',d:'2x + 2'},{l:"h'(x) =",a:'3/(2-3*x)^2',v:'x',d:'3 / (2 − 3x)²'}]},
+{q:'Berechnen Sie die folgenden Integrale (beim unbestimmten Integral ohne Konstante C).',s:['∫ x² dx','∫₀¹ x²(1 − x) dx','∫_{-π}^{3π} sin(x) dx'],f:[{l:'∫ x² dx =',a:'x^3/3',v:'x',d:'x³/3'},{l:'∫₀¹ x²(1 − x) dx =',a:'1/12',d:'1/12'},{l:'∫_{-π}^{3π} sin(x) dx =',a:'0'}]}
+]},
+{id:'kl-m1',title:'Kaiserslautern · Mathe 1 (WS 05/06)',source:'FH Kaiserslautern – Aufnahmeprüfung Mathematik Kurs TI (WS 2005/06)',mins:60,tasks:[
+{q:'Berechnen Sie den Doppelbruch.',s:['(2/3 + 1/6 + 3/8) / ((7/3) · (1/4))'],f:[{l:'Ergebnis =',a:'29/14',d:'29/14'}]},
+{q:'Berechnen Sie und vereinfachen Sie vollständig.',s:['(√(4 · 5³) · 5^(1/2)) / (2 · 5^(−1))'],f:[{l:'Ergebnis =',a:'125'}]},
+{q:'Berechnen Sie den Logarithmusausdruck.',s:['log₂(3/8) − log₂(3)'],f:[{l:'Ergebnis =',a:'-3'}]},
+{q:'Bestimmen Sie die Lösung x der Gleichung.',s:['8 / (2 − x) + 1 = 3'],f:[{l:'x =',a:'-2'}]},
+{q:'Bestimmen Sie zwei Zahlen so, dass ihre Summe 25 und ihr Quotient 3/2 ist.',f:[{l:'Zahl 1 =',a:'10',g:1},{l:'Zahl 2 =',a:'15',g:1}]},
+{q:'Gegeben ist f(x) = −(x + 1)² + 3. Bestimmen Sie die beiden Nullstellen f(x) = 0.',f:[{l:'x₁ =',a:'-1-sqrt(3)',g:1,d:'−1 − √3'},{l:'x₂ =',a:'-1+sqrt(3)',g:1,d:'−1 + √3'}]},
+{q:'Berechnen Sie den Flächeninhalt der grau gefärbten Fläche (Hinweis: π ≈ 22/7).',fig:FIG_KL1_7,f:[{l:'A (cm²) =',a:'105'}]},
+{q:'In einem Dreieck sind α = 30°, β = 45° und b = 4 cm bekannt. Berechnen Sie γ (in °) sowie a, h, p und q (in cm).',fig:FIG_KL1_8,f:[{l:'γ (°) =',a:'105'},{l:'a (cm) =',a:'2*sqrt(2)',d:'2√2'},{l:'h (cm) =',a:'2'},{l:'p (cm) =',a:'2*sqrt(3)',d:'2√3'},{l:'q (cm) =',a:'2'}]},
+{q:'Zwei Vektoren haben die Koordinaten a = (−2; −3; 1) und b = (3; −1; 2). Berechnen Sie a) die Vektorsumme a + b (als (x; y; z)) und b) das Skalarprodukt a · b.',s:['a = (-2; -3; 1) ,   b = (3; -1; 2)'],f:[{l:'a + b =',a:'(1;-4;3)',d:'(1; −4; 3)'},{l:'a · b =',a:'-1'}]},
+{q:'Berechnen Sie für die komplexen Zahlen z₁ = 1 + 2i und z₂ = 2 − 3i die Summe z₁ + z₂ und das Produkt z₁ · z₂.',f:[{l:'z₁ + z₂ =',a:'3-i',v:'i',d:'3 − i'},{l:'z₁ · z₂ =',a:'8+i',v:'i',d:'8 + i'}]},
+{q:'Berechnen Sie für f(x) = 4x³ + 2 sin(x) die erste Ableitung f′(x) und die zweite Ableitung f″(x).',f:[{l:"f'(x) =",a:'12*x^2+2*cos(x)',v:'x',d:'12x² + 2 cos(x)'},{l:"f''(x) =",a:'24*x-2*sin(x)',v:'x',d:'24x − 2 sin(x)'}]},
+{q:'Berechnen Sie den Flächeninhalt der grau gefärbten Fläche, die vom Graph von f(x) = 1 − x² und der x-Achse zwischen x₁ = −1 und x₂ = 1 eingeschlossen wird.',fig:FIG_KL1_12,f:[{l:'A =',a:'4/3',d:'4/3'}]}
+]},
+{id:'kl-m2',title:'Kaiserslautern · Mathe 2 (WS 07/08)',source:'FH Kaiserslautern – Aufnahmeprüfung Mathematik Kurs TI (WS 2007/08)',mins:75,tasks:[
+{q:'Aufgabe 1-A: Berechnen Sie den Bruchterm.',s:['(1/3 + 1/7) / (1/5) ='],f:[{l:'Antwort:',a:'B',mc:[['A','3/35'],['B','50/21'],['C','2/21'],['D','7/15'],['E','21/5']]}]},
+{q:'Aufgabe 2-A: Berechnen Sie den Potenz- und Wurzelterm.',s:['(√2 · 3² · 2^(1/2)) / 3^(−2) ='],f:[{l:'Antwort:',a:'C',mc:[['A','2'],['B','1'],['C','54'],['D','2/3'],['E','27√2']]}]},
+{q:'Aufgabe 3-A: Vereinfachen Sie die Summe.',s:['2^(n+201) + 2^(n+201) ='],f:[{l:'Antwort:',a:'A',mc:[['A','2^(n+202)'],['B','2^(2n+402)'],['C','4^(2n+402)'],['D','4^(2n+201)'],['E','4^(n+201)']]}]},
+{q:'Aufgabe 4-A: Berechnen Sie den Logarithmusausdruck.',s:['log₂(1/8) + log₂(1) ='],f:[{l:'Antwort:',a:'D',mc:[['A','3'],['B','2'],['C','−1'],['D','−3'],['E','−2']]}]},
+{q:'Aufgabe 5-A: Wenn x die Lösung der Gleichung ist, dann ist x² + x =',s:['(3x − 1) / (3x + 1) − 2 = 0'],f:[{l:'Antwort:',a:'D',mc:[['A','4/9'],['B','2'],['C','−8/81'],['D','0'],['E','−2/9']]}]},
+{q:'Aufgabe 6-A: Wenn x die größte Lösung von (x + 1)(3x² − 2x − 1) = 0 ist, dann ist x + 1/x =',f:[{l:'Antwort:',a:'C',mc:[['A','−2'],['B','−10/3'],['C','2'],['D','−4/3'],['E','2/3']]}]},
+{q:'Aufgabe 7-A: Eine Zahl z lautet im Dualsystem 11011. Welchen Wert hat z im Dezimalsystem?',f:[{l:'Antwort:',a:'C',mc:[['A','54'],['B','5'],['C','27'],['D','30'],['E','23']]}]},
+{q:'Aufgabe 8-A: Die ersten vier Zahlen einer Zahlenfolge sind (aₙ) = 2, −6, 18, −54, … Wie heißt die fünfte Zahl?',f:[{l:'Antwort:',a:'B',mc:[['A','108'],['B','162'],['C','−100'],['D','72'],['E','−162']]}]},
+{q:'Aufgabe 9-A: Ein Hotel hat Zimmer mit einem oder mit zwei Betten. Insgesamt gibt es 19 Zimmer und 31 Betten. Wenn e die Zahl der Einzelzimmer und z die Zahl der Doppelzimmer ist, dann ist e − z =',f:[{l:'Antwort:',a:'E',mc:[['A','5'],['B','14'],['C','−14'],['D','24'],['E','−5']]}]},
+{q:'Aufgabe 10-A: Welche Funktion ist im Diagramm dargestellt?',fig:FIG_KL2_10,f:[{l:'Antwort:',a:'C',mc:[['A','y = −(1/2)x − 2'],['B','y = 2x − 1'],['C','y = −2x − 2'],['D','y = −2x − 1'],['E','y = (1/2)x − 2']]}]},
+{q:'Aufgabe 11-A: Welche Funktion ist im Diagramm dargestellt?',fig:FIG_KL2_11,f:[{l:'Antwort:',a:'B',mc:[['A','y = −(1/2)(x − 1)(x + 3)'],['B','y = −(1/2)(x + 1)(x − 3)'],['C','y = (1/2)(x + 1)(x − 3)'],['D','y = 2(x + 1)(x − 3)'],['E','y = 2(x − 1)(x + 3)']]}]},
+{q:'Aufgabe 12-T: Welche Funktion ist im Diagramm dargestellt? (Hinweis: π ≈ 3,14)',fig:FIG_KL2_12,f:[{l:'Antwort:',a:'E',mc:[['A','y = sin((1/2)x) + 1'],['B','y = sin(x) + 1'],['C','y = cos(x) − 1'],['D','y = cos(x) + 1'],['E','y = sin(2x) + 1']]}]},
+{q:'Aufgabe 13-T: Eisen (Fe) hat die Dichte ρ = 7,87 g cm⁻³. Welchen Wert hat ρ in der Einheit kg m⁻³?',f:[{l:'Antwort:',a:'D',mc:[['A','7,87 · 10⁻⁶'],['B','7,87 · 10⁻³'],['C','7,87 · 10⁻¹'],['D','7,87 · 10³'],['E','7,87 · 10⁶']]}]},
+{q:'Aufgabe 14-T: In einem Kreis (Radius r = 3 cm) liegt ein einbeschriebenes Quadrat. Welchen Flächeninhalt A hat die grau gefärbte Fläche?',fig:FIG_KL2_14,f:[{l:'Antwort:',a:'D',mc:[['A','8(π − 1) cm²'],['B','6(2π − 1) cm²'],['C','(9π − 25) cm²'],['D','9(π − 2) cm²'],['E','(6π/5) cm²']]}]},
+{q:'Aufgabe 15-T: Im gezeichneten Quadrat ist der Winkel α = 60°. Wie groß ist der Winkel β?',fig:FIG_KL2_15,f:[{l:'Antwort:',a:'C',mc:[['A','5°'],['B','7,5°'],['C','15°'],['D','22,5°'],['E','30°']]}]},
+{q:'Aufgabe 16-T: Im rechtwinkligen Dreieck gilt c = 4 cm und α = 30°. Wie hoch ist die Höhe h?',fig:FIG_KL2_16,f:[{l:'Antwort:',a:'E',mc:[['A','3 cm'],['B','(1/4)√3 cm'],['C','(4/3)√3 cm'],['D','2 cm'],['E','√3 cm']]}]},
+{q:'Aufgabe 17-T: Aus der gezeichneten Fläche wird ein Würfel gefaltet. Welche Bilder zeigen den Würfel?',fig:FIG_KL2_17,f:[{l:'Antwort:',a:'D',mc:[['A','b und c'],['B','a und f'],['C','d und g'],['D','c und f'],['E','e und g']]}]},
+{q:'Aufgabe 18-T: Im Diagramm sind zwei Vektoren a und b gezeichnet. Wie groß ist das Skalarprodukt a · b?',fig:FIG_KL2_18,f:[{l:'Antwort:',a:'B',mc:[['A','−2'],['B','−1'],['C','0'],['D','2'],['E','3']]}]},
+{q:'Aufgabe 19-T: Bestimmen Sie die Ableitung f′(x) der Funktion f(x) = (1/5)x⁴ + 2 cos(3x).',f:[{l:'Antwort:',a:'D',mc:[['A','4x³ + 6 cos(x)'],['B','(1/20)x⁵ − (2/3)sin(3x)'],['C','(4/5)x³ − 2 sin(3x)'],['D','(4/5)x³ − 6 sin(3x)'],['E','(4/5)x³ + 6 sin(3x)']]}]},
+{q:'Aufgabe 20-T: Die Kurve y = f(x) = 2 − x⁴ wird an der Stelle x = 1/2 von einer Geraden y = g(x) tangiert. Wie lautet die Gleichung von g(x)?',f:[{l:'Antwort:',a:'D',mc:[['A','(1/2)x + 9/4'],['B','−(1/2)x + 5/2'],['C','x + 35/16'],['D','−(1/2)x + 35/16'],['E','−(5/8)x + 17/8']]}]}
+]},
+{id:'fu-m1',title:'FU Berlin · Mathe (M, T, W)',source:'Studienkolleg FU Berlin – Studierfähigkeitstest Teil II: Mathematik (Muster)',mins:45,tasks:[
+{q:'Sie kaufen 9 CDs (je 50 Cent), 6 DVDs (je 1 €) und 5 Blu-Ray-Discs (je 3,90 €). Geben Sie Menge und Kosten jeweils in Prozent an.',f:[{l:'Menge CDs (%):',a:'45'},{l:'Menge DVDs (%):',a:'30'},{l:'Menge Blu-Rays (%):',a:'25'},{l:'Kosten CDs (%):',a:'15'},{l:'Kosten DVDs (%):',a:'20'},{l:'Kosten Blu-Rays (%):',a:'65'}]},
+{q:'Eine dreistellige Zahl besitzt die Quersumme 18. Zieht man von der ersten Ziffer die zweite Ziffer ab, erhält man die dritte Ziffer. Die zweite Ziffer ist doppelt so groß wie die dritte Ziffer. Um welche Zahl handelt es sich?',f:[{l:'Zahl =',a:'963'}]},
+{q:'Berechnen Sie die drei Brüche.',s:['a)  12 · (3/4 + 1/8)','b)  (24 · (35/18)) / 14','c)  (13/15 − 7/10) / (9/7 − 5/3)'],f:[{l:'a) =',a:'21/2',d:'21/2'},{l:'b) =',a:'10/3',d:'10/3'},{l:'c) =',a:'-7/16',d:'−7/16'}]},
+{q:'Berechnen Sie die Wurzel- und Logarithmusausdrücke.',s:['a)  √66 · √(88/3)','b)  log₈(2) + log₈(4)','c)  ∛(a⁴ · b³ · (1/a) · b³)'],f:[{l:'a) =',a:'44'},{l:'b) =',a:'1'},{l:'c) =',a:'a*b^2',v:'a',d:'ab²'}]},
+{q:'Vereinfachen Sie so weit wie möglich.',s:['a)  (x²/y + (y² + x²)/(x − y)) / (x³/y² + y²/(x + y) − x⁴/(y³ + x·y²))','b)  √( (x³ · y^(2/3) · (y − x)²) / (x^(7/3) · y^(−5) · ∛(y⁵ · x⁸)) )'],f:[{l:'a) =',a:'(y+x)/(x-y)',v:'x',d:'(y + x) / (x − y)'},{l:'b) =',a:'y^2*(y-x)/x',v:'x',d:'y²(y − x) / x'}]},
+{q:'Bestimmen Sie die Lösungen der folgenden Gleichungen.',s:['a)  3x − 7 = 11','b)  (1/3)x² − (7/9)x + 5/12 = 0','c)  x⁶ = −2x³','d)  √(4 − 6x) = 2x'],f:[{l:'a) x =',a:'6'},{l:'b) x₁ =',a:'3/2',g:1,d:'3/2'},{l:'b) x₂ =',a:'5/6',g:1,d:'5/6'},{l:'c) x₁ =',a:'0',g:1},{l:'c) x₂ =',a:'-cbrt(2)',g:1,d:'−∛2'},{l:'d) x =',a:'0.5',d:'0,5'}]},
+{q:'Berechnen Sie den Flächeninhalt der beiden Figuren (Quadrat im Kreis mit Seitenlänge 3; gleichschenkliges Dreieck mit Grundlinie 2 und Schenkel √5).',fig:FIG_FU7,f:[{l:'A (Kreis) =',a:'9/2*pi',d:'(9/2)π'},{l:'A (Dreieck) =',a:'8'}]},
+{q:'Ordnen Sie den Graphen von f jeweils die passende Gleichung der ersten Ableitungsfunktion zu: (1) cos x, (2) x⁴+x²−3, (3) x³+4x, (4) −x³+4x, (5) −x⁴+3, (6) −x⁴+x², (7) 2cos x, (8) x⁴+x², (9) −sin x, (10) −cos x, (11) −x³−4, (12) −x⁴+4x.',fig:FIG_FU8,f:[{l:'Graph a) Nr.:',a:'10',d:'(10) f′(x) = −cos x'},{l:'Graph b) Nr.:',a:'6',d:'(6) f′(x) = −x⁴ + x²'},{l:'Graph c) Nr.:',a:'3',d:'(3) f′(x) = x³ + 4x'}]},
+{q:'Berechnen Sie die beiden bestimmten Integrale.',s:['a)  ∫_{-1}^{2} 3x² + 2x','b)  ∫_{-a}^{a} (3/17) x³'],f:[{l:'a) =',a:'12'},{l:'b) =',a:'0'}]}
+]},
+{id:'ko-m1',title:'Köthen · Mathe 1 (Hochschule Anhalt)',source:'Hochschule Anhalt (FH) – Studienkolleg Köthen – Aufnahmetest',uni:'Hochschule Anhalt (FH) · Studienkolleg Köthen',mins:null,calc:null,tasks:[
+{q:'Berechnen Sie!',s:['(3 + 2x)/(x − 2) − (2x³ + 9x + 20)/(x³ − 4x) − 5/x − 2/(x + 2) ='],f:[{l:'Ergebnis =',a:'1/(x^2-4)',v:'x',d:'1 / (x² − 4)'},{l:'Voraussetzung:',cond:['x!=0','x!=2','x!=-2'],d:'x ≠ 0,  x ≠ 2,  x ≠ −2'}]},
+{q:'Vereinfachen Sie!',s:['((3x a² b)/(2y √b))^3 · ((2x² a)/(9y³ b))^2 ÷ (a⁸ x⁶/(√b y⁸)) ='],f:[{l:'Ergebnis =',a:'x/(6*y)',v:'x',d:'x / (6y)'},{l:'Voraussetzung:',cond:['a!=0','x!=0','y!=0','b>0'],d:'a ≠ 0,  x ≠ 0,  y ≠ 0,  b > 0'}]},
+{q:'Berechnen Sie!',s:['log_(1/3) 9 ='],f:[{l:'Ergebnis =',a:'-2'}]},
+{q:'Bestimmen Sie x!',s:['(x + 2)/3 < 4 + x'],f:[{l:'x >',a:'-5'}]},
+{q:'Lösen Sie!',s:['(I)   5x + 2y = 4','(II)   (2x + y)/(x − y) = 1/5'],f:[{l:'x =',a:'2'},{l:'y =',a:'-3'}]},
+{q:"Bilden Sie y′ = dy/dx!",s:['y = f(x) = x · ln(x)'],f:[{l:"y′ =",a:'ln(x)+1',v:'x',d:'ln(x) + 1'}]},
+{q:'Geben Sie für die folgende Funktion den Definitionsbereich Df, den Wertebereich Wf und die Schnittstellen mit den Koordinatenachsen (xₙ₁; xₙ₂; yₛ) an! (Die Zeichnung entfällt hier.)',s:['y = f(x) = |2x² + 5x − 3|'],f:[{l:'Df:',alt:['r','xinr','allerellenzahlen','(-inf;inf)',']-inf;inf['],d:'ℝ'},{l:'Wf:',alt:['y>=0','yin[0;inf)','yin[0;inf[','[0;inf)','[0;inf[','r>=0','r+0'],d:'y ≥ 0   [0; ∞)'},{l:'xₙ₁ =',a:'-3',g:2},{l:'xₙ₂ =',a:'1/2',g:2,d:'1/2'},{l:'yₛ =',a:'3'}]}
+]}
+];
+
+function mval(s,v,x){try{s=String(s).trim().replace(/^[a-zα-ω]['′″]*\s*(?:\([^)]*\))?\s*=\s*/i,'').replace(/−/g,'-').replace(/[·×]/g,'*').replace(/:/g,'/').replace(/,/g,'.').replace(/²/g,'^2').replace(/³/g,'^3').replace(/⁴/g,'^4').replace(/⁵/g,'^5').replace(/⁶/g,'^6').replace(/∛/g,'cbrt').replace(/√/g,'sqrt').replace(/π/g,'pi').replace(/\s+/g,'');
+if(!s)return NaN;if(s.startsWith('(')&&s.endsWith(')')&&s.includes(';'))return NaN;
+s=s.replace(/sqrt(\d+(\.\d+)?)/g,'sqrt($1)').replace(/cbrt(\d+(\.\d+)?)/g,'cbrt($1)');
+s=s.replace(/(\d|\))(?=[a-z(])/gi,'$1*').replace(/\b(pi|i|e)(?=[0-9a-z(])/gi,'$1*');
+const kw=/\b(sqrt|cbrt|sin|cos|tan|log|ln|pi)\b/g,re=v?new RegExp('\\b'+v+'\\b','g'):null;
+let chk=s.replace(kw,'');if(re)chk=chk.replace(re,'');if(v==='x')chk=chk.replace(/\by\b/g,'');
+if(!/^[0-9+\-*/().^]*$/.test(chk))return NaN;
+s=s.replace(/\bsqrt\b/g,'Math.sqrt').replace(/\bcbrt\b/g,'Math.cbrt').replace(/\bsin\b/g,'Math.sin').replace(/\bcos\b/g,'Math.cos').replace(/\btan\b/g,'Math.tan').replace(/\blog\b/g,'Math.log10').replace(/\bln\b/g,'Math.log').replace(/\bpi\b/g,'Math.PI').replace(/\^/g,'**');
+if(re)s=s.replace(re,'('+x+')');if(v==='x')s=s.replace(/\by\b/g,'(3)');
+return Function('"use strict";return ('+s+')')()}catch(e){return NaN}}
+
+const tnorm=v=>String(v).toLowerCase().replace(/\s+/g,'').replace(/−/g,'-').replace(/ℝ/g,'r').replace(/∞|infinity|infty|unendlich/g,'inf').replace(/≥/g,'>=').replace(/∈/g,'in').replace(/,/g,';').replace(/^(df|wf|d|w)=/,'');
+function mchk(f,val){if(f.mc)return String(val).trim().toUpperCase()===f.a;if(f.alt)return f.alt.includes(tnorm(val));
+const vs=String(val).trim().replace(/−/g,'-').replace(/,/g,'.');
+if(f.a.startsWith('(')&&f.a.includes(';')){const p=s=>s.replace(/^\(|\)$/g,'').split(';').map(z=>mval(z));const u=p(vs),a=p(f.a);return u.length===a.length&&u.every((z,i)=>isFinite(z)&&Math.abs(z-a[i])<=1e-3)}
+if(f.v)return[2,3,5,7].every(p=>{const u=mval(vs,f.v,p),a=mval(f.a,f.v,p);if(!isFinite(a))return true;return isFinite(u)&&Math.abs(u-a)<1e-6*Math.max(1,Math.abs(a))});
+const u=mval(vs),a=mval(f.a);return isFinite(u)&&Math.abs(u-a)<=1e-3*Math.max(1,Math.abs(a))}
+
+const calcTxt=t=>t.calc===true?'🧮 Calculator allowed':t.calc===false?'🧮 No calculator':'🧮 Calculator: not stated';
+let MT=null;
+const SUBS={'₀':'0','₁':'1','₂':'2','₃':'3','₄':'4','₅':'5','₆':'6','₇':'7','₈':'8','₉':'9','₋':'-'},SUPS={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁻':'-'};
+// integrals: write ∫_{lower}^{upper} or ∫₀¹; limits are queued and drawn above/below the sign
+function intNorm(src,IL){src=src.replace(/∫([₀-₉₋]+)([⁰¹²³⁴-⁹⁻]+)/g,(_,a,b)=>'∫_{'+[...a].map(c=>SUBS[c]).join('')+'}^{'+[...b].map(c=>SUPS[c]).join('')+'}');
+return src.replace(/∫(?:_\{([^}]*)\})?(?:\^\{([^}]*)\})?/g,(_,lo,hi)=>{IL.push([lo,hi]);return'∫'})}
+function intHtml(lo,hi){return lo==null&&hi==null?'<span class="int n0"><span class="is">∫</span></span>':'<span class="int"><span class="ih">'+mfx(hi||'')+'</span><span class="is">∫</span><span class="il">'+mfx(lo||'')+'</span></span>'}
+function mfx(src){const s0=String(src).trim();
+if(/^\([^;()]+;[^;()]+;[^;()]+\)$/.test(s0)){const pts=s0.slice(1,-1).split(';');return'<span class="mvec"><b>(</b><span>'+pts.map(p=>'<span>'+mfx(p)+'</span>').join('')+'</span><b>)</b></span>'}
+const t=[];const re=/\s*(\d+(?:[.,]\d+)?|[A-Za-zα-ωÄÖÜäöü]+|[^\s])/g;let m;const IL=[];src=intNorm(String(src),IL).replace(/sqrt/g,'√').replace(/cbrt/g,'∛').replace(/\bpi\b/g,'π');while((m=re.exec(src)))t.push(m[1]);
+let i=0;const isOp=x=>x!=null&&/^[+\-−=·:*×÷<>≤≥≠±]$/.test(x),plain=x=>/^[A-Za-zα-ω]$/.test(x)?'<i>'+x+'</i>':x==='dx'?'<i style="margin-left:.2em">dx</i>':esc(x);
+function seq(close){let o='';while(i<t.length&&!(close&&t[i]===')')){const b=i;
+ if(isOp(t[i])){const c=t[i++];o+='<span class="mo">'+(c==='-'?'−':c==='*'?'·':esc(c))+'</span>';continue}
+ if(t[i]===')'){o+=')';i++;continue}
+ o+=frac();if(i===b){o+=plain(t[i]);i++}}return o}
+function atom(){let a;
+ if(t[i]==='('){i++;const inner=seq(1);i++;a={h:'('+inner+')',inner}}
+ else if(t[i]==='∫'){const L=IL.shift()||[];i++;a={h:intHtml(L[0],L[1])}}
+ else if(t[i]==='√'||t[i]==='∛'){const sym=t[i++];let r;if(t[i]==='('){i++;r=seq(1);i++}else r=atom().h;a={h:'<span class="sq"><span class="sg">'+sym+'</span><span class="rd">'+r+'</span></span>'}}
+ else{a={h:plain(t[i])};i++}
+ while(t[i]==='^'||t[i]==='_'){const up=t[i]==='^';i++;let sign='';if(t[i]==='-'||t[i]==='−'){sign='−';i++}const e=atom(),g=sign+(e.inner!=null?e.inner:e.h);a={h:a.h+(up?'<sup>':'<sub>')+g+(up?'</sup>':'</sub>')}}
+ return a}
+function factor(){const hs=[];while(i<t.length&&!isOp(t[i])&&t[i]!==')'&&t[i]!=='/')hs.push(atom());
+ return{h:hs.map(x=>x.h).join(''),inner:hs.length===1?hs[0].inner:null}}
+function frac(){let n=factor();while(t[i]==='/'){i++;const d=factor();n={h:'<span class="fr"><span class="nu">'+(n.inner!=null?n.inner:n.h)+'</span><span class="de">'+(d.inner!=null?d.inner:d.h)+'</span></span>',inner:null}}return n.h}
+return seq(0)}
+
+// ===== MATH WORD HELP (hover / tap a dotted word for its meaning in maths) =====
+const GLD=[
+['berechnen,berechne','calculate','Work out a number by carrying out the operations. Calculators are often not allowed.'],
+['bestimmen,bestimme','determine / find','Find the value(s) or expression asked for, usually by solving or by using a formula.'],
+['vereinfachen,vereinfache','simplify','Rewrite an expression in its shortest equal form: cancel fractions, combine like terms, expand brackets.'],
+['lösen','solve','Find every value of the unknown that makes the equation true.'],
+['ordnen','order / match','Sort by size (smallest to largest) or assign each item to its partner.'],
+['geben','state / give','"Geben Sie … an" = write down the requested result.'],
+['zeigen','show','Here: "depict". In proofs it would mean "prove".'],
+['wieviel','how much','Asks for a quantity or a number.'],
+['hinweis','hint','Extra information, e.g. a rule or an approximation such as π ≈ 22/7.'],
+['antwort','answer','Where you type your result.'],
+['ergebnis','result','The final value after calculating.'],
+['aufgabe','task / exercise','One numbered problem of the test.'],
+['nr','number','Short for "Nummer": the index of an option, e.g. (10).'],
+['bild,bilder','picture(s)','Here: the drawn views of a cube.'],
+['ableitung,ableitungen','derivative','Rate of change of a function = slope of its tangent line. Written f′(x) or df/dx. Example: (x²)′ = 2x.'],
+['ableitungsfunktion','derivative function','The new function f′ that gives the slope of f at every x.'],
+['achse,achsen','axis','Number line of a coordinate system: the x-axis is horizontal, the y-axis vertical.'],
+['bogenmaß','radian measure','Angle measured as arc length on the unit circle. 180° = π, 90° = π/2.'],
+['bruchterm,bruchterme','fraction term','An expression with variables in the numerator and/or denominator. Factor and cancel to simplify.'],
+['bruch,brüche','fraction(s)','a/b: numerator over denominator. Add only with a common denominator; divide by multiplying with the reciprocal.'],
+['doppelbruch,doppelbrüche','compound fraction','A fraction whose numerator or denominator is itself a fraction. Multiply by the reciprocal of the bottom one.'],
+['dezimalsystem','decimal system','Base-10 number system, digits 0–9.'],
+['dualsystem','binary system','Base-2 system with only 0 and 1. 11011₂ = 16+8+2+1 = 27.'],
+['diagramm','diagram / graph','A plotted graph or chart from which you read values.'],
+['dichte','density','Mass per volume: ρ = m / V (e.g. g/cm³).'],
+['dreieck,dreiecke','triangle','Three sides, angle sum 180°. Area A = ½ · base · height.'],
+['gleichschenklig,gleichschenkliges,gleichschenklige','isosceles','A triangle with two equal sides (the legs); the base angles are equal too.'],
+['rechtwinklig,rechtwinkliges,rechtwinklige','right-angled','Contains a 90° angle. Pythagoras applies: a² + b² = c².'],
+['dreistellig,dreistellige','three-digit','A number with hundreds, tens and units digits, e.g. 963.'],
+['einheit,einheiten','unit','What is measured in: cm, kg, €… Converting units means multiplying by the right factor (e.g. 1 g/cm³ = 1000 kg/m³).'],
+['euro','euro','1 € = 100 cent. Convert before adding amounts.'],
+['cent','cent','1/100 of a euro: 50 cent = 0,50 €.'],
+['figur,figuren','figure','A geometric shape (circle, triangle, …) whose area or perimeter you compute.'],
+['fläche,flächen','area / surface','Size of a flat region in square units (cm²). Also a surface of a solid.'],
+['flächeninhalt','area','Measure of a surface: rectangle a·b, circle π r², triangle ½·g·h.'],
+['restfläche','remaining area','Total area minus the parts already named.'],
+['inhalt','content / area','The size of a region (area) or of a solid (volume).'],
+['funktion,funktionen','function','A rule that gives exactly one y for every x: y = f(x). Types: linear, quadratic, sine …'],
+['gerade,geraden','straight line','y = m·x + b: m = slope, b = y-intercept. Through two points you can compute m = Δy/Δx.'],
+['gleichung,gleichungen','equation','Two expressions joined by "=". Solving means finding the unknown value(s).'],
+['gleichungssystem','system of equations','Several equations solved together (substitution or elimination).'],
+['linear,lineare,linearen','linear','Variable only to the power 1. The graph is a straight line.'],
+['graph,graphen','graph','All points (x | f(x)) drawn in a coordinate system.'],
+['grundfläche','base area','Area of the bottom face of a solid. Cone: π r².'],
+['grundlinie','base (line)','The side of a triangle used with its height: A = ½·g·h.'],
+['grundseite','base side','Side of a parallelogram that its height stands on: A = g·h.'],
+['höhe','height','Perpendicular (90°) distance from the base to the opposite side or tip. Not the slanted side.'],
+['hypotenuse','hypotenuse','Longest side of a right triangle, opposite the 90° angle. c² = a² + b².'],
+['katheten,kathete','legs (of a right triangle)','The two shorter sides that form the right angle.'],
+['schenkel','legs / arms','Equal sides of an isosceles triangle, or the two rays that form an angle.'],
+['integral,integrale','integral','Area under a curve (definite) or the antiderivative (indefinite). Written ∫ f(x) dx.'],
+['bestimmt,bestimmte,bestimmten,bestimmtes','definite','A definite integral has limits, e.g. ∫₀¹, and gives a number.'],
+['unbestimmt,unbestimmte,unbestimmten,unbestimmtes','indefinite','An integral without limits: gives an antiderivative F(x) + C.'],
+['konstante','constant','A fixed number. In an indefinite integral the "+ C" is the integration constant.'],
+['dx','dx','Differential: says "with respect to x". It marks the variable of integration.'],
+['kegel,kegels','cone','Solid with a circular base and a tip. V = ⅓·π·r²·h.'],
+['kegelstumpf,kegelstumpfs','frustum of a cone','A cone with the tip cut off parallel to the base. V = V(big cone) − V(removed small cone).'],
+['koordinaten,koordinate','coordinates','Numbers that locate a point, (x | y), or the components of a vector, (x; y; z).'],
+['kosten','cost','Price × quantity. Add them for the total cost.'],
+['kreis,kreise','circle','All points at distance r from the centre. Area π r², circumference 2 π r.'],
+['kurve,kurven','curve','The graph of a non-linear function.'],
+['linearkombination','linear combination','Vectors multiplied by numbers and added: 3a − 4b. Do it component by component.'],
+['logarithmusausdruck,logarithmusausdrücke','logarithmic expression','A term containing log. Use log(a·b) = log a + log b and log(a/b) = log a − log b.'],
+['länge,längen','length','Distance between two points, in cm, m …'],
+['seitenlänge','side length','Length of one side of a polygon; for a square, a.'],
+['lösung,lösungen','solution','The value(s) of the unknown that satisfy the equation. Check by substituting.'],
+['menge,mengen','quantity','Here: how many items. (In set theory "Menge" means "set".)'],
+['nullstelle,nullstellen','zeros / roots','x-values where f(x) = 0: the points where the graph meets the x-axis.'],
+['parallelogramm','parallelogram','Quadrilateral with two pairs of parallel sides. Area = base · height.'],
+['parallel','parallel','Never meeting. For lines: same slope.'],
+['potenz,potenzen','power','aⁿ = a multiplied n times. Rules: aᵐ·aⁿ = aᵐ⁺ⁿ, a⁻ⁿ = 1/aⁿ.'],
+['hoch','to the power of','"x hoch 3" = x³.'],
+['preis,preise','price','Cost of one item or of one person.'],
+['pro','per','Divide by: "pro Person" = per person (a rate).'],
+['produkt','product','Result of multiplication.'],
+['prozent','percent','Hundredths: 1 % = 1/100. Share = part ÷ total × 100.'],
+['punkt,punkte,punkten','point','A location in the plane, written A(x | y). Also: marks you earn.'],
+['quadrat','square','Four equal sides and right angles; area a², diagonal a√2. Also: "squared".'],
+['quersumme','digit sum','Sum of the digits of a number: 963 → 9 + 6 + 3 = 18.'],
+['quotient','quotient','Result of a division.'],
+['radius','radius','Distance from the centre to the circle; half of the diameter.'],
+['skalarprodukt','dot (scalar) product','a·b = a₁b₁ + a₂b₂ + a₃b₃. The result is a number; 0 means the vectors are perpendicular.'],
+['stelle,stellen','position / x-value','"An der Stelle x = ½" means "at x = ½". Also a digit place.'],
+['summe','sum','Result of addition.'],
+['term,terme','term / expression','Numbers, variables and operations combined, without an "=" sign.'],
+['trapez','trapezoid','Quadrilateral with one pair of parallel sides. A = (a + c)/2 · h.'],
+['vektor,vektoren','vector','A quantity with size and direction, written as a column of coordinates. Add component by component.'],
+['vektorsumme','vector sum','a + b: add the matching components.'],
+['volumen','volume','Space inside a solid, in cm³. Cube a³, cone ⅓πr²h.'],
+['wert,werte','value','The number a variable or expression has.'],
+['winkel','angle','Opening between two rays, in degrees (°) or radians. Triangle angles add up to 180°.'],
+['wurzel,wurzeln','root','Usually the square root √x: the number whose square is x. ∛ is the cube root.'],
+['wurzelgleichung','radical equation','The unknown is under a root. Isolate the root, square both sides, then check every solution.'],
+['wurzelterm','root term','An expression containing a root, e.g. √(x − 2).'],
+['würfel','cube','Solid with 6 equal square faces. Volume a³.'],
+['zahl,zahlen','number','A value that can be counted or measured.'],
+['zahlenfolge','sequence','Ordered list a₁, a₂, a₃ … following a rule (e.g. ×(−3) each time).'],
+['ziffer,ziffern','digit','One of 0–9 in a number. 963 has digits 9, 6, 3.'],
+['erste,ersten,erster','first','Ordinal number (1st). "Erste Ableitung" = f′.'],
+['zweite,zweiten','second','Ordinal number (2nd). "Zweite Ableitung" = f″.'],
+['dritte,dritten','third','Ordinal number (3rd).'],
+['vierte,vierten','fourth','Ordinal number (4th).'],
+['fünfte,fünften','fifth','Ordinal number (5th).'],
+['zwei','two','2'],['drei','three','3'],['vier','four','4'],
+['verhalten','behave / are in ratio','"α : β : γ = 2 : 3 : 7" means the parts are proportional; 2+3+7 = 12 parts in total.'],
+['doppelt','double','Twice as large: × 2.'],
+['halbe,halben,halb','half','÷ 2.'],
+['größte,größten','largest','Greatest value.'],
+['kleinste,kleinsten','smallest','Least value.'],
+['mittlere,mittleren','middle','The value between the largest and the smallest.'],
+['größe','size / quantity','"Der Größe nach" = in order of size. Also a measurable quantity.'],
+['groß,große,großen','large','Big in size or value.'],
+['gegeben','given','Information that the task already tells you. Use it as your starting point.'],
+['gilt','holds','"Es gilt …" = the following statement is true / applies.'],
+['beträgt','is / amounts to','Equals: "Der Preis beträgt …" = the price is …'],
+['besteht,bestehen','consists of','Is made up of the following parts.'],
+['bekannt','known','Given values.'],
+['eingeschlossen','enclosed','The area enclosed between curve and axis is found with a definite integral.'],
+['einbeschrieben,einbeschriebenes,einbeschriebene','inscribed','Drawn inside another shape with its corners on its boundary.'],
+['gefärbt,gefärbte,gefärbten,grau','shaded','The coloured region whose area you must find: big shape minus unshaded shape.'],
+['gezeichnet,gezeichneten,gezeichnete','drawn','Shown in the picture. Read lengths and angles from it.'],
+['dargestellt','represented / shown','Which formula belongs to this graph?'],
+['tangiert','touches (tangent)','A line touches the curve in exactly one point and has the same slope there: g(x) = f(a) + f′(a)(x − a).'],
+['schneiden','intersect','Graphs cross. Intersection points: set both functions equal and solve.'],
+['passend,passende,passenden','matching','The one that belongs to the graph.'],
+['positiv,positive,positiven','positive','Greater than 0.'],
+['reell,reellen,reelle','real','Real numbers ℝ: the usual numbers on the number line (no imaginary part).'],
+['komplex,komplexen,komplexe','complex','Numbers a + b·i with i² = −1. Add real and imaginary parts separately.'],
+['jeweils','respectively / each','Separately for each item in the list.'],
+['je','each / per','"je 3,90 €" = 3,90 € each.'],
+['jeder,jede,jedes','each','Every single one.'],
+['insgesamt','in total','The overall sum.'],
+['vollständig','completely','Fully, with nothing left out.'],
+['möglich','possible','"So weit wie möglich" = as far as it can go (fully simplified).'],
+['weit','far','"So weit wie möglich" = as far as possible.'],
+['ohne','without','E.g. without the constant C.'],
+['durch','through / divided by','As an operator, a durch b = a ÷ b. "Geht durch A" = passes through point A.'],
+['geht','goes / passes','"Die Gerade geht durch A" = the line passes through point A.'],
+['zwischen','between','The limits of an integral or interval.'],
+['wenn','if','Introduces a condition.'],
+['dann','then','The result of the condition.'],
+['oder','or','"x = 7 oder x = −3": there are two solutions.'],
+['heißt','is called','"Wie heißt die Gleichung?" = what is the equation?'],
+['lautet','reads / is','"Die Zahl lautet 11011" = the number is 11011.'],
+['liegt','lies','Is located.'],
+['erhält,erhalten','get / obtain','The result you arrive at.'],
+['zieht','pulls / subtracts','"Zieht man … ab" = if you subtract …'],
+['weniger','fewer / minus','Smaller number; with numbers: subtract.'],
+['sin','sine','Trig. function. sin 30° = ½; sin(π/2) = 1. Derivative: cos.'],
+['cos','cosine','Trig. function. cos 0 = 1; cos(π/4) = √2/2. Derivative: −sin.'],
+['tan','tangent (trig.)','tan x = sin x / cos x; slope angle. tan 45° = 1.'],
+['fe','Fe (iron)','Chemical symbol of iron.'],
+['eisen','iron','Metal, symbol Fe.'],
+['form','form / shape','Here: the written format of the answer, e.g. (x; y; z).'],
+['hotel','hotel','Context word: set up two equations from rooms and beds.'],
+['zimmer','room','Context word.'],
+['einzelzimmer','single room','A room with one bed.'],
+['doppelzimmer','double room','A room with two beds.'],
+['betten,bett','beds','Count: single rooms ×1 + double rooms ×2.'],
+['gruppe','group','Context word: the total cost is shared among the people.'],
+['person,personen','person / people','Number of people shares the total cost: price = total ÷ people.'],
+['ausflug','excursion','Context word.'],
+['bus','bus','Context word: a fixed total price split among the passengers.'],
+['mietet','rents','Pays to use. The fixed total cost is split.'],
+['kaufen','buy','Quantity × price per item.'],
+['bezahlen','pay','Costs to be paid: price × quantity.'],
+['mitfahren','ride along','To take part in the trip.'],
+['gefaltet','folded','A cube net is folded along its edges into a 3D cube.'],
+['besitzt,besitzen','has','"Besitzt die Quersumme 18" = has digit sum 18.'],
+['handelt','is about','"Um welche Zahl handelt es sich?" = which number is it?'],
+['lang','long','Length of a side, e.g. "5 cm lang".'],
+['beide,beiden','both / the two','Both values or terms.'],
+['folgenden,folgende','following','The expressions listed after this word.'],
+['alle','all','Every solution counts.'],
+['ab','off','"Zieht man ab" = subtract.'],
+['cds,dvds,discs,blu,ray,rays','storage discs','Context word: count × price for each type.'],
+['als','as / than','Used in comparisons, e.g. "doppelt so groß wie".'],
+['wie','how / as','"So groß wie" = as large as.'],
+['sowie','as well as','And also.'],
+['cm','cm','Centimetre. Area in cm², volume in cm³.'],
+['kg','kg','Kilogram.']
+];
+const GL={};GLD.forEach(([ks,en,m])=>ks.split(',').forEach(k=>GL[k]=[en,m]));
+const GSUF=['en','es','em','er','e','n','s'];
+function glKey(w){const k=w.toLowerCase();if(GL[k])return k;for(const s of GSUF){if(k.length>s.length+2&&k.endsWith(s)){const b=k.slice(0,-s.length);if(GL[b])return b}}return null}
+let GON=(()=>{try{return localStorage.getItem('mgloss')!=='off'}catch(e){return true}})();
+function mw(t){return String(t==null?'':t).split(/([A-Za-zÄÖÜäöüß]{2,})/).map((p,i)=>{if(i%2===0)return esc(p);const k=glKey(p);return k?'<span class="gw" data-g="'+esc(k)+'">'+esc(p)+'</span>':esc(p)}).join('')}
+function gTog(){GON=!GON;try{localStorage.setItem('mgloss',GON?'on':'off')}catch(e){}document.body.classList.toggle('nogl',!GON);gHide();const b=document.getElementById('gtg');if(b)b.textContent='Word help: '+(GON?'on':'off')}
+function gTip(){let e=document.getElementById('gtip');if(!e){e=document.createElement('div');e.id='gtip';document.body.appendChild(e)}return e}
+function gHide(){const e=document.getElementById('gtip');if(e)e.style.display='none'}
+function gShow(w){if(!GON)return;const g=GL[w.dataset.g];if(!g)return;const e=gTip();e.innerHTML='<b style="margin:0">'+esc(g[0])+'</b>';e.style.display='block';e.style.left='0px';e.style.top='0px';const r=w.getBoundingClientRect(),W=e.offsetWidth,H=e.offsetHeight;let x=Math.min(Math.max(8,r.left),innerWidth-W-8),y=r.bottom+6;if(y+H>innerHeight-8)y=Math.max(8,r.top-H-6);e.style.left=x+'px';e.style.top=y+'px'}
+document.addEventListener('mouseover',e=>{const w=e.target.closest&&e.target.closest('.gw');if(w)gShow(w);else gHide()});
+document.addEventListener('click',e=>{const w=e.target.closest&&e.target.closest('.gw');if(w)gShow(w);else gHide()});
+document.addEventListener('scroll',gHide,true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')gHide()});
+// ===== END MATH WORD HELP =====
+const mHist=()=>(D.mth=D.mth||{})[D.me]||(D.mth[D.me]=[]);
+R.math=function(){app.innerHTML=`<h1>∑ Mathe</h1><div class="card" style="padding:8px">${MATH.map(t=>{const A=mHist().filter(a=>a.tid===t.id),b=A.reduce((m,a)=>Math.max(m,a.ok/a.total),0),n=t.tasks.reduce((s,k)=>s+k.f.length,0);
+return`<div class="row" onclick="openMath('${t.id}')"><div><div class="rt">${esc(t.title)}</div><div class="mut">${esc(t.source)}</div></div><div class="rr"><span class="chip" style="--c:var(--${t.mins?'amb':'mut'})">${t.mins?t.mins+' min limit':'no time limit'}</span><span class="chip" style="--c:var(--${t.calc===true?'ok':t.calc===false?'bad':'mut'})">${calcTxt(t)}</span><span class="mut">${n} answers</span><b>${A.length?'best '+Math.round(b*100)+'%':'–'}</b></div></div>`}).join('')}</div>`};
+function openMath(id){navPush('mtest:'+id);if(MT&&MT.timer)clearInterval(MT.timer);view='mtest';MT={t:MATH.find(x=>x.id===id),started:false,done:false};R.mtest();window.scrollTo(0,0)}
+const mRow=p=>({a:[],p:p||null}),mCh=c=>({t:'c',c,p:null}),mIdx=n=>n.p.a.indexOf(n);
+function mNode(t,n){const x={t,rows:[],p:null};for(let k=0;k<n;k++)x.rows.push(mRow(x));return x}
+function mfIns(M,n){const c=M.cur;n.p=c.r;c.r.a.splice(c.i,0,n)}
+function mfOpen(M,n,k){mfIns(M,n);M.cur={r:n.rows[k||0],i:0}}
+function mfFrac(M){const{r,i}=M.cur,a=r.a;let st=i,take;
+if(i>0&&a[i-1].t==='c'&&a[i-1].c===')'){let d=0,k=i-1;for(;k>=0;k--){const x=a[k];if(x.t==='c'){if(x.c===')')d++;else if(x.c==='('){d--;if(!d)break}}}
+if(k>=0){st=k;take=a.slice(k+1,i-1)}else{st=i-1;take=[a[i-1]]}}
+else{while(st>0){const n=a[st-1];if(n.t!=='c'||/[0-9A-Za-zα-ω.,]/.test(n.c))st--;else break}take=a.slice(st,i)}
+a.splice(st,i-st);M.cur={r,i:st};const f=mNode('frac',2);take.forEach(x=>{x.p=f.rows[0]});f.rows[0].a=take;mfIns(M,f);M.cur={r:f.rows[take.length?1:0],i:0}}
+function mfFeed(M,c){if(c===' '){mfExit(M);return}
+if(c==='^'){mfOpen(M,mNode('pow',1));return}if(c==='√'){mfOpen(M,mNode('sqrt',1));return}if(c==='/'){mfFrac(M);return}
+if(c.length!==1||c<' ')return;const cu=M.cur,r=cu.r;mfIns(M,mCh(c));cu.i++;
+const tail4=cu.i>=4?r.a.slice(cu.i-4,cu.i).map(x=>x.t==='c'?x.c.toLowerCase():'').join(''):'';
+if(tail4==='sqrt'){r.a.splice(cu.i-4,4);cu.i-=4;mfOpen(M,mNode('sqrt',1))}
+else if(cu.i>=2&&r.a.slice(cu.i-2,cu.i).map(x=>x.t==='c'?x.c.toLowerCase():'').join('')==='pi'){r.a.splice(cu.i-2,2);cu.i-=2;mfIns(M,mCh('π'));cu.i++}}
+function mfExit(M){const r=M.cur.r,n=r.p;if(!n)return;if(n.t==='frac'&&r===n.rows[0])M.cur={r:n.rows[1],i:0};else M.cur={r:n.p,i:mIdx(n)+1}}
+function mfBack(M){const{r,i}=M.cur;
+if(i>0){const pv=r.a[i-1];if(pv.t==='c'||pv.rows.every(q=>!q.a.length)){r.a.splice(i-1,1);M.cur={r,i:i-1}}else{const q=pv.rows[pv.rows.length-1];M.cur={r:q,i:q.a.length}}return}
+const n=r.p;if(!n)return;const pr=n.p,at=mIdx(n),empty=n.rows.every(q=>!q.a.length);
+if(n.t==='frac'&&r===n.rows[1]){if(!r.a.length){const k=n.rows[0].a;pr.a.splice(at,1,...k);k.forEach(x=>{x.p=pr});M.cur={r:pr,i:at+k.length}}else{const q=n.rows[0];M.cur={r:q,i:q.a.length}}return}
+if(empty){pr.a.splice(at,1);M.cur={r:pr,i:at}}else M.cur={r:pr,i:at}}
+function mfKey(M,k){const{r,i}=M.cur;
+if(k==='ArrowRight'){const nx=r.a[i];if(nx&&nx.t!=='c')M.cur={r:nx.rows[0],i:0};else if(nx)M.cur={r,i:i+1};else mfExit(M)}
+else if(k==='ArrowLeft'){const pv=r.a[i-1];if(pv&&pv.t!=='c'){const q=pv.rows[pv.rows.length-1];M.cur={r:q,i:q.a.length}}else if(pv)M.cur={r,i:i-1};else if(r.p){const n=r.p;if(n.t==='frac'&&r===n.rows[1]){const q=n.rows[0];M.cur={r:q,i:q.a.length}}else M.cur={r:n.p,i:mIdx(n)}}}
+else if(k==='ArrowUp'){const n=r.p;if(n&&n.t==='frac'&&r===n.rows[1]){const q=n.rows[0];M.cur={r:q,i:Math.min(i,q.a.length)}}}
+else if(k==='ArrowDown'){const n=r.p;if(n&&n.t==='frac'&&r===n.rows[0]){const q=n.rows[1];M.cur={r:q,i:Math.min(i,q.a.length)}}}
+else if(k==='Backspace')mfBack(M);else if(k==='Home')M.cur={r:M.root,i:0};else if(k==='End')M.cur={r:M.root,i:M.root.a.length}}
+function mfStr(row){let o='',lc=0;for(const n of row.a){
+if(n.t==='c'){if(lc&&/[0-9A-Za-zα-ω(]/.test(n.c))o+='*';o+=n.c;lc=0}
+else if(n.t==='pow'){o+='^('+mfStr(n.rows[0])+')';lc=1}
+else{if(lc||/[0-9A-Za-zα-ω)]$/.test(o))o+='*';o+=n.t==='sqrt'?'√('+mfStr(n.rows[0])+')':'(('+mfStr(n.rows[0])+')/('+mfStr(n.rows[1])+'))';lc=1}}return o}
+function mfHtml(M){const cur=M.cur,C='<span class="cur"></span>';
+const ch=c=>/^[A-Za-zα-ω]$/.test(c)?'<i>'+c+'</i>':esc(c==='-'?'−':c==='*'?'·':c);
+const row=r=>{let h='';r.a.forEach((n,i)=>{if(cur.r===r&&cur.i===i)h+=C;h+=node(n)});if(cur.r===r&&cur.i===r.a.length)h+=C;if(!r.a.length&&r.p)h='<span class="mph">'+h+'</span>';return h};
+const node=n=>n.t==='c'?ch(n.c):n.t==='pow'?'<sup>'+row(n.rows[0])+'</sup>':n.t==='sqrt'?'<span class="sq"><span class="sg">√</span><span class="rd">'+row(n.rows[0])+'</span></span>':'<span class="fr"><span class="nu">'+row(n.rows[0])+'</span><span class="de">'+row(n.rows[1])+'</span></span>';
+return row(M.root)}
+function mfNext(el){const all=[...document.querySelectorAll('.mfld')],n=all[all.indexOf(el)+1];if(n){mPage(+n.dataset.t,1);n.focus()}}
+function mfInit(el){if(el.dataset.mc){let v='',dis=true;Object.defineProperty(el,'value',{get:()=>v});Object.defineProperty(el,'disabled',{get:()=>dis,set:x=>{dis=!!x;el.querySelectorAll('button').forEach(b=>b.disabled=dis)}});el.focus=()=>{};el.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(dis)return;v=b.dataset.v;el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));el.dispatchEvent(new Event('input',{bubbles:true}))});return}
+const M={root:mRow(),cur:null};M.cur={r:M.root,i:0};let dis=true;
+el.innerHTML='<span class="mfv"></span><input class="mhid" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="answer" disabled>';
+const hid=el.querySelector('.mhid'),v=el.querySelector('.mfv'),draw=()=>{v.innerHTML=mfHtml(M)},changed=()=>{draw();el.dispatchEvent(new Event('input',{bubbles:true}))};
+Object.defineProperty(el,'value',{get:()=>mfStr(M.root)});
+Object.defineProperty(el,'disabled',{get:()=>dis,set:x=>{dis=!!x;hid.disabled=dis;el.classList.toggle('dis',dis)}});
+el.focus=()=>{if(!dis)hid.focus()};el.addEventListener('mousedown',e=>{e.preventDefault();el.focus()});
+hid.addEventListener('focus',()=>el.classList.add('foc'));hid.addEventListener('blur',()=>el.classList.remove('foc'));
+const flush=()=>{const s=hid.value;hid.value='';if(!s)return;for(const c of s)mfFeed(M,c);changed()};
+hid.addEventListener('input',e=>{if(!e.isComposing)flush()});hid.addEventListener('compositionend',flush);
+hid.addEventListener('beforeinput',e=>{if(e.inputType==='deleteContentBackward'){e.preventDefault();mfKey(M,'Backspace');changed()}});
+hid.addEventListener('keydown',e=>{if(e.isComposing||e.keyCode===229||e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key;
+if(k==='Enter'){e.preventDefault();mfNext(el)}else if(k===' '){e.preventDefault();mfFeed(M,' ');changed()}
+else if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Backspace','Home','End'].includes(k)){e.preventDefault();mfKey(M,k);changed()}});
+el.classList.add('dis');draw()}
+R.mtest=function(){const t=MT.t,N=t.tasks.length;
+app.innerHTML=`<div class="bar"><div class="clock" id="mc">${t.mins?fmt(t.mins*60):'0:00'}</div><div class="btns"><button id="ms" onclick="mStart()">Start</button><button id="mk" onclick="mCheck()" disabled>Check</button><button class="g" onclick="openMath('${t.id}')">Retry</button></div></div>
+<div class="card"><div class="src">${esc(t.source)}</div><h2>${esc(t.title)}</h2>
+<div style="text-align:right;margin:-4px 0 0"><span class="gtg mut" id="gtg" style="font-size:12px" onclick="gTog()">Word help: ${GON?'on':'off'}</span></div>
+<div id="mo" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:14px 0 4px">${[['🎓','University',t.uni||t.source,'','--acc'],['⏱','Time limit',t.mins?t.mins+' min':'No limit',t.mins?'checks itself at 0:00':'timer just counts up','--amb'],['🧮','Calculator',t.calc===true?'Allowed':t.calc===false?'Not allowed':'Not stated','',t.calc===true?'--ok':t.calc===false?'--bad':'--mut']].map(([ic,l,v,sub,c])=>`<div style="border:1px solid var(${c});border-radius:12px;padding:14px 16px"><div style="font-size:26px;line-height:1">${ic}</div><div class="mut" style="font-size:12px;margin-top:8px;text-transform:uppercase;letter-spacing:.04em">${l}</div><div style="font-weight:600;font-size:16px;line-height:1.3;margin-top:2px;color:var(${c})">${esc(v)}</div>${sub?`<div class="mut" style="font-size:12px;margin-top:2px">${sub}</div>`:''}</div>`).join('')}</div>
+<div class="wrap"><div id="mb" style="display:none">
+${t.tasks.map((k,i)=>`<div class="mp" data-p="${i}" style="display:${i?'none':'block'}">
+<div class="mh"><span class="mn">Aufgabe ${i+1} <small>/ ${N}</small></span><span class="mpb"><i style="width:${(i+1)/N*100}%"></i></span></div>
+<p class="mq">${mw(k.q||'')}</p>
+${(k.s||[]).map(l=>`<div class="meq">${mfx(l)}</div>`).join('')}
+${k.fig?`<div class="mfig">${k.fig}</div>`:''}
+<div class="man"><div class="lab" style="padding:0 0 4px">Your answer</div>
+${k.f.map((f,j)=>f.mc?`<div class="mf"><div class="mch mfld" data-mc="1" data-t="${i}" data-f="${j}">${f.mc.map(([id,lbl])=>`<button type="button" disabled data-v="${id}"><span class="mcid">(${id})</span><span>${mfx(lbl)}</span></button>`).join('')}</div><div class="mr" data-r="${i}-${j}"></div></div>`:`<div class="mf"><label><span class="ml">${f.l.includes('∫')?mfx(f.l):mw(f.l)}</span><div class="mfld" data-t="${i}" data-f="${j}"></div></label>${f.cond?`<button type="button" class="g mpl" disabled data-t="${i}" data-f="${j}" onclick="mAddF(this)" aria-label="Add another condition" style="min-width:46px;min-height:46px;font-size:22px;padding:0 14px">+</button>`:''}<div class="mr" data-r="${i}-${j}"></div></div>`).join('')}</div>
+<div class="mnv"><button class="g" ${i?'':'disabled'} onclick="mPage(${i-1})">← Back</button>${i<N-1?`<button class="g" onclick="mPage(${i+1})">Next →</button>`:`<button onclick="mCheck()">Finish &amp; check</button>`}</div>
+</div>`).join('')}
+</div></div><div id="mres"></div></div>
+<div class="mnav" id="mnav" style="display:none">${t.tasks.map((k,i)=>`<button disabled data-s="${i}" onclick="mPage(${i})" aria-label="Aufgabe ${i+1}">${i+1}</button>`).join('')}</div>`;
+document.body.classList.toggle('nogl',!GON);MT.p=0;document.querySelectorAll('.mfld').forEach(mfInit);mSq();document.querySelector('main').style.paddingBottom='96px';
+$('#mb').addEventListener('input',()=>mSq())};
+function mPage(i,keep){if(!MT)return;MT.p=i;document.querySelectorAll('.mp').forEach(d=>d.style.display=+d.dataset.p===i?'block':'none');mSq();if(!keep){window.scrollTo(0,0);const f=document.querySelector(`.mfld[data-t="${i}"]`);if(f&&!f.disabled)f.focus()}}
+function mSq(bad){if(bad)MT.bad=bad;const b=MT.bad;document.querySelectorAll('#mnav button').forEach(el=>{const i=+el.dataset.s,has=[...document.querySelectorAll(`.mfld[data-t="${i}"]`)].some(x=>x.value.trim());el.className=(MT.p===i?'on ':'')+(b?(b[i]?'bd':'ok'):(has?'dn':''))})}
+function mStart(){if(!MT||MT.started)return;const t=MT.t;MT.started=true;MT.t0=Date.now();$('#mb').style.cssText='';$('#mo').style.display='none';$('#mnav').style.display='';document.querySelectorAll('.mfld').forEach(e=>e.disabled=false);document.querySelectorAll('.mpl').forEach(b=>b.disabled=false);document.querySelectorAll('#mnav button').forEach(e=>e.disabled=false);$('#ms').disabled=true;$('#mk').disabled=false;document.querySelector('.mfld').focus();
+MT.timer=setInterval(()=>{const el=(Date.now()-MT.t0)/1000;if(t.mins){const rem=t.mins*60-el;$('#mc').textContent=fmt(Math.max(0,rem));if(rem<=0)mCheck()}else $('#mc').textContent=fmt(el)},250)}
+function mCheck(){if(!MT||!MT.started||MT.done)return;MT.done=true;clearInterval(MT.timer);const t=MT.t;let secs=Math.round((Date.now()-MT.t0)/1000);if(t.mins)secs=Math.min(secs,t.mins*60);$('#mc').textContent=fmt(secs);let ok=0,total=0;const bad={};
+t.tasks.forEach((k,i)=>{const used=new Set(),grp=k.f.filter(x=>x.g);k.f.forEach((f,j)=>{if(f.cond){const els=[...document.querySelectorAll(`.mfld[data-t="${i}"][data-f="${j}"]`)],r=ccheck(f.cond,els.map(e=>e.value));els.forEach((e,n)=>{e.disabled=true;if(r.per[n]!=null){e.style.borderColor=r.per[n]?'var(--ok)':'var(--bad)';e.style.color=r.per[n]?'var(--ok)':'var(--bad)'}});document.querySelectorAll('.mpl').forEach(b=>b.disabled=true);total++;if(r.good)ok++;else{bad[i]=1;document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+mfx(f.d)}return}const el=document.querySelector(`.mfld[data-t="${i}"][data-f="${j}"]`),v=el.value;el.disabled=true;let good=false;
+if(f.g){const ix=grp.findIndex((x,n)=>!used.has(n)&&mchk(x,v));if(ix>=0){used.add(ix);good=true}}else good=mchk(f,v);
+total++;if(good)ok++;else bad[i]=1;
+if(f.mc){el.querySelectorAll('button').forEach(b=>{if(b.dataset.v===f.a)b.classList.add('ok');else if(b.dataset.v===v&&!good)b.classList.add('bd')});if(!good)document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: ('+f.a+')'}
+else{el.style.borderColor=good?'var(--ok)':'var(--bad)';el.style.color=good?'var(--ok)':'var(--bad)';if(!good)document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+mfx(f.d||f.a.replace('.',','))}})});
+const row={id:Date.now()+'-m-'+D.me,user:D.me,tid:t.id,ts:Date.now(),secs,ok,total};mHist().push(row);save();push('mth',row);mSq(bad);
+$('#mk').disabled=true;$('#mres').innerHTML=`<div style="text-align:center;margin-top:26px"><div class="big">${Math.round(ok/total*100)}%</div><p><b>${ok}/${total}</b> correct · ${fmt(secs)}</p><p><button onclick="openMath('${t.id}')">Retry</button> <button class="g" onclick="go('math')">All math tests</button></p></div>`}
+// ===== CONDITION FIELDS (one box, "+" adds more) =====
+const cnorm=c=>String(c).toLowerCase().replace(/−/g,'-').replace(/\s+/g,'').replace(/≠|<>/g,'!=').replace(/≥/g,'>=').replace(/≤/g,'<=');
+function cparse(c){const m=/^([a-zα-ω])(!=|>=|<=|>|<|=)(.+)$/.exec(cnorm(c));return m?{v:m[1],r:m[2],n:mval(m[3])}:null}
+function ccheck(exp,vals){const E=exp.map(cparse),used=new Set(),per=[];let extra=false;
+vals.forEach(v=>{const parts=String(v).split(/;|\bund\b|,(?=\s*[a-zα-ω])/i).map(x=>x.trim()).filter(Boolean);if(!parts.length){per.push(null);return}let all=true;
+parts.forEach(p=>{const q=cparse(p),ix=q?E.findIndex((e,n)=>!used.has(n)&&e.v===q.v&&e.r===q.r&&Math.abs(e.n-q.n)<1e-9):-1;if(ix>=0)used.add(ix);else{all=false;extra=true}});per.push(all)});
+const good=used.size===E.length&&!extra;if(!good&&per.every(x=>x===null))per[0]=false;return{good,per}}
+function mAddF(btn){if(btn.disabled)return;const d=document.createElement('div');d.className='mfld';d.dataset.t=btn.dataset.t;d.dataset.f=btn.dataset.f;btn.before(d);mfInit(d);d.disabled=false;d.focus()}
+// ===== SEPARATE GERMAN / MATH LEADERBOARDS =====
+let lbSec='g';
+function mStats(u){const A=((D.mth&&D.mth[u])||[]).slice().sort((x,y)=>x.ts-y.ts),n=A.length,k=Math.min(5,Math.floor(n/2)),total=sum(A,a=>a.total),correct=sum(A,a=>a.ok);
+const av=l=>sum(l,a=>a.ok/a.total)/l.length,sp=l=>sum(l,a=>a.secs)/Math.max(1,sum(l,a=>a.total)),by={};A.forEach(a=>(by[a.tid]=by[a.tid]||[]).push(a));
+const ds=Object.values(by).filter(l=>l.length>=2).map(l=>l[l.length-1].ok/l[l.length-1].total-l[0].ok/l[0].total);
+return{A,n,total,correct,acc:total?correct/total:null,time:sum(timeRows().filter(r=>r.user===u+'~m'),r=>r.secs),imp:n>=4?av(A.slice(-k))-av(A.slice(0,k)):null,timp:ds.length?ds.reduce((x,y)=>x+y,0)/ds.length:null,simp:n>=4?sp(A.slice(0,k))-sp(A.slice(-k)):null}}
+function mlbHtml(){const S=USERS.map(u=>({u,s:mStats(u)})),cap=u=>`<span style="text-transform:capitalize">${esc(u)}</span>`;
+const cats=[['Time in Math','active only: focused tab, recent typing/clicks',x=>fmtDur(x.s.time),x=>x.s.time],['Tests completed','',x=>x.s.n,x=>x.s.n],['Correct answers','',x=>x.s.correct,x=>x.s.correct],['Accuracy','correct ÷ all answers',x=>x.s.acc==null?'–':Math.round(x.s.acc*100)+'%',x=>x.s.acc],['Improvement','latest 5 tests vs first 5',x=>pts(x.s.imp),x=>x.s.imp],['Re-try improvement','same test, first vs latest try',x=>pts(x.s.timp),x=>x.s.timp],['Speed gain','sec per answer, first vs latest 5',x=>x.s.simp==null?'–':Math.abs(x.s.simp).toFixed(1)+'s '+(x.s.simp>=0?'faster':'slower'),x=>x.s.simp]];
+const win=cats.map(c=>{const v=S.map(c[3]),d=v.filter(z=>z!=null),mx=Math.max(...d);return d.length>1&&mx>0&&v.filter(z=>z===mx).length===1?v.indexOf(mx):-1}),crowns=S.map((_,i)=>win.filter(w=>w===i).length);
+const bestOf=(u,id)=>((D.mth&&D.mth[u])||[]).filter(a=>a.tid===id).reduce((m,a)=>Math.max(m,a.ok/a.total),-1);
+return`<div class="lab" style="padding-left:0">Math leaderboard</div><div style="display:flex;gap:18px;flex-wrap:wrap;margin:4px 0 10px">${S.map((x,i)=>`<div><span style="font-size:22px;font-weight:600">${crowns[i]?'👑 ':''}${crowns[i]}</span> <span class="mut">${cap(x.u)}</span></div>`).join('')}</div>
+<table><tr><th>Category</th>${S.map(x=>`<th>${cap(x.u)}</th>`).join('')}</tr>${cats.map((c,r)=>`<tr><td>${c[0]}${c[1]?`<div class="mut" style="font-size:12px">${c[1]}</div>`:''}</td>${S.map((x,i)=>`<td class="${win[r]===i?'win':''}">${win[r]===i?'👑 ':''}${c[2](x)}</td>`).join('')}</tr>`).join('')}</table>
+<p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Math time and results are counted separately from German.</p>
+<details style="margin-top:12px"><summary>Head to head, best accuracy per math test</summary><table style="margin-top:6px"><tr><th>Test</th>${USERS.map(u=>`<th>${cap(u)}</th>`).join('')}</tr>${MATH.map(t=>{const v=USERS.map(u=>bestOf(u,t.id)),mx=Math.max(...v),w=v.filter(x=>x>=0).length>1&&v.filter(x=>x===mx).length===1?v.indexOf(mx):-1;return`<tr><td>${esc(t.title)}</td>${v.map((x,i)=>`<td class="${w===i?'win':''}">${w===i?'👑 ':''}${x<0?'–':Math.round(x*100)+'%'}</td>`).join('')}</tr>`}).join('')}</table></details>`}
+function lbHtml(){return`<div class="tabs" style="margin:0 0 10px"><button class="${lbSec==='g'?'on':''}" onclick="event.stopPropagation();lbSec='g';lbR()">🇩🇪 Deutsch</button><button class="${lbSec==='m'?'on':''}" onclick="event.stopPropagation();lbSec='m';lbR()">∑ Mathe</button></div>`+(lbSec==='m'?mlbHtml():glbHtml())}
+// ===== BACK ARROW =====
+let NAV=[],NB=false;
+const navCur=()=>view==='test'&&T?{k:'test:'+T.test.id,v:'test',id:T.test.id}:view==='mtest'&&MT?{k:'mtest:'+MT.t.id,v:'mtest',id:MT.t.id}:{k:view,v:view};
+function updBk(){const b=document.getElementById('bk');if(b)b.style.display=(D.me&&NAV.length)?'':'none'}
+function navPush(tk){if(NB)return;const c=navCur();if(c.v==='users'||c.k===tk)return;if(NAV.length&&NAV[NAV.length-1].k===c.k)return;NAV.push(c);if(NAV.length>40)NAV.shift();updBk()}
+function goBack(){const e=NAV.pop();if(!e){updBk();return}NB=true;try{if(e.v==='test')openTest(e.id);else if(e.v==='mtest')openMath(e.id);else go(e.v)}finally{NB=false}updBk()}
 // ===== END BLITZ =====
 
 // ===== ACTIVITY TRACKING =====
@@ -1264,8 +2027,8 @@ const mm=D.tmeta[u]=D.tmeta[u]||{};if(!mm[day])mm[day]={t0:now-D.time[u][day]*10
 function pushTime(u,d){const s=D.time[u]&&D.time[u][d];if(!cloud||s==null)return;const m=(D.tmeta[u]||{})[d]||{},row={id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(s),t0:m.t0,ts:m.ts};if(row.t0==null||!okRow(row))return;cloud.set('time',row).catch(e=>{cloudOk=false;console.warn(e)})}
 function flushTime(){if(!tkD&&!DIRTY.size)return;tkD=false;save();if(cloud){DIRTY.forEach(k=>{const[u,d]=k.split('|');pushTime(u,d)});DIRTY.clear()}lbRefresh()}
 setInterval(()=>{const now=Date.now(),dt=Math.min(10,(now-tkL)/1000);tkL=now;
-if(D.me&&!document.hidden&&document.hasFocus()&&now-tkA<=IDLE){const day=DAY(now),u=D.time[D.me]=D.time[D.me]||{},mm=D.tmeta[D.me]=D.tmeta[D.me]||{};
-if(!mm[day])mm[day]={t0:now-(u[day]||0)*1000};mm[day].ts=now;u[day]=(u[day]||0)+dt;DIRTY.add(D.me+'|'+day);tkD=true}
+if(D.me&&!document.hidden&&document.hasFocus()&&now-tkA<=IDLE){const K=D.me+((view==='math'||view==='mtest')?'~m':''),day=DAY(now),u=D.time[K]=D.time[K]||{},mm=D.tmeta[K]=D.tmeta[K]||{};
+if(!mm[day])mm[day]={t0:now-(u[day]||0)*1000};mm[day].ts=now;u[day]=(u[day]||0)+dt;DIRTY.add(K+'|'+day);tkD=true}
 if(now-tkP>=30000){tkP=now;flushTime()}},5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flushTime()});addEventListener('pagehide',flushTime);
 function timeRows(){const o=[];Object.entries(D.time||{}).forEach(([u,m])=>Object.keys(m).forEach(day=>{if(okRow(mrow(u,day)))o.push({user:u,day,secs:m[day]})}));Object.values(RT).forEach(r=>{if(r.dev!==DEV)o.push({user:r.user,day:r.day,secs:r.secs})});return o}
@@ -1289,13 +2052,13 @@ return`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Accuracy
 +acc.map((p,i)=>`<circle cx="${X(i)}" cy="${Y(p)}" r="2.5" style="fill:var(--acc)" opacity=".4"/>`).join('')
 +`<polyline fill="none" stroke-width="2.5" stroke-linejoin="round" style="stroke:var(--acc)" points="${roll.map((p,i)=>X(i)+','+Y(p)).join(' ')}"/></svg>`}
 
-$('#logo').onclick=()=>go(D.me?'home':'users');
+$('#logo').onclick=()=>go(D.me?'subject':'users');
 if(D.me&&!USERS.includes(D.me))D.me=null;
 // ===== FIREBASE: your Realtime Database URL (Data tab, top of the page) =====
 const FIREBASE_CONFIG={databaseURL:"https://c-test-f8f8f-default-rtdb.firebaseio.com"};
 // ============================================================================
 let cloud=null,cloudOk=false;const seeded={};
-D.attempts.forEach(a=>{a.id=a.id||a.ts+'-'+a.user});
+D.attempts.forEach(a=>{a.id=a.id||a.ts+'-'+a.user});Object.entries(D.mth||{}).forEach(([u,l])=>l.forEach(a=>{a.user=u;a.id=a.id||a.ts+'-m-'+u}));
 function push(col,o){if(cloud)cloud.set(col,o).catch(e=>{cloudOk=false;console.warn(e)})}
 (async()=>{try{if(!FIREBASE_CONFIG.databaseURL||FIREBASE_CONFIG.databaseURL.includes('YOUR'))return;
 const B='https://www.gstatic.com/firebasejs/10.12.2/',{initializeApp}=await import(B+'firebase-app.js'),F=await import(B+'firebase-database.js');
@@ -1303,9 +2066,10 @@ const rt=F.getDatabase(initializeApp(FIREBASE_CONFIG));cloud={set:(col,o)=>F.set
 const sub=(col,key)=>F.onValue(F.ref(rt,col),s=>{const v=s.val()||{},rows=Object.values(v).map(r=>{if(key==='attempts')r.mistakes=r.mistakes||[];return r}),ids=new Set(rows.map(r=>String(r.id))),loc=D[key];rows.forEach(r=>{if(!loc.some(x=>String(x.id)===String(r.id)))loc.push(r)});if(!seeded[col]){seeded[col]=1;loc.forEach(x=>{if(!ids.has(String(x.id)))push(col,x)})}cloudOk=true;save();hdr();if(['home','list','stats'].includes(view))R[view]();lbRefresh()},e=>{cloudOk=false;console.warn(e)});
 sub('attempts','attempts');sub('tests','tests');
 F.onValue(F.ref(rt,'edits'),sn=>{const v=sn.val()||{};let ch=false;Object.values(v).forEach(r=>{if(!r||!r.id)return;const l=D.edits[r.id];if(!l||(l.ts||0)<(r.ts||0)){D.edits[r.id]=r;ch=true}});Object.values(D.edits).forEach(l=>{const r=v[l.id];if(!r||(r.ts||0)<(l.ts||0))push('edits',l)});cloudOk=true;if(ch){save();if(['home','list','stats'].includes(view))R[view]()}},e=>{cloudOk=false;console.warn(e)});
+F.onValue(F.ref(rt,'mth'),sn=>{const v=sn.val()||{};D.mth=D.mth||{};Object.values(v).forEach(r=>{if(!r||!r.user||!r.id)return;const l=D.mth[r.user]=D.mth[r.user]||[];if(!l.some(x=>x.id===r.id))l.push(r)});Object.values(D.mth).forEach(l=>l.forEach(x=>{if(x.id&&!v[x.id])push('mth',x)}));cloudOk=true;save();lbRefresh()},e=>{cloudOk=false;console.warn(e)});
 F.onValue(F.ref(rt,'time'),sn=>{const v=sn.val()||{};RT={};Object.values(v).forEach(r=>{if(r&&r.user&&r.day&&r.id&&okRow(r))RT[r.id]=r});
-Object.values(RT).forEach(r=>{if(r.dev!==DEV||!USERS.includes(r.user))return;const u=D.time[r.user]=D.time[r.user]||{};if((u[r.day]||0)<r.secs){u[r.day]=r.secs;(D.tmeta[r.user]=D.tmeta[r.user]||{})[r.day]={t0:r.t0!=null?r.t0:Date.now()-r.secs*1000,ts:r.ts!=null?r.ts:Date.now()}}});
+Object.values(RT).forEach(r=>{if(r.dev!==DEV||!USERS.includes(r.user.split('~')[0]))return;const u=D.time[r.user]=D.time[r.user]||{};if((u[r.day]||0)<r.secs){u[r.day]=r.secs;(D.tmeta[r.user]=D.tmeta[r.user]||{})[r.day]={t0:r.t0!=null?r.t0:Date.now()-r.secs*1000,ts:r.ts!=null?r.ts:Date.now()}}});
 if(!seeded.time){seeded.time=1;Object.entries(D.time).forEach(([u,m])=>Object.keys(m).forEach(d=>{const q=RT[u+'_'+d+'_'+DEV];if(!q||q.secs<m[d])pushTime(u,d)}))}
 cloudOk=true;lbRefresh()},e=>{cloudOk=false;console.warn(e)});hdr()}catch(e){cloudOk=false;console.warn(e)}})();
-go(D.me?'home':'users');
+go(D.me?'subject':'users');
 </script></body></html>
