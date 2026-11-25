@@ -77,8 +77,8 @@ button.dng{background:var(--bad);color:var(--bg)}
 .tw{display:flex;gap:12px;align-items:baseline;padding:7px 0;border-top:1px solid var(--line)}.tw b{flex:none;min-width:4.6em;font:600 18px ui-serif,Georgia,serif}.tw b u{text-decoration:none;color:var(--acc)}.tw span{font-size:14px;color:var(--mut);line-height:1.4}.tw.dim{opacity:.45}
 details.card>summary{font-size:17px;font-weight:600}.tipb{margin-top:10px;font-size:15px}.tipb p{margin:8px 0}.tipb ul{margin:8px 0;padding-left:20px}.tipb li{margin:5px 0}.tipb table{margin:8px 0}.tipb td,.tipb th{vertical-align:top}.tipb .mut{font-size:13px}
 
-.mnav{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line)}
-.mnav button{width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:8px;background:transparent;color:var(--ink);border:1px solid var(--line);font-variant-numeric:tabular-nums}
+.mnav{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;gap:8px;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line)}.mnav button:first-child{margin-left:auto}.mnav button:last-child{margin-right:auto}
+.mnav button{flex:0 0 38px;width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:8px;background:transparent;color:var(--ink);border:1px solid var(--line);font-variant-numeric:tabular-nums}
 .mnav button:hover{background:var(--bg);opacity:1}.mnav button.dn{border-color:var(--acc);color:var(--acc)}
 .mnav button.on{background:var(--btn);color:var(--bi);border-color:var(--btn)}
 .mnav button.ok{border-color:var(--ok);background:var(--okbg);color:var(--ok)}.mnav button.bd{border-color:var(--bad);background:var(--badbg);color:var(--bad)}
@@ -104,6 +104,11 @@ details.card>summary{font-size:17px;font-weight:600}.tipb{margin-top:10px;font-s
 .mf input.t{width:11em;font-size:18px;padding:8px 12px;margin:0}
 .mpv{font:22px/1.2 ui-serif,Georgia,serif;color:var(--mut)}.mr{flex-basis:100%;color:var(--ok);font:19px/1.4 ui-serif,Georgia,serif;padding-left:2px}
 .mnv{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.mf.mfg{display:block}.mfg .mgl{margin-bottom:6px}.mfld[data-gr]{display:block;width:100%;max-width:440px;min-width:0;min-height:0;padding:8px 8px 6px;cursor:default;overflow:hidden;font:14px system-ui,sans-serif}.mgs{display:block;width:100%;height:auto;touch-action:manipulation;-webkit-tap-highlight-color:transparent;cursor:crosshair;user-select:none}.mfld[data-gr].dis .mgs{cursor:default}.mgb{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;color:var(--mut);font-size:13px}.mgb button{min-height:32px;min-width:0;padding:0 12px;font-size:13px}
+.mpn{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:16px 0 6px}.mpn button{min-width:38px;height:32px;padding:0 10px;border-radius:999px;background:transparent;color:var(--ink);border:1px solid var(--line);font:600 14px system-ui,sans-serif}.mpn button:hover{background:var(--bg);opacity:1}.mpn button.dn{border-color:var(--acc);color:var(--acc)}.mpn button.ok{border-color:var(--ok);color:var(--ok)}.mpn button.bd{border-color:var(--bad);color:var(--bad)}.mpn button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}.mpn button.on.ok{background:var(--ok);border-color:var(--ok);color:var(--bg)}.mpn button.on.bd{background:var(--bad);border-color:var(--bad);color:var(--bg)}
+.mpw{position:relative;padding:0 40px}.mpa{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;min-width:0;padding:0 0 3px;border-radius:50%;display:grid;place-items:center;font-size:24px;line-height:1;background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:0 1px 6px rgba(0,0,0,.16);z-index:6}.mpa.l{left:-8px}.mpa.r{right:-8px}.mpa:hover:not(:disabled){background:var(--ink);color:var(--bg);opacity:1}.mpa:disabled{opacity:.25;cursor:default;box-shadow:none}.mqp .mlb{margin-right:.5em}
+@media(max-width:520px){.mp .mfld[data-gr]{padding:4px 4px 2px}.mp .mf{min-width:0}.mp .mf label{flex-wrap:wrap;max-width:100%}.mp .mfld{min-width:0;flex:1 1 6em}.mp .mfld[data-mc]{flex:0 1 auto}.mpw{padding:0 30px}.mpa{width:32px;height:32px;font-size:21px}.mpa.l{left:-12px}.mpa.r{right:-12px}}
+
 .mkp{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
 .mkp button{min-width:40px;height:36px;padding:0 10px;font:18px ui-serif,Georgia,serif}.mkp .mut{font-size:12px;flex-basis:100%}
 .mhint{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--mut);margin:8px 0 0}
@@ -132,6 +137,68 @@ body.nogl .gw{border-bottom:0;cursor:auto}
 #gtip{position:fixed;z-index:70;display:none;max-width:min(320px,calc(100vw - 16px));background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:13px/1.4 system-ui,sans-serif;box-shadow:0 6px 22px rgba(0,0,0,.22);pointer-events:none}
 #gtip b{display:block;color:var(--acc);margin-bottom:2px}
 .gtg{cursor:pointer;text-decoration:underline dotted}
+/* math polish */
+.meq,.mfld,.mr,.mpv,.mch button,.mi,.ml{font-family:"STIX Two Math","Cambria Math","Latin Modern Math","Times New Roman",Georgia,serif}
+.mi{white-space:nowrap;font-size:1.07em}.mq{line-height:1.95}
+.mi .fr,.mq .fr{font-size:.86em}.fr .fr{font-size:.88em}.fr .fr .fr{font-size:1em}
+.fr>.nu{border-bottom:1px solid currentColor;padding:0 .28em .06em}.fr>.de{padding:.08em .28em 0}
+.meq sup,.mpv sup,.mr sup,.mi sup,.mfld sup,.mch sup{font-size:.66em;vertical-align:.52em;line-height:0;margin-left:.05em}
+.meq sub,.mpv sub,.mr sub,.mi sub,.mfld sub,.mch sub{font-size:.66em;vertical-align:-.3em;line-height:0;margin-left:.04em}
+.mu{margin-right:.06em}.mo{margin:0 .3em}.fn{margin:0 .06em}.un{font-style:normal;margin:0 .04em}
+.sq{display:inline-block;position:relative;padding-left:.82em;margin:0 .08em}.sq .rs{position:absolute;left:0;top:0;width:.82em;height:100%;overflow:visible}
+.rs path,.pr>svg path{fill:none;stroke:currentColor;stroke-width:1.2px;vector-effect:non-scaling-stroke;stroke-linejoin:miter;stroke-linecap:round}
+.rd{display:inline-block;border-top:1.2px solid currentColor;padding:.06em .14em 0 .06em;margin-left:0}.sq .ix{position:absolute;left:.04em;top:.12em;font-size:.55em;line-height:1}
+.pr{display:inline-block;position:relative;padding:0 .36em}.pr>svg{position:absolute;top:0;height:100%;width:.34em;overflow:visible}.pr>svg:first-child{left:0}.pr>svg:last-child{right:0}
+.pr.v{vertical-align:middle;margin:0 .1em}.vc{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.92em;line-height:1.25;padding:.1em 0}
+.mtag{display:inline-block;font:600 12px system-ui,sans-serif;letter-spacing:.04em;color:var(--acc);border:1px solid var(--line);border-radius:5px;padding:1px 7px;vertical-align:2px;margin-right:4px}
+.mlb{font:600 15px system-ui,sans-serif;color:var(--mut);margin-right:.9em}
+.mopts{display:flex;flex-wrap:wrap;gap:8px 12px;margin:8px 0}.mopt{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:19px/1.4 "STIX Two Math","Cambria Math",Georgia,serif;background:var(--bg)}
+.ml{white-space:nowrap;flex:none}.mf label{flex-wrap:nowrap}.ml .mi{display:inline}
+.mtc{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 8px}
+.mt-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr) auto;gap:8px 16px;align-items:center;padding:13px 2px;border-top:1px solid var(--line)}.mt-leg+.mt-row{border-top:0}
+.mt-nm{font-weight:600}.mt-nm small,.mt-fn small{display:block;font-weight:400;color:var(--mut);font-size:12px}
+.mt-bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--line)}.mt-bar i{display:block;height:100%}
+.mt-meta{font-size:12.5px;color:var(--mut);margin-top:5px}
+.mt-act{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.mt-leg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;margin:0 0 4px}.mt-leg span{display:inline-flex;align-items:center;gap:5px}.mt-leg i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.mt-fq{display:grid;grid-template-columns:22px minmax(0,1.2fr) minmax(0,1.3fr) 108px;gap:4px 12px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.mt-rk{color:var(--mut);font-size:13px;text-align:right}.mt-fn{font-weight:500}
+.mt-fb{height:12px;border-radius:6px;background:var(--line);overflow:hidden}.mt-fb i{display:block;height:100%;background:var(--acc);border-radius:6px}
+.mt-fv{font-size:13px;text-align:right}.mt-fv small{display:block;color:var(--mut);font-size:11.5px}
+.mt-ml+.mt-ml{border-top:1px solid var(--line)}
+@media(max-width:600px){.mt-row{grid-template-columns:1fr}.mt-act{justify-content:flex-start}.mt-fq{grid-template-columns:20px minmax(0,1fr) 92px}.mt-fb{grid-column:2/4;order:5}}
+.mt-picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px;margin:10px 0}
+.mt-pick{display:grid;grid-template-columns:22px 1fr;gap:6px 10px;align-items:start;text-align:left;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-weight:400}
+.mt-pick:hover{background:var(--bg);opacity:1}.mt-pick.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent)}
+.mt-ck{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--mut);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--bi);line-height:1}.mt-pick.on .mt-ck{background:var(--acc);border-color:var(--acc)}
+.mt-pn{font-weight:600;font-size:14.5px;line-height:1.3}.mt-pn small{display:block;font-weight:400;color:var(--mut);font-size:12px}
+.mt-pick .mt-bar,.mt-pick .mt-pm{grid-column:2}.mt-pm{font-size:12px;color:var(--mut)}
+.mt-opt{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:8px 0}
+.mt-go{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;margin-top:12px;border-radius:10px;background:var(--card);border:1px solid var(--line);box-shadow:0 4px 18px rgba(0,0,0,.14)}
+.md-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:8px}.md-grid .card{margin:0}
+.md-h{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.mt-pick{cursor:pointer}.lvr{grid-column:2;display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}.mp-rules{grid-column:1/-1;border-top:1px solid var(--line);padding-top:10px;margin-top:6px;cursor:default}
+.lvp{font:inherit;font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid var(--c);color:var(--c);background:transparent;font-weight:500}.lvp.on{background:var(--c);color:var(--bi)}.lvp:disabled{opacity:.3;cursor:not-allowed}
+.mt-picks{align-items:start}.mdg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}.mdg3{grid-template-columns:repeat(3,1fr)}.mdg .lvp{height:46px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;padding:0 10px;border-radius:12px;line-height:1.2}
+.mt-picks{align-items:stretch}.mt-pick{min-height:132px;align-content:start}
+.mt-pick .lvr{flex-wrap:nowrap;gap:5px;width:100%}.mt-pick .lvr .lvp{flex:1 1 0;min-width:0;padding:4px 2px;text-align:center;white-space:nowrap;font-size:12px}.mdg3{grid-template-columns:repeat(3,minmax(0,1fr))!important}.mdg3 .lvp{white-space:nowrap}
+/* layout fix: every topic card identical, level buttons always one even row */
+.mt-picks{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))!important;align-items:stretch!important}
+.mt-pick{min-height:0!important;height:100%;box-sizing:border-box;align-content:start;grid-template-rows:auto auto auto auto}
+.mt-pick .mt-bar,.mt-pick .mt-pm,.mt-pick .lvr{grid-column:1/-1!important}
+.mt-pick .mt-pm{min-height:32px}
+.mt-pick .lvr{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;align-self:end;margin:0;width:auto}
+.mt-pick .lvr .lvp{height:30px;padding:0 4px;display:flex;align-items:center;justify-content:center;font-size:12px;white-space:nowrap;border-radius:8px}
+.mdg3{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px}
+.mdg3 .lvp{height:46px;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.mdg:not(.mdg3){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(min-width:640px){.mdg:not(.mdg3){grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+.mdg .lvp{width:100%;box-sizing:border-box}
+.mt-pick:hover{background-image:linear-gradient(rgba(0,0,0,.09),rgba(0,0,0,.09))!important;opacity:1}
+.mt-pick .mt-pn{margin-bottom:10px}
+.mhw{margin:10px 0 4px}.mhw>button{font-size:13px;padding:5px 12px}.mhint{margin-top:8px;border:1px solid var(--amb);border-radius:10px;padding:10px 14px;background:color-mix(in srgb,var(--amb) 10%,transparent)}.mhr+.mhr{margin-top:8px}.mhf{font-family:ui-serif,Georgia,serif;font-size:17px;margin-top:3px}
+.mhx{font-size:13px;line-height:1.4;margin-top:4px;color:var(--mut)}.mhx:first-letter{letter-spacing:0}
+.pm{margin-left:.16em}
 </style></head><body>
 <header><button class="g" id="bk" onclick="goBack()" aria-label="Back" title="Back" style="display:none;padding:5px 11px;font-size:18px;line-height:1">←</button><span class="logo" id="logo">C-Test Prep</span><span class="sp"></span><span id="hdr" style="display:flex;gap:8px;align-items:center"></span></header>
 <main id="app"></main>
@@ -165,8 +232,8 @@ return`<div class="lab" style="padding-left:0">Leaderboard</div><div style="disp
 <p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Ties and categories without enough data get none. Time is tracked since this version was first opened; improvement needs 4+ attempts.</p><p class="mut" style="font-size:12px;margin:4px 0 0">${cloudOk?'☁ Synced across devices':'⚠ Cloud not connected – showing this device only'}</p>
 <details style="margin-top:12px"><summary>Progress charts</summary><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px">${S.map(x=>`<div><h3>${cap(x.u)}</h3><div class="lab" style="padding-left:0">Minutes per day · 14 days</div>${barSvg(x.u)}<div class="lab" style="padding-left:0">Accuracy per attempt · line = avg of 5</div>${trendSvg(x.s.A)}</div>`).join('')}</div></details>
 <details style="margin-top:10px"><summary>Head to head, best accuracy per test</summary><table style="margin-top:6px"><tr><th>Test</th>${USERS.map(u=>`<th>${cap(u)}</th>`).join('')}</tr>${tests().map(t=>{const v=USERS.map(u=>tstat(u,t.id).n?best(u,t.id):-1),mx=Math.max(...v),w=v.filter(x=>x>=0).length>1&&v.filter(x=>x===mx).length===1?v.indexOf(mx):-1;return`<tr><td>${esc(t.title)}</td>${v.map((x,i)=>`<td class="${w===i?'win':''}">${w===i?'👑 ':''}${x<0?'–':Math.round(x*100)+'%'}</td>`).join('')}</tr>`}).join('')}</table></details>`}
-function hdr(){$('#hdr').innerHTML=D.me?`<div class="dd"><button class="g" onclick="tm(event,'tasks')">Tasks ▾</button><div class="menu s" id="m-tasks" style="width:min(340px,calc(100vw - 24px))"></div></div><div class="dd"><button class="g" onclick="tm(event,'lb')">Leaderboard ▾</button><div class="menu" id="m-lb"></div></div><div class="dd"><button class="pill" onclick="tm(event,'acc')"><span class="av">${D.me[0]}</span>${D.me} ▾</button><div class="menu s" id="m-acc"><div class="lab">Switch account</div>${USERS.map(u=>`<div class="mi ${u===D.me?'on':''}" onclick="sw('${u}')"><span class="av">${u[0]}</span>${u}${u===D.me?' ✓':''}</div>`).join('')}<div class="lab">More</div><div class="mi" onclick="go('subject')">Switch subject</div><div class="mi" onclick="go('stats')">Statistics</div><div class="mi" onclick="go('add')">Add a C-test</div><div class="lab">Cloud sync: ${cloud?'on':'off'}</div></div></div>`:''}
-function tm(e,id){e.stopPropagation();const m=$('#m-'+id),was=m.classList.contains('open');cm();if(!was){if(id==='lb'){lbSec=(view==='math'||view==='mtest')?'m':'g';m.innerHTML=lbHtml()}if(id==='tasks')m.innerHTML='<div class="lab">Other tasks</div>'+tests().filter(t=>t.cat==='task').map(t=>`<div class="mi" style="text-transform:none" onclick="openTest('${t.id}')">${esc(t.title)}</div>`).join('');m.classList.add('open')}}
+function hdr(){$('#hdr').innerHTML=D.me?`<div class="dd"><button class="g" onclick="tm(event,'tasks')">Tasks ▾</button><div class="menu s" id="m-tasks" style="width:min(340px,calc(100vw - 24px))"></div></div><div class="dd"><button class="g" onclick="tm(event,'lb')">Leaderboard ▾</button><div class="menu" id="m-lb"></div></div><div class="dd"><button class="pill" onclick="tm(event,'acc')"><span class="av">${D.me[0]}</span>${D.me} ▾</button><div class="menu s" id="m-acc"><div class="lab">Switch account</div>${USERS.map(u=>`<div class="mi ${u===D.me?'on':''}" onclick="sw('${u}')"><span class="av">${u[0]}</span>${u}${u===D.me?' ✓':''}</div>`).join('')}<div class="lab">More</div><div class="mi" onclick="go('subject')">Switch subject</div><div class="mi" onclick="go('stats')">Statistics</div>${D.subj==='math'?`<div class="mi" onclick="go('mtrack')">Targeted practice</div>`:''}<div class="mi" onclick="go('add')">Add a C-test</div><div class="lab">Cloud sync: ${cloud?'on':'off'}</div></div></div>`:''}
+function tm(e,id){e.stopPropagation();const m=$('#m-'+id),was=m.classList.contains('open');cm();if(!was){if(id==='lb'){lbSec=(view==='math'||view==='mtest'||view==='mtrack')?'m':'g';m.innerHTML=lbHtml()}if(id==='tasks')m.innerHTML='<div class="lab">Other tasks</div>'+tests().filter(t=>t.cat==='task').map(t=>`<div class="mi" style="text-transform:none" onclick="openTest('${t.id}')">${esc(t.title)}</div>`).join('');m.classList.add('open')}}
 function cm(){document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'))}
 document.addEventListener('click',e=>{if(!e.target.closest('.menu'))cm()});
 function sw(u){D.me=u;save();cm();go('subject')}
@@ -194,7 +261,7 @@ const R={
 users(){app.innerHTML=`<div style="text-align:center;margin-top:40px"><h1>Wer übt heute?</h1><p class="mut">Choose your profile</p></div><div class="users">${USERS.map(u=>`<div class="ucard" onclick="D.me='${u}';save();go('subject')"><div class="av">${u[0]}</div><h3>${u}</h3></div>`).join('')}</div>`},
 subject(){const nm=esc(D.me[0].toUpperCase()+D.me.slice(1));app.innerHTML=`<div style="text-align:center;margin-top:40px"><h1>Hallo, ${nm}.</h1><p class="mut">What do you want to practice?</p></div><div class="users"><div class="ucard" onclick="D.subj='de';save();go('home')"><div style="font-size:52px;line-height:1;margin-bottom:12px">🇩🇪</div><h3>Deutsch</h3><p class="mut" style="margin:4px 0 0">C-Tests, Blitz, Plurals</p></div><div class="ucard" onclick="D.subj='math';save();go('home')"><div style="font-size:52px;line-height:1;margin-bottom:12px">∑</div><h3>Mathe</h3><p class="mut" style="margin:4px 0 0">Math practice tests</p></div></div>`},
 home(){if(D.subj!=='de'&&D.subj!=='math')return go('subject');const de=D.subj==='de',nm=esc(D.me[0].toUpperCase()+D.me.slice(1)),sw=`<button class="g" style="float:right;margin-top:6px" onclick="go('subject')">Switch subject</button>`;
-app.innerHTML=sw+`<h1>Hallo, ${nm}.</h1>`+(de?`<div class="lab" style="padding-left:0">🇩🇪 Deutsch</div><div class="grid" style="margin-bottom:24px"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div><div class="card tile" onclick="go('blitz')"><h2>⚡ Blitz</h2><p class="mut">Endless quick rounds, timed</p></div><div class="card tile" onclick="go('plural')"><h2>🧩 Plurals</h2><p class="mut">Singular → plural, common nouns</p></div><div class="card tile" onclick="go('tips')"><h2>💡 Hints &amp; Tricks</h2><p class="mut">Which word fits these letters</p></div>`:`<div class="lab" style="padding-left:0">∑ Mathe</div><div class="grid"><div class="card tile" onclick="go('math')"><h2>Math tests</h2><p class="mut">${MATH.length} test${MATH.length>1?'s':''} available</p></div></div>`)},
+app.innerHTML=sw+`<h1>Hallo, ${nm}.</h1>`+(de?`<div class="lab" style="padding-left:0">🇩🇪 Deutsch</div><div class="grid" style="margin-bottom:24px"><div class="card tile" onclick="go('list')"><h2>C-Tests</h2><p class="mut">${ctests().length} test${ctests().length>1?'s':''} available</p></div><div class="card tile" onclick="go('blitz')"><h2>⚡ Blitz</h2><p class="mut">Endless quick rounds, timed</p></div><div class="card tile" onclick="go('plural')"><h2>🧩 Plurals</h2><p class="mut">Singular → plural, common nouns</p></div><div class="card tile" onclick="go('tips')"><h2>💡 Hints &amp; Tricks</h2><p class="mut">Which word fits these letters</p></div>`:`<div class="lab" style="padding-left:0">∑ Mathe</div><div class="grid"><div class="card tile" onclick="go('math')"><h2>Math tests</h2><p class="mut">${MATH.length} test${MATH.length>1?'s':''} available</p></div><div class="card tile" onclick="go('mtrack')"><h2>Targeted practice</h2><p class="mut">Pick topics, drill your weak spots</p></div></div>`)},
 list(){app.innerHTML=`<h1>C-Tests</h1><div class="card fb"><input class="t" id="q" type="search" placeholder="Search title, source or text…" value="${esc(lf.q)}" oninput="lf.q=this.value;LR()" autocomplete="off"><div class="tabs" id="gf"></div><div class="tabs" id="sf"></div></div><div id="of" style="display:flex;justify-content:flex-end;margin:-4px 2px 8px"></div><div class="card" id="lr" style="padding:8px"></div>`;LR()},
 test(){const t=T.test;app.innerHTML=`<div class="bar"><div class="clock" id="clk">0:00</div><div class="btns"><button id="st" onclick="start()">Start</button><button id="ck" onclick="check()" disabled>Check</button><button class="g" onclick="openTest('${t.id}')">Retry</button><button class="g" id="nxt" onclick="nextTest()">Next ▸</button></div></div><div class="card"><div class="src">Source: ${esc(t.source)}</div><h2>${esc(t.title)}</h2>${T.why?`<p class="mut" style="margin:0 0 8px">${T.why}</p>`:''}<div class="wrap"><div class="txt blur" id="txt">${T.tok.map(x=>typeof x==='string'?esc(x):`<span class="gap" data-c="${esc(gAns(x))}">${esc(x.g)}<input disabled autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></span>`).join('')}</div><div class="ov" id="ov">Press Start to show the text</div></div><div id="edbtn" style="margin-top:14px"><button class="g" id="edb" onclick="edStart()">✎ Edit gaps</button></div><div id="edit" style="display:none"><p class="mut" style="margin:0 0 6px">Tap a word to make it a gap. Tap a gap to change its answers or remove it.</p><div class="edtxt" id="edtxt"></div><div id="ep" style="display:none"></div></div><div id="res"></div></div><div class="card" id="att"></div>`;
 document.querySelectorAll('.gap input').forEach((el,i,all)=>{el.onkeydown=e=>{if(e.key==='Backspace'&&!el.value&&all[i-1]){e.preventDefault();all[i-1].focus()}else if((e.key===' '||e.key==='Enter'||e.key==='ArrowRight')&&all[i+1]){e.preventDefault();all[i+1].focus()}else if(e.key==='ArrowLeft'&&all[i-1]&&el.selectionStart===0)all[i-1].focus()}})},
@@ -1547,6 +1614,10 @@ app.innerHTML=`<div class="card" style="text-align:center"><div class="big">${t?
 // Each test: {id,title,source,mins (null = no limit -> plain timer),tasks:[{q,s:[lines],fig,f:[{l:label,a:answer,v:variable (for expressions),g:group (order-free answers),d:shown answer}]}]}
 // Answers accept fractions (1/14), decimals with , or ., sqrt/√, powers (^), and for v: any equivalent expression.
 const FIG9='<svg viewBox="0 0 440 250" style="max-width:340px;width:100%;margin:6px 0"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M97 220H285L392 56H205Z"/><path d="M160 220V124L97 220M160 124H266L305 56"/></g><g fill="currentColor" font-size="14" font-family="system-ui,sans-serif"><text x="244" y="48">12 cm</text><text x="190" y="100">y</text><text x="240" y="98" font-weight="700">P</text><text x="228" y="178" font-weight="700">R</text><text x="112" y="206" font-weight="700">D</text><text x="125" y="236">x</text><text x="200" y="244">20 cm</text><text x="166" y="176">12 cm</text><text x="40" y="170">13 cm</text></g></svg>';
+const FIG_ZI8='<svg viewBox="0 0 280 256" style="max-width:300px;width:100%"><g fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1"><path d="M20 230V20"/><path d="M50 230V20"/><path d="M80 230V20"/><path d="M110 230V20"/><path d="M140 230V20"/><path d="M170 230V20"/><path d="M200 230V20"/><path d="M230 230V20"/><path d="M260 230V20"/><path d="M20 230H260"/><path d="M20 200H260"/><path d="M20 170H260"/><path d="M20 140H260"/><path d="M20 110H260"/><path d="M20 80H260"/><path d="M20 50H260"/><path d="M20 20H260"/></g><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 140H270"/><path d="M140 238V10"/><path d="M270 140l-6 -3m6 3l-6 3"/><path d="M140 10l-3 6m3 -6l3 6"/></g><path d="M20 80L260 140" fill="none" stroke="currentColor" stroke-width="2.4"/><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="146" y="105">1</text><text x="167" y="155">1</text><text x="264" y="155">x</text><text x="147" y="24">y</text><text x="44" y="102" font-style="italic">f(x)</text></g></svg>';
+const FIG_KA_SIN='<svg viewBox="0 0 340 192" style="max-width:360px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 96H326"/><path d="M110 178V14"/></g><g fill="currentColor" stroke="currentColor" stroke-width="1" font-size="11" font-family="system-ui,sans-serif"><path d="M50 93v6"/><text x="46" y="113" stroke="none">-2</text><path d="M170 93v6"/><text x="166" y="113" stroke="none">2</text><path d="M230 93v6"/><text x="226" y="113" stroke="none">4</text><path d="M290 93v6"/><text x="286" y="113" stroke="none">6</text><path d="M107 172h6"/><text x="117" y="176" stroke="none">-2</text><path d="M107 134h6"/><text x="117" y="138" stroke="none">-1</text><path d="M107 58h6"/><text x="117" y="62" stroke="none">1</text><path d="M107 20h6"/><text x="117" y="24" stroke="none">2</text></g><g fill="none" stroke-width="2.2"><polyline stroke="#d61fd6" points="20.0,101.4 21.9,103.7 23.8,106.0 25.6,108.3 27.5,110.5 29.4,112.7 31.2,114.8 33.1,116.8 35.0,118.7 36.9,120.6 38.8,122.4 40.6,124.0 42.5,125.6 44.4,127.0 46.2,128.3 48.1,129.5 50.0,130.6 51.9,131.5 53.8,132.3 55.6,132.9 57.5,133.4 59.4,133.7 61.2,133.9 63.1,134.0 65.0,133.9 66.9,133.7 68.8,133.3 70.6,132.7 72.5,132.1 74.4,131.2 76.2,130.3 78.1,129.2 80.0,128.0 81.9,126.6 83.8,125.2 85.6,123.6 87.5,121.9 89.4,120.1 91.2,118.2 93.1,116.3 95.0,114.2 96.9,112.1 98.8,109.9 100.6,107.7 102.5,105.4 104.4,103.1 106.2,100.7 108.1,98.4 110.0,96.0 111.9,93.6 113.8,91.3 115.6,88.9 117.5,86.6 119.4,84.3 121.2,82.1 123.1,79.9 125.0,77.8 126.9,75.7 128.8,73.8 130.6,71.9 132.5,70.1 134.4,68.4 136.2,66.8 138.1,65.4 140.0,64.0 141.9,62.8 143.8,61.7 145.6,60.8 147.5,59.9 149.4,59.3 151.2,58.7 153.1,58.3 155.0,58.1 156.9,58.0 158.8,58.1 160.6,58.3 162.5,58.6 164.4,59.1 166.2,59.7 168.1,60.5 170.0,61.4 171.9,62.5 173.8,63.7 175.6,65.0 177.5,66.4 179.4,68.0 181.2,69.6 183.1,71.4 185.0,73.3 186.9,75.2 188.8,77.2 190.6,79.3 192.5,81.5 194.4,83.7 196.2,86.0 198.1,88.3 200.0,90.6 201.9,93.0 203.8,95.4 205.6,97.7 207.5,100.1 209.4,102.5 211.2,104.8 213.1,107.1 215.0,109.3 216.9,111.5 218.8,113.7 220.6,115.7 222.5,117.7 224.4,119.6 226.2,121.4 228.1,123.2 230.0,124.8 231.9,126.3 233.8,127.6 235.6,128.9 237.5,130.0 239.4,131.0 241.2,131.9 243.1,132.6 245.0,133.1 246.9,133.6 248.8,133.9 250.6,134.0 252.5,134.0 254.4,133.8 256.2,133.5 258.1,133.0 260.0,132.4 261.9,131.7 263.8,130.8 265.6,129.8 267.5,128.6 269.4,127.4 271.2,126.0 273.1,124.4 275.0,122.8 276.9,121.1 278.8,119.2 280.6,117.3 282.5,115.3 284.4,113.2 286.2,111.1 288.1,108.9 290.0,106.6 291.9,104.3 293.8,102.0 295.6,99.6 297.5,97.3 299.4,94.9 301.2,92.5 303.1,90.2 305.0,87.8 306.9,85.5 308.8,83.3 310.6,81.1 312.5,78.9 314.4,76.8 316.2,74.8 318.1,72.9 320.0,71.0"/><polyline stroke="#2f5bff" stroke-dasharray="2 3" points="20.0,63.4 21.9,65.7 23.8,68.0 25.6,70.3 27.5,72.5 29.4,74.7 31.2,76.8 33.1,78.8 35.0,80.7 36.9,82.6 38.8,84.4 40.6,86.0 42.5,87.6 44.4,89.0 46.2,90.3 48.1,91.5 50.0,92.6 51.9,93.5 53.8,94.3 55.6,94.9 57.5,95.4 59.4,95.7 61.2,95.9 63.1,96.0 65.0,95.9 66.9,95.7 68.8,95.3 70.6,94.7 72.5,94.1 74.4,93.2 76.2,92.3 78.1,91.2 80.0,90.0 81.9,88.6 83.8,87.2 85.6,85.6 87.5,83.9 89.4,82.1 91.2,80.2 93.1,78.3 95.0,76.2 96.9,74.1 98.8,71.9 100.6,69.7 102.5,67.4 104.4,65.1 106.2,62.7 108.1,60.4 110.0,58.0 111.9,55.6 113.8,53.3 115.6,50.9 117.5,48.6 119.4,46.3 121.2,44.1 123.1,41.9 125.0,39.8 126.9,37.7 128.8,35.8 130.6,33.9 132.5,32.1 134.4,30.4 136.2,28.8 138.1,27.4 140.0,26.0 141.9,24.8 143.8,23.7 145.6,22.8 147.5,21.9 149.4,21.3 151.2,20.7 153.1,20.3 155.0,20.1 156.9,20.0 158.8,20.1 160.6,20.3 162.5,20.6 164.4,21.1 166.2,21.7 168.1,22.5 170.0,23.4 171.9,24.5 173.8,25.7 175.6,27.0 177.5,28.4 179.4,30.0 181.2,31.6 183.1,33.4 185.0,35.3 186.9,37.2 188.8,39.2 190.6,41.3 192.5,43.5 194.4,45.7 196.2,48.0 198.1,50.3 200.0,52.6 201.9,55.0 203.8,57.4 205.6,59.7 207.5,62.1 209.4,64.5 211.2,66.8 213.1,69.1 215.0,71.3 216.9,73.5 218.8,75.7 220.6,77.7 222.5,79.7 224.4,81.6 226.2,83.4 228.1,85.2 230.0,86.8 231.9,88.3 233.8,89.6 235.6,90.9 237.5,92.0 239.4,93.0 241.2,93.9 243.1,94.6 245.0,95.1 246.9,95.6 248.8,95.9 250.6,96.0 252.5,96.0 254.4,95.8 256.2,95.5 258.1,95.0 260.0,94.4 261.9,93.7 263.8,92.8 265.6,91.8 267.5,90.6 269.4,89.4 271.2,88.0 273.1,86.4 275.0,84.8 276.9,83.1 278.8,81.2 280.6,79.3 282.5,77.3 284.4,75.2 286.2,73.1 288.1,70.9 290.0,68.6 291.9,66.3 293.8,64.0 295.6,61.6 297.5,59.3 299.4,56.9 301.2,54.5 303.1,52.2 305.0,49.8 306.9,47.5 308.8,45.3 310.6,43.1 312.5,40.9 314.4,38.8 316.2,36.8 318.1,34.9 320.0,33.0"/><polyline stroke="#e5262b" stroke-dasharray="7 3 2 3" points="20.0,59.6 21.9,59.0 23.8,58.5 25.6,58.2 27.5,58.0 29.4,58.0 31.2,58.1 33.1,58.4 35.0,58.9 36.9,59.4 38.8,60.1 40.6,61.0 42.5,62.0 44.4,63.1 46.2,64.4 48.1,65.7 50.0,67.2 51.9,68.8 53.8,70.6 55.6,72.4 57.5,74.3 59.4,76.3 61.2,78.3 63.1,80.5 65.0,82.7 66.9,84.9 68.8,87.2 70.6,89.5 72.5,91.9 74.4,94.3 76.2,96.6 78.1,99.0 80.0,101.4 81.9,103.7 83.8,106.0 85.6,108.3 87.5,110.5 89.4,112.7 91.2,114.8 93.1,116.8 95.0,118.7 96.9,120.6 98.8,122.4 100.6,124.0 102.5,125.6 104.4,127.0 106.2,128.3 108.1,129.5 110.0,130.6 111.9,131.5 113.8,132.3 115.6,132.9 117.5,133.4 119.4,133.7 121.2,133.9 123.1,134.0 125.0,133.9 126.9,133.7 128.8,133.3 130.6,132.7 132.5,132.1 134.4,131.2 136.2,130.3 138.1,129.2 140.0,128.0 141.9,126.6 143.8,125.2 145.6,123.6 147.5,121.9 149.4,120.1 151.2,118.2 153.1,116.3 155.0,114.2 156.9,112.1 158.8,109.9 160.6,107.7 162.5,105.4 164.4,103.1 166.2,100.7 168.1,98.4 170.0,96.0 171.9,93.6 173.8,91.3 175.6,88.9 177.5,86.6 179.4,84.3 181.2,82.1 183.1,79.9 185.0,77.8 186.9,75.7 188.8,73.8 190.6,71.9 192.5,70.1 194.4,68.4 196.2,66.8 198.1,65.4 200.0,64.0 201.9,62.8 203.8,61.7 205.6,60.8 207.5,59.9 209.4,59.3 211.2,58.7 213.1,58.3 215.0,58.1 216.9,58.0 218.8,58.1 220.6,58.3 222.5,58.6 224.4,59.1 226.2,59.7 228.1,60.5 230.0,61.4 231.9,62.5 233.8,63.7 235.6,65.0 237.5,66.4 239.4,68.0 241.2,69.6 243.1,71.4 245.0,73.3 246.9,75.2 248.8,77.2 250.6,79.3 252.5,81.5 254.4,83.7 256.2,86.0 258.1,88.3 260.0,90.6 261.9,93.0 263.8,95.4 265.6,97.7 267.5,100.1 269.4,102.5 271.2,104.8 273.1,107.1 275.0,109.3 276.9,111.5 278.8,113.7 280.6,115.7 282.5,117.7 284.4,119.6 286.2,121.4 288.1,123.2 290.0,124.8 291.9,126.3 293.8,127.6 295.6,128.9 297.5,130.0 299.4,131.0 301.2,131.9 303.1,132.6 305.0,133.1 306.9,133.6 308.8,133.9 310.6,134.0 312.5,134.0 314.4,133.8 316.2,133.5 318.1,133.0 320.0,132.4"/></g><g font-size="15" font-weight="700" font-family="system-ui,sans-serif"><text x="114.5" y="84.5" fill="#d61fd6">f</text><text x="164.0" y="24" fill="#2f5bff">g</text><text x="128.0" y="150" fill="#e5262b">h</text></g></svg>';
+const FIG_KA_PAR='<svg viewBox="0 0 280 256" style="max-width:300px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 164H266"/><path d="M140 242V14"/></g><g fill="currentColor" stroke="currentColor" stroke-width="1" font-size="11" font-family="system-ui,sans-serif"><path d="M60 161v6"/><text x="56" y="181" stroke="none">-2</text><path d="M100 161v6"/><text x="96" y="181" stroke="none">-1</text><path d="M180 161v6"/><text x="176" y="181" stroke="none">1</text><path d="M220 161v6"/><text x="216" y="181" stroke="none">2</text><path d="M137 236h6"/><text x="147" y="240" stroke="none">-2</text><path d="M137 200h6"/><text x="147" y="204" stroke="none">-1</text><path d="M137 128h6"/><text x="147" y="132" stroke="none">1</text><path d="M137 92h6"/><text x="147" y="96" stroke="none">2</text><path d="M137 56h6"/><text x="147" y="60" stroke="none">3</text><path d="M137 20h6"/><text x="147" y="24" stroke="none">4</text></g><g fill="none" stroke-width="2.2"><polyline stroke="#d61fd6" points="60.0,20.0 62.0,27.1 64.0,34.0 66.0,40.8 68.0,47.4 70.0,53.8 72.0,60.0 74.0,66.0 76.0,71.8 78.0,77.5 80.0,83.0 82.0,88.3 84.0,93.4 86.0,98.4 88.0,103.2 90.0,107.8 92.0,112.2 94.0,116.4 96.0,120.4 98.0,124.3 100.0,128.0 102.0,131.5 104.0,134.8 106.0,138.0 108.0,141.0 110.0,143.8 112.0,146.4 114.0,148.8 116.0,151.0 118.0,153.1 120.0,155.0 122.0,156.7 124.0,158.2 126.0,159.6 128.0,160.8 130.0,161.8 132.0,162.6 134.0,163.2 136.0,163.6 138.0,163.9 140.0,164.0 142.0,163.9 144.0,163.6 146.0,163.2 148.0,162.6 150.0,161.8 152.0,160.8 154.0,159.6 156.0,158.2 158.0,156.7 160.0,155.0 162.0,153.1 164.0,151.0 166.0,148.8 168.0,146.4 170.0,143.8 172.0,141.0 174.0,138.0 176.0,134.8 178.0,131.5 180.0,128.0 182.0,124.3 184.0,120.4 186.0,116.4 188.0,112.2 190.0,107.8 192.0,103.2 194.0,98.4 196.0,93.4 198.0,88.3 200.0,83.0 202.0,77.5 204.0,71.8 206.0,66.0 208.0,60.0 210.0,53.8 212.0,47.4 214.0,40.8 216.0,34.0 218.0,27.1 220.0,20.0"/><polyline stroke="#2f5bff" stroke-dasharray="2 3" points="20.0,209.0 23.0,205.0 26.0,201.1 29.0,197.3 32.0,193.6 35.0,190.0 38.0,186.5 41.0,183.1 44.0,179.8 47.0,176.7 50.0,173.6 53.0,170.6 56.0,167.7 59.0,164.9 62.0,162.2 65.0,159.6 68.0,157.2 71.0,154.8 74.0,152.5 77.0,150.3 80.0,148.2 83.0,146.3 86.0,144.4 89.0,142.6 92.0,141.0 95.0,139.4 98.0,137.9 101.0,136.6 104.0,135.3 107.0,134.1 110.0,133.1 113.0,132.1 116.0,131.2 119.0,130.5 122.0,129.8 125.0,129.3 128.0,128.8 131.0,128.5 134.0,128.2 137.0,128.1 140.0,128.0 143.0,128.1 146.0,128.2 149.0,128.5 152.0,128.8 155.0,129.3 158.0,129.8 161.0,130.5 164.0,131.2 167.0,132.1 170.0,133.1 173.0,134.1 176.0,135.3 179.0,136.6 182.0,137.9 185.0,139.4 188.0,141.0 191.0,142.6 194.0,144.4 197.0,146.3 200.0,148.2 203.0,150.3 206.0,152.5 209.0,154.8 212.0,157.2 215.0,159.6 218.0,162.2 221.0,164.9 224.0,167.7 227.0,170.6 230.0,173.6 233.0,176.7 236.0,179.8 239.0,183.1 242.0,186.5 245.0,190.0 248.0,193.6 251.0,197.3 254.0,201.1 257.0,205.0 260.0,209.0"/><polyline stroke="#e5262b" stroke-dasharray="7 3 2 3" points="92.0,25.8 94.1,34.0 96.2,42.0 98.3,49.8 100.4,57.4 102.5,64.9 104.6,72.1 106.7,79.1 108.8,85.9 110.9,92.6 113.0,99.0 115.1,105.2 117.2,111.3 119.3,117.1 121.4,122.7 123.5,128.2 125.6,133.4 127.7,138.5 129.8,143.3 131.9,147.9 134.0,152.4 136.1,156.6 138.2,160.7 140.3,164.5 142.4,168.2 144.5,171.6 146.6,174.9 148.7,178.0 150.8,180.8 152.9,183.5 155.0,185.9 157.1,188.2 159.2,190.3 161.3,192.1 163.4,193.8 165.5,195.3 167.6,196.5 169.7,197.6 171.8,198.5 173.9,199.2 176.0,199.6 178.1,199.9 180.2,200.0 182.3,199.9 184.4,199.6 186.5,199.0 188.6,198.3 190.7,197.4 192.8,196.3 194.9,195.0 197.0,193.5 199.1,191.8 201.2,189.9 203.3,187.8 205.4,185.5 207.5,183.0 209.6,180.3 211.7,177.4 213.8,174.3 215.9,171.0 218.0,167.5 220.1,163.8 222.2,159.9 224.3,155.8 226.4,151.6 228.5,147.1 230.6,142.4 232.7,137.5 234.8,132.4 236.9,127.2 239.0,121.7 241.1,116.0 243.2,110.1 245.3,104.1 247.4,97.8 249.5,91.3 251.6,84.7 253.7,77.8 255.8,70.7 257.9,63.5 260.0,56.0"/></g><g font-size="15" font-weight="700" font-family="system-ui,sans-serif"><text x="64.0" y="70.4" fill="#d61fd6">f</text><text x="22" y="196.4" fill="#2f5bff">g</text><text x="234.0" y="84.8" fill="#e5262b">h</text></g></svg>';
+const FIG_KA7='<svg viewBox="0 0 310 245" style="max-width:320px;width:100%"><polyline fill="#8e2fb5" fill-opacity=".35" stroke="currentColor" stroke-width="1.6" points="132.0,119.0 128.1,116.3 124.0,114.0 119.8,111.9 115.4,110.2 110.9,108.9 106.3,107.9 101.6,107.3 96.9,107.0 92.2,107.1 87.5,107.6 82.9,108.5 78.3,109.7 73.9,111.2 69.6,113.1 65.4,115.4 61.5,117.9 57.7,120.8 54.2,123.9 51.0,127.3 48.0,131.0 45.3,134.9 43.0,139.0 40.9,143.2 39.2,147.6 37.9,152.1 36.9,156.7 36.3,161.4 36.0,166.1 36.1,170.8 36.6,175.5 37.5,180.1 38.7,184.7 40.2,189.1 42.1,193.4 44.4,197.6 46.9,201.5 49.8,205.3 52.9,208.8 56.3,212.0 60.0,215.0"/><polyline fill="#8e2fb5" fill-opacity=".35" stroke="currentColor" stroke-width="1.6" points="260.0,215.0 263.6,209.8 266.7,204.4 269.4,198.7 271.7,192.9 273.5,186.9 274.8,180.7 275.6,174.5 276.0,168.2 275.8,161.9 275.2,155.7 274.1,149.5 272.5,143.4 270.4,137.5 267.8,131.8 264.8,126.2 261.4,121.0 257.6,116.0 253.4,111.3 248.9,107.0 244.0,103.0 238.8,99.4 233.4,96.3 227.7,93.6 221.9,91.3 215.9,89.5 209.7,88.2 203.5,87.4 197.2,87.0 190.9,87.2 184.7,87.8 178.5,88.9 172.4,90.5 166.5,92.6 160.8,95.2 155.2,98.2 150.0,101.6 145.0,105.4 140.3,109.6 136.0,114.1 132.0,119.0"/><path d="M60 215L260 215L132.0 119.0Z" fill="var(--card,#fff)" stroke="currentColor" stroke-width="2"/><path d="M132.0 119.0V215" stroke="currentColor" stroke-width="1.6" fill="none"/><g fill="currentColor" font-size="14" font-family="system-ui,sans-serif"><text x="48" y="231">A</text><text x="262" y="231">B</text><text x="118.0" y="113.0">C</text><text x="136.0" y="171.0">h</text><text x="100.0" y="181.0">b</text><text x="120" y="231">c = 10 cm</text><text x="188.0" y="201.0">a = 8 cm</text></g></svg>';
 const FIG_BO2='<svg viewBox="0 0 280 175" style="max-width:250px;width:100%"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M35 140H245V35H105Z"/><path d="M105 35V140" stroke-dasharray="4 4"/><path d="M105 130H115V140"/></g><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="30" y="156">A</text><text x="101" y="156">E</text><text x="242" y="156">B</text><text x="242" y="28">C</text><text x="100" y="28">D</text><text x="148" y="102">F = 26 cm²</text></g></svg>';
 const FIG_BO7='<svg viewBox="0 0 240 215" style="max-width:210px;width:100%"><g fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="110" cy="180" rx="68" ry="18"/><ellipse cx="110" cy="100" rx="34" ry="9" stroke-dasharray="4 3"/><path d="M42 180L110 20L178 180"/><path d="M42 180A68 18 0 0 0 178 180" fill="currentColor" fill-opacity=".12"/></g><g fill="currentColor" font-size="13" font-family="system-ui,sans-serif"><text x="184" y="104">h = 10 cm (Kegel)</text><text x="184" y="146">Kegelstumpf: h/2</text></g></svg>';
 const FIG_KL1_7='<svg viewBox="0 0 230 190" style="max-width:210px;width:100%"><circle cx="95" cy="95" r="70" fill="currentColor" fill-opacity=".15" stroke="currentColor" stroke-width="2"/><polygon points="95,25 95,165 165,95" fill="var(--card)" stroke="currentColor" stroke-width="1.8"/><g fill="currentColor" font-size="12" font-family="system-ui,sans-serif"><text x="172" y="64">7 cm</text><text x="172" y="134">7 cm</text><text x="52" y="182">7 cm</text><text x="115" y="182">7 cm</text></g></svg>';
@@ -1565,99 +1636,246 @@ const FIG_FU8='<svg viewBox="0 0 460 155" style="max-width:440px;width:100%"><g 
 
 const MATH=[
 {id:'han-m1',title:'Hannover · Mathe 1',source:'Niedersächsisches Studienkolleg Hannover – Aufnahmetest Mathematik',uni:'Niedersächsisches Studienkolleg · Universität Hannover',mins:null,calc:null,tasks:[
-{q:'Berechnen Sie a, b und c.',s:['a = 2,5 − 3 : 0,5','b = 6,3 / 0,045','c = √(49 + 1) / √2'],f:[{l:'a =',a:'-3.5'},{l:'b =',a:'140'},{l:'c =',a:'5'}]},
-{q:'Ordnen Sie 4/9, 8/19 und 5/8 der Größe nach.',f:[{l:'größte Zahl:',a:'5/8',d:'5/8'},{l:'mittlere Zahl:',a:'4/9',d:'4/9'},{l:'kleinste Zahl:',a:'8/19',d:'8/19'}]},
-{q:'Vereinfachen Sie so weit wie möglich.',s:['p = (3a − 1/(3a)) / (1 − 1/(3a))'],f:[{l:'p =',a:'3a+1',v:'a',d:'3a + 1'}]},
-{q:'Berechnen Sie x, y und z.',s:['27 · 27 = 9^x','(1/8) · 7^(−3) = y^3','(√5 − 2)² − z = (1 − √20)²'],f:[{l:'x =',a:'3'},{l:'y =',a:'1/14',d:'1/14'},{l:'z =',a:'-12'}]},
-{q:'Berechnen Sie die Lösungen der Gleichung.',s:['(x + 10)/7 − 2 = 3/x'],f:[{l:'x =',a:'7',g:1},{l:'oder x =',a:'-3',g:1}]},
-{q:'In einem Dreieck verhalten sich die Winkel α : β : γ = 2 : 3 : 7. Wie groß sind α, β und γ (in °)?',f:[{l:'α =',a:'30'},{l:'β =',a:'45'},{l:'γ =',a:'105'}]},
-{q:'Eine Gruppe mietet einen Bus für einen Ausflug. Wenn 50 Personen mitfahren, muss jeder 72 Euro bezahlen. Wieviel beträgt der Preis pro Person, wenn 2 Personen weniger mitfahren?',f:[{l:'Der Preis beträgt (Euro):',a:'75'}]},
-{q:'Gegeben sind die Punkte A(−3/−3), B(3/−1) und die Gerade g: y = −x + 1. a) Die Gerade h geht durch A und B. Gleichung von h? b) Die Gerade k ist parallel zu g und geht durch A. Gleichung von k?',f:[{l:'h: y =',a:'x/3-2',v:'x',d:'y = x/3 − 2'},{l:'k: y =',a:'-x-6',v:'x',d:'y = −x − 6'}]},
-{q:'Das Dreieck D (Katheten x und 12 cm, Hypotenuse 13 cm) hat denselben Flächeninhalt wie das Parallelogramm P (Grundseite 12 cm, Höhe y). Das große Parallelogramm (Grundseite 20 cm) besteht aus D, P und der Restfläche R. Wie lang sind x und y? Welchen Inhalt hat R?',fig:FIG9,f:[{l:'x (cm) =',a:'5'},{l:'y (cm) =',a:'5/2',d:'2,5'},{l:'R (cm²) =',a:'230'}]}
+{tp:['frac','pow'],lv:'e',q:'Berechnen Sie a, b und c.',s:['a = 2,5 − 3 : 0,5','b = 6,3 / 0,045','c = √(49 + 1) / √2'],f:[{l:'a =',a:'-3.5'},{l:'b =',a:'140'},{l:'c =',a:'5'}]},
+{tp:['frac'],lv:'e',q:'Ordnen Sie 4/9, 8/19 und 5/8 der Größe nach.',f:[{l:'größte Zahl:',a:'5/8',d:'5/8'},{l:'mittlere Zahl:',a:'4/9',d:'4/9'},{l:'kleinste Zahl:',a:'8/19',d:'8/19'}]},
+{tp:['terms'],lv:'m',q:'Vereinfachen Sie so weit wie möglich.',s:['p = (3a − 1/(3a)) / (1 − 1/(3a))'],f:[{l:'p =',a:'3a+1',v:'a',d:'3a + 1'}]},
+{tp:['pow'],lv:'m',q:'Berechnen Sie x, y und z.',s:['27 · 27 = 9^x','(1/8) · 7^(−3) = y^3','(√5 − 2)² − z = (1 − √20)²'],f:[{l:'x =',a:'3'},{l:'y =',a:'1/14',d:'1/14'},{l:'z =',a:'-12'}]},
+{tp:['req','quad'],lv:'m',q:'Berechnen Sie die Lösungen der Gleichung.',s:['(x + 10)/7 − 2 = 3/x'],f:[{l:'x =',a:'7',g:1},{l:'oder x =',a:'-3',g:1}]},
+{tp:['tri'],lv:'e',q:'In einem Dreieck verhalten sich die Winkel α : β : γ = 2 : 3 : 7. Wie groß sind α, β und γ (in °)?',f:[{l:'α =',a:'30'},{l:'β =',a:'45'},{l:'γ =',a:'105'}]},
+{tp:['word'],lv:'m',q:'Eine Gruppe mietet einen Bus für einen Ausflug. Wenn 50 Personen mitfahren, muss jeder 72 Euro bezahlen. Wieviel beträgt der Preis pro Person, wenn 2 Personen weniger mitfahren?',f:[{l:'Der Preis beträgt (Euro):',a:'75'}]},
+{tp:['linf'],lv:'m',q:'Gegeben sind die Punkte A(−3/−3), B(3/−1) und die Gerade g: y = −x + 1. a) Die Gerade h geht durch A und B. Gleichung von h? b) Die Gerade k ist parallel zu g und geht durch A. Gleichung von k?',f:[{l:'h: y =',p:'a',a:'x/3-2',v:'x',d:'y = x/3 − 2'},{l:'k: y =',p:'b',a:'-x-6',v:'x',d:'y = −x − 6'}]},
+{tp:['area','tri'],lv:'m',q:'Das Dreieck D (Katheten x und 12 cm, Hypotenuse 13 cm) hat denselben Flächeninhalt wie das Parallelogramm P (Grundseite 12 cm, Höhe y). Das große Parallelogramm (Grundseite 20 cm) besteht aus D, P und der Restfläche R. Wie lang sind x und y? Welchen Inhalt hat R?',fig:FIG9,f:[{l:'x (cm) =',a:'5'},{l:'y (cm) =',a:'5/2',d:'2,5'},{l:'R (cm²) =',a:'230'}]}
 ]},
 {id:'bo-m1',title:'Bochum · Mathe',source:'Studienkolleg Bochum – Der mathematische Zusatztest (Stand September 2012)',mins:30,tasks:[
-{q:'Vereinfachen Sie beide Terme.',s:['1 + (2 + 3(x − 4 + (5x − 6)))','(4x³ − 19x² + 16x − 16) / (x − 4)'],f:[{l:'Term 1 =',a:'18x-27',v:'x',d:'18x − 27'},{l:'Term 2 =',a:'4x^2-3x+4',v:'x',d:'4x² − 3x + 4'}]},
-{q:'Im Trapez ABCD gilt AE = 3 cm, AB = 8 cm und der Flächeninhalt beträgt F = 26 cm². Berechnen Sie die Längen DC, DE und AD (in cm).',fig:FIG_BO2,f:[{l:'DC (cm) =',a:'5'},{l:'DE (cm) =',a:'4'},{l:'AD (cm) =',a:'5'}]},
-{q:'Bestimmen Sie alle reellen Lösungen x der Wurzelgleichung.',s:['√(x − 2) + 2 = x'],f:[{l:'x₁ =',a:'2',g:1},{l:'x₂ =',a:'3',g:1}]},
-{q:'Gegeben sind die Vektoren a = (2; −3; 5) und b = (1; 2; −1). Berechnen Sie die Linearkombination 3a − 4b (in der Form (x; y; z)) sowie das Skalarprodukt a · b.',s:['a = (2; -3; 5) ,   b = (1; 2; -1)'],f:[{l:'3a − 4b =',a:'(2;-17;19)',d:'(2; −17; 19)'},{l:'a · b =',a:'-9'}]},
-{q:'Lösen Sie das lineare Gleichungssystem.',s:['x − y = −1','−2x − y = −4'],f:[{l:'x =',a:'1'},{l:'y =',a:'2'}]},
-{q:'An welchen Punkten schneiden sich die Graphen von y = x² + 1 und y = 3 − x?',f:[{l:'x₁ =',a:'-2'},{l:'y₁ =',a:'5'},{l:'x₂ =',a:'1'},{l:'y₂ =',a:'2'}]},
-{q:'Die Höhe eines Kegels beträgt h = 10 cm, der Radius der Grundfläche beträgt r = 3 cm. Der Kegelstumpf hat die halbe Höhe (5 cm). Berechnen Sie das Volumen V des Kegelstumpfs (mit π).',fig:FIG_BO7,f:[{l:'V (cm³) =',a:'105/4*pi',d:'(105/4)π'}]},
-{q:'Berechnen Sie cos(π/4) und die kleinste positive Lösung x (im Bogenmaß) von tan(x) = 1.',f:[{l:'cos(π/4) =',a:'sqrt(2)/2',d:'√2 / 2'},{l:'x =',a:'pi/4',d:'π/4'}]},
-{q:'Bestimmen Sie jeweils die erste Ableitung.',s:['f(x) = sin(x²)','g(x) = x² + 2x + 1','h(x) = 1 / (2 − 3x)'],f:[{l:"f'(x) =",a:'2*x*cos(x^2)',v:'x',d:'2x · cos(x²)'},{l:"g'(x) =",a:'2*x+2',v:'x',d:'2x + 2'},{l:"h'(x) =",a:'3/(2-3*x)^2',v:'x',d:'3 / (2 − 3x)²'}]},
-{q:'Berechnen Sie die folgenden Integrale (beim unbestimmten Integral ohne Konstante C).',s:['∫ x² dx','∫₀¹ x²(1 − x) dx','∫_{-π}^{3π} sin(x) dx'],f:[{l:'∫ x² dx =',a:'x^3/3',v:'x',d:'x³/3'},{l:'∫₀¹ x²(1 − x) dx =',a:'1/12',d:'1/12'},{l:'∫_{-π}^{3π} sin(x) dx =',a:'0'}]}
+{tp:['terms'],lv:'m',q:'Vereinfachen Sie beide Terme.',s:['1 + (2 + 3(x − 4 + (5x − 6)))','(4x³ − 19x² + 16x − 16) / (x − 4)'],f:[{l:'Term 1 =',a:'18x-27',v:'x',d:'18x − 27'},{l:'Term 2 =',a:'4x^2-3x+4',v:'x',d:'4x² − 3x + 4'}]},
+{tp:['area','tri'],lv:'m',q:'Im Trapez ABCD gilt AE = 3 cm, AB = 8 cm und der Flächeninhalt beträgt F = 26 cm². Berechnen Sie die Längen DC, DE und AD (in cm).',fig:FIG_BO2,f:[{l:'DC (cm) =',a:'5'},{l:'DE (cm) =',a:'4'},{l:'AD (cm) =',a:'5'}]},
+{tp:['req'],lv:'m',q:'Bestimmen Sie alle reellen Lösungen x der Wurzelgleichung.',s:['√(x − 2) + 2 = x'],f:[{l:'x₁ =',a:'2',g:1},{l:'x₂ =',a:'3',g:1}]},
+{tp:['vec'],lv:'e',q:'Gegeben sind die Vektoren a = (2; −3; 5) und b = (1; 2; −1). Berechnen Sie die Linearkombination 3a − 4b (in der Form (x; y; z)) sowie das Skalarprodukt a · b.',s:['a = (2; -3; 5) ,   b = (1; 2; -1)'],f:[{l:'3a − 4b =',a:'(2;-17;19)',d:'(2; −17; 19)'},{l:'a · b =',a:'-9'}]},
+{tp:['sys'],lv:'e',q:'Lösen Sie das lineare Gleichungssystem.',s:['x − y = −1','−2x − y = −4'],f:[{l:'x =',a:'1'},{l:'y =',a:'2'}]},
+{tp:['qfunc','quad'],lv:'m',q:'An welchen Punkten schneiden sich die Graphen von y = x² + 1 und y = 3 − x?',f:[{l:'x₁ =',a:'-2'},{l:'y₁ =',a:'5'},{l:'x₂ =',a:'1'},{l:'y₂ =',a:'2'}]},
+{tp:['solid'],lv:'h',q:'Die Höhe eines Kegels beträgt h = 10 cm, der Radius der Grundfläche beträgt r = 3 cm. Der Kegelstumpf hat die halbe Höhe (5 cm). Berechnen Sie das Volumen V des Kegelstumpfs (mit π).',fig:FIG_BO7,f:[{l:'V (cm³) =',a:'105/4*pi',d:'(105/4)π'}]},
+{tp:['trig'],lv:'e',q:'Berechnen Sie cos(π/4) und die kleinste positive Lösung x (im Bogenmaß) von tan(x) = 1.',f:[{l:'cos(π/4) =',a:'sqrt(2)/2',d:'√2 / 2'},{l:'x =',a:'pi/4',d:'π/4'}]},
+{tp:['deriv'],lv:'m',q:'Bestimmen Sie jeweils die erste Ableitung.',s:['f(x) = sin(x²)','g(x) = x² + 2x + 1','h(x) = 1 / (2 − 3x)'],f:[{l:"f'(x) =",a:'2*x*cos(x^2)',v:'x',d:'2x · cos(x²)'},{l:"g'(x) =",a:'2*x+2',v:'x',d:'2x + 2'},{l:"h'(x) =",a:'3/(2-3*x)^2',v:'x',d:'3 / (2 − 3x)²'}]},
+{tp:['integ'],lv:'m',q:'Berechnen Sie die folgenden Integrale (beim unbestimmten Integral ohne Konstante C).',s:['∫ x² dx','∫₀¹ x²(1 − x) dx','∫_{-π}^{3π} sin(x) dx'],f:[{l:'∫ x² dx =',a:'x^3/3',v:'x',d:'x³/3'},{l:'∫₀¹ x²(1 − x) dx =',a:'1/12',d:'1/12'},{l:'∫_{-π}^{3π} sin(x) dx =',a:'0'}]}
 ]},
 {id:'kl-m1',title:'Kaiserslautern · Mathe 1 (WS 05/06)',source:'FH Kaiserslautern – Aufnahmeprüfung Mathematik Kurs TI (WS 2005/06)',mins:60,tasks:[
-{q:'Berechnen Sie den Doppelbruch.',s:['(2/3 + 1/6 + 3/8) / ((7/3) · (1/4))'],f:[{l:'Ergebnis =',a:'29/14',d:'29/14'}]},
-{q:'Berechnen Sie und vereinfachen Sie vollständig.',s:['(√(4 · 5³) · 5^(1/2)) / (2 · 5^(−1))'],f:[{l:'Ergebnis =',a:'125'}]},
-{q:'Berechnen Sie den Logarithmusausdruck.',s:['log₂(3/8) − log₂(3)'],f:[{l:'Ergebnis =',a:'-3'}]},
-{q:'Bestimmen Sie die Lösung x der Gleichung.',s:['8 / (2 − x) + 1 = 3'],f:[{l:'x =',a:'-2'}]},
-{q:'Bestimmen Sie zwei Zahlen so, dass ihre Summe 25 und ihr Quotient 3/2 ist.',f:[{l:'Zahl 1 =',a:'10',g:1},{l:'Zahl 2 =',a:'15',g:1}]},
-{q:'Gegeben ist f(x) = −(x + 1)² + 3. Bestimmen Sie die beiden Nullstellen f(x) = 0.',f:[{l:'x₁ =',a:'-1-sqrt(3)',g:1,d:'−1 − √3'},{l:'x₂ =',a:'-1+sqrt(3)',g:1,d:'−1 + √3'}]},
-{q:'Berechnen Sie den Flächeninhalt der grau gefärbten Fläche (Hinweis: π ≈ 22/7).',fig:FIG_KL1_7,f:[{l:'A (cm²) =',a:'105'}]},
-{q:'In einem Dreieck sind α = 30°, β = 45° und b = 4 cm bekannt. Berechnen Sie γ (in °) sowie a, h, p und q (in cm).',fig:FIG_KL1_8,f:[{l:'γ (°) =',a:'105'},{l:'a (cm) =',a:'2*sqrt(2)',d:'2√2'},{l:'h (cm) =',a:'2'},{l:'p (cm) =',a:'2*sqrt(3)',d:'2√3'},{l:'q (cm) =',a:'2'}]},
-{q:'Zwei Vektoren haben die Koordinaten a = (−2; −3; 1) und b = (3; −1; 2). Berechnen Sie a) die Vektorsumme a + b (als (x; y; z)) und b) das Skalarprodukt a · b.',s:['a = (-2; -3; 1) ,   b = (3; -1; 2)'],f:[{l:'a + b =',a:'(1;-4;3)',d:'(1; −4; 3)'},{l:'a · b =',a:'-1'}]},
-{q:'Berechnen Sie für die komplexen Zahlen z₁ = 1 + 2i und z₂ = 2 − 3i die Summe z₁ + z₂ und das Produkt z₁ · z₂.',f:[{l:'z₁ + z₂ =',a:'3-i',v:'i',d:'3 − i'},{l:'z₁ · z₂ =',a:'8+i',v:'i',d:'8 + i'}]},
-{q:'Berechnen Sie für f(x) = 4x³ + 2 sin(x) die erste Ableitung f′(x) und die zweite Ableitung f″(x).',f:[{l:"f'(x) =",a:'12*x^2+2*cos(x)',v:'x',d:'12x² + 2 cos(x)'},{l:"f''(x) =",a:'24*x-2*sin(x)',v:'x',d:'24x − 2 sin(x)'}]},
-{q:'Berechnen Sie den Flächeninhalt der grau gefärbten Fläche, die vom Graph von f(x) = 1 − x² und der x-Achse zwischen x₁ = −1 und x₂ = 1 eingeschlossen wird.',fig:FIG_KL1_12,f:[{l:'A =',a:'4/3',d:'4/3'}]}
+{tp:['frac'],lv:'e',q:'Berechnen Sie den Doppelbruch.',s:['(2/3 + 1/6 + 3/8) / ((7/3) · (1/4))'],f:[{l:'Ergebnis =',a:'29/14',d:'29/14'}]},
+{tp:['pow'],lv:'m',q:'Berechnen Sie und vereinfachen Sie vollständig.',s:['(√(4 · 5³) · 5^(1/2)) / (2 · 5^(−1))'],f:[{l:'Ergebnis =',a:'125'}]},
+{tp:['pow'],lv:'e',q:'Berechnen Sie den Logarithmusausdruck.',s:['log₂(3/8) − log₂(3)'],f:[{l:'Ergebnis =',a:'-3'}]},
+{tp:['req'],lv:'e',q:'Bestimmen Sie die Lösung x der Gleichung.',s:['8 / (2 − x) + 1 = 3'],f:[{l:'x =',a:'-2'}]},
+{tp:['word','sys'],lv:'m',q:'Bestimmen Sie zwei Zahlen so, dass ihre Summe 25 und ihr Quotient 3/2 ist.',f:[{l:'Zahl 1 =',a:'10',g:1},{l:'Zahl 2 =',a:'15',g:1}]},
+{tp:['quad','qfunc'],lv:'e',q:'Gegeben ist f(x) = −(x + 1)² + 3. Bestimmen Sie die beiden Nullstellen f(x) = 0.',f:[{l:'x₁ =',a:'-1-sqrt(3)',g:1,d:'−1 − √3'},{l:'x₂ =',a:'-1+sqrt(3)',g:1,d:'−1 + √3'}]},
+{tp:['area'],lv:'m',q:'Berechnen Sie den Flächeninhalt der grau gefärbten Fläche (Hinweis: π ≈ 22/7).',fig:FIG_KL1_7,f:[{l:'A (cm²) =',a:'105'}]},
+{tp:['tri','trig'],lv:'m',q:'In einem Dreieck sind α = 30°, β = 45° und b = 4 cm bekannt. Berechnen Sie γ (in °) sowie a, h, p und q (in cm).',fig:FIG_KL1_8,f:[{l:'γ (°) =',a:'105'},{l:'a (cm) =',a:'2*sqrt(2)',d:'2√2'},{l:'h (cm) =',a:'2'},{l:'p (cm) =',a:'2*sqrt(3)',d:'2√3'},{l:'q (cm) =',a:'2'}]},
+{tp:['vec'],lv:'e',q:'Zwei Vektoren haben die Koordinaten a = (−2; −3; 1) und b = (3; −1; 2). Berechnen Sie a) die Vektorsumme a + b (als (x; y; z)) und b) das Skalarprodukt a · b.',s:['a = (-2; -3; 1) ,   b = (3; -1; 2)'],f:[{l:'a + b =',p:'a',a:'(1;-4;3)',d:'(1; −4; 3)'},{l:'a · b =',p:'b',a:'-1'}]},
+{tp:['cx'],lv:'e',q:'Berechnen Sie für die komplexen Zahlen z₁ = 1 + 2i und z₂ = 2 − 3i die Summe z₁ + z₂ und das Produkt z₁ · z₂.',f:[{l:'z₁ + z₂ =',a:'3-i',v:'i',d:'3 − i'},{l:'z₁ · z₂ =',a:'8+i',v:'i',d:'8 + i'}]},
+{tp:['deriv'],lv:'e',q:'Berechnen Sie für f(x) = 4x³ + 2 sin(x) die erste Ableitung f′(x) und die zweite Ableitung f″(x).',f:[{l:"f'(x) =",a:'12*x^2+2*cos(x)',v:'x',d:'12x² + 2 cos(x)'},{l:"f''(x) =",a:'24*x-2*sin(x)',v:'x',d:'24x − 2 sin(x)'}]},
+{tp:['integ'],lv:'m',q:'Berechnen Sie den Flächeninhalt der grau gefärbten Fläche, die vom Graph von f(x) = 1 − x² und der x-Achse zwischen x₁ = −1 und x₂ = 1 eingeschlossen wird.',fig:FIG_KL1_12,f:[{l:'A =',a:'4/3',d:'4/3'}]}
 ]},
 {id:'kl-m2',title:'Kaiserslautern · Mathe 2 (WS 07/08)',source:'FH Kaiserslautern – Aufnahmeprüfung Mathematik Kurs TI (WS 2007/08)',mins:75,tasks:[
-{q:'Aufgabe 1-A: Berechnen Sie den Bruchterm.',s:['(1/3 + 1/7) / (1/5) ='],f:[{l:'Antwort:',a:'B',mc:[['A','3/35'],['B','50/21'],['C','2/21'],['D','7/15'],['E','21/5']]}]},
-{q:'Aufgabe 2-A: Berechnen Sie den Potenz- und Wurzelterm.',s:['(√2 · 3² · 2^(1/2)) / 3^(−2) ='],f:[{l:'Antwort:',a:'C',mc:[['A','2'],['B','1'],['C','54'],['D','2/3'],['E','27√2']]}]},
-{q:'Aufgabe 3-A: Vereinfachen Sie die Summe.',s:['2^(n+201) + 2^(n+201) ='],f:[{l:'Antwort:',a:'A',mc:[['A','2^(n+202)'],['B','2^(2n+402)'],['C','4^(2n+402)'],['D','4^(2n+201)'],['E','4^(n+201)']]}]},
-{q:'Aufgabe 4-A: Berechnen Sie den Logarithmusausdruck.',s:['log₂(1/8) + log₂(1) ='],f:[{l:'Antwort:',a:'D',mc:[['A','3'],['B','2'],['C','−1'],['D','−3'],['E','−2']]}]},
-{q:'Aufgabe 5-A: Wenn x die Lösung der Gleichung ist, dann ist x² + x =',s:['(3x − 1) / (3x + 1) − 2 = 0'],f:[{l:'Antwort:',a:'D',mc:[['A','4/9'],['B','2'],['C','−8/81'],['D','0'],['E','−2/9']]}]},
-{q:'Aufgabe 6-A: Wenn x die größte Lösung von (x + 1)(3x² − 2x − 1) = 0 ist, dann ist x + 1/x =',f:[{l:'Antwort:',a:'C',mc:[['A','−2'],['B','−10/3'],['C','2'],['D','−4/3'],['E','2/3']]}]},
-{q:'Aufgabe 7-A: Eine Zahl z lautet im Dualsystem 11011. Welchen Wert hat z im Dezimalsystem?',f:[{l:'Antwort:',a:'C',mc:[['A','54'],['B','5'],['C','27'],['D','30'],['E','23']]}]},
-{q:'Aufgabe 8-A: Die ersten vier Zahlen einer Zahlenfolge sind (aₙ) = 2, −6, 18, −54, … Wie heißt die fünfte Zahl?',f:[{l:'Antwort:',a:'B',mc:[['A','108'],['B','162'],['C','−100'],['D','72'],['E','−162']]}]},
-{q:'Aufgabe 9-A: Ein Hotel hat Zimmer mit einem oder mit zwei Betten. Insgesamt gibt es 19 Zimmer und 31 Betten. Wenn e die Zahl der Einzelzimmer und z die Zahl der Doppelzimmer ist, dann ist e − z =',f:[{l:'Antwort:',a:'E',mc:[['A','5'],['B','14'],['C','−14'],['D','24'],['E','−5']]}]},
-{q:'Aufgabe 10-A: Welche Funktion ist im Diagramm dargestellt?',fig:FIG_KL2_10,f:[{l:'Antwort:',a:'C',mc:[['A','y = −(1/2)x − 2'],['B','y = 2x − 1'],['C','y = −2x − 2'],['D','y = −2x − 1'],['E','y = (1/2)x − 2']]}]},
-{q:'Aufgabe 11-A: Welche Funktion ist im Diagramm dargestellt?',fig:FIG_KL2_11,f:[{l:'Antwort:',a:'B',mc:[['A','y = −(1/2)(x − 1)(x + 3)'],['B','y = −(1/2)(x + 1)(x − 3)'],['C','y = (1/2)(x + 1)(x − 3)'],['D','y = 2(x + 1)(x − 3)'],['E','y = 2(x − 1)(x + 3)']]}]},
-{q:'Aufgabe 12-T: Welche Funktion ist im Diagramm dargestellt? (Hinweis: π ≈ 3,14)',fig:FIG_KL2_12,f:[{l:'Antwort:',a:'E',mc:[['A','y = sin((1/2)x) + 1'],['B','y = sin(x) + 1'],['C','y = cos(x) − 1'],['D','y = cos(x) + 1'],['E','y = sin(2x) + 1']]}]},
-{q:'Aufgabe 13-T: Eisen (Fe) hat die Dichte ρ = 7,87 g cm⁻³. Welchen Wert hat ρ in der Einheit kg m⁻³?',f:[{l:'Antwort:',a:'D',mc:[['A','7,87 · 10⁻⁶'],['B','7,87 · 10⁻³'],['C','7,87 · 10⁻¹'],['D','7,87 · 10³'],['E','7,87 · 10⁶']]}]},
-{q:'Aufgabe 14-T: In einem Kreis (Radius r = 3 cm) liegt ein einbeschriebenes Quadrat. Welchen Flächeninhalt A hat die grau gefärbte Fläche?',fig:FIG_KL2_14,f:[{l:'Antwort:',a:'D',mc:[['A','8(π − 1) cm²'],['B','6(2π − 1) cm²'],['C','(9π − 25) cm²'],['D','9(π − 2) cm²'],['E','(6π/5) cm²']]}]},
-{q:'Aufgabe 15-T: Im gezeichneten Quadrat ist der Winkel α = 60°. Wie groß ist der Winkel β?',fig:FIG_KL2_15,f:[{l:'Antwort:',a:'C',mc:[['A','5°'],['B','7,5°'],['C','15°'],['D','22,5°'],['E','30°']]}]},
-{q:'Aufgabe 16-T: Im rechtwinkligen Dreieck gilt c = 4 cm und α = 30°. Wie hoch ist die Höhe h?',fig:FIG_KL2_16,f:[{l:'Antwort:',a:'E',mc:[['A','3 cm'],['B','(1/4)√3 cm'],['C','(4/3)√3 cm'],['D','2 cm'],['E','√3 cm']]}]},
-{q:'Aufgabe 17-T: Aus der gezeichneten Fläche wird ein Würfel gefaltet. Welche Bilder zeigen den Würfel?',fig:FIG_KL2_17,f:[{l:'Antwort:',a:'D',mc:[['A','b und c'],['B','a und f'],['C','d und g'],['D','c und f'],['E','e und g']]}]},
-{q:'Aufgabe 18-T: Im Diagramm sind zwei Vektoren a und b gezeichnet. Wie groß ist das Skalarprodukt a · b?',fig:FIG_KL2_18,f:[{l:'Antwort:',a:'B',mc:[['A','−2'],['B','−1'],['C','0'],['D','2'],['E','3']]}]},
-{q:'Aufgabe 19-T: Bestimmen Sie die Ableitung f′(x) der Funktion f(x) = (1/5)x⁴ + 2 cos(3x).',f:[{l:'Antwort:',a:'D',mc:[['A','4x³ + 6 cos(x)'],['B','(1/20)x⁵ − (2/3)sin(3x)'],['C','(4/5)x³ − 2 sin(3x)'],['D','(4/5)x³ − 6 sin(3x)'],['E','(4/5)x³ + 6 sin(3x)']]}]},
-{q:'Aufgabe 20-T: Die Kurve y = f(x) = 2 − x⁴ wird an der Stelle x = 1/2 von einer Geraden y = g(x) tangiert. Wie lautet die Gleichung von g(x)?',f:[{l:'Antwort:',a:'D',mc:[['A','(1/2)x + 9/4'],['B','−(1/2)x + 5/2'],['C','x + 35/16'],['D','−(1/2)x + 35/16'],['E','−(5/8)x + 17/8']]}]}
+{tp:['frac'],lv:'e',q:'Aufgabe 1-A: Berechnen Sie den Bruchterm.',s:['(1/3 + 1/7) / (1/5) ='],f:[{l:'Antwort:',a:'B',mc:[['A','3/35'],['B','50/21'],['C','2/21'],['D','7/15'],['E','21/5']]}]},
+{tp:['pow'],lv:'m',q:'Aufgabe 2-A: Berechnen Sie den Potenz- und Wurzelterm.',s:['(√2 · 3² · 2^(1/2)) / 3^(−2) ='],f:[{l:'Antwort:',a:'C',mc:[['A','2'],['B','1'],['C','54'],['D','2/3'],['E','27√2']]}]},
+{tp:['pow'],lv:'e',q:'Aufgabe 3-A: Vereinfachen Sie die Summe.',s:['2^(n+201) + 2^(n+201) ='],f:[{l:'Antwort:',a:'A',mc:[['A','2^(n+202)'],['B','2^(2n+402)'],['C','4^(2n+402)'],['D','4^(2n+201)'],['E','4^(n+201)']]}]},
+{tp:['pow'],lv:'e',q:'Aufgabe 4-A: Berechnen Sie den Logarithmusausdruck.',s:['log₂(1/8) + log₂(1) ='],f:[{l:'Antwort:',a:'D',mc:[['A','3'],['B','2'],['C','−1'],['D','−3'],['E','−2']]}]},
+{tp:['req'],lv:'m',q:'Aufgabe 5-A: Wenn x die Lösung der Gleichung ist, dann ist x² + x =',s:['(3x − 1) / (3x + 1) − 2 = 0'],f:[{l:'Antwort:',a:'D',mc:[['A','4/9'],['B','2'],['C','−8/81'],['D','0'],['E','−2/9']]}]},
+{tp:['quad'],lv:'m',q:'Aufgabe 6-A: Wenn x die größte Lösung von (x + 1)(3x² − 2x − 1) = 0 ist, dann ist x + 1/x =',f:[{l:'Antwort:',a:'C',mc:[['A','−2'],['B','−10/3'],['C','2'],['D','−4/3'],['E','2/3']]}]},
+{tp:['seq'],lv:'e',q:'Aufgabe 7-A: Eine Zahl z lautet im Dualsystem 11011. Welchen Wert hat z im Dezimalsystem?',f:[{l:'Antwort:',a:'C',mc:[['A','54'],['B','5'],['C','27'],['D','30'],['E','23']]}]},
+{tp:['seq'],lv:'e',q:'Aufgabe 8-A: Die ersten vier Zahlen einer Zahlenfolge sind (aₙ) = 2, −6, 18, −54, … Wie heißt die fünfte Zahl?',f:[{l:'Antwort:',a:'B',mc:[['A','108'],['B','162'],['C','−100'],['D','72'],['E','−162']]}]},
+{tp:['word','sys'],lv:'e',q:'Aufgabe 9-A: Ein Hotel hat Zimmer mit einem oder mit zwei Betten. Insgesamt gibt es 19 Zimmer und 31 Betten. Wenn e die Zahl der Einzelzimmer und z die Zahl der Doppelzimmer ist, dann ist e − z =',f:[{l:'Antwort:',a:'E',mc:[['A','5'],['B','14'],['C','−14'],['D','24'],['E','−5']]}]},
+{tp:['linf'],lv:'e',q:'Aufgabe 10-A: Welche Funktion ist im Diagramm dargestellt?',fig:FIG_KL2_10,f:[{l:'Antwort:',a:'C',mc:[['A','y = −(1/2)x − 2'],['B','y = 2x − 1'],['C','y = −2x − 2'],['D','y = −2x − 1'],['E','y = (1/2)x − 2']]}]},
+{tp:['qfunc'],lv:'m',q:'Aufgabe 11-A: Welche Funktion ist im Diagramm dargestellt?',fig:FIG_KL2_11,f:[{l:'Antwort:',a:'B',mc:[['A','y = −(1/2)(x − 1)(x + 3)'],['B','y = −(1/2)(x + 1)(x − 3)'],['C','y = (1/2)(x + 1)(x − 3)'],['D','y = 2(x + 1)(x − 3)'],['E','y = 2(x − 1)(x + 3)']]}]},
+{tp:['trig'],lv:'m',q:'Aufgabe 12-T: Welche Funktion ist im Diagramm dargestellt? (Hinweis: π ≈ 3,14)',fig:FIG_KL2_12,f:[{l:'Antwort:',a:'E',mc:[['A','y = sin((1/2)x) + 1'],['B','y = sin(x) + 1'],['C','y = cos(x) − 1'],['D','y = cos(x) + 1'],['E','y = sin(2x) + 1']]}]},
+{tp:['word'],lv:'e',q:'Aufgabe 13-T: Eisen (Fe) hat die Dichte ρ = 7,87 g cm⁻³. Welchen Wert hat ρ in der Einheit kg m⁻³?',f:[{l:'Antwort:',a:'D',mc:[['A','7,87 · 10⁻⁶'],['B','7,87 · 10⁻³'],['C','7,87 · 10⁻¹'],['D','7,87 · 10³'],['E','7,87 · 10⁶']]}]},
+{tp:['area'],lv:'m',q:'Aufgabe 14-T: In einem Kreis (Radius r = 3 cm) liegt ein einbeschriebenes Quadrat. Welchen Flächeninhalt A hat die grau gefärbte Fläche?',fig:FIG_KL2_14,f:[{l:'Antwort:',a:'D',mc:[['A','8(π − 1) cm²'],['B','6(2π − 1) cm²'],['C','(9π − 25) cm²'],['D','9(π − 2) cm²'],['E','(6π/5) cm²']]}]},
+{tp:['tri'],lv:'e',q:'Aufgabe 15-T: Im gezeichneten Quadrat ist der Winkel α = 60°. Wie groß ist der Winkel β?',fig:FIG_KL2_15,f:[{l:'Antwort:',a:'C',mc:[['A','5°'],['B','7,5°'],['C','15°'],['D','22,5°'],['E','30°']]}]},
+{tp:['tri','trig'],lv:'e',q:'Aufgabe 16-T: Im rechtwinkligen Dreieck gilt c = 4 cm und α = 30°. Wie hoch ist die Höhe h?',fig:FIG_KL2_16,f:[{l:'Antwort:',a:'E',mc:[['A','3 cm'],['B','(1/4)√3 cm'],['C','(4/3)√3 cm'],['D','2 cm'],['E','√3 cm']]}]},
+{tp:['solid'],lv:'m',q:'Aufgabe 17-T: Aus der gezeichneten Fläche wird ein Würfel gefaltet. Welche Bilder zeigen den Würfel?',fig:FIG_KL2_17,f:[{l:'Antwort:',a:'D',mc:[['A','b und c'],['B','a und f'],['C','d und g'],['D','c und f'],['E','e und g']]}]},
+{tp:['vec'],lv:'m',q:'Aufgabe 18-T: Im Diagramm sind zwei Vektoren a und b gezeichnet. Wie groß ist das Skalarprodukt a · b?',fig:FIG_KL2_18,f:[{l:'Antwort:',a:'B',mc:[['A','−2'],['B','−1'],['C','0'],['D','2'],['E','3']]}]},
+{tp:['deriv'],lv:'m',q:'Aufgabe 19-T: Bestimmen Sie die Ableitung f′(x) der Funktion f(x) = (1/5)x⁴ + 2 cos(3x).',f:[{l:'Antwort:',a:'D',mc:[['A','4x³ + 6 cos(x)'],['B','(1/20)x⁵ − (2/3)sin(3x)'],['C','(4/5)x³ − 2 sin(3x)'],['D','(4/5)x³ − 6 sin(3x)'],['E','(4/5)x³ + 6 sin(3x)']]}]},
+{tp:['deriv','linf'],lv:'h',q:'Aufgabe 20-T: Die Kurve y = f(x) = 2 − x⁴ wird an der Stelle x = 1/2 von einer Geraden y = g(x) tangiert. Wie lautet die Gleichung von g(x)?',f:[{l:'Antwort:',a:'D',mc:[['A','(1/2)x + 9/4'],['B','−(1/2)x + 5/2'],['C','x + 35/16'],['D','−(1/2)x + 35/16'],['E','−(5/8)x + 17/8']]}]}
 ]},
 {id:'fu-m1',title:'FU Berlin · Mathe (M, T, W)',source:'Studienkolleg FU Berlin – Studierfähigkeitstest Teil II: Mathematik (Muster)',mins:45,tasks:[
-{q:'Sie kaufen 9 CDs (je 50 Cent), 6 DVDs (je 1 €) und 5 Blu-Ray-Discs (je 3,90 €). Geben Sie Menge und Kosten jeweils in Prozent an.',f:[{l:'Menge CDs (%):',a:'45'},{l:'Menge DVDs (%):',a:'30'},{l:'Menge Blu-Rays (%):',a:'25'},{l:'Kosten CDs (%):',a:'15'},{l:'Kosten DVDs (%):',a:'20'},{l:'Kosten Blu-Rays (%):',a:'65'}]},
-{q:'Eine dreistellige Zahl besitzt die Quersumme 18. Zieht man von der ersten Ziffer die zweite Ziffer ab, erhält man die dritte Ziffer. Die zweite Ziffer ist doppelt so groß wie die dritte Ziffer. Um welche Zahl handelt es sich?',f:[{l:'Zahl =',a:'963'}]},
-{q:'Berechnen Sie die drei Brüche.',s:['a)  12 · (3/4 + 1/8)','b)  (24 · (35/18)) / 14','c)  (13/15 − 7/10) / (9/7 − 5/3)'],f:[{l:'a) =',a:'21/2',d:'21/2'},{l:'b) =',a:'10/3',d:'10/3'},{l:'c) =',a:'-7/16',d:'−7/16'}]},
-{q:'Berechnen Sie die Wurzel- und Logarithmusausdrücke.',s:['a)  √66 · √(88/3)','b)  log₈(2) + log₈(4)','c)  ∛(a⁴ · b³ · (1/a) · b³)'],f:[{l:'a) =',a:'44'},{l:'b) =',a:'1'},{l:'c) =',a:'a*b^2',v:'a',d:'ab²'}]},
-{q:'Vereinfachen Sie so weit wie möglich.',s:['a)  (x²/y + (y² + x²)/(x − y)) / (x³/y² + y²/(x + y) − x⁴/(y³ + x·y²))','b)  √( (x³ · y^(2/3) · (y − x)²) / (x^(7/3) · y^(−5) · ∛(y⁵ · x⁸)) )'],f:[{l:'a) =',a:'(y+x)/(x-y)',v:'x',d:'(y + x) / (x − y)'},{l:'b) =',a:'y^2*(y-x)/x',v:'x',d:'y²(y − x) / x'}]},
-{q:'Bestimmen Sie die Lösungen der folgenden Gleichungen.',s:['a)  3x − 7 = 11','b)  (1/3)x² − (7/9)x + 5/12 = 0','c)  x⁶ = −2x³','d)  √(4 − 6x) = 2x'],f:[{l:'a) x =',a:'6'},{l:'b) x₁ =',a:'3/2',g:1,d:'3/2'},{l:'b) x₂ =',a:'5/6',g:1,d:'5/6'},{l:'c) x₁ =',a:'0',g:1},{l:'c) x₂ =',a:'-cbrt(2)',g:1,d:'−∛2'},{l:'d) x =',a:'0.5',d:'0,5'}]},
-{q:'Berechnen Sie den Flächeninhalt der beiden Figuren (Quadrat im Kreis mit Seitenlänge 3; gleichschenkliges Dreieck mit Grundlinie 2 und Schenkel √5).',fig:FIG_FU7,f:[{l:'A (Kreis) =',a:'9/2*pi',d:'(9/2)π'},{l:'A (Dreieck) =',a:'8'}]},
-{q:'Ordnen Sie den Graphen von f jeweils die passende Gleichung der ersten Ableitungsfunktion zu: (1) cos x, (2) x⁴+x²−3, (3) x³+4x, (4) −x³+4x, (5) −x⁴+3, (6) −x⁴+x², (7) 2cos x, (8) x⁴+x², (9) −sin x, (10) −cos x, (11) −x³−4, (12) −x⁴+4x.',fig:FIG_FU8,f:[{l:'Graph a) Nr.:',a:'10',d:'(10) f′(x) = −cos x'},{l:'Graph b) Nr.:',a:'6',d:'(6) f′(x) = −x⁴ + x²'},{l:'Graph c) Nr.:',a:'3',d:'(3) f′(x) = x³ + 4x'}]},
-{q:'Berechnen Sie die beiden bestimmten Integrale.',s:['a)  ∫_{-1}^{2} 3x² + 2x','b)  ∫_{-a}^{a} (3/17) x³'],f:[{l:'a) =',a:'12'},{l:'b) =',a:'0'}]}
+{tp:['word'],lv:'m',q:'Sie kaufen 9 CDs (je 50 Cent), 6 DVDs (je 1 €) und 5 Blu-Ray-Discs (je 3,90 €). Geben Sie Menge und Kosten jeweils in Prozent an.',f:[{l:'Menge CDs (%):',a:'45'},{l:'Menge DVDs (%):',a:'30'},{l:'Menge Blu-Rays (%):',a:'25'},{l:'Kosten CDs (%):',a:'15'},{l:'Kosten DVDs (%):',a:'20'},{l:'Kosten Blu-Rays (%):',a:'65'}]},
+{tp:['word','sys'],lv:'h',q:'Eine dreistellige Zahl besitzt die Quersumme 18. Zieht man von der ersten Ziffer die zweite Ziffer ab, erhält man die dritte Ziffer. Die zweite Ziffer ist doppelt so groß wie die dritte Ziffer. Um welche Zahl handelt es sich?',f:[{l:'Zahl =',a:'963'}]},
+{tp:['frac'],lv:'e',q:'Berechnen Sie die drei Brüche.',s:['a)  12 · (3/4 + 1/8)','b)  (24 · (35/18)) / 14','c)  (13/15 − 7/10) / (9/7 − 5/3)'],f:[{l:'a) =',a:'21/2',d:'21/2'},{l:'b) =',a:'10/3',d:'10/3'},{l:'c) =',a:'-7/16',d:'−7/16'}]},
+{tp:['pow'],lv:'m',q:'Berechnen Sie die Wurzel- und Logarithmusausdrücke.',s:['a)  √66 · √(88/3)','b)  log₈(2) + log₈(4)','c)  ∛(a⁴ · b³ · (1/a) · b³)'],f:[{l:'a) =',a:'44'},{l:'b) =',a:'1'},{l:'c) =',a:'a*b^2',v:'a',d:'ab²'}]},
+{tp:['terms'],lv:'h',q:'Vereinfachen Sie so weit wie möglich.',s:['a)  (x²/y + (y² + x²)/(x − y)) / (x³/y² + y²/(x + y) − x⁴/(y³ + x·y²))','b)  √( (x³ · y^(2/3) · (y − x)²) / (x^(7/3) · y^(−5) · ∛(y⁵ · x⁸)) )'],f:[{l:'a) =',a:'(y+x)/(x-y)',v:'x',d:'(y + x) / (x − y)'},{l:'b) =',a:'y^2*(y-x)/x',v:'x',d:'y²(y − x) / x'}]},
+{tp:['leq','quad','req'],lv:'m',q:'Bestimmen Sie die Lösungen der folgenden Gleichungen.',s:['a)  3x − 7 = 11','b)  (1/3)x² − (7/9)x + 5/12 = 0','c)  x⁶ = −2x³','d)  √(4 − 6x) = 2x'],f:[{l:'a) x =',a:'6'},{l:'b) x₁ =',a:'3/2',g:1,d:'3/2'},{l:'b) x₂ =',a:'5/6',g:1,d:'5/6'},{l:'c) x₁ =',a:'0',g:1},{l:'c) x₂ =',a:'-cbrt(2)',g:1,d:'−∛2'},{l:'d) x =',a:'0.5',d:'0,5'}]},
+{tp:['area','tri'],lv:'m',q:'Berechnen Sie den Flächeninhalt der beiden Figuren (Quadrat im Kreis mit Seitenlänge 3; gleichschenkliges Dreieck mit Grundlinie 2 und Schenkel √5).',fig:FIG_FU7,f:[{l:'A (Kreis) =',a:'9/2*pi',d:'(9/2)π'},{l:'A (Dreieck) =',a:'8'}]},
+{tp:['deriv'],lv:'h',q:'Ordnen Sie den Graphen von f jeweils die passende Gleichung der ersten Ableitungsfunktion zu: (1) cos x, (2) x⁴+x²−3, (3) x³+4x, (4) −x³+4x, (5) −x⁴+3, (6) −x⁴+x², (7) 2cos x, (8) x⁴+x², (9) −sin x, (10) −cos x, (11) −x³−4, (12) −x⁴+4x.',fig:FIG_FU8,f:[{l:'Graph a) Nr.:',a:'10',d:'(10) f′(x) = −cos x'},{l:'Graph b) Nr.:',a:'6',d:'(6) f′(x) = −x⁴ + x²'},{l:'Graph c) Nr.:',a:'3',d:'(3) f′(x) = x³ + 4x'}]},
+{tp:['integ'],lv:'e',q:'Berechnen Sie die beiden bestimmten Integrale.',s:['a)  ∫_{-1}^{2} 3x² + 2x','b)  ∫_{-a}^{a} (3/17) x³'],f:[{l:'a) =',a:'12'},{l:'b) =',a:'0'}]}
 ]},
 {id:'ko-m1',title:'Köthen · Mathe 1 (Hochschule Anhalt)',source:'Hochschule Anhalt (FH) – Studienkolleg Köthen – Aufnahmetest',uni:'Hochschule Anhalt (FH) · Studienkolleg Köthen',mins:null,calc:null,tasks:[
-{q:'Berechnen Sie!',s:['(3 + 2x)/(x − 2) − (2x³ + 9x + 20)/(x³ − 4x) − 5/x − 2/(x + 2) ='],f:[{l:'Ergebnis =',a:'1/(x^2-4)',v:'x',d:'1 / (x² − 4)'},{l:'Voraussetzung:',cond:['x!=0','x!=2','x!=-2'],d:'x ≠ 0,  x ≠ 2,  x ≠ −2'}]},
-{q:'Vereinfachen Sie!',s:['((3x a² b)/(2y √b))^3 · ((2x² a)/(9y³ b))^2 ÷ (a⁸ x⁶/(√b y⁸)) ='],f:[{l:'Ergebnis =',a:'x/(6*y)',v:'x',d:'x / (6y)'},{l:'Voraussetzung:',cond:['a!=0','x!=0','y!=0','b>0'],d:'a ≠ 0,  x ≠ 0,  y ≠ 0,  b > 0'}]},
-{q:'Berechnen Sie!',s:['log_(1/3) 9 ='],f:[{l:'Ergebnis =',a:'-2'}]},
-{q:'Bestimmen Sie x!',s:['(x + 2)/3 < 4 + x'],f:[{l:'x >',a:'-5'}]},
-{q:'Lösen Sie!',s:['(I)   5x + 2y = 4','(II)   (2x + y)/(x − y) = 1/5'],f:[{l:'x =',a:'2'},{l:'y =',a:'-3'}]},
-{q:"Bilden Sie y′ = dy/dx!",s:['y = f(x) = x · ln(x)'],f:[{l:"y′ =",a:'ln(x)+1',v:'x',d:'ln(x) + 1'}]},
-{q:'Geben Sie für die folgende Funktion den Definitionsbereich Df, den Wertebereich Wf und die Schnittstellen mit den Koordinatenachsen (xₙ₁; xₙ₂; yₛ) an! (Die Zeichnung entfällt hier.)',s:['y = f(x) = |2x² + 5x − 3|'],f:[{l:'Df:',alt:['r','xinr','allerellenzahlen','(-inf;inf)',']-inf;inf['],d:'ℝ'},{l:'Wf:',alt:['y>=0','yin[0;inf)','yin[0;inf[','[0;inf)','[0;inf[','r>=0','r+0'],d:'y ≥ 0   [0; ∞)'},{l:'xₙ₁ =',a:'-3',g:2},{l:'xₙ₂ =',a:'1/2',g:2,d:'1/2'},{l:'yₛ =',a:'3'}]}
+{tp:['terms'],lv:'h',q:'Berechnen Sie!',s:['(3 + 2x)/(x − 2) − (2x³ + 9x + 20)/(x³ − 4x) − 5/x − 2/(x + 2) ='],f:[{l:'Ergebnis =',a:'1/(x^2-4)',v:'x',d:'1 / (x² − 4)'},{l:'Voraussetzung:',cond:['x!=0','x!=2','x!=-2'],d:'x ≠ 0,  x ≠ 2,  x ≠ −2'}]},
+{tp:['terms','pow'],lv:'h',q:'Vereinfachen Sie!',s:['((3x a² b)/(2y √b))^3 · ((2x² a)/(9y³ b))^2 ÷ (a⁸ x⁶/(√b y⁸)) ='],f:[{l:'Ergebnis =',a:'x/(6*y)',v:'x',d:'x / (6y)'},{l:'Voraussetzung:',cond:['a!=0','x!=0','y!=0','b>0'],d:'a ≠ 0,  x ≠ 0,  y ≠ 0,  b > 0'}]},
+{tp:['pow'],lv:'e',q:'Berechnen Sie!',s:['log_(1/3) 9 ='],f:[{l:'Ergebnis =',a:'-2'}]},
+{tp:['leq'],lv:'e',q:'Bestimmen Sie x!',s:['(x + 2)/3 < 4 + x'],f:[{l:'x >',a:'-5'}]},
+{tp:['sys'],lv:'m',q:'Lösen Sie!',s:['(I)   5x + 2y = 4','(II)   (2x + y)/(x − y) = 1/5'],f:[{l:'x =',a:'2'},{l:'y =',a:'-3'}]},
+{tp:['deriv'],lv:'m',q:"Bilden Sie y′ = dy/dx!",s:['y = f(x) = x · ln(x)'],f:[{l:"y′ =",a:'ln(x)+1',v:'x',d:'ln(x) + 1'}]},
+{tp:['qfunc'],lv:'h',q:'Geben Sie für die folgende Funktion den Definitionsbereich Df, den Wertebereich Wf und die Schnittstellen mit den Koordinatenachsen (xₙ₁; xₙ₂; yₛ) an! (Die Zeichnung entfällt hier.)',s:['y = f(x) = |2x² + 5x − 3|'],f:[{l:'Df:',alt:['r','xinr','allerellenzahlen','(-inf;inf)',']-inf;inf['],d:'ℝ'},{l:'Wf:',alt:['y>=0','yin[0;inf)','yin[0;inf[','[0;inf)','[0;inf[','r>=0','r+0'],d:'y ≥ 0   [0; ∞)'},{l:'xₙ₁ =',a:'-3',g:2},{l:'xₙ₂ =',a:'1/2',g:2,d:'1/2'},{l:'yₛ =',a:'3'}]}
+]},
+{id:'wi-m1',title:'Wismar · Mathe',source:'Hochschule Wismar – Studienkolleg – Aufnahmetest Mathematik',uni:'Hochschule Wismar · Studienkolleg',mins:null,calc:null,tasks:[
+{tp:['frac','pow','terms'],lv:'m',q:'Berechnen und vereinfachen Sie die folgenden Terme so weit wie möglich.',s:['a)  7/8 − 5/6','b)  √2 · √32','c)  ∛(a / (30a − 3a))','d)  (a⁴ − 3b²) − (a² − 3b) · (a² + 3b)','e)  14a³b²/(5x) : 7a²x³/b','f)  log₅(125^(1/7))'],f:[{l:'a) =',a:'1/24',d:'1/24'},{l:'b) =',a:'8'},{l:'c) =',a:'1/3',d:'1/3'},{l:'d) =',a:'6*b^2',v:'b',d:'6b²'},{l:'e) =',a:'2*a*b^3/(5*x^4)',v:'abx',d:'2ab³ / (5x⁴)'},{l:'f) =',a:'3/7',d:'3/7'}]},
+{tp:['word'],lv:'e',q:'Ein Fahrrad kostet 800 €. Wenn man dieses bar bezahlt, erhält man 10 % Rabatt. Wie viel kostet das Fahrrad?',f:[{l:'Preis bei Barzahlung (Euro):',a:'720'}]},
+{tp:['word'],lv:'e',q:'Mit einem Auto benötigt man von Wismar nach Berlin 3 Stunden. Die Entfernung beträgt 240 km. Wie weit ist München von Wismar entfernt, wenn man bei gleicher Geschwindigkeit 10 Stunden für diese Strecke benötigt?',f:[{l:'Entfernung (km):',a:'800'}]},
+{tp:['linf'],lv:'e',q:'Gegeben ist eine Gerade mit der Gleichung y = 2·x − 1. a) Zeichnen Sie die Gerade in das Koordinatensystem. b) Berechnen Sie die Nullstelle der Funktion. c) Liegt der Punkt P(8; 14) auf dieser Geraden? Begründen Sie.',f:[{l:'Zeichnung:',p:'a',gr:{fn:'2*x-1',x:[-4,4],y:[-5,5]},a:'y=2x-1',d:'y = 2x − 1'},{l:'Nullstelle x =',p:'b',a:'1/2',d:'1/2'},{l:'y-Wert der Geraden bei x = 8:',p:'c',a:'15'},{l:'Liegt P(8; 14) auf der Geraden?',p:'c',a:'B',mc:[['A','Ja'],['B','Nein']]}]},
+{tp:['area'],lv:'e',q:'Ein Rechteck hat eine Länge von 4 m und einen Umfang von 14 m. a) Wie breit ist das Rechteck? b) Welchen Flächeninhalt hat das Rechteck?',f:[{l:'Breite (m) =',p:'a',a:'3'},{l:'Flächeninhalt (m²) =',p:'b',a:'12'}]},
+{tp:['word','linf'],lv:'e',q:'Für einen Handyvertrag wird eine monatliche Grundgebühr von 10 € festgelegt und man muss für eine Gesprächsminute 5 Cent bezahlen. a) Thomas telefoniert in einem Monat 20 Minuten. Wie viel muss er bezahlen? b) Anna weiß noch nicht, wie lange sie telefonieren wird. Nach welcher Gleichung kann Anna ihre Telefonkosten K (in Euro) berechnen, wenn sie in einem Monat insgesamt t Minuten telefoniert?',f:[{l:'Thomas (Euro):',p:'a',a:'11'},{l:'K =',p:'b',a:'10+0.05*t',v:'t',d:'10 + 0,05 · t'}]}
+]},
+{id:'zi-m1',title:'Zittau/Görlitz · Mathe (SS 2011)',source:'Hochschule Zittau/Görlitz – Studienkolleg – Aufnahmetest Mathematik, Sommersemester 2011',uni:'Hochschule Zittau/Görlitz · Studienkolleg',mins:30,calc:false,tasks:[
+{tp:['seq'],lv:'e',q:'Berechnen Sie die Summe für i = 2 bis 5.',s:['Σ [(2i − 1) · (−1)^i]'],f:[{l:'Summe =',a:'-4'}]},
+{tp:['terms','frac'],lv:'m',q:'Vereinfachen Sie den gegebenen Term so weit wie möglich.',s:['(4a² − 9)/(49b² − 1) : (2a + 3)/(7b − 1)'],f:[{l:'Term =',a:'(2*a-3)/(7*b+1)',v:'ab',d:'(2a − 3) / (7b + 1)'}]},
+{tp:['sys'],lv:'e',q:'Lösen Sie das folgende lineare Gleichungssystem.',s:['2x + y = 10','x/2 − y/4 = 1/2'],f:[{l:'x =',a:'3'},{l:'y =',a:'4'}]},
+{tp:['leq','quad'],lv:'m',q:'Lösen Sie die folgende Gleichung nach x auf und berechnen Sie x.',s:['3[(x − 3)(8 − x) − 3(x − 8)] = x² − 28'],f:[{l:'x₁ =',a:'-1',g:1},{l:'x₂ =',a:'7',g:1}]},
+{tp:['pow'],lv:'m',q:'Vereinfachen Sie den gegebenen Term mit Hilfe der Logarithmengesetze so weit wie möglich.',s:['2 · ln(x · y) + ln(3 / x²) − 0,5 · ln(y⁴)'],f:[{l:'Term =',a:'ln(3)',d:'ln(3)'}]},
+{tp:['deriv'],lv:'m',q:'Bilden Sie die erste Ableitung f′(x) der folgenden Funktion.',s:['f(x) = 8x³ − √x + sin(x²) − 3'],f:[{l:'f′(x) =',a:'24*x^2 - 1/(2*sqrt(x)) + 2*x*cos(x^2)',v:'x',d:'24x² − 1/(2√x) + 2x · cos(x²)'}]},
+{tp:['integ'],lv:'e',q:'Berechnen Sie das folgende bestimmte Integral.',s:['∫₂⁴ 4x dx'],f:[{l:'∫₂⁴ 4x dx =',a:'24'}]},
+{tp:['linf','qfunc','quad'],lv:'m',q:'a) Geben Sie für die im Koordinatensystem dargestellte Funktion f(x) die Funktionsgleichung an. b) Gegeben ist g(x) = 0,5x² − 1 für x ∈ [−3; 3]. Berechnen Sie für die Zeichnung des Graphen die Funktionswerte g(−2), g(0) und g(3). c) Berechnen Sie die Schnittpunkte der Funktion g(x) mit der x-Achse.',fig:FIG_ZI8,f:[{l:'f(x) =',p:'a',a:'1-x/4',v:'x',d:'1 − x/4'},{l:'g(−2) =',p:'b',a:'1'},{l:'g(0) =',p:'b',a:'-1'},{l:'g(3) =',p:'b',a:'7/2',d:'3,5'},{l:'x₁ =',p:'c',a:'-sqrt(2)',g:1,d:'−√2'},{l:'x₂ =',p:'c',a:'sqrt(2)',g:1,d:'√2'}]},
+{tp:['word','leq'],lv:'e',q:'Subtrahiert man das Dreifache einer Zahl von 75, so erhält man das Doppelte dieser Zahl. Wie heißt diese Zahl?',f:[{l:'Die Zahl ist',a:'15'}]},
+{tp:['solid'],lv:'e',q:'Berechnen Sie den Quotienten aus dem Volumen eines Würfels und seiner Oberfläche (Kantenlänge a).',f:[{l:'V / O =',a:'a/6',v:'a',d:'a/6'}]}
+]},
+{id:'ka-m1',title:'Karlsruhe · Mathe Beispiel 1 (KIT)',source:'KIT (Uni Karlsruhe) – Studienkolleg – Einstufungstest Mathematik, Beispiel 1',uni:'KIT Studienkolleg Karlsruhe',mins:null,calc:null,tasks:[
+{tp:['leq','sys'],lv:'m',q:'1.1 Für welche reellen x gilt die Ungleichung? 1.2 Bestimmen Sie x und y.',s:['1.1)  |x + 2| < 2x − 1','1.2)  x − 2y = 5  ,  2x + 3y = 3'],f:[{l:'1.1)  x >',a:'3'},{l:'1.2)  x =',a:'3'},{l:'1.2)  y =',a:'-1',d:'−1'}]},
+{tp:['quad'],lv:'m',q:'Bestimmen Sie alle Lösungen der Gleichungen. (a ist ein Parameter, also beliebig, aber fest.)',s:['2.1)  2x² + 3x − 20 = 0','2.2)  x² + (2a − 1)x − 2a = 0'],f:[{l:'2.1)  x₁ =',a:'5/2',g:1,d:'5/2'},{l:'2.1)  x₂ =',a:'-4',g:1,d:'−4'},{l:'2.2)  x₁ =',a:'1'},{l:'2.2)  x₂ =',a:'-2*a',v:'a',d:'−2a'}]},
+{tp:['req'],lv:'m',q:'Berechnen Sie x (beide Lösungen).',s:['√(8 − 2x) = 4 − √(2x + 2)'],f:[{l:'x₁ =',a:'7/2',g:1,d:'7/2'},{l:'x₂ =',a:'-1/2',g:1,d:'−1/2'}]},
+{tp:['pow'],lv:'m',q:'Berechnen Sie x. (a ist ein Parameter.)',s:['4.1)  2^x = 32/√8','4.2)  x = ln(a² · √a) / ln(a)'],f:[{l:'4.1)  x =',a:'7/2',d:'7/2'},{l:'4.2)  x =',a:'5/2',d:'5/2'}]},
+{tp:['qfunc'],lv:'m',q:'Gegeben ist die Funktion f. Statt den Graphen zu zeichnen: Bestimmen Sie die Merkmale, die man zum Zeichnen braucht (Polstelle, waagerechte Asymptote, Nullstelle).',s:['f(x) = (2x − 2)/(x + 1)'],f:[{l:'Polstelle x =',a:'-1',d:'−1'},{l:'waagerechte Asymptote y =',a:'2'},{l:'Nullstelle x =',a:'1'}]},
+{tp:['trig'],lv:'m',q:'Die Gleichung des Graphen von f (magenta) ist f(x) = sin x. Bestimmen Sie die Gleichungen von g (blau, gepunktet) bzw. h (rot, strichpunktiert).',fig:FIG_KA_SIN,f:[{l:'g(x) =',a:'sin(x)+1',v:'x',d:'sin x + 1'},{l:'h(x) =',a:'sin(x-2)',v:'x',d:'sin(x − 2)'}]},
+{tp:['tri','area'],lv:'m',q:'Gegeben ist das rechtwinklige Dreieck ABC mit γ = 90°, a = 8 cm und c = 10 cm. 7.1 Berechnen Sie den Flächeninhalt des Dreiecks. 7.2 Berechnen Sie die Länge der Strecke h. 7.3 Berechnen Sie den Inhalt der schraffierten Fläche (Halbkreise über den Katheten a und b).',fig:FIG_KA7,f:[{l:'7.1)  A (cm²) =',a:'24'},{l:'7.2)  h (cm) =',a:'24/5',d:'4,8'},{l:'7.3)  Fläche (cm²) =',a:'25*pi/2',d:'25π/2 ≈ 39,27'}]},
+{tp:['solid'],lv:'m',q:'Ein Kegel hat das Volumen 8 cm³. Durch Abschneiden der Spitze entsteht ein Kegelstumpf mit der halben Höhe. Welches Volumen hat dieser Kegelstumpf?',f:[{l:'V (cm³) =',a:'7'}]},
+{tp:['deriv'],lv:'h',q:'Differenzieren Sie folgende Funktionen zweimal, d. h. berechnen Sie f′ und f″.',s:['9.1)  f(x) = 4x⁵ + 3x² − 7/x','9.2)  f(x) = (2x − 1)/(x² + 1)','9.3)  f(x) = e^(tan x)'],f:[{l:'9.1)  f′(x) =',a:'20*x^4+6*x+7/x^2',v:'x',d:'20x⁴ + 6x + 7/x²'},{l:'9.1)  f″(x) =',a:'80*x^3+6-14/x^3',v:'x',d:'80x³ + 6 − 14/x³'},{l:'9.2)  f′(x) =',a:'(-2*x^2+2*x+2)/(x^2+1)^2',v:'x',d:'(−2x² + 2x + 2)/(x² + 1)²'},{l:'9.2)  f″(x) =',a:'(4*x^3-6*x^2-12*x+2)/(x^2+1)^3',v:'x',d:'(4x³ − 6x² − 12x + 2)/(x² + 1)³'},{l:'9.3)  f′(x) =',a:'e^(tan(x))/cos(x)^2',v:'x',d:'e^(tan x) / cos²x'},{l:'9.3)  f″(x) =',a:'e^(tan(x))/cos(x)^4+2*sin(x)*e^(tan(x))/cos(x)^3',v:'x',d:'e^(tan x) / cos⁴x + 2 sin x · e^(tan x) / cos³x'}]},
+{tp:['integ'],lv:'h',q:'Zusatz: Bestimmen Sie jeweils eine Stammfunktion (ohne Konstante C). Beispiel: f(x) = 10x⁴ + 6x ⟹ ∫ f(x) dx = 2x⁵ + 3x². Für ln dürfen Sie x > 0 annehmen.',s:['10.1)  f(x) = (x⁴ − 3x² + 2x − 1) / x²','10.2)  f(x) = (2x − 1)/(x² + 1)','10.3)  f(x) = x · e^(x²)','10.4)  f(x) = x · eˣ'],f:[{l:'10.1)  ∫ f(x) dx =',a:'x^3/3-3*x+2*ln(x)+1/x',v:'x',d:'x³/3 − 3x + 2 ln x + 1/x'},{l:'10.2)  ∫ f(x) dx =',a:'ln(x^2+1)-arctan(x)',v:'x',alt:['ln(x^2+1)-arctan(x)','ln(x²+1)-arctan(x)','ln(x^2+1)-atan(x)','ln(x²+1)-atan(x)','ln(x^2+1)-arctanx','ln(x²+1)-arctanx','ln(x^2+1)-tan^-1(x)','-arctan(x)+ln(x^2+1)','-arctan(x)+ln(x²+1)','-atan(x)+ln(x^2+1)','-atan(x)+ln(x²+1)'],d:'ln(x² + 1) − arctan x'},{l:'10.3)  ∫ f(x) dx =',a:'e^(x^2)/2',v:'x',d:'e^(x²) / 2'},{l:'10.4)  ∫ f(x) dx =',a:'(x-1)*e^x',v:'x',d:'(x − 1) · eˣ'}]}
+]},
+{id:'ka-m2',title:'Karlsruhe · Mathe Beispiel 2 (KIT)',source:'KIT (Uni Karlsruhe) – Studienkolleg – Einstufungstest Mathematik, Beispiel 2',uni:'KIT Studienkolleg Karlsruhe',mins:null,calc:null,tasks:[
+{tp:['leq','sys'],lv:'m',q:'1.1 Für welche reellen x gilt die Ungleichung? 1.2 Bestimmen Sie x und y. (b ist ein Parameter.)',s:['1.1)  2x/(x − 2) > 3','1.2)  2x + 3y = 2b + 25  ,  3x − 2y = 3b − 8'],f:[{l:'1.1)  x >',a:'2'},{l:'1.1)  und x <',a:'6'},{l:'1.2)  x =',a:'b+2',v:'b',d:'b + 2'},{l:'1.2)  y =',a:'7'}]},
+{tp:['quad'],lv:'m',q:'Es gilt f(−2) = 0. Für welche reellen x gilt f(x) = 0?',s:['f(x) = 2x³ − x² − 7x + 6'],f:[{l:'x₁ =',a:'-2',g:1,d:'−2'},{l:'x₂ =',a:'1',g:1},{l:'x₃ =',a:'3/2',g:1,d:'3/2'}]},
+{tp:['req'],lv:'m',q:'Bestimmen Sie Definitions- und Lösungsmenge.',s:['√(22 − 2x) = 2 + √(x + 1)'],f:[{l:'Definitionsmenge: x ≥',a:'-1',d:'−1'},{l:'und x ≤',a:'11'},{l:'Lösung x =',a:'3'}]},
+{tp:['pow'],lv:'m',q:'4.1 Für welche reellen x gilt die Gleichung? 4.2 Berechnen Sie x. (Es gilt: aᵇ = c ⇔ b = logₐ(c). Tipp zu 4.2: berechnen Sie zunächst 10ˣ.)',s:['4.1)  5^(x² + 1/2) = √125','4.2)  x = log₁₀(b) · log_b(10)'],f:[{l:'4.1)  x₁ =',a:'-1',g:1,d:'−1'},{l:'4.1)  x₂ =',a:'1',g:1},{l:'4.2)  x =',a:'1'}]},
+{tp:['qfunc'],lv:'m',q:'Gegeben ist die Funktion f. Statt den Graphen zu zeichnen: Bestimmen Sie die Merkmale, die man zum Zeichnen braucht (Polstelle, waagerechte Asymptote, Nullstelle).',s:['f(x) = (2x + 2)/(x − 1)'],f:[{l:'Polstelle x =',a:'1'},{l:'waagerechte Asymptote y =',a:'2'},{l:'Nullstelle x =',a:'-1',d:'−1'}]},
+{tp:['qfunc'],lv:'m',q:'Die Gleichung des Graphen von f (magenta) ist f(x) = x². Bestimmen Sie die Gleichungen von g (blau, gepunktet) bzw. h (rot, strichpunktiert).',fig:FIG_KA_PAR,f:[{l:'g(x) =',a:'1-x^2/4',v:'x',d:'1 − x²/4'},{l:'h(x) =',a:'x^2-2*x',v:'x',d:'x² − 2x'}]},
+{tp:['area'],lv:'m',q:'Ein (reguläres) Sechseck hat die Fläche F₆. Ihm ist ein Kreis mit der Fläche F₀ umbeschrieben. Berechnen Sie das Verhältnis F₀ / F₆.',f:[{l:'F₀ / F₆ =',a:'2*pi/(3*sqrt(3))',d:'2π/(3√3) ≈ 1,209'}]},
+{tp:['solid'],lv:'h',q:'Ein Würfel hat das Volumen V₁. Ihm ist eine Kugel mit dem Volumen V₂ umbeschrieben. Berechnen Sie das Verhältnis V₂ / V₁.',f:[{l:'V₂ / V₁ =',a:'sqrt(3)*pi/2',d:'√3 · π/2 ≈ 2,721'}]},
+{tp:['linf','qfunc'],lv:'m',q:'Auf der Geraden g mit y = −2x + 4 liegt der Punkt P(xₚ | yₚ) im ersten Quadranten. Bestimmen Sie seine Koordinaten so, dass der Flächeninhalt des Rechtecks zwischen P und den Koordinatenachsen maximal wird.',f:[{l:'xₚ =',a:'1'},{l:'yₚ =',a:'2'}]},
+{tp:['deriv'],lv:'h',q:'Differenzieren Sie folgende Funktionen zweimal, d. h. berechnen Sie f′ und f″. (b ist ein Parameter.)',s:['9.1)  f(x) = 5x⁷ + bx³ − 7/x + 8/x²','9.2)  f(x) = 2x²/(x² − 1)','9.3)  f(x) = ln(sin x)'],f:[{l:'9.1)  f′(x) =',a:'35*x^6+3*b*x^2+7/x^2-16/x^3',v:'xb',d:'35x⁶ + 3bx² + 7/x² − 16/x³'},{l:'9.1)  f″(x) =',a:'210*x^5+6*b*x-14/x^3+48/x^4',v:'xb',d:'210x⁵ + 6bx − 14/x³ + 48/x⁴'},{l:'9.2)  f′(x) =',a:'-4*x/(x^2-1)^2',v:'x',d:'−4x/(x² − 1)²'},{l:'9.2)  f″(x) =',a:'(12*x^2+4)/(x^2-1)^3',v:'x',d:'(12x² + 4)/(x² − 1)³'},{l:'9.3)  f′(x) =',a:'cos(x)/sin(x)',v:'x',d:'cos x / sin x'},{l:'9.3)  f″(x) =',a:'-1/sin(x)^2',v:'x',d:'−1/sin²x'}]},
+{tp:['integ'],lv:'h',q:'Zusatz: Bestimmen Sie jeweils eine Stammfunktion (ohne Konstante C). Für ln dürfen Sie x > 1 annehmen.',s:['10.1)  f(x) = (4x⁵ − 3x² − 1)/x³','10.2)  f(x) = (6x² − 2)/(x³ − x)','10.3)  f(x) = x² · e^(x³)','10.4)  f(x) = x · ln(x)'],f:[{l:'10.1)  ∫ f(x) dx =',a:'4*x^3/3-3*ln(x)+1/(2*x^2)',v:'x',d:'4x³/3 − 3 ln x + 1/(2x²)'},{l:'10.2)  ∫ f(x) dx =',a:'2*ln(x^3-x)',v:'x',d:'2 ln(x³ − x)'},{l:'10.3)  ∫ f(x) dx =',a:'e^(x^3)/3',v:'x',d:'e^(x³) / 3'},{l:'10.4)  ∫ f(x) dx =',a:'x^2/2*ln(x)-x^2/4',v:'x',d:'x²/2 · ln x − x²/4'}]}
 ]}
 ];
+// ===== DERIVATIVE QUESTION BANK (not listed as tests; used by Derivatives practice + targeted practice) =====
+// lv: e/m/h (a task without lv counts as Medium) · rl: derivative rules the task needs · keep task order stable (results are stored per position)
+const MBANK=[
+{id:'der-e',bank:1,title:"Ableitungen Easy · Regel für Regel",source:"Derivative drills \u00b7 Easy: one rule at a time",uni:'Own question bank',mins:null,calc:null,tasks:[
+{tp:['deriv'],lv:'e',rl:["power"],q:"Bilden Sie f′(x).",s:["f(x) = x⁵"],f:[{"l": "f′(x) =", "a": "5*x^4", "v": "x", "d": "5x⁴"}]},
+{tp:['deriv'],lv:'e',rl:["power"],q:"Bilden Sie f′(x).",s:["f(x) = x⁹"],f:[{"l": "f′(x) =", "a": "9*x^8", "v": "x", "d": "9x⁸"}]},
+{tp:['deriv'],lv:'e',rl:["power"],q:"Bilden Sie f′(x).",s:["f(x) = x¹²"],f:[{"l": "f′(x) =", "a": "12*x^11", "v": "x", "d": "12x¹¹"}]},
+{tp:['deriv'],lv:'e',rl:["sum"],q:"Bilden Sie f′(x).",s:["f(x) = 4x³"],f:[{"l": "f′(x) =", "a": "12*x^2", "v": "x", "d": "12x²"}]},
+{tp:['deriv'],lv:'e',rl:["sum"],q:"Bilden Sie f′(x).",s:["f(x) = 3x⁴ − 5x² + 7"],f:[{"l": "f′(x) =", "a": "12*x^3 - 10*x", "v": "x", "d": "12x³ − 10x"}]},
+{tp:['deriv'],lv:'e',rl:["sum"],q:"Bilden Sie f′(x).",s:["f(x) = 2x³ − 6x² + 4x − 11"],f:[{"l": "f′(x) =", "a": "6*x^2 - 12*x + 4", "v": "x", "d": "6x² − 12x + 4"}]},
+{tp:['deriv'],lv:'e',rl:["root"],q:"Bilden Sie f′(x).",s:["f(x) = √(x)"],f:[{"l": "f′(x) =", "a": "1/(2*sqrt(x))", "v": "x", "d": "1/(2 · √(x))"}]},
+{tp:['deriv'],lv:'e',rl:["root"],q:"Bilden Sie f′(x).",s:["f(x) = 1/x"],f:[{"l": "f′(x) =", "a": "-1/x^2", "v": "x", "d": "−1/x²"}]},
+{tp:['deriv'],lv:'e',rl:["root"],q:"Bilden Sie f′(x).",s:["f(x) = 1/x³"],f:[{"l": "f′(x) =", "a": "-3/x^4", "v": "x", "d": "−3/x⁴"}]},
+{tp:['deriv'],lv:'e',rl:["exp"],q:"Bilden Sie f′(x).",s:["f(x) = e^x"],f:[{"l": "f′(x) =", "a": "e^x", "v": "x", "d": "e^x"}]},
+{tp:['deriv'],lv:'e',rl:["exp"],q:"Bilden Sie f′(x).",s:["f(x) = 5e^x"],f:[{"l": "f′(x) =", "a": "5*e^x", "v": "x", "d": "5e^x"}]},
+{tp:['deriv'],lv:'e',rl:["exp"],q:"Bilden Sie f′(x).",s:["f(x) = 2^x"],f:[{"l": "f′(x) =", "a": "2^x*ln(2)", "v": "x", "d": "2^x · ln(2)"}]},
+{tp:['deriv'],lv:'e',rl:["ln"],q:"Bilden Sie f′(x).",s:["f(x) = ln(x)"],f:[{"l": "f′(x) =", "a": "1/x", "v": "x", "d": "1/x"}]},
+{tp:['deriv'],lv:'e',rl:["ln"],q:"Bilden Sie f′(x).",s:["f(x) = 3ln(x)"],f:[{"l": "f′(x) =", "a": "3/x", "v": "x", "d": "3/x"}]},
+{tp:['deriv'],lv:'e',rl:["ln"],q:"Bilden Sie f′(x).",s:["f(x) = 6ln(x) − 2x"],f:[{"l": "f′(x) =", "a": "6/x - 2", "v": "x", "d": "6/x − 2"}]},
+{tp:['deriv'],lv:'e',rl:["trig"],q:"Bilden Sie f′(x).",s:["f(x) = sin(x)"],f:[{"l": "f′(x) =", "a": "cos(x)", "v": "x", "d": "cos(x)"}]},
+{tp:['deriv'],lv:'e',rl:["trig"],q:"Bilden Sie f′(x).",s:["f(x) = cos(x)"],f:[{"l": "f′(x) =", "a": "-sin(x)", "v": "x", "d": "−sin(x)"}]},
+{tp:['deriv'],lv:'e',rl:["trig"],q:"Bilden Sie f′(x).",s:["f(x) = 3sin(x) + 2cos(x)"],f:[{"l": "f′(x) =", "a": "3*cos(x) - 2*sin(x)", "v": "x", "d": "3cos(x) − 2sin(x)"}]},
+{tp:['deriv'],lv:'e',rl:["tan"],q:"Bilden Sie f′(x).",s:["f(x) = tan(x)"],f:[{"l": "f′(x) =", "a": "1/cos(x)^2", "v": "x", "d": "1/cos(x)²"}]},
+{tp:['deriv'],lv:'e',rl:["tan"],q:"Bilden Sie f′(x).",s:["f(x) = 2tan(x)"],f:[{"l": "f′(x) =", "a": "2/cos(x)^2", "v": "x", "d": "2/cos(x)²"}]},
+{tp:['deriv'],lv:'e',rl:["tan"],q:"Bilden Sie f′(x).",s:["f(x) = tan(x) + x"],f:[{"l": "f′(x) =", "a": "1/cos(x)^2 + 1", "v": "x", "d": "1/cos(x)² + 1"}]},
+{tp:['deriv'],lv:'e',rl:["product"],q:"Bilden Sie f′(x).",s:["f(x) = x · e^x"],f:[{"l": "f′(x) =", "a": "e^x + x*e^x", "v": "x", "d": "e^x + x · e^x"}]},
+{tp:['deriv'],lv:'e',rl:["product"],q:"Bilden Sie f′(x).",s:["f(x) = x² · sin(x)"],f:[{"l": "f′(x) =", "a": "2*x*sin(x) + x^2*cos(x)", "v": "x", "d": "2x · sin(x) + x² · cos(x)"}]},
+{tp:['deriv'],lv:'e',rl:["product"],q:"Bilden Sie f′(x).",s:["f(x) = (x + 1) · (x² − 3)"],f:[{"l": "f′(x) =", "a": "(x^2 - 3) + (x + 1)*2*x", "v": "x", "d": "(x² − 3) + (x + 1) · 2x"}]},
+{tp:['deriv'],lv:'e',rl:["quot"],q:"Bilden Sie f′(x).",s:["f(x) = x/(x + 1)"],f:[{"l": "f′(x) =", "a": "1/(x + 1)^2", "v": "x", "d": "1/(x + 1)²"}]},
+{tp:['deriv'],lv:'e',rl:["quot"],q:"Bilden Sie f′(x).",s:["f(x) = sin(x)/x"],f:[{"l": "f′(x) =", "a": "(x*cos(x) - sin(x))/x^2", "v": "x", "d": "(x · cos(x) − sin(x))/x²"}]},
+{tp:['deriv'],lv:'e',rl:["quot"],q:"Bilden Sie f′(x).",s:["f(x) = e^x/x"],f:[{"l": "f′(x) =", "a": "(x*e^x - e^x)/x^2", "v": "x", "d": "(x · e^x − e^x)/x²"}]},
+{tp:['deriv'],lv:'e',rl:["chain"],q:"Bilden Sie f′(x).",s:["f(x) = (2x + 1)³"],f:[{"l": "f′(x) =", "a": "6*(2*x + 1)^2", "v": "x", "d": "6(2x + 1)²"}]},
+{tp:['deriv'],lv:'e',rl:["chain"],q:"Bilden Sie f′(x).",s:["f(x) = sin(3x)"],f:[{"l": "f′(x) =", "a": "3*cos(3*x)", "v": "x", "d": "3cos(3x)"}]},
+{tp:['deriv'],lv:'e',rl:["chain"],q:"Bilden Sie f′(x).",s:["f(x) = e^(2x)"],f:[{"l": "f′(x) =", "a": "2*e^(2*x)", "v": "x", "d": "2e^(2x)"}]}
+]},
+{id:'der-m',bank:1,title:"Ableitungen Medium · Gemischt",source:"Derivative drills \u00b7 Medium: 2-3 rules combined",uni:'Own question bank',mins:null,calc:null,tasks:[
+{tp:['deriv'],lv:'m',rl:["chain", "power", "sum"],q:"Bilden Sie f′(x).",s:["f(x) = (x² + 1)⁴"],f:[{"l": "f′(x) =", "a": "8*x*(x^2 + 1)^3", "v": "x", "d": "8x · (x² + 1)³"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "root"],q:"Bilden Sie f′(x).",s:["f(x) = √(3x + 1)"],f:[{"l": "f′(x) =", "a": "3/(2*sqrt(3*x + 1))", "v": "x", "d": "3/(2 · √(3x + 1))"}]},
+{tp:['deriv'],lv:'m',rl:["product", "chain", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = x² · e^(3x)"],f:[{"l": "f′(x) =", "a": "2*x*e^(3*x) + 3*x^2*e^(3*x)", "v": "x", "d": "2x · e^(3x) + 3x² · e^(3x)"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "trig", "power"],q:"Bilden Sie f′(x).",s:["f(x) = cos(x³)"],f:[{"l": "f′(x) =", "a": "-3*x^2*sin(x^3)", "v": "x", "d": "−3x² · sin(x³)"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "ln"],q:"Bilden Sie f′(x).",s:["f(x) = ln(x² + 1)"],f:[{"l": "f′(x) =", "a": "2*x/(x^2 + 1)", "v": "x", "d": "2x/(x² + 1)"}]},
+{tp:['deriv'],lv:'m',rl:["product", "chain", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = x · sin(2x)"],f:[{"l": "f′(x) =", "a": "sin(2*x) + 2*x*cos(2*x)", "v": "x", "d": "sin(2x) + 2x · cos(2x)"}]},
+{tp:['deriv'],lv:'m',rl:["quot", "power"],q:"Bilden Sie f′(x).",s:["f(x) = (x² − 1)/(x² + 1)"],f:[{"l": "f′(x) =", "a": "4*x/(x^2 + 1)^2", "v": "x", "d": "4x/(x² + 1)²"}]},
+{tp:['deriv'],lv:'m',rl:["product", "exp", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = e^x · cos(x)"],f:[{"l": "f′(x) =", "a": "e^x*cos(x) - e^x*sin(x)", "v": "x", "d": "e^x · cos(x) − e^x · sin(x)"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "root"],q:"Bilden Sie f′(x).",s:["f(x) = 1/(3x − 2)²"],f:[{"l": "f′(x) =", "a": "-6/(3*x - 2)^3", "v": "x", "d": "−6/(3x − 2)³"}]},
+{tp:['deriv'],lv:'m',rl:["product", "ln", "power"],q:"Bilden Sie f′(x).",s:["f(x) = x² · ln(x)"],f:[{"l": "f′(x) =", "a": "2*x*ln(x) + x", "v": "x", "d": "2x · ln(x) + x"}]},
+{tp:['deriv'],lv:'m',rl:["quot", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = sin(x)/(1 + cos(x))"],f:[{"l": "f′(x) =", "a": "1/(1 + cos(x))", "v": "x", "d": "1/(1 + cos(x))"}]},
+{tp:['deriv'],lv:'m',rl:["product", "root"],q:"Bilden Sie f′(x).",s:["f(x) = √(x) · (x² + 3)"],f:[{"l": "f′(x) =", "a": "(x^2 + 3)/(2*sqrt(x)) + 2*x*sqrt(x)", "v": "x", "d": "(x² + 3)/(2 · √(x)) + 2x · √(x)"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = e^(x²)"],f:[{"l": "f′(x) =", "a": "2*x*e^(x^2)", "v": "x", "d": "2x · e^(x²)"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "tan"],q:"Bilden Sie f′(x).",s:["f(x) = tan(2x)"],f:[{"l": "f′(x) =", "a": "2/cos(2*x)^2", "v": "x", "d": "2/cos(2x)²"}]},
+{tp:['deriv'],lv:'m',rl:["product", "ln", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = ln(x) · sin(x)"],f:[{"l": "f′(x) =", "a": "sin(x)/x + ln(x)*cos(x)", "v": "x", "d": "sin(x)/x + ln(x) · cos(x)"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "power", "sum"],q:"Bilden Sie f′(x).",s:["f(x) = (x³ − 2x)⁵"],f:[{"l": "f′(x) =", "a": "5*(x^3 - 2*x)^4*(3*x^2 - 2)", "v": "x", "d": "5(x³ − 2x)⁴ · (3x² − 2)"}]},
+{tp:['deriv'],lv:'m',rl:["quot", "chain", "root"],q:"Bilden Sie f′(x).",s:["f(x) = x/√(x² + 1)"],f:[{"l": "f′(x) =", "a": "1/(x^2 + 1)^(3/2)", "v": "x", "d": "1/(x² + 1)^(3/2)"}]},
+{tp:['deriv'],lv:'m',rl:["product", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = x · 2^x"],f:[{"l": "f′(x) =", "a": "2^x + x*2^x*ln(2)", "v": "x", "d": "2^x + x · 2^x · ln(2)"}]},
+{tp:['deriv'],lv:'m',rl:["product", "chain", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = x² · e^(−x)"],f:[{"l": "f′(x) =", "a": "2*x*e^(-x) - x^2*e^(-x)", "v": "x", "d": "2x · e^(−x) − x² · e^(−x)"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "trig", "power"],q:"Bilden Sie f′(x).",s:["f(x) = cos(x)²"],f:[{"l": "f′(x) =", "a": "-2*cos(x)*sin(x)", "v": "x", "d": "−2cos(x) · sin(x)"}]},
+{tp:['deriv'],lv:'m',rl:["quot", "ln"],q:"Bilden Sie f′(x).",s:["f(x) = ln(x)/x"],f:[{"l": "f′(x) =", "a": "(1 - ln(x))/x^2", "v": "x", "d": "(1 − ln(x))/x²"}]},
+{tp:['deriv'],lv:'m',rl:["quot", "sum"],q:"Bilden Sie f′(x).",s:["f(x) = (2x + 1)/(x + 3)"],f:[{"l": "f′(x) =", "a": "5/(x + 3)^2", "v": "x", "d": "5/(x + 3)²"}]},
+{tp:['deriv'],lv:'m',rl:["product", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = sin(x) · cos(x)"],f:[{"l": "f′(x) =", "a": "cos(x)^2 - sin(x)^2", "v": "x", "d": "cos(x)² − sin(x)²"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "root", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = √(1 + e^x)"],f:[{"l": "f′(x) =", "a": "e^x/(2*sqrt(1 + e^x))", "v": "x", "d": "e^x/(2 · √(1 + e^x))"}]},
+{tp:['deriv'],lv:'m',rl:["product", "power", "root"],q:"Bilden Sie f′(x).",s:["f(x) = x³ · √(x)"],f:[{"l": "f′(x) =", "a": "3*x^2*sqrt(x) + x^3/(2*sqrt(x))", "v": "x", "d": "3x² · √(x) + x³/(2 · √(x))"}]},
+{tp:['deriv'],lv:'m',rl:["product", "exp"],q:"Berechnen Sie f′(1) exakt.",s:["f(x) = x² · e^x"],f:[{"l": "f′(1) =", "a": "3*e", "d": "3e"}]},
+{tp:['deriv'],lv:'m',rl:["chain", "ln"],q:"Berechnen Sie f′(1) exakt.",s:["f(x) = ln(x² + 3)"],f:[{"l": "f′(1) =", "a": "1/2", "d": "1/2"}]},
+{tp:['deriv'],lv:'m',rl:["product", "exp"],q:"Tangente an f bei x = 1.",s:["f(x) = x · e^x"],f:[{"l": "t(x) =", "a": "2*e*x - e", "v": "x", "d": "2e · x − e"}]},
+{tp:['deriv'],lv:'m',rl:["product", "exp"],q:"Bestimmen Sie f′ und f″.",s:["f(x) = x · e^x"],f:[{"l": "f′(x) =", "a": "e^x + x*e^x", "v": "x", "d": "e^x + x · e^x"}, {"l": "f″(x) =", "a": "2*e^x + x*e^x", "v": "x", "d": "2e^x + x · e^x"}]},
+{tp:['deriv'],lv:'m',rl:["product", "chain", "exp"],q:"Waagerechte Tangente bei x?",s:["f(x) = x · e^(−x)"],f:[{"l": "x =", "a": "1", "d": "1"}]}
+]},
+{id:'der-h',bank:1,title:"Ableitungen Hard · Alles gemischt",source:"Derivative drills \u00b7 Hard: everything mixed",uni:'Own question bank',mins:null,calc:null,tasks:[
+{tp:['deriv'],lv:'h',rl:["product", "chain", "exp", "trig", "power"],q:"Bilden Sie f′(x).",s:["f(x) = x² · e^(3x) · sin(x)"],f:[{"l": "f′(x) =", "a": "2*x*e^(3*x)*sin(x) + 3*x^2*e^(3*x)*sin(x) + x^2*e^(3*x)*cos(x)", "v": "x", "d": "2x · e^(3x) · sin(x) + 3x² · e^(3x) · sin(x) + x² · e^(3x) · cos(x)"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "ln", "root", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = ln(√(x² + 1) · e^x)"],f:[{"l": "f′(x) =", "a": "x/(x^2 + 1) + 1", "v": "x", "d": "x/(x² + 1) + 1"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "trig", "power"],q:"Bilden Sie f′(x).",s:["f(x) = sin(cos(x²))"],f:[{"l": "f′(x) =", "a": "-2*x*sin(x^2)*cos(cos(x^2))", "v": "x", "d": "−2x · sin(x²) · cos(cos(x²))"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "exp", "trig", "ln"],q:"Bilden Sie f′(x).",s:["f(x) = e^(sin(x)) · ln(x² + 1)"],f:[{"l": "f′(x) =", "a": "e^(sin(x))*cos(x)*ln(x^2 + 1) + e^(sin(x))*2*x/(x^2 + 1)", "v": "x", "d": "e^(sin(x)) · cos(x) · ln(x² + 1) + e^(sin(x)) · 2x/(x² + 1)"}]},
+{tp:['deriv'],lv:'h',rl:["quot", "product", "chain", "root", "exp", "power"],q:"Bilden Sie f′(x).",s:["f(x) = (x² + 1)³ · √(2x + 1)/e^x"],f:[{"l": "f′(x) =", "a": "(x^2 + 1)^3*sqrt(2*x + 1)/e^x*(6*x/(x^2 + 1) + 1/(2*x + 1) - 1)", "v": "x", "d": "(x² + 1)³ · √(2x + 1)/e^x · (6x/(x² + 1) + 1/(2x + 1) − 1)"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "tan", "ln"],q:"Bilden Sie f′(x).",s:["f(x) = tan(x²) · ln(x)"],f:[{"l": "f′(x) =", "a": "2*x*ln(x)/cos(x^2)^2 + tan(x^2)/x", "v": "x", "d": "2x · ln(x)/cos(x²)² + tan(x²)/x"}]},
+{tp:['deriv'],lv:'h',rl:["quot", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = (sin(x) + cos(x))/(sin(x) − cos(x))"],f:[{"l": "f′(x) =", "a": "-2/(sin(x) - cos(x))^2", "v": "x", "d": "−2/(sin(x) − cos(x))²"}]},
+{tp:['deriv'],lv:'h',rl:["exp", "ln", "chain"],q:"Bilden Sie f′(x).",s:["f(x) = x^x"],f:[{"l": "f′(x) =", "a": "x^x*(ln(x) + 1)", "v": "x", "d": "x^x · (ln(x) + 1)"}]},
+{tp:['deriv'],lv:'h',rl:["exp", "ln", "trig", "product", "chain"],q:"Bilden Sie f′(x).",s:["f(x) = x^(sin(x))"],f:[{"l": "f′(x) =", "a": "x^(sin(x))*(cos(x)*ln(x) + sin(x)/x)", "v": "x", "d": "x^(sin(x)) · (cos(x) · ln(x) + sin(x)/x)"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "quot", "root"],q:"Bilden Sie f′(x).",s:["f(x) = √((x² + 1)/(x² + 4))"],f:[{"l": "f′(x) =", "a": "3*x/((x^2 + 4)*sqrt((x^2 + 1)*(x^2 + 4)))", "v": "x", "d": "3x/((x² + 4) · √((x² + 1) · (x² + 4)))"}]},
+{tp:['deriv'],lv:'h',rl:["quot", "product", "chain", "exp", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = e^(x²) · cos(3x)/(x + 1)"],f:[{"l": "f′(x) =", "a": "(e^(x^2)*(2*x*cos(3*x) - 3*sin(3*x))*(x + 1) - e^(x^2)*cos(3*x))/(x + 1)^2", "v": "x", "d": "(e^(x²) · (2x · cos(3x) − 3sin(3x)) · (x + 1) − e^(x²) · cos(3x))/(x + 1)²"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "ln"],q:"Bilden Sie f′(x).",s:["f(x) = ln(ln(x² + 1) + 1)"],f:[{"l": "f′(x) =", "a": "2*x/((x^2 + 1)*(ln(x^2 + 1) + 1))", "v": "x", "d": "2x/((x² + 1) · (ln(x² + 1) + 1))"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "trig", "power"],q:"Bilden Sie f′(x).",s:["f(x) = sin(x)³ · cos(x)²"],f:[{"l": "f′(x) =", "a": "3*sin(x)^2*cos(x)^3 - 2*sin(x)^4*cos(x)", "v": "x", "d": "3sin(x)² · cos(x)³ − 2sin(x)⁴ · cos(x)"}]},
+{tp:['deriv'],lv:'h',rl:["product", "quot", "chain", "exp", "root"],q:"Bilden Sie f′(x).",s:["f(x) = (x² − 3x + 1) · e^(2x)/√(x)"],f:[{"l": "f′(x) =", "a": "(x^2 - 3*x + 1)*e^(2*x)/sqrt(x)*((2*x - 3)/(x^2 - 3*x + 1) + 2 - 1/(2*x))", "v": "x", "d": "(x² − 3x + 1) · e^(2x)/√(x) · ((2x − 3)/(x² − 3x + 1) + 2 − 1/(2x))"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "root"],q:"Bilden Sie f′(x).",s:["f(x) = √(x + √(x))"],f:[{"l": "f′(x) =", "a": "(1 + 1/(2*sqrt(x)))/(2*sqrt(x + sqrt(x)))", "v": "x", "d": "(1 + 1/(2 · √(x)))/(2 · √(x + √(x)))"}]},
+{tp:['deriv'],lv:'h',rl:["product", "exp", "ln", "power"],q:"Bilden Sie f′(x).",s:["f(x) = x³ · 2^x · ln(x)"],f:[{"l": "f′(x) =", "a": "3*x^2*2^x*ln(x) + x^3*2^x*ln(2)*ln(x) + x^2*2^x", "v": "x", "d": "3x² · 2^x · ln(x) + x³ · 2^x · ln(2) · ln(x) + x² · 2^x"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "exp", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = x · cos(e^x)"],f:[{"l": "f′(x) =", "a": "cos(e^x) - x*e^x*sin(e^x)", "v": "x", "d": "cos(e^x) − x · e^x · sin(e^x)"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "ln", "root"],q:"Bilden Sie f′(x).",s:["f(x) = ln(x + √(x² + 1))"],f:[{"l": "f′(x) =", "a": "1/sqrt(x^2 + 1)", "v": "x", "d": "1/√(x² + 1)"}]},
+{tp:['deriv'],lv:'h',rl:["exp", "ln", "chain", "product"],q:"Bilden Sie f′(x).",s:["f(x) = (x² + 1)^x"],f:[{"l": "f′(x) =", "a": "(x^2 + 1)^x*(ln(x^2 + 1) + 2*x^2/(x^2 + 1))", "v": "x", "d": "(x² + 1)^x · (ln(x² + 1) + 2x²/(x² + 1))"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = sin(x²) · cos(x²)"],f:[{"l": "f′(x) =", "a": "2*x*cos(2*x^2)", "v": "x", "d": "2x · cos(2x²)"}]},
+{tp:['deriv'],lv:'h',rl:["quot", "product", "chain", "tan", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = tan(x) · e^(−x)/(x² + 1)"],f:[{"l": "f′(x) =", "a": "tan(x)*e^(-x)/(x^2 + 1)*(1/(sin(x)*cos(x)) - 1 - 2*x/(x^2 + 1))", "v": "x", "d": "tan(x) · e^(−x)/(x² + 1) · (1/(sin(x) · cos(x)) − 1 − 2x/(x² + 1))"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "root", "trig"],q:"Bilden Sie f′(x).",s:["f(x) = √(sin(x)² + 1)"],f:[{"l": "f′(x) =", "a": "sin(x)*cos(x)/sqrt(sin(x)^2 + 1)", "v": "x", "d": "sin(x) · cos(x)/√(sin(x)² + 1)"}]},
+{tp:['deriv'],lv:'h',rl:["chain", "ln", "exp"],q:"Bilden Sie f′(x).",s:["f(x) = ln(e^x + e^(−x))"],f:[{"l": "f′(x) =", "a": "(e^x - e^(-x))/(e^x + e^(-x))", "v": "x", "d": "(e^x − e^(−x))/(e^x + e^(−x))"}]},
+{tp:['deriv'],lv:'h',rl:["quot", "chain", "exp", "power"],q:"Bilden Sie f′(x).",s:["f(x) = ((e^x − 1)/(e^x + 1))³"],f:[{"l": "f′(x) =", "a": "6*e^x*((e^x - 1)/(e^x + 1))^2/(e^x + 1)^2", "v": "x", "d": "6e^x · ((e^x − 1)/(e^x + 1))²/(e^x + 1)²"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "trig", "root"],q:"Bilden Sie f′(x).",s:["f(x) = x² · sin(1/x)"],f:[{"l": "f′(x) =", "a": "2*x*sin(1/x) - cos(1/x)", "v": "x", "d": "2x · sin(1/x) − cos(1/x)"}]},
+{tp:['deriv'],lv:'h',rl:["product", "ln", "exp"],q:"Berechnen Sie f′(1) exakt.",s:["f(x) = x² · ln(x) · e^x"],f:[{"l": "f′(1) =", "a": "e", "d": "e"}]},
+{tp:['deriv'],lv:'h',rl:["quot", "product", "root"],q:"Berechnen Sie f′(1) exakt.",s:["f(x) = √(x) · (x² + 1)/(x + 3)"],f:[{"l": "f′(1) =", "a": "5/8", "d": "5/8"}]},
+{tp:['deriv'],lv:'h',rl:["product", "tan", "exp"],q:"Berechnen Sie f′(π/4) exakt.",s:["f(x) = tan(x) · e^x"],f:[{"l": "f′(π/4) =", "a": "3*e^(pi/4)", "d": "3e^(π/4)"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "exp"],q:"Tangente an f bei x = 1.",s:["f(x) = x · e^(x²)"],f:[{"l": "t(x) =", "a": "3*e*x - 2*e", "v": "x", "d": "3e · x − 2e"}]},
+{tp:['deriv'],lv:'h',rl:["product", "chain", "exp", "power"],q:"Bestimmen Sie f′ und f″.",s:["f(x) = x² · e^(2x)"],f:[{"l": "f′(x) =", "a": "e^(2*x)*(2*x + 2*x^2)", "v": "x", "d": "e^(2x) · (2x + 2x²)"}, {"l": "f″(x) =", "a": "e^(2*x)*(4*x^2 + 8*x + 2)", "v": "x", "d": "e^(2x) · (4x² + 8x + 2)"}]}
+]},
+];
+const MALL=()=>MATH.concat(MBANK);
 
-function mval(s,v,x){try{s=String(s).trim().replace(/^[a-zα-ω]['′″]*\s*(?:\([^)]*\))?\s*=\s*/i,'').replace(/−/g,'-').replace(/[·×]/g,'*').replace(/:/g,'/').replace(/,/g,'.').replace(/²/g,'^2').replace(/³/g,'^3').replace(/⁴/g,'^4').replace(/⁵/g,'^5').replace(/⁶/g,'^6').replace(/∛/g,'cbrt').replace(/√/g,'sqrt').replace(/π/g,'pi').replace(/\s+/g,'');
+function mval(s,v,x){try{s=String(s).trim().replace(/^[a-zα-ω]['′″]*\s*(?:\([^)]*\))?\s*=\s*/i,'').replace(/−/g,'-').replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g,m=>'^'+[...m].map(c=>'⁰¹²³⁴⁵⁶⁷⁸⁹'.indexOf(c)).join('')).replace(/[·×]/g,'*').replace(/:/g,'/').replace(/,/g,'.').replace(/²/g,'^2').replace(/³/g,'^3').replace(/⁴/g,'^4').replace(/⁵/g,'^5').replace(/⁶/g,'^6').replace(/∛/g,'cbrt').replace(/√/g,'sqrt').replace(/π/g,'pi').replace(/\s+/g,'');
 if(!s)return NaN;if(s.startsWith('(')&&s.endsWith(')')&&s.includes(';'))return NaN;
 s=s.replace(/sqrt(\d+(\.\d+)?)/g,'sqrt($1)').replace(/cbrt(\d+(\.\d+)?)/g,'cbrt($1)');
-s=s.replace(/(\d|\))(?=[a-z(])/gi,'$1*').replace(/\b(pi|i|e)(?=[0-9a-z(])/gi,'$1*');
-const kw=/\b(sqrt|cbrt|sin|cos|tan|log|ln|pi)\b/g,re=v?new RegExp('\\b'+v+'\\b','g'):null;
+if(v&&v.length>1)s=s.split(/(sqrt|cbrt|sin|cos|tan|log|ln|exp|pi)/).map((p,k)=>k%2?p:p.replace(new RegExp('(['+v+'])(?=['+v+'(])','g'),'$1*')).join('');
+s=s.replace(/(^|\()-/g,(m,a)=>a+'0-');s=s.replace(/(\d|\))(?=[a-z(])/gi,'$1*').replace(/\b(pi|i|e)(?!xp\b)(?=[0-9a-z(])/gi,'$1*');
+const kw=/\b(sqrt|cbrt|sin|cos|tan|log|ln|pi|exp|e)\b/g,re=v?new RegExp(v.length>1?'\\b['+v+']\\b':'\\b'+v+'\\b','g'):null;
 let chk=s.replace(kw,'');if(re)chk=chk.replace(re,'');if(v==='x')chk=chk.replace(/\by\b/g,'');
 if(!/^[0-9+\-*/().^]*$/.test(chk))return NaN;
-s=s.replace(/\bsqrt\b/g,'Math.sqrt').replace(/\bcbrt\b/g,'Math.cbrt').replace(/\bsin\b/g,'Math.sin').replace(/\bcos\b/g,'Math.cos').replace(/\btan\b/g,'Math.tan').replace(/\blog\b/g,'Math.log10').replace(/\bln\b/g,'Math.log').replace(/\bpi\b/g,'Math.PI').replace(/\^/g,'**');
-if(re)s=s.replace(re,'('+x+')');if(v==='x')s=s.replace(/\by\b/g,'(3)');
+s=s.replace(/\bsqrt\b/g,'Math.sqrt').replace(/\bcbrt\b/g,'Math.cbrt').replace(/\bsin\b/g,'Math.sin').replace(/\bcos\b/g,'Math.cos').replace(/\btan\b/g,'Math.tan').replace(/\blog\b/g,'Math.log10').replace(/\bln\b/g,'Math.log').replace(/\bpi\b/g,'Math.PI').replace(/\bexp\b/g,'Math.exp').replace(/\be\b/g,'Math.E').replace(/\^/g,'**');
+if(re)s=v.length>1?s.replace(re,L=>{const k=v.indexOf(L);return'('+(x*(1+.37*k)+.11*k)+')'}):s.replace(re,'('+x+')');if(v==='x')s=s.replace(/\by\b/g,'(3)');
 return Function('"use strict";return ('+s+')')()}catch(e){return NaN}}
 
 const tnorm=v=>String(v).toLowerCase().replace(/\s+/g,'').replace(/−/g,'-').replace(/ℝ/g,'r').replace(/∞|infinity|infty|unendlich/g,'inf').replace(/≥/g,'>=').replace(/∈/g,'in').replace(/,/g,';').replace(/^(df|wf|d|w)=/,'');
-function mchk(f,val){if(f.mc)return String(val).trim().toUpperCase()===f.a;if(f.alt)return f.alt.includes(tnorm(val));
+function mchk(f,val){if(f.gr)return mgrChk(f,val);if(f.mc)return String(val).trim().toUpperCase()===f.a;if(f.alt)return f.alt.includes(tnorm(val));
 const vs=String(val).trim().replace(/−/g,'-').replace(/,/g,'.');
 if(f.a.startsWith('(')&&f.a.includes(';')){const p=s=>s.replace(/^\(|\)$/g,'').split(';').map(z=>mval(z));const u=p(vs),a=p(f.a);return u.length===a.length&&u.every((z,i)=>isFinite(z)&&Math.abs(z-a[i])<=1e-3)}
 if(f.v)return[2,3,5,7].every(p=>{const u=mval(vs,f.v,p),a=mval(f.a,f.v,p);if(!isFinite(a))return true;return isFinite(u)&&Math.abs(u-a)<1e-6*Math.max(1,Math.abs(a))});
@@ -1665,30 +1883,82 @@ const u=mval(vs),a=mval(f.a);return isFinite(u)&&Math.abs(u-a)<=1e-3*Math.max(1,
 
 const calcTxt=t=>t.calc===true?'🧮 Calculator allowed':t.calc===false?'🧮 No calculator':'🧮 Calculator: not stated';
 let MT=null;
-const SUBS={'₀':'0','₁':'1','₂':'2','₃':'3','₄':'4','₅':'5','₆':'6','₇':'7','₈':'8','₉':'9','₋':'-'},SUPS={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁻':'-'};
+const SUBS={'₀':'0','₁':'1','₂':'2','₃':'3','₄':'4','₅':'5','₆':'6','₇':'7','₈':'8','₉':'9','₋':'-','ₙ':'n','ₛ':'s','ₓ':'x'},SUPS={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁻':'-'};
 // integrals: write ∫_{lower}^{upper} or ∫₀¹; limits are queued and drawn above/below the sign
 function intNorm(src,IL){src=src.replace(/∫([₀-₉₋]+)([⁰¹²³⁴-⁹⁻]+)/g,(_,a,b)=>'∫_{'+[...a].map(c=>SUBS[c]).join('')+'}^{'+[...b].map(c=>SUPS[c]).join('')+'}');
 return src.replace(/∫(?:_\{([^}]*)\})?(?:\^\{([^}]*)\})?/g,(_,lo,hi)=>{IL.push([lo,hi]);return'∫'})}
 function intHtml(lo,hi){return lo==null&&hi==null?'<span class="int n0"><span class="is">∫</span></span>':'<span class="int"><span class="ih">'+mfx(hi||'')+'</span><span class="is">∫</span><span class="il">'+mfx(lo||'')+'</span></span>'}
-function mfx(src){const s0=String(src).trim();
-if(/^\([^;()]+;[^;()]+;[^;()]+\)$/.test(s0)){const pts=s0.slice(1,-1).split(';');return'<span class="mvec"><b>(</b><span>'+pts.map(p=>'<span>'+mfx(p)+'</span>').join('')+'</span><b>)</b></span>'}
-const t=[];const re=/\s*(\d+(?:[.,]\d+)?|[A-Za-zα-ωÄÖÜäöü]+|[^\s])/g;let m;const IL=[];src=intNorm(String(src),IL).replace(/sqrt/g,'√').replace(/cbrt/g,'∛').replace(/\bpi\b/g,'π');while((m=re.exec(src)))t.push(m[1]);
-let i=0;const isOp=x=>x!=null&&/^[+\-−=·:*×÷<>≤≥≠±]$/.test(x),plain=x=>/^[A-Za-zα-ω]$/.test(x)?'<i>'+x+'</i>':x==='dx'?'<i style="margin-left:.2em">dx</i>':esc(x);
-function seq(close){let o='';while(i<t.length&&!(close&&t[i]===')')){const b=i;
- if(isOp(t[i])){const c=t[i++];o+='<span class="mo">'+(c==='-'?'−':c==='*'?'·':esc(c))+'</span>';continue}
- if(t[i]===')'){o+=')';i++;continue}
- o+=frac();if(i===b){o+=plain(t[i]);i++}}return o}
+const MXF=/^(?:sin|cos|tan|cot|log|ln|lg|exp)$/,MXU=/^(?:cm|mm|dm|km|kg|Euro|Cent)$/;
+const MXRAD='<svg class="rs" viewBox="0 0 10 20" preserveAspectRatio="none"><path d="M.6 12.2L2.7 10.6L5.3 18.8L9.8 .7"/></svg>';
+const MXPL='<svg viewBox="0 0 10 20" preserveAspectRatio="none"><path d="M8.5 .5C1.5 5 1.5 15 8.5 19.5"/></svg>',MXPR='<svg viewBox="0 0 10 20" preserveAspectRatio="none"><path d="M1.5 .5C8.5 5 8.5 15 1.5 19.5"/></svg>';
+function rad(sym,r){return'<span class="sq">'+(sym==='∛'?'<span class="ix">3</span>':'')+MXRAD+'<span class="rd">'+r+'</span></span>'}
+function normSS(s){return s.replace(/[⁰¹²³⁴-⁹⁻]+/g,m=>'^('+[...m].map(c=>SUPS[c]).join('')+')').replace(/[₀-₉ₙₛₓ₋]+/g,m=>'_('+[...m].map(c=>SUBS[c]).join('')+')')}
+function mfx(src,o){o=o||{};const IL=[];let s=normSS(intNorm(String(src),IL)).replace(/sqrt/g,'√').replace(/cbrt/g,'∛').replace(/\bpi\b/g,'π').trim();
+const t=[],sp=[],re=/(\s*)(`[^`]*`|\d+(?:[.,]\d+)?|[A-Za-zα-ωÄÖÜäöüß]+['′″]*|[^\s])/g;let m;while((m=re.exec(s))){sp.push(!!m[1]);t.push(m[2])}
+let i=0;const isOp=x=>x!=null&&(/^[+\-−=·:*×÷<>≤≥≠≈±]$/.test(x)||(x==='|'&&sp[i]&&sp[i+1])),
+isW=x=>/^[A-Za-zÄÖÜäöüß]{2,}$/.test(x)&&!MXF.test(x)&&!MXU.test(x)&&!/^d[xy]$/.test(x),isU=x=>MXU.test(x)||x[0]==='`',
+plain=x=>{const b=x.replace(/['′″]+$/,''),pr=x.slice(b.length).replace(/'/g,'′');if(/^[A-Za-zα-ω]$/.test(b))return'<i>'+b+'</i>'+(pr?'<span class="pm">'+pr+'</span>':'');if(/^d[xy]$/.test(b))return'<i style="margin-left:.2em">'+b+'</i>';if(MXF.test(b))return'<span class="fn">'+b+'</span>';return esc(x)},
+grp=h=>/class="(?:fr|sq|vc|int)"/.test(h)?'<span class="pr">'+MXPL+h+MXPR+'</span>':'('+h+')',
+vec=(ps,row)=>row?'('+ps.join('; ')+')':'<span class="pr v">'+MXPL+'<span class="vc">'+ps.map(p=>'<span>'+p+'</span>').join('')+'</span>'+MXPR+'</span>';
+function seq(close){let o='',pv=0;while(i<t.length&&!(close&&(t[i]===')'||t[i]===';'))){const b=i;
+ if(isOp(t[i])){const c=t[i++],g=c==='-'?'−':c==='*'?'·':c;o+=(!pv&&/^[-−+±]$/.test(c))?'<span class="mu">'+g+'</span>':'<span class="mo">'+esc(g)+'</span>';pv=0;continue}
+ if(t[i]===')'||t[i]===';'){o+=t[i]===';'?'; ':')';i++;pv=1;continue}
+ o+=frac();if(i===b){const c=t[i++];o+=c===','?', ':plain(c);pv=c===','?0:1}else pv=1}return o}
 function atom(){let a;
- if(t[i]==='('){i++;const inner=seq(1);i++;a={h:'('+inner+')',inner}}
+ if(t[i]==='('){let d=0,k=i,semi=0;for(;k<t.length;k++){if(t[k]==='(')d++;else if(t[k]===')'){if(!--d)break}else if(t[k]===';'&&d===1)semi=1}
+  if(semi){i++;const ps=[];while(i<t.length&&t[i]!==')'){ps.push(seq(1));if(t[i]===';')i++}i++;a={h:vec(ps,o.row)}}
+  else{i++;const inner=seq(1);i++;a={h:grp(inner),inner}}}
  else if(t[i]==='∫'){const L=IL.shift()||[];i++;a={h:intHtml(L[0],L[1])}}
- else if(t[i]==='√'||t[i]==='∛'){const sym=t[i++];let r;if(t[i]==='('){i++;r=seq(1);i++}else r=atom().h;a={h:'<span class="sq"><span class="sg">'+sym+'</span><span class="rd">'+r+'</span></span>'}}
+ else if(t[i]==='√'||t[i]==='∛'){const sym=t[i++];let r;if(t[i]==='('){i++;r=seq(1);i++}else r=atom().h;a={h:rad(sym,r)}}
+ else if(t[i][0]==='`'){a={h:'<span class="un">'+esc(t[i].slice(1,-1))+'</span>'};i++}
  else{a={h:plain(t[i])};i++}
  while(t[i]==='^'||t[i]==='_'){const up=t[i]==='^';i++;let sign='';if(t[i]==='-'||t[i]==='−'){sign='−';i++}const e=atom(),g=sign+(e.inner!=null?e.inner:e.h);a={h:a.h+(up?'<sup>':'<sub>')+g+(up?'</sup>':'</sub>')}}
  return a}
-function factor(){const hs=[];while(i<t.length&&!isOp(t[i])&&t[i]!==')'&&t[i]!=='/')hs.push(atom());
- return{h:hs.map(x=>x.h).join(''),inner:hs.length===1?hs[0].inner:null}}
-function frac(){let n=factor();while(t[i]==='/'){i++;const d=factor();n={h:'<span class="fr"><span class="nu">'+(n.inner!=null?n.inner:n.h)+'</span><span class="de">'+(d.inner!=null?d.inner:d.h)+'</span></span>',inner:null}}return n.h}
+function factor(neg){let sg='';if(neg&&/^[-−]$/.test(t[i])){sg='−';i++}const hs=[];
+ while(i<t.length&&!isOp(t[i])&&t[i]!==')'&&t[i]!==';'&&t[i]!=='/'&&t[i]!==','){const j=i,a=atom();a.w=t[j];a.s=sp[j];hs.push(a)}
+ let h=sg;hs.forEach((a,k)=>{if(k){const p=hs[k-1];if(a.s&&(isW(a.w)||isW(p.w)))h+=' ';else if(isU(a.w)||(MXF.test(a.w))||(MXF.test(p.w)&&a.w!=='('))h+='\u2009'}h+=a.h});
+ return{h,inner:!sg&&hs.length===1?hs[0].inner:null}}
+function frac(){let n=factor();while(t[i]==='/'){i++;const d=factor(1);n={h:'<span class="fr"><span class="nu">'+(n.inner!=null?n.inner:n.h)+'</span><span class="de">'+(d.inner!=null?d.inner:d.h)+'</span></span>',inner:null}}return n.h}
 return seq(0)}
+/* ---- mixed prose + math: finds formulas inside German sentences and typesets them ---- */
+const mxi=s=>'<span class="mi">'+mfx(s,{row:1})+'</span>';
+function mxt(txt){return String(txt==null?'':txt).split(/⟦([^⟧]*)⟧/).map((p,k)=>k%2?mxi(p):mAuto(p)).join('')}
+function mAuto(s){const T=[],re=/\s+|\d+(?:[.,]\d+)?|[A-Za-zÄÖÜäöüßα-ω]+['′″]*[₀-₉ₙₛₓ⁰¹²³⁴-⁹⁻]*|[⁰¹²³⁴-⁹⁻₀-₉ₙₛₓ]+|[\s\S]/g;let m;while((m=re.exec(s)))T.push(m[0]);
+const n=T.length,ty=T.map(x=>/^\s/.test(x)?'w':/^\d/.test(x)?'n':/^[A-Za-zÄÖÜäöüßα-ω]/.test(x)?'?':'c'),SUPR=/[⁰¹²³⁴-⁹⁻]/,SSR=/[⁰¹²³⁴-⁹⁻₀-₉ₙₛₓ]/;
+const pn=k=>{let j=k-1;while(j>=0&&ty[j]==='w')j--;return j},nn=k=>{let j=k+1;while(j<n&&ty[j]==='w')j++;return j},base=x=>x.replace(/['′″]*[₀-₉ₙₛₓ⁰¹²³⁴-⁹⁻]*$/,'');
+for(let k=0;k<n;k++)if(ty[k]==='?'){const b=base(T[k]),pt=ty[pn(k)];
+ if(MXF.test(b))ty[k]='f';else if(/^[gmls]$/.test(b)&&(pt==='n'||pt==='u'))ty[k]='u';else if(MXU.test(b))ty[k]='u';
+ else if(/^[A-Za-zα-ω]$/.test(b)||/^[A-Z]{2,4}$/.test(b)||/^d[xy]$/.test(b))ty[k]=(T[k].length===1&&T[nn(k)]===')'&&(k===0||ty[k-1]==='w'))?'p':'v';else ty[k]='p'}
+const grpEnd=k=>{let d=0;for(let j=k;j<n;j++){if(T[j]==='(')d++;else if(T[j]===')'&&!--d)return j}return -1};
+const mathy=(a,b)=>{for(let j=a;j<=b;j++)if(ty[j]==='p'||ty[j]==='?')return false;return true};
+const OPS=/^[+−·×÷:\/^±=<>≤≥≈≠]$/,REL=/^[=<>≤≥≈≠]$/;
+function runEnd(s0){const x0=T[s0],t0=ty[s0];
+ const st=t0==='n'||t0==='v'||t0==='f'||/^[√∛π∫]$/.test(x0)||x0==='('||REL.test(x0)||(t0==='u'&&(SUPR.test(x0)||(ty[nn(s0)]==='u'&&SUPR.test(T[nn(s0)]||''))));if(!st)return -1;
+ let k=s0,last=-1,pv=-1,pt='',hadOp=0,semi=0,nat=0;
+ while(k<n){const x=T[k],t1=ty[k];if(t1==='w'){k++;continue}const gap=pv>=0&&k>pv+1;let ok=0,kind='',e=k;
+  if(x==='('){const g=grpEnd(k);if(g>0&&mathy(k+1,g-1)){ok=1;kind='a';e=g;for(let j=k;j<=g;j++)if(T[j]===';')semi=1}}
+  else if(t1==='n'||t1==='v'||t1==='f'||/^[√∛π∫]$/.test(x)){ok=1;kind='a'}
+  else if(t1==='u'){ok=1;kind='a'}
+  else if(x==='°'||x==='%'){ok=(pt==='n'||pt==='u');kind='a'}
+  else if(SSR.test(x)){ok=1;kind='a'}
+  else if(x===','){const q=nn(k),r=T[q]==='−'||T[q]==='-'?nn(q):q;ok=(pt==='n'&&q<n&&(ty[q]==='n'||((T[q]==='−'||T[q]==='-')&&ty[r]==='n')));kind='c'}
+  else if(x===':'){ok=gap&&ty[k+1]==='w';kind='o'}
+  else if(x==='-'){ok=ty[k-1]==='w'&&(ty[k+1]==='w'||ty[k+1]==='n'||ty[k+1]==='v');kind='o'}
+  else if(x==='|'){ok=ty[k-1]==='w'&&ty[k+1]==='w';kind='o'}
+  else if(OPS.test(x)){ok=1;kind='o'}
+  if(ok&&kind==='a'&&pv>=0&&pt==='a'&&gap){ok=((t1==='u'||x==='°'||x==='%')&&(ty[pv]==='n'||ty[pv]==='u'))||(t1==='f'&&ty[pv]==='n')||(SSR.test(x))}
+  if(!ok)break;
+  if(kind==='o'||kind==='c')hadOp=1;if(t1==='f'||/^[√∛π∫]$/.test(x)||SSR.test(x)||/['′″]/.test(x))nat=1;
+  pt=kind==='o'?'o':kind==='c'?'c':'a';if(kind==='a'){const ptt=t1==='n'?'n':t1==='u'?'u':'a';pt='a';ty[k]=t1}
+  pv=e;if(kind==='a'||REL.test(x))last=e;k=e+1}
+ if(last<0)return -1;const r=T.slice(s0,last+1).join('');
+ const single=/^(?:[A-Za-zα-ω]['′″]*|[A-Z]{2,4}|d[xy])$/.test(r.trim());
+ const trig=hadOp||semi||nat||single||/[A-Za-zα-ω]['′″]*\(/.test(r)||SSR.test(r);return trig?last:-1}
+let out='',pr='',k=0;const flush=()=>{if(pr){out+=mw(pr);pr=''}};
+while(k<n){const e=runEnd(k);if(e>=k&&ty[k]!=='w'){flush();out+=mxi(T.slice(k,e+1).map((x,j)=>ty[k+j]==='u'?'`'+base(x)+'`'+x.slice(base(x).length):x).join('').replace(/\s+$/,''));k=e+1}else{pr+=T[k];k++}}
+flush();return out}
+function mqHtml(q){let tag='';q=String(q||'').replace(/^Aufgabe (\d+-[A-Z]):\s*/,(_,x)=>{tag='<span class="mtag">'+x+'</span> ';return''});return tag+mxt(q)}
+function meqHtml(l){const m=/^([a-h]\)|\((?:I{1,3}|\d+)\))\s+/.exec(l);return(m?'<span class="mlb">'+esc(m[1])+'</span>':'')+mfx(m?l.slice(m[0].length):l)}
 
 // ===== MATH WORD HELP (hover / tap a dotted word for its meaning in maths) =====
 const GLD=[
@@ -1872,6 +2142,31 @@ const GLD=[
 ['wie','how / as','"So groß wie" = as large as.'],
 ['sowie','as well as','And also.'],
 ['cm','cm','Centimetre. Area in cm², volume in cm³.'],
+['definitionsbereich,df','domain','All x-values you may put into the function. Written Df.'],
+['wertebereich,wf','range','All y-values the function actually takes. Written Wf.'],
+['schnittstelle,schnittstellen','intersection points','Where the graph meets an axis or another graph: zeros on the x-axis, y-intercept on the y-axis.'],
+['koordinatenachse,koordinatenachsen','coordinate axes','The x-axis and the y-axis.'],
+['voraussetzung,voraussetzungen','condition / assumption','A restriction on the variable so nothing breaks, e.g. no denominator may be 0 (x ≠ 2).'],
+['zeichnung,zeichnungen','drawing','The figure that belongs to the task.'],
+['entfällt,entfallen','is omitted','Not shown here.'],
+['hier','here','In this version of the task.'],
+['nach','after / according to','"Der Größe nach" = in order of size.'],
+['bilden,bilde','form / compute','"Bilden Sie y′" = work out the derivative y′.'],
+['log','logarithm','log_b(a) is the exponent you need on b to get a. log₂ 8 = 3.'],
+['ln','natural logarithm','Logarithm to base e. (ln x)′ = 1/x.'],
+['denselben,derselbe,dieselbe,selben','the same','Equal to the one mentioned before.'],
+['welche,welchen,welcher,welches','which / what','Question word: "Welchen Wert hat …?" = what value does … have?'],
+['hat,haben','has / have','To possess; "hat denselben Flächeninhalt" = has the same area.'],
+['gibt','there is / gives','"Es gibt 19 Zimmer" = there are 19 rooms.'],
+['es','it','"Es gilt …" = it holds …'],
+['wird,werden','becomes / is (passive)','"… wird gefaltet" = is folded.'],
+['muss,müssen','must','Has to.'],
+['man','one / you','General "you": "Zieht man ab" = if you subtract.'],
+['um','by / about','"Um welche Zahl handelt es sich?" = which number is it?'],
+['sich','themselves','Reflexive: "verhalten sich" = are in the ratio.'],
+['dass','that','"so, dass …" = such that …'],
+['ihre,ihr,ihrer','their / her','"ihre Summe" = their sum.'],
+['vom,beim','from the / at the','Contractions of von dem, bei dem.'],
 ['kg','kg','Kilogram.']
 ];
 const GL={};GLD.forEach(([ks,en,m])=>ks.split(',').forEach(k=>GL[k]=[en,m]));
@@ -1889,9 +2184,9 @@ document.addEventListener('scroll',gHide,true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')gHide()});
 // ===== END MATH WORD HELP =====
 const mHist=()=>(D.mth=D.mth||{})[D.me]||(D.mth[D.me]=[]);
-R.math=function(){app.innerHTML=`<h1>∑ Mathe</h1><div class="card" style="padding:8px">${MATH.map(t=>{const A=mHist().filter(a=>a.tid===t.id),b=A.reduce((m,a)=>Math.max(m,a.ok/a.total),0),n=t.tasks.reduce((s,k)=>s+k.f.length,0);
+R.math=function(){app.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h1>∑ Mathe</h1><button onclick="go('mtrack')">Targeted practice</button></div><div class="card" style="padding:8px">${MATH.map(t=>{const A=mHist().filter(a=>a.tid===t.id),b=A.reduce((m,a)=>Math.max(m,a.ok/a.total),0),n=t.tasks.reduce((s,k)=>s+k.f.length,0);
 return`<div class="row" onclick="openMath('${t.id}')"><div><div class="rt">${esc(t.title)}</div><div class="mut">${esc(t.source)}</div></div><div class="rr"><span class="chip" style="--c:var(--${t.mins?'amb':'mut'})">${t.mins?t.mins+' min limit':'no time limit'}</span><span class="chip" style="--c:var(--${t.calc===true?'ok':t.calc===false?'bad':'mut'})">${calcTxt(t)}</span><span class="mut">${n} answers</span><b>${A.length?'best '+Math.round(b*100)+'%':'–'}</b></div></div>`}).join('')}</div>`};
-function openMath(id){navPush('mtest:'+id);if(MT&&MT.timer)clearInterval(MT.timer);view='mtest';MT={t:MATH.find(x=>x.id===id),started:false,done:false};R.mtest();window.scrollTo(0,0)}
+function openMath(id,jump){if(id==='prac'&&!MPR.last)return go('mtrack');navPush('mtest:'+id);if(MT&&MT.timer)clearInterval(MT.timer);view='mtest';MT={t:id==='prac'?MPR.last:MALL().find(x=>x.id===id),started:false,done:false,jump:jump==null?null:jump};R.mtest();window.scrollTo(0,0)}
 const mRow=p=>({a:[],p:p||null}),mCh=c=>({t:'c',c,p:null}),mIdx=n=>n.p.a.indexOf(n);
 function mNode(t,n){const x={t,rows:[],p:null};for(let k=0;k<n;k++)x.rows.push(mRow(x));return x}
 function mfIns(M,n){const c=M.cur;n.p=c.r;c.r.a.splice(c.i,0,n)}
@@ -1926,10 +2221,10 @@ else{if(lc||/[0-9A-Za-zα-ω)]$/.test(o))o+='*';o+=n.t==='sqrt'?'√('+mfStr(n.r
 function mfHtml(M){const cur=M.cur,C='<span class="cur"></span>';
 const ch=c=>/^[A-Za-zα-ω]$/.test(c)?'<i>'+c+'</i>':esc(c==='-'?'−':c==='*'?'·':c);
 const row=r=>{let h='';r.a.forEach((n,i)=>{if(cur.r===r&&cur.i===i)h+=C;h+=node(n)});if(cur.r===r&&cur.i===r.a.length)h+=C;if(!r.a.length&&r.p)h='<span class="mph">'+h+'</span>';return h};
-const node=n=>n.t==='c'?ch(n.c):n.t==='pow'?'<sup>'+row(n.rows[0])+'</sup>':n.t==='sqrt'?'<span class="sq"><span class="sg">√</span><span class="rd">'+row(n.rows[0])+'</span></span>':'<span class="fr"><span class="nu">'+row(n.rows[0])+'</span><span class="de">'+row(n.rows[1])+'</span></span>';
+const node=n=>n.t==='c'?ch(n.c):n.t==='pow'?'<sup>'+row(n.rows[0])+'</sup>':n.t==='sqrt'?rad('√',row(n.rows[0])):'<span class="fr"><span class="nu">'+row(n.rows[0])+'</span><span class="de">'+row(n.rows[1])+'</span></span>';
 return row(M.root)}
-function mfNext(el){const all=[...document.querySelectorAll('.mfld')],n=all[all.indexOf(el)+1];if(n){mPage(+n.dataset.t,1);n.focus()}}
-function mfInit(el){if(el.dataset.mc){let v='',dis=true;Object.defineProperty(el,'value',{get:()=>v});Object.defineProperty(el,'disabled',{get:()=>dis,set:x=>{dis=!!x;el.querySelectorAll('button').forEach(b=>b.disabled=dis)}});el.focus=()=>{};el.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(dis)return;v=b.dataset.v;el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));el.dispatchEvent(new Event('input',{bubbles:true}))});return}
+function mfNext(el){const all=[...document.querySelectorAll('.mfld')],n=all[all.indexOf(el)+1];if(n){mPage(+n.dataset.t,1);mPtFor(n);n.focus()}}
+function mfInit(el){if(el.dataset.gr){mgrInit(el);return}if(el.dataset.mc){let v='',dis=true;Object.defineProperty(el,'value',{get:()=>v});Object.defineProperty(el,'disabled',{get:()=>dis,set:x=>{dis=!!x;el.querySelectorAll('button').forEach(b=>b.disabled=dis)}});el.focus=()=>{};el.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(dis)return;v=b.dataset.v;el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));el.dispatchEvent(new Event('input',{bubbles:true}))});return}
 const M={root:mRow(),cur:null};M.cur={r:M.root,i:0};let dis=true;
 el.innerHTML='<span class="mfv"></span><input class="mhid" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="answer" disabled>';
 const hid=el.querySelector('.mhid'),v=el.querySelector('.mfv'),draw=()=>{v.innerHTML=mfHtml(M)},changed=()=>{draw();el.dispatchEvent(new Event('input',{bubbles:true}))};
@@ -1944,37 +2239,108 @@ hid.addEventListener('keydown',e=>{if(e.isComposing||e.keyCode===229||e.ctrlKey|
 if(k==='Enter'){e.preventDefault();mfNext(el)}else if(k===' '){e.preventDefault();mfFeed(M,' ');changed()}
 else if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Backspace','Home','End'].includes(k)){e.preventDefault();mfKey(M,k);changed()}});
 el.classList.add('dis');draw()}
-R.mtest=function(){const t=MT.t,N=t.tasks.length;
+/* ===== MATH PARTS: split a task with lettered parts a) b) c) ... into pages ===== */
+const MPLB=/^([a-h])\)\s/;
+function mPartsCalc(k){
+ const q=k.q||'',S=k.s||[],F=k.f||[];
+ let intro=q,qt={},qSplit=false;
+ const mk=[];let want='a',m;const re=/(^|[\s:(])([a-h])\)\s+/g;
+ while((m=re.exec(q))){if(m[2]===want){mk.push({key:m[2],cut:m.index+(m[1]===':'?1:0),end:re.lastIndex});want=String.fromCharCode(want.charCodeAt(0)+1)}}
+ if(mk.length>=2){qSplit=true;intro=q.slice(0,mk[0].cut).trim();
+  mk.forEach((x,n)=>{let tx=q.slice(x.end,n+1<mk.length?mk[n+1].cut:q.length).trim();tx=tx.replace(/\s*[,;]?\s*\b(und|sowie|oder)\s*$/i,'').replace(/[,;]\s*$/,'').trim();qt[x.key]=tx})}
+ const fk=F.map(f=>f.p||((/^([a-h])\)/.exec(f.l||''))||[])[1]||null),sk=S.map(l=>{const x=MPLB.exec(l);return x?x[1]:null});
+ const keys=[...new Set(fk.concat(sk).filter(Boolean))].sort();
+ if(keys.length<2)return null;
+ let last=null;const fkey=fk.map(x=>{if(x)last=x;return x||last}).map(x=>x||keys[0]);
+ let seen=false,l2=null;const skey=sk.map(x=>{if(x){seen=true;l2=x;return x}return seen?l2:null});
+ const parts=keys.map(key=>({key,q:qt[key]||null,si:skey.map((x,i)=>x===key?i:-1).filter(i=>i>=0),fi:fkey.map((x,i)=>x===key?i:-1).filter(i=>i>=0)})).filter(p=>p.si.length||p.fi.length);
+ if(parts.length<2)return null;
+ if(qSplit){const have=new Set(parts.map(p=>p.key));Object.keys(qt).forEach(key=>{if(!have.has(key))intro+=' '+key+') '+qt[key]})}
+ return{intro,shared:skey.map((x,i)=>x===null?i:-1).filter(i=>i>=0),parts}}
+function mParts(k){if(k._pt!==undefined)return k._pt;let r=null;try{r=mPartsCalc(k)}catch(e){r=null}Object.defineProperty(k,'_pt',{value:r,enumerable:false,writable:true});return r}
+
+function mPartsHtml(k,i,P){return `<div class="mpn" data-t="${i}">${P.parts.map((p,n)=>`<button type="button" data-n="${n}" class="${n?'':'on'}" onclick="mPart(${i},${n},1)" aria-label="Teil ${p.key}">${p.key})</button>`).join('')}</div>
+<div class="mpw"><button type="button" class="mpa l" disabled onclick="mPtGo(${i},-1)" aria-label="Previous part">‹</button><button type="button" class="mpa r" onclick="mPtGo(${i},1)" aria-label="Next part">›</button>
+${P.parts.map((p,n)=>`<div class="mpt" data-n="${n}" style="${n?'display:none':''}">${p.q?`<p class="mq mqp"><span class="mlb">${p.key})</span>${mw(p.q)}</p>`:''}${p.si.map(x=>`<div class="meq">${meqHtml(k.s[x])}</div>`).join('')}
+<div class="man"><div class="lab" style="padding:0 0 4px">Your answer</div>${p.fi.map(j=>mFh(k.f[j],i,j)).join('')}</div></div>`).join('')}</div>`}
+function mPart(i,x,focus){const pg=document.querySelector(`.mp[data-p="${i}"]`);if(!pg||!MT)return;const bl=[...pg.querySelectorAll('.mpt')];if(!bl.length)return;x=Math.max(0,Math.min(bl.length-1,x|0));MT.pt=MT.pt||{};MT.pt[i]=x;bl.forEach((b,n)=>b.style.display=n===x?'':'none');const l=pg.querySelector('.mpa.l'),r=pg.querySelector('.mpa.r');if(l)l.disabled=x===0;if(r)r.disabled=x===bl.length-1;mPtAll();if(focus){const f=[...bl[x].querySelectorAll('.mfld')].find(e=>!e.disabled);if(f)f.focus()}}
+function mPtGo(i,d){mPart(i,(((MT&&MT.pt)||{})[i]||0)+d,1)}
+function mPtFor(el){const b=el&&el.closest&&el.closest('.mpt');if(!b)return;const pg=b.closest('.mp');mPart(+pg.dataset.p,[...pg.querySelectorAll('.mpt')].indexOf(b),0)}
+function mPtAll(){if(!MT)return;const pages=[...document.querySelectorAll('.mp')].filter(pg=>pg.querySelector('.mpt'));
+pages.forEach(pg=>{const bl=[...pg.querySelectorAll('.mpt')],cur=((MT.pt)||{})[+pg.dataset.p]||0;[...pg.querySelectorAll('.mpn button')].forEach((b,n)=>{const has=[...bl[n].querySelectorAll('.mfld')].some(e=>String(e.value||'').trim()),bad=[...bl[n].querySelectorAll('.mr')].some(e=>e.innerHTML.trim());b.className=(n===cur?'on ':'')+(MT.done?(bad?'bd':'ok'):(has?'dn':''))})});
+if(MT.done&&!MT.ptDone){MT.ptDone=1;pages.forEach(pg=>{const n=[...pg.querySelectorAll('.mpt')].findIndex(b=>[...b.querySelectorAll('.mr')].some(e=>e.innerHTML.trim()));if(n>=0)mPart(+pg.dataset.p,n,0)})}}
+function mFh(f,i,j){return f.gr?`<div class="mf mfg"><div class="mgl"><span class="ml">${mxt(f.l)}</span></div><div class="mfld" data-gr="1" data-t="${i}" data-f="${j}"></div><div class="mr" data-r="${i}-${j}"></div></div>`:f.mc?`<div class="mf"><div class="mch mfld" data-mc="1" data-t="${i}" data-f="${j}">${f.mc.map(([id,lbl])=>`<button type="button" disabled data-v="${id}"><span class="mcid">(${id})</span><span>${mfx(lbl)}</span></button>`).join('')}</div><div class="mr" data-r="${i}-${j}"></div></div>`:`<div class="mf"><label><span class="ml">${f.l.includes('∫')?mfx(f.l):mxt(f.l)}</span><div class="mfld" data-t="${i}" data-f="${j}"></div></label>${f.cond?`<button type="button" class="g mpl" disabled data-t="${i}" data-f="${j}" onclick="mAddF(this)" aria-label="Add another condition" style="min-width:46px;min-height:46px;font-size:22px;padding:0 14px">+</button>`:''}<div class="mr" data-r="${i}-${j}"></div></div>`}
+function mTaskHtml(t,k,i,N,FL){const P=mParts(k);return `<div class="mp" data-p="${i}" style="display:${i?'none':'block'}">
+<div class="mh"><span class="mn">Aufgabe ${i+1} <small>/ ${N}</small></span><span class="mpb"><i style="width:${(i+1)/N*100}%"></i></span></div>
+<div class="mtc">${mTopChips(mTopicsOf(k).ids)} ${mLvChip(k)} ${mRuleHint(k)} ${mFlagChip(FL[i])}${k._src?` <span class="mut" style="font-size:12px">from ${esc(mSrcLabel(k._src))}</span>`:''}</div>
+<p class="mq">${mw(P?P.intro:(k.q||''))}</p>
+${k.opts?`<div class="mopts">${k.opts.map(([n,e])=>`<span class="mopt"><span class="mcid">(${n})</span>${mfx(e)}</span>`).join('')}</div>`:''}${(P?P.shared.map(x=>k.s[x]):(k.s||[])).map(l=>`<div class="meq">${meqHtml(l)}</div>`).join('')}
+${k.fig?`<div class="mfig">${k.fig}</div>`:''}
+${mHintBtn(k,k._src||t.id+'#'+i,i)}
+${P?mPartsHtml(k,i,P):`<div class="man"><div class="lab" style="padding:0 0 4px">Your answer</div>
+${k.f.map((f,j)=>mFh(f,i,j)).join('')}</div>`}
+<div class="mnv"><button class="g" ${i?'':'disabled'} onclick="mPage(${i-1})">← Back</button>${i<N-1?`<button class="g" onclick="mPage(${i+1})">Next →</button>`:`<button onclick="mCheck()">Finish &amp; check</button>`}</div>
+</div>`}
+
+/* ===== GRAPH FIELD (gr): tap two grid points, a line is drawn through them ===== */
+let MGRN=0;
+const mgrF=n=>String(n).replace('-','−');
+function mgrPts(v){return String(v||'').split(';').filter(Boolean).map(p=>p.split(',').map(Number)).filter(p=>p.length===2&&p.every(isFinite))}
+function mgrChk(f,val){const P=mgrPts(val);if(P.length<2||(P[0][0]===P[1][0]&&P[0][1]===P[1][1]))return false;return P.slice(0,2).every(p=>Math.abs(mval(f.gr.fn,'x',p[0])-p[1])<1e-9)}
+function mgrInit(el){
+ const cfg=MT.t.tasks[+el.dataset.t].f[+el.dataset.f].gr,[x0,x1]=cfg.x||[-5,5],[y0,y1]=cfg.y||[-5,5],S=cfg.s||34,m=28,W=(x1-x0)*S+2*m,H=(y1-y0)*S+2*m,X=x=>m+(x-x0)*S,Y=y=>m+(y1-y)*S,id='mgc'+(++MGRN),cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+ let pts=[],dis=true,hov=null;
+ el.innerHTML='<svg class="mgs" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Coordinate system: tap two grid points"></svg><div class="mgb"><span class="mgt"></span><button type="button" class="g mgc">Clear</button></div>';
+ const svg=el.querySelector('svg'),cap=el.querySelector('.mgt'),clr=el.querySelector('.mgc');
+ const ln=(a,b,c,d,st)=>'<line x1="'+a+'" y1="'+b+'" x2="'+c+'" y2="'+d+'" style="'+st+'"/>',tx='font:11px system-ui,sans-serif;fill:var(--mut)';
+ const thru=(px,py,qx,qy,st)=>px===qx?ln(X(px),Y(y0),X(px),Y(y1),st):(()=>{const k=(qy-py)/(qx-px);return ln(X(x0),Y(py+k*(x0-px)),X(x1),Y(py+k*(x1-px)),st)})();
+ const draw=()=>{let h='<defs><clipPath id="'+id+'"><rect x="'+m+'" y="'+m+'" width="'+(W-2*m)+'" height="'+(H-2*m)+'"/></clipPath></defs>';
+  for(let x=x0;x<=x1;x++)h+=ln(X(x),m,X(x),H-m,'stroke:var(--line);stroke-width:1');
+  for(let y=y0;y<=y1;y++)h+=ln(m,Y(y),W-m,Y(y),'stroke:var(--line);stroke-width:1');
+  const ax='stroke:var(--ink);stroke-width:1.6',ar='fill:var(--ink)';
+  if(y0<=0&&y1>=0){const y=Y(0);h+=ln(m-8,y,W-m+10,y,ax)+'<polygon points="'+(W-m+15)+','+y+' '+(W-m+5)+','+(y-4.5)+' '+(W-m+5)+','+(y+4.5)+'" style="'+ar+'"/><text x="'+(W-m+6)+'" y="'+(y+20)+'" style="font:italic 14px ui-serif,Georgia,serif;fill:var(--ink)">x</text>';
+   for(let x=x0;x<=x1;x++)if(x)h+='<text x="'+X(x)+'" y="'+(y+15)+'" text-anchor="middle" style="'+tx+'">'+mgrF(x)+'</text>'}
+  if(x0<=0&&x1>=0){const x=X(0);h+=ln(x,H-m+8,x,m-10,ax)+'<polygon points="'+x+','+(m-15)+' '+(x-4.5)+','+(m-5)+' '+(x+4.5)+','+(m-5)+'" style="'+ar+'"/><text x="'+(x+9)+'" y="'+(m-8)+'" style="font:italic 14px ui-serif,Georgia,serif;fill:var(--ink)">y</text>';
+   for(let y=y0;y<=y1;y++)if(y)h+='<text x="'+(x-6)+'" y="'+(Y(y)+4)+'" text-anchor="end" style="'+tx+'">'+mgrF(y)+'</text>'}
+  if(dis&&MT&&MT.done){const a=mval(cfg.fn,'x',x0),b=mval(cfg.fn,'x',x1);h+='<g clip-path="url(#'+id+')">'+ln(X(x0),Y(a),X(x1),Y(b),'stroke:var(--ok);stroke-width:2.4;stroke-dasharray:7 5')+'</g>'}
+  if(pts.length===2&&!(pts[0][0]===pts[1][0]&&pts[0][1]===pts[1][1]))h+='<g clip-path="url(#'+id+')">'+thru(pts[0][0],pts[0][1],pts[1][0],pts[1][1],'stroke:var(--acc);stroke-width:2.6;stroke-linecap:round')+'</g>';
+  if(hov&&!dis)h+='<circle cx="'+X(hov[0])+'" cy="'+Y(hov[1])+'" r="8" style="fill:none;stroke:var(--acc);stroke-opacity:.55;stroke-width:1.5"/>';
+  pts.forEach(p=>{const cx=X(p[0]),cy=Y(p[1]),r=cx>W-m-64;h+='<circle cx="'+cx+'" cy="'+cy+'" r="5.5" style="fill:var(--acc);stroke:var(--card);stroke-width:2"/><text x="'+(cx+(r?-9:9))+'" y="'+(cy-9)+'" text-anchor="'+(r?'end':'start')+'" style="font:600 12px system-ui,sans-serif;fill:var(--acc);paint-order:stroke;stroke:var(--card);stroke-width:4px">('+mgrF(p[0])+'; '+mgrF(p[1])+')</text>'});
+  svg.innerHTML=h;
+  cap.textContent=pts.length?pts.map((p,i)=>'P'+'₁₂'[i]+'('+mgrF(p[0])+'; '+mgrF(p[1])+')').join('   '):(dis&&MT&&MT.done?'No line drawn':'Tap two grid points — the line is drawn through them.')};
+ const at=e=>{const r=svg.getBoundingClientRect();return[cl(Math.round(((e.clientX-r.left)*W/r.width-m)/S)+x0,x0,x1),cl(y1-Math.round(((e.clientY-r.top)*H/r.height-m)/S),y0,y1)]};
+ svg.addEventListener('click',e=>{if(dis)return;const[x,y]=at(e),k=pts.findIndex(p=>p[0]===x&&p[1]===y);
+  if(k>=0)pts.splice(k,1);else if(pts.length<2)pts.push([x,y]);else{const d=pts.map(p=>(p[0]-x)**2+(p[1]-y)**2);pts[d[0]<=d[1]?0:1]=[x,y]}
+  draw();el.dispatchEvent(new Event('input',{bubbles:true}))});
+ svg.addEventListener('pointermove',e=>{if(dis||e.pointerType==='touch')return;const[x,y]=at(e);if(!hov||hov[0]!==x||hov[1]!==y){hov=[x,y];draw()}});
+ svg.addEventListener('pointerleave',()=>{if(hov){hov=null;draw()}});
+ clr.onclick=()=>{if(dis||!pts.length)return;pts=[];draw();el.dispatchEvent(new Event('input',{bubbles:true}))};
+ Object.defineProperty(el,'value',{get:()=>pts.map(p=>p.join(',')).join(';')});
+ Object.defineProperty(el,'disabled',{get:()=>dis,set:x=>{dis=!!x;clr.disabled=dis;if(dis)hov=null;draw()}});
+ el.focus=()=>{};clr.disabled=true;draw()}
+R.mtest=function(){const t=MT.t,N=t.tasks.length,FL=mFlagsFor(t);
 app.innerHTML=`<div class="bar"><div class="clock" id="mc">${t.mins?fmt(t.mins*60):'0:00'}</div><div class="btns"><button id="ms" onclick="mStart()">Start</button><button id="mk" onclick="mCheck()" disabled>Check</button><button class="g" onclick="openMath('${t.id}')">Retry</button></div></div>
 <div class="card"><div class="src">${esc(t.source)}</div><h2>${esc(t.title)}</h2>
-<div style="text-align:right;margin:-4px 0 0"><span class="gtg mut" id="gtg" style="font-size:12px" onclick="gTog()">Word help: ${GON?'on':'off'}</span></div>
+${MT.jump!=null?`<p class="mut" style="margin:0 0 6px">Practice: opens at Aufgabe ${MT.jump+1} once you press Start.</p>`:''}<div style="text-align:right;margin:-4px 0 0"><span class="gtg mut" id="gtg" style="font-size:12px" onclick="gTog()">Word help: ${GON?'on':'off'}</span></div>
 <div id="mo" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:14px 0 4px">${[['🎓','University',t.uni||t.source,'','--acc'],['⏱','Time limit',t.mins?t.mins+' min':'No limit',t.mins?'checks itself at 0:00':'timer just counts up','--amb'],['🧮','Calculator',t.calc===true?'Allowed':t.calc===false?'Not allowed':'Not stated','',t.calc===true?'--ok':t.calc===false?'--bad':'--mut']].map(([ic,l,v,sub,c])=>`<div style="border:1px solid var(${c});border-radius:12px;padding:14px 16px"><div style="font-size:26px;line-height:1">${ic}</div><div class="mut" style="font-size:12px;margin-top:8px;text-transform:uppercase;letter-spacing:.04em">${l}</div><div style="font-weight:600;font-size:16px;line-height:1.3;margin-top:2px;color:var(${c})">${esc(v)}</div>${sub?`<div class="mut" style="font-size:12px;margin-top:2px">${sub}</div>`:''}</div>`).join('')}</div>
 <div class="wrap"><div id="mb" style="display:none">
-${t.tasks.map((k,i)=>`<div class="mp" data-p="${i}" style="display:${i?'none':'block'}">
-<div class="mh"><span class="mn">Aufgabe ${i+1} <small>/ ${N}</small></span><span class="mpb"><i style="width:${(i+1)/N*100}%"></i></span></div>
-<p class="mq">${mw(k.q||'')}</p>
-${(k.s||[]).map(l=>`<div class="meq">${mfx(l)}</div>`).join('')}
-${k.fig?`<div class="mfig">${k.fig}</div>`:''}
-<div class="man"><div class="lab" style="padding:0 0 4px">Your answer</div>
-${k.f.map((f,j)=>f.mc?`<div class="mf"><div class="mch mfld" data-mc="1" data-t="${i}" data-f="${j}">${f.mc.map(([id,lbl])=>`<button type="button" disabled data-v="${id}"><span class="mcid">(${id})</span><span>${mfx(lbl)}</span></button>`).join('')}</div><div class="mr" data-r="${i}-${j}"></div></div>`:`<div class="mf"><label><span class="ml">${f.l.includes('∫')?mfx(f.l):mw(f.l)}</span><div class="mfld" data-t="${i}" data-f="${j}"></div></label>${f.cond?`<button type="button" class="g mpl" disabled data-t="${i}" data-f="${j}" onclick="mAddF(this)" aria-label="Add another condition" style="min-width:46px;min-height:46px;font-size:22px;padding:0 14px">+</button>`:''}<div class="mr" data-r="${i}-${j}"></div></div>`).join('')}</div>
-<div class="mnv"><button class="g" ${i?'':'disabled'} onclick="mPage(${i-1})">← Back</button>${i<N-1?`<button class="g" onclick="mPage(${i+1})">Next →</button>`:`<button onclick="mCheck()">Finish &amp; check</button>`}</div>
-</div>`).join('')}
+${t.tasks.map((k,i)=>mTaskHtml(t,k,i,N,FL)).join('')}
 </div></div><div id="mres"></div></div>
 <div class="mnav" id="mnav" style="display:none">${t.tasks.map((k,i)=>`<button disabled data-s="${i}" onclick="mPage(${i})" aria-label="Aufgabe ${i+1}">${i+1}</button>`).join('')}</div>`;
-document.body.classList.toggle('nogl',!GON);MT.p=0;document.querySelectorAll('.mfld').forEach(mfInit);mSq();document.querySelector('main').style.paddingBottom='96px';
+document.body.classList.toggle('nogl',!GON);MT.p=0;MT.pt={};MT.ptDone=0;document.querySelectorAll('.mfld').forEach(mfInit);mSq();document.querySelector('main').style.paddingBottom='96px';
 $('#mb').addEventListener('input',()=>mSq())};
-function mPage(i,keep){if(!MT)return;MT.p=i;document.querySelectorAll('.mp').forEach(d=>d.style.display=+d.dataset.p===i?'block':'none');mSq();if(!keep){window.scrollTo(0,0);const f=document.querySelector(`.mfld[data-t="${i}"]`);if(f&&!f.disabled)f.focus()}}
-function mSq(bad){if(bad)MT.bad=bad;const b=MT.bad;document.querySelectorAll('#mnav button').forEach(el=>{const i=+el.dataset.s,has=[...document.querySelectorAll(`.mfld[data-t="${i}"]`)].some(x=>x.value.trim());el.className=(MT.p===i?'on ':'')+(b?(b[i]?'bd':'ok'):(has?'dn':''))})}
+function mPage(i,keep){if(!MT)return;MT.p=i;document.querySelectorAll('.mp').forEach(d=>d.style.display=+d.dataset.p===i?'block':'none');mSq();const _pg=document.querySelector(`.mp[data-p="${i}"]`);if(_pg&&_pg.querySelector('.mpt'))mPart(i,(MT.pt||{})[i]||0,0);if(!keep){window.scrollTo(0,0);const f=[...document.querySelectorAll(`.mfld[data-t="${i}"]`)].find(e=>e.offsetParent!==null&&!e.disabled);if(f)f.focus()}}
+function mSq(bad){if(bad)MT.bad=bad;const b=MT.bad,ans={};document.querySelectorAll('.mfld').forEach(x=>{if(String(x.value||'').trim())ans[x.dataset.t]=1});document.querySelectorAll('#mnav button').forEach(el=>{const i=+el.dataset.s,c=(MT.p===i?'on ':'')+(b?(b[i]?'bd':'ok'):(ans[i]?'dn':''));if(el.className!==c)el.className=c});mPtAll();if(MT.navP!==MT.p){MT.navP=MT.p;const nv=document.getElementById('mnav'),on=nv&&nv.querySelector('button.on');if(on&&nv.clientWidth){const x=on.offsetLeft-nv.clientWidth/2+on.offsetWidth/2;nv.scrollTo({left:x,behavior:Math.abs(x-nv.scrollLeft)>nv.clientWidth*2?'auto':'smooth'})}}}
 function mStart(){if(!MT||MT.started)return;const t=MT.t;MT.started=true;MT.t0=Date.now();$('#mb').style.cssText='';$('#mo').style.display='none';$('#mnav').style.display='';document.querySelectorAll('.mfld').forEach(e=>e.disabled=false);document.querySelectorAll('.mpl').forEach(b=>b.disabled=false);document.querySelectorAll('#mnav button').forEach(e=>e.disabled=false);$('#ms').disabled=true;$('#mk').disabled=false;document.querySelector('.mfld').focus();
-MT.timer=setInterval(()=>{const el=(Date.now()-MT.t0)/1000;if(t.mins){const rem=t.mins*60-el;$('#mc').textContent=fmt(Math.max(0,rem));if(rem<=0)mCheck()}else $('#mc').textContent=fmt(el)},250)}
+MT.timer=setInterval(()=>{const el=(Date.now()-MT.t0)/1000;if(t.mins){const rem=t.mins*60-el;$('#mc').textContent=fmt(Math.max(0,rem));if(rem<=0)mCheck()}else $('#mc').textContent=fmt(el)},250);if(MT.jump!=null){mPage(MT.jump);MT.jump=null}}
 function mCheck(){if(!MT||!MT.started||MT.done)return;MT.done=true;clearInterval(MT.timer);const t=MT.t;let secs=Math.round((Date.now()-MT.t0)/1000);if(t.mins)secs=Math.min(secs,t.mins*60);$('#mc').textContent=fmt(secs);let ok=0,total=0;const bad={};
 t.tasks.forEach((k,i)=>{const used=new Set(),grp=k.f.filter(x=>x.g);k.f.forEach((f,j)=>{if(f.cond){const els=[...document.querySelectorAll(`.mfld[data-t="${i}"][data-f="${j}"]`)],r=ccheck(f.cond,els.map(e=>e.value));els.forEach((e,n)=>{e.disabled=true;if(r.per[n]!=null){e.style.borderColor=r.per[n]?'var(--ok)':'var(--bad)';e.style.color=r.per[n]?'var(--ok)':'var(--bad)'}});document.querySelectorAll('.mpl').forEach(b=>b.disabled=true);total++;if(r.good)ok++;else{bad[i]=1;document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+mfx(f.d)}return}const el=document.querySelector(`.mfld[data-t="${i}"][data-f="${j}"]`),v=el.value;el.disabled=true;let good=false;
 if(f.g){const ix=grp.findIndex((x,n)=>!used.has(n)&&mchk(x,v));if(ix>=0){used.add(ix);good=true}}else good=mchk(f,v);
 total++;if(good)ok++;else bad[i]=1;
 if(f.mc){el.querySelectorAll('button').forEach(b=>{if(b.dataset.v===f.a)b.classList.add('ok');else if(b.dataset.v===v&&!good)b.classList.add('bd')});if(!good)document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: ('+f.a+')'}
 else{el.style.borderColor=good?'var(--ok)':'var(--bad)';el.style.color=good?'var(--ok)':'var(--bad)';if(!good)document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+mfx(f.d||f.a.replace('.',','))}})});
-const row={id:Date.now()+'-m-'+D.me,user:D.me,tid:t.id,ts:Date.now(),secs,ok,total};mHist().push(row);save();push('mth',row);mSq(bad);
-$('#mk').disabled=true;$('#mres').innerHTML=`<div style="text-align:center;margin-top:26px"><div class="big">${Math.round(ok/total*100)}%</div><p><b>${ok}/${total}</b> correct · ${fmt(secs)}</p><p><button onclick="openMath('${t.id}')">Retry</button> <button class="g" onclick="go('math')">All math tests</button></p></div>`}
+const qs=t.tasks.map((k,i)=>bad[i]?([...document.querySelectorAll('.mfld[data-t="'+i+'"]')].some(x=>x.value.trim())?'0':'2'):'1').join(''),hu=t.tasks.map((k,i)=>MT.hint&&MT.hint[i]?'1':'0').join(''),row=t.prac?{id:Date.now()+'-m-'+D.me,user:D.me,tid:'prac',ts:Date.now(),secs,ok,total,pq:t.tasks.map((k,i)=>k._src+':'+qs[i]).join(';'),hu}:{id:Date.now()+'-m-'+D.me,user:D.me,tid:t.id,ts:Date.now(),secs,ok,total,qs,hu};mHist().push(row);save();push('mth',row);mSq(bad);
+$('#mk').disabled=true;$('#mres').innerHTML=`<div style="text-align:center;margin-top:26px"><div class="big">${Math.round(ok/total*100)}%</div><p><b>${ok}/${total}</b> correct · ${fmt(secs)}</p>${t.prac?`<p><button onclick="${t.der?'mdAgain()':'mpStart()'}">New set</button> <button class="g" onclick="openMath('prac')">Retry same set</button> <button class="g" onclick="${t.der?"go('mder')":"MK.tab='prac';go('mtrack')"}">Back to topics</button></p>`:`<p><button onclick="openMath('${t.id}')">Retry</button> <button class="g" onclick="go('math')">All math tests</button></p>`}${mMissHtml(t,qs)}</div>`}
 // ===== CONDITION FIELDS (one box, "+" adds more) =====
 const cnorm=c=>String(c).toLowerCase().replace(/−/g,'-').replace(/\s+/g,'').replace(/≠|<>/g,'!=').replace(/≥/g,'>=').replace(/≤/g,'<=');
 function cparse(c){const m=/^([a-zα-ω])(!=|>=|<=|>|<|=)(.+)$/.exec(cnorm(c));return m?{v:m[1],r:m[2],n:mval(m[3])}:null}
@@ -1998,6 +2364,158 @@ return`<div class="lab" style="padding-left:0">Math leaderboard</div><div style=
 <p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Math time and results are counted separately from German.</p>
 <details style="margin-top:12px"><summary>Head to head, best accuracy per math test</summary><table style="margin-top:6px"><tr><th>Test</th>${USERS.map(u=>`<th>${cap(u)}</th>`).join('')}</tr>${MATH.map(t=>{const v=USERS.map(u=>bestOf(u,t.id)),mx=Math.max(...v),w=v.filter(x=>x>=0).length>1&&v.filter(x=>x===mx).length===1?v.indexOf(mx):-1;return`<tr><td>${esc(t.title)}</td>${v.map((x,i)=>`<td class="${w===i?'win':''}">${w===i?'👑 ':''}${x<0?'–':Math.round(x*100)+'%'}</td>`).join('')}</tr>`}).join('')}</table></details>`}
 function lbHtml(){return`<div class="tabs" style="margin:0 0 10px"><button class="${lbSec==='g'?'on':''}" onclick="event.stopPropagation();lbSec='g';lbR()">🇩🇪 Deutsch</button><button class="${lbSec==='m'?'on':''}" onclick="event.stopPropagation();lbSec='m';lbR()">∑ Mathe</button></div>`+(lbSec==='m'?mlbHtml():glbHtml())}
+// ===== MATH MISTAKE TRACKER =====
+// Every math question carries a topic label on its task: tp:['quad','qfunc'] (first = main topic). A task without tp is guessed from keywords
+// and shown as "auto-labelled", so a newly added test is tracked straight away. Do not reorder tasks inside a test: results are stored per task position.
+// Each finished math attempt stores qs: one character per task (1 = correct, 0 = wrong, 2 = skipped / left empty).
+const MTOP={frac:['Fractions & arithmetic','Bruchrechnen'],word:['Word problems, percent & units','Textaufgaben, Prozent, Einheiten'],pow:['Powers, roots & logarithms','Potenzen, Wurzeln, Logarithmen'],terms:['Algebraic terms','Terme vereinfachen'],leq:['Linear equations & inequalities','Lineare Gleichungen & Ungleichungen'],sys:['Linear systems','Gleichungssysteme'],quad:['Quadratic equations','Quadratische Gleichungen'],req:['Fraction & root equations','Bruch- & Wurzelgleichungen'],linf:['Linear functions & lines','Lineare Funktionen, Geraden'],qfunc:['Quadratic functions & graphs','Parabeln, Funktionsgraphen'],tri:['Triangles & angles','Dreiecke, Winkel, Pythagoras'],area:['Areas of figures','Flächeninhalte'],solid:['Solids & volume','Körper, Volumen'],trig:['Trigonometry','Trigonometrie'],vec:['Vectors','Vektoren'],cx:['Complex numbers','Komplexe Zahlen'],deriv:['Derivatives','Ableitungen'],integ:['Integrals','Integrale'],seq:['Sequences & number systems','Folgen, Dualsystem'],other:['Unlabelled','noch ohne Thema']};
+const MAUTO=[['integ',/integr|∫|stammfunktion/],['deriv',/ableit|y′|f′|dy\/dx|tangente/],['vec',/vektor|skalarprodukt/],['cx',/komplex|z₁/],['solid',/kegel|zylinder|kugel|pyramide|quader|würfel|volumen/],['trig',/\b(sin|cos|tan)\b|bogenma|trigonom/],['tri',/dreieck|pythagoras|winkel|hypotenuse|kathete/],['area',/fläche|kreis|quadrat\b|trapez|parallelogramm|rechteck|umfang/],['seq',/folge|dualsystem|binär|zahlenreihe/],['sys',/gleichungssystem|\(ii\)/],['quad',/quadratisch|nullstelle|parabel/],['qfunc',/definitionsbereich|wertebereich|scheitel/],['linf',/gerade|steigung|lineare funktion/],['req',/wurzelgleichung|bruchgleichung/],['leq',/gleichung|ungleichung|bestimmen sie x/],['pow',/log|√|wurzel|potenz|\^/],['terms',/vereinfach|term/],['word',/prozent|euro|preis|kosten|dichte|einheit/],['frac',/bruch|\d\/\d|berechnen sie/]];
+function mTopicsOf(k){if(k.tp&&k.tp.length)return{ids:k.tp,auto:false};const s=((k.q||'')+' '+(k.s||[]).join(' ')).toLowerCase(),ids=[];for(const[t,re]of MAUTO)if(re.test(s)){ids.push(t);if(ids.length===2)break}return{ids:ids.length?ids:['other'],auto:true}}
+const mLabel=id=>MTOP[id]||[id,''];
+const mShort=t=>{const a=t.title.split(' · ')[0],n=(t.title.match(/Mathe\s+(\d+)/)||[])[1];return n?a+' '+n:a};
+const mSnip=k=>{let s=(k.q||'').replace(/^Aufgabe \d+-[A-Z]:\s*/,'');if(s.length<28&&k.s&&k.s[0])s+=' '+k.s[0];return s.length>96?s.slice(0,95)+'…':s};
+const mDate=ts=>new Date(ts).toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'});
+// per-question history of the current user: key "testId#taskIndex" -> [{c:'1'|'0'|'2',ts}] oldest first
+function mHistQ(){const h={},add=(k,c,ts,hint)=>{(h[k]=h[k]||[]).push({c,ts,hint})};mHist().slice().sort((a,b)=>a.ts-b.ts).forEach(a=>{if(a.qs){[...a.qs].forEach((c,i)=>add(a.tid+'#'+i,c,a.ts,!!(a.hu&&a.hu[i]==='1')))}else if(a.pq){String(a.pq).split(';').forEach((p,ix)=>{const m=/^(.+#\d+):([012])$/.exec(p);if(m)add(m[1],m[2],a.ts,!!(a.hu&&a.hu[ix]==='1'))})}});return h}
+// flag of a question: new = never tried · weak = missed last time · shaky = right last time but missed before (fewer than 2 right in a row) · solid = otherwise
+function mFlag(h){if(!h||!h.length)return'new';if(h[h.length-1].c!=='1')return'weak';if(h[h.length-1].hint)return'shaky';let st=0;for(let j=h.length-1;j>=0&&h[j].c==='1'&&!h[j].hint;j--)st++;return h.some(x=>x.c!=='1'||x.hint)&&st<2?'shaky':'solid'}
+const MFL={weak:['Weak','--bad','Missed last time'],shaky:['Shaky','--amb','Right recently, but missed before'],solid:['Solid','--ok','Right on the latest tries'],new:['New','--mut','Not tried yet']};
+const mChip=(l,c,tip)=>`<span class="chip" style="--c:var(${c})"${tip?` title="${esc(tip)}"`:''}>${esc(l)}</span>`;
+const mFlagChip=f=>mChip(MFL[f][0],MFL[f][1],MFL[f][2]);
+const mTopChips=ids=>ids.map(id=>mChip(mLabel(id)[0],'--acc',mLabel(id)[1])).join(' ');
+function mFlagsFor(t){const H=mHistQ();return t.tasks.map((k,i)=>mFlag(H[k._src||t.id+'#'+i]))}
+function mMissHtml(t,qs){const m=[...qs].map((c,i)=>[c,i]).filter(([c])=>c!=='1');if(!m.length)return'<p class="mut" style="text-align:center;margin-top:14px">Every question correct — nothing flagged.</p>';
+const tc={};m.forEach(([c,i])=>mTopicsOf(t.tasks[i]).ids.forEach(id=>tc[id]=(tc[id]||0)+1));
+return`<div style="text-align:left;margin-top:18px;border-top:1px solid var(--line);padding-top:14px"><div class="lab" style="padding-left:0">Flagged for next time</div>${m.map(([c,i])=>`<div style="padding:4px 0"><b>Aufgabe ${i+1}</b>${c==='2'?' <span class="mut">(skipped)</span>':''} ${mTopChips(mTopicsOf(t.tasks[i]).ids)} ${mLvChip(t.tasks[i])} ${mRlChips(t.tasks[i],t.id+'#'+i)}</div>`).join('')}<div class="lab" style="padding-left:0;margin-top:10px">Topics to revisit</div><div class="mtc">${Object.entries(tc).sort((a,b)=>b[1]-a[1]).map(([id,n])=>mChip(mLabel(id)[0]+(n>1?' ×'+n:''),'--bad')).join('')}</div>${mRuleRevisit(t,m)}<p style="margin:12px 0 0">${t.der?`<button onclick="mdAgain()">New set</button> <button class="g" onclick="go('mder')">Back to derivatives</button>`:`<button class="g" onclick="go('mtrack')">Back to targeted practice</button>`}</p></div>`}
+let MK={tab:'over',open:{},ff:'act'};
+const mSev={weak:0,shaky:1,new:2,solid:3};
+function mTopicStats(){const Q=[],H=mHistQ(),T={};
+MALL().forEach(t=>t.tasks.forEach((k,i)=>{const tp=mTopicsOf(k),h=H[t.id+'#'+i]||[];Q.push({key:t.id+'#'+i,t,k,i,ids:tp.ids,auto:tp.auto,h,flag:mFlag(h),miss:h.filter(x=>x.c!=='1').length})}));
+Q.forEach(q=>q.ids.forEach(id=>{const s=T[id]=T[id]||{id,qs:[],rn:0,tests:new Set(),seen:0,miss:0,w:0,wm:0,fl:{new:0,weak:0,shaky:0,solid:0}};
+s.qs.push(q);if(!q.t.bank){s.tests.add(q.t.id);s.rn++}s.fl[q.flag]++;s.seen+=q.h.length;s.miss+=q.miss;q.h.forEach((x,j)=>{const w=Math.pow(.75,q.h.length-1-j);s.w+=w;if(x.c!=='1')s.wm+=w;else if(x.hint)s.wm+=w*.5})}));
+const L=Object.values(T);L.forEach(s=>{s.acc=s.seen?1-s.miss/s.seen:null;s.weak=s.seen?(s.wm+.5)/(s.w+1):null});
+const fq=L.slice().sort((a,b)=>b.rn-a.rn||b.tests.size-a.tests.size||mLabel(a.id)[0].localeCompare(mLabel(b.id)[0]));
+return{Q,T,L,fq}}
+function mtPractice(id){const s=mTopicStats().T[id];if(!s)return;const q=s.qs.slice().sort((a,b)=>mSev[a.flag]-mSev[b.flag]||b.miss-a.miss)[0];openMath(q.t.id,q.i)}
+const mkSeg=(n,tot,col,t)=>n?`<i style="width:${n/tot*100}%;background:var(${col})" title="${n} ${t}"></i>`:'';
+const mkBar=s=>{const n=s.qs.length;return`<div class="mt-bar">${mkSeg(s.fl.weak,n,'--bad','weak')}${mkSeg(s.fl.shaky,n,'--amb','shaky')}${mkSeg(s.fl.solid,n,'--ok','solid')}</div>`};
+const mkLegend=`<div class="mt-leg"><span><i style="background:var(--bad)"></i>weak</span><span><i style="background:var(--amb)"></i>shaky</span><span><i style="background:var(--ok)"></i>solid</span><span><i style="background:var(--line)"></i>not tried</span><span class="mut">· bar = questions of the topic</span></div>`;
+const mkQRow=(q,topics)=>`<div class="row" onclick="openMath('${q.t.id}',${q.i})"><div><div class="rt">Aufgabe ${q.i+1} · ${esc(mShort(q.t))} ${mFlagChip(q.flag)} ${mLvChip(q.k)}${q.auto?' '+mChip('auto-labelled','--mut','Topic guessed from keywords; add tp:[…] to the task to set it'):''}</div><div class="mut" style="font-size:13px;white-space:normal">${esc(mSnip(q.k))}</div>${topics?`<div class="mtc" style="margin:6px 0 0">${mTopChips(q.ids)}</div>`:''}</div><div class="rr mut" style="flex-direction:column;align-items:flex-end;gap:0;font-size:12.5px"><span>${q.h.length?q.h.length+(q.h.length>1?' tries':' try')+' · '+q.miss+' missed':'not tried'}</span>${q.h.length?`<span>${mDate(q.h[q.h.length-1].ts)}</span>`:''}</div></div>`;
+function mkOver(c){const NT=MATH.length,seen=c.L.filter(s=>s.seen).sort((a,b)=>b.weak-a.weak||b.miss-a.miss),fresh=c.fq.filter(s=>!s.seen),top=new Set(c.fq.slice(0,5).map(s=>s.id));
+const fr=fresh.length?`<div class="card"><h2>${seen.length?'Not practised yet':'Topics waiting for you'}</h2><div class="mtc">${fresh.map(s=>mChip(mLabel(s.id)[0]+' · '+s.qs.length+' q','--mut')).join('')}</div></div>`:'';
+if(!seen.length)return`<div class="card"><h2>Nothing tracked yet</h2><p class="mut" style="margin:0">Finish any math test and every question's result is logged by topic, with a flag. Until then the Frequency tab already shows which topics the tests ask about most.</p></div>`+fr;
+return`<div class="card"><h2>Needs the most practice</h2><p class="mut" style="margin:0 0 8px">Ranked by how often you miss a topic; recent tries count more.</p>${mkLegend}${seen.map((s,r)=>{const lab=mLabel(s.id),n=s.qs.length;return`<div class="mt-row"><div class="mt-nm">${esc(lab[0])}<small>${esc(lab[1])}</small></div><div>${mkBar(s)}<div class="mt-meta">${Math.round(s.acc*100)}% correct · ${s.miss} missed of ${s.seen} ${s.seen>1?'tries':'try'} · ${n} question${n>1?'s':''}, in ${s.tests.size} of ${NT} tests</div></div><div class="mt-act">${r<3&&s.miss?mChip('Focus','--bad'):''}${top.has(s.id)?mChip('Common in tests','--acc'):''}<button class="g" onclick="mtPractice('${s.id}')">Practice</button></div></div>`}).join('')}</div>`+fr}
+function mkFreq(c){const NT=MATH.length,fq=c.fq,mx=fq[0].rn,NQ=c.Q.filter(q=>!q.t.bank).length;
+return`<div class="card"><h2>Most to least common topics</h2><p class="mut" style="margin:0 0 8px">Counted over all ${NQ} questions in ${NT} tests (the derivative practice bank is left out). A question can carry two topics, so the counts add up to more than ${NQ}.</p>${fq.map((s,i)=>{const lab=mLabel(s.id),n=s.rn;return`<div class="mt-fq"><span class="mt-rk">${i+1}</span><div class="mt-fn">${esc(lab[0])}<small>${esc(lab[1])}</small></div><div class="mt-fb"><i style="width:${n/mx*100}%"></i></div><span class="mt-fv"><b>${n}</b> question${n>1?'s':''}<small>in ${s.tests.size} of ${NT} tests</small></span></div>`}).join('')}</div>
+<details class="card"${MK.open.matrix?' open':''} ontoggle="MK.open.matrix=this.open"><summary>Topic × test table</summary><div style="overflow-x:auto;margin-top:8px"><table><tr><th>Topic</th>${MATH.map(t=>`<th style="text-align:center;font-size:11px;min-width:64px">${esc(mShort(t))}</th>`).join('')}<th style="text-align:center">Σ</th></tr>${fq.map(s=>`<tr><td style="white-space:nowrap">${esc(mLabel(s.id)[0])}</td>${MATH.map(t=>{const n=s.qs.filter(q=>q.t.id===t.id).length;return`<td style="text-align:center;${n?`background:color-mix(in srgb,var(--acc) ${Math.min(75,18+n*16)}%,transparent);font-weight:600`:'color:var(--mut)'}">${n||'·'}</td>`}).join('')}<td style="text-align:center"><b>${s.qs.length}</b></td></tr>`).join('')}</table></div></details>`}
+function mkLog(c){const NT=MATH.length;return`<p class="mut" style="margin:6px 2px">Every question, filed under its topic (most common topic first). Tap a question to practise it.</p>`+c.fq.map(s=>{const lab=mLabel(s.id),n=s.rn;return`<details class="card"${MK.open[s.id]?' open':''} ontoggle="MK.open['${s.id}']=this.open"><summary>${esc(lab[0])} <span class="mut" style="font-weight:400;font-size:14px">· ${n} question${n>1?'s':''} · ${s.tests.size}/${NT} tests${s.seen?' · '+Math.round(s.acc*100)+'% correct':''}</span></summary><div style="margin-top:8px">${s.qs.filter(q=>!q.t.bank).sort((a,b)=>mSev[a.flag]-mSev[b.flag]).map(q=>mkQRow(q)).join('')}</div></details>`}).join('')}
+function mkFlag(c){const F=[['act','Weak & shaky'],['new','New'],['solid','Solid'],['all','All']],cnt=f=>c.Q.filter(q=>f==='all'||(f==='act'?q.flag==='weak'||q.flag==='shaky':q.flag===f)).length;
+const l=c.Q.filter(q=>MK.ff==='all'||(MK.ff==='act'?q.flag==='weak'||q.flag==='shaky':q.flag===MK.ff)).sort((a,b)=>mSev[a.flag]-mSev[b.flag]||b.miss-a.miss);
+return`<div class="card"><p class="mut" style="margin:0 0 8px">Every question in every test gets a flag automatically, including tests added later. <b>Weak</b> = missed last time · <b>Shaky</b> = right lately but missed before · <b>Solid</b> = right on the latest tries · <b>New</b> = not tried yet.</p><div class="tabs" style="margin:0 0 6px">${F.map(([k,n])=>`<button class="${MK.ff===k?'on':''}" onclick="MK.ff='${k}';R.mtrack()">${n} (${cnt(k)})</button>`).join('')}</div><div style="margin:0 -14px">${l.length?l.map(q=>mkQRow(q,1)).join(''):'<p class="mut" style="padding:8px 14px">Nothing here.</p>'}</div></div>`}
+function mkMis(c){const L=c.tr.slice().sort((a,b)=>b.ts-a.ts);if(!L.length)return'<div class="card"><p class="mut" style="margin:0">No attempts with per-question detail yet.</p></div>';
+const ent=a=>a.pq?String(a.pq).split(';').map(p=>/^(.+)#(\d+):([012])$/.exec(p)).filter(Boolean).map(m=>({t:MALL().find(x=>x.id===m[1]),i:+m[2],c:m[3]})):[...a.qs].map((x,i)=>({t:MALL().find(y=>y.id===a.tid),i,c:x}));
+return`<div class="card" style="padding:8px">${L.map(a=>{const e=ent(a).filter(x=>x.t&&x.t.tasks[x.i]);if(!e.length)return'';const m=e.filter(x=>x.c!=='1'),T0=MALL().find(x=>x.id===a.tid);
+return`<div style="padding:12px 14px" class="mt-ml"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><b>${a.pq?'Targeted practice':esc(T0?T0.title:a.tid)}</b><span class="mut">${mDate(a.ts)} · ${a.ok}/${a.total} correct</span></div>${m.length?m.map(x=>`<div style="padding:4px 0">Aufgabe ${x.i+1}${a.pq?' · '+esc(mShort(x.t)):''}${x.c==='2'?' <span class="mut">(skipped)</span>':''} ${mTopChips(mTopicsOf(x.t.tasks[x.i]).ids)}</div>`).join(''):'<div class="mut" style="padding:4px 0">All correct</div>'}</div>`}).join('')}</div>`}
+R.mtrack=function(){const c=mTopicStats(),A=mHist(),tr=A.filter(a=>a.qs||a.pq),old=A.length-tr.length;c.tr=tr;
+const tries=sum(c.Q,q=>q.h.length),right=sum(c.Q,q=>q.h.length-q.miss),fl=c.Q.filter(q=>q.flag==='weak'||q.flag==='shaky').length,st=(l,v)=>`<div class="card stat"><b>${v}</b><span class="mut">${l}</span></div>`;
+const tabs=[['over','Where to practice'],['freq','Frequency'],['log','Topic log'],['flag','Flagged'],['mis','Mistake log']];
+if(!tabs.some(x=>x[0]===MK.tab))MK.tab='over';
+const body={over:mkOver,freq:mkFreq,log:mkLog,flag:mkFlag,mis:mkMis}[MK.tab](c);
+// main screen = targeted practice only; everything else sits in a collapsed section at the bottom (gone as soon as a session starts)
+app.innerHTML=`<h1>∑ Targeted practice</h1>${mkPrac()}<details class="card" id="mt-more"${MK.open.more?' open':''} ontoggle="MK.open.more=this.open" style="margin-top:28px"><summary class="mut">Stats &amp; history</summary><div style="margin-top:12px"><div class="grid">${st('Attempts tracked',tr.length)}${st('Questions answered',tries)}${st('Question accuracy',tries?Math.round(right/tries*100)+'%':'–')}${st('Flagged questions',fl)}</div>${old?`<p class="mut" style="margin:10px 2px 0">${old} earlier attempt${old>1?'s were':' was'} taken before per-question tracking existed, so ${old>1?'they have':'it has'} no topic detail. Tracking starts with your next attempt.</p>`:''}<div class="tabs">${tabs.map(([k,l])=>`<button class="${MK.tab===k?'on':''}" onclick="MK.tab='${k}';R.mtrack()">${l}</button>`).join('')}</div>${body}</div></details>`};
+// ----- targeted practice: pick topics, build a session from the existing questions -----
+// A session is a synthetic test (id 'prac') whose tasks are copies of bank questions tagged _src:"testId#index". Its results are saved
+// on the attempt as pq:"testId#index:result;..." and feed the same per-question history, flags and topic stats as normal tests.
+const MPR={sel:{},rl:{},open:null,n:10,mode:'weak',last:null,sort:'prio'};
+const mSrcLabel=key=>{const[id,i]=key.split('#'),t=MALL().find(x=>x.id===id);return t?mShort(t)+' · Aufgabe '+(+i+1):key};
+// Each topic card has Easy/Medium/Hard toggles (multi-select). Derivatives also has rule chips (press the card). Other topics only hold test questions (all Medium) for now.
+const mpPool=Q=>Q.filter(q=>q.ids.some(id=>{const L=MPR.sel[id];if(!L||!L.size||!L.has(mLv(q.k)))return false;const R=MPR.rl[id];return!R||!R.size||mRl(q.k,q.key).some(r=>R.has(r))}));
+const mpDraw=()=>{const b=document.getElementById('mp-box');if(b)b.innerHTML=mpBox()};
+const mpLvs=(c,id)=>['e','m','h'].filter(l=>c.T[id].qs.some(q=>mLv(q.k)===l));
+function mpLvl(id,l){const S=MPR.sel[id]=MPR.sel[id]||new Set();S.has(l)?S.delete(l):S.add(l);mpDraw()}
+function mpOpen(id){MPR.open=MPR.open===id?null:id;mpDraw()}
+function mpRule(r){const R=MPR.rl.deriv=MPR.rl.deriv||new Set();R.has(r)?R.delete(r):R.add(r);const S=MPR.sel.deriv=MPR.sel.deriv||new Set();if(!S.size)mpLvs(mTopicStats(),'deriv').forEach(l=>S.add(l));mpDraw()}
+function mpAll(){const c=mTopicStats();c.L.forEach(s=>MPR.sel[s.id]=new Set(mpLvs(c,s.id)));mpDraw()}
+function mpClear(){MPR.sel={};MPR.rl={};mpDraw()}
+function mpWeak(){const c=mTopicStats();MPR.sel={};c.L.filter(s=>s.miss).sort((a,b)=>b.weak-a.weak).slice(0,3).forEach(s=>MPR.sel[s.id]=new Set(mpLvs(c,s.id)));mpDraw()}
+function mpN(n){MPR.n=n;mpDraw()}
+function mpMode(m){MPR.mode=m;mpDraw()}
+// Priority = how often the topic shows up across your tests x how weak you are on it. Recomputed on every render, so every new test you add moves it.
+//  frequency  = share of tests (not question count) that contain the topic, relative to the most common topic (0..1)
+//  weakness   = recency-weighted miss rate (s.weak); a topic you never practised gets a low fixed weakness (0.1)
+// A topic that appears in 1 of 83 tests therefore stays near the bottom even if you got it wrong.
+function mPrio(c){const NT=Math.max(1,new Set(c.Q.filter(q=>!q.t.bank).map(q=>q.t.id)).size),fm=Math.max(1e-9,...c.L.map(s=>s.tests.size/NT)),o={};
+c.L.forEach(s=>{o[s.id]=(s.tests.size/NT/fm)*(s.seen?s.weak:.1)});return o}
+// top of the card (checkbox + name) ticks it; bottom of a card that has sub-categories opens its window
+function mpCard(e,id,hasR){const el=e.currentTarget,y=e.clientY;const pn=el.querySelector('.mt-pn'),rg=document.createRange();rg.selectNodeContents(pn);const nb=rg.getBoundingClientRect().bottom;if(y<=nb||!hasR)mpTop(id);else go('mderpick')}
+function mpSort(v){MPR.sort=v;mpDraw()}
+function mpTop(id){const c=mTopicStats(),S=MPR.sel[id];MPR.sel[id]=S&&S.size?new Set():new Set(mpLvs(c,id));mpDraw()}
+function mpBox(){const c=mTopicStats(),pool=mpPool(c.Q),pr=mPrio(c),top3=c.L.filter(x=>x.seen&&pr[x.id]>0).sort((a,b)=>pr[b.id]-pr[a.id]).slice(0,3).map(x=>x.id),
+list=c.L.slice().sort(MPR.sort==='new'?((a,b)=>(!a.seen-!b.seen)||pr[b.id]-pr[a.id]||b.rn-a.rn):((a,b)=>pr[b.id]-pr[a.id]||b.rn-a.rn)),fl={weak:0,shaky:0,new:0,solid:0};pool.forEach(q=>fl[q.flag]++);
+const ns=Object.values(MPR.sel).filter(x=>x.size).length,n=MPR.n?Math.min(MPR.n,pool.length):pool.length;
+const card=s=>{const lab=mLabel(s.id),S=MPR.sel[s.id]||new Set(),hasR=s.id==='deriv',k=s.qs.length,RS=MPR.rl.deriv||new Set();
+const pills=['e','m','h'].map(l=>{const kk=s.qs.filter(q=>mLv(q.k)===l).length,m=MLV[l];return`<button type="button" class="lvp${S.has(l)?' on':''}" style="--c:var(${m[1]})"${kk?'':' disabled'} onclick="event.stopPropagation();mpLvl('${s.id}','${l}')">${m[0]} ${kk}</button>`}).join('');
+return`<div class="mt-pick${S.size?' on':''}" onclick="mpCard(event,'${s.id}',${hasR})"><span class="mt-ck">${S.size?'✓':''}</span><span class="mt-pn">${esc(lab[1])}</span>${mkBar(s)}<span class="mt-pm">${k} question${k>1?'s':''} · ${s.seen?Math.round(s.acc*100)+'% correct':'not tried'}</span><div class="lvr">${pills}</div></div>`};
+return`<p class="mut" style="margin:0 0 8px">Tap the top of a card to tick it. Tap the bottom of Derivatives to choose its rules. <b>Priority</b> = topics that appear in many of your tests and that you get wrong; <b>New</b> = topics you haven't tried yet come first.</p>
+<div class="mt-opt"><span class="mut">Sort</span><div class="tabs" style="margin:0">${[['prio','Priority'],['new','New']].map(([v,l])=>`<button class="${MPR.sort===v?'on':''}" onclick="mpSort('${v}')">${l}</button>`).join('')}</div><button class="g" onclick="mpAll()">Everything</button><button class="g" onclick="mpClear()"${ns?'':' disabled'}>Clear</button></div>
+<div class="mt-picks">${list.map(card).join('')}</div>
+<div class="mt-opt"><span class="mut">Questions</span><div class="tabs" style="margin:0">${[[5,'5'],[10,'10'],[15,'15'],[0,'All']].map(([v,l])=>`<button class="${MPR.n===v?'on':''}" onclick="mpN(${v})">${l}</button>`).join('')}</div><span class="mut">Order</span><div class="tabs" style="margin:0">${[['weak','Weakest first'],['mix','Random mix']].map(([v,l])=>`<button class="${MPR.mode===v?'on':''}" onclick="mpMode('${v}')">${l}</button>`).join('')}</div></div>
+<div class="mt-go"><div>${pool.length?`<b>${n} question${n===1?'':'s'}</b> <span class="mut">of ${pool.length} matching<br>${fl.weak} weak · ${fl.shaky} shaky · ${fl.new} new · ${fl.solid} solid</span>`:'<span class="mut">Select at least one level on a topic to start.</span>'}</div><button onclick="mpStart()"${pool.length?'':' disabled'}>Start practice</button></div>`}
+const mkPrac=()=>'<div class="card" id="mp-box">'+mpBox()+'</div>';
+function mpStart(){let pool=mpPool(mTopicStats().Q);if(!pool.length)return;
+const sh=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+pool=sh(pool.slice());if(MPR.mode==='weak')pool.sort((a,b)=>mSev[a.flag]-mSev[b.flag]||b.miss-a.miss);
+const pick=sh(pool.slice(0,MPR.n?Math.min(MPR.n,pool.length):pool.length)),tn=Object.keys(MPR.sel).filter(id=>MPR.sel[id].size).map(id=>mLabel(id)[0]+' ('+[...MPR.sel[id]].map(l=>MLV[l][0]).join('/')+')');
+MK.open.more=false;const mm=document.getElementById('mt-more');if(mm)mm.style.display='none';
+MPR.last={id:'prac',prac:1,title:'Targeted practice',source:'Question bank · '+tn.join(', '),uni:'Mixed question bank · '+pick.length+' questions',mins:null,calc:null,tasks:pick.map(q=>Object.assign({},q.k,{_src:q.key}))};
+openMath('prac')}
+// ----- Derivatives screen: opened by pressing the Derivatives card in targeted practice -----
+// Uses the same selection state as the main screen (MPR.sel.deriv = levels, MPR.rl.deriv = rules; no rules picked = all rules).
+function mdLvl(l){const S=MPR.sel.deriv=MPR.sel.deriv||new Set();S.has(l)?S.delete(l):S.add(l);R.mderpick()}
+function mdRule(r){const R_=MPR.rl.deriv=MPR.rl.deriv||new Set();R_.has(r)?R_.delete(r):R_.add(r);const S=MPR.sel.deriv=MPR.sel.deriv||new Set();if(!S.size)mpLvs(mTopicStats(),'deriv').forEach(l=>S.add(l));R.mderpick()}
+function mdRulesAll(){MPR.rl.deriv=new Set();R.mderpick()}
+R.mderpick=function(){const c=mTopicStats(),s=c.T.deriv;
+if(!s){app.innerHTML='<p><button class="g" onclick="go(\'mtrack\')">‹ Back</button></p><p class="mut">No derivative questions found.</p>';return}
+const S=MPR.sel.deriv||new Set(),RS=MPR.rl.deriv||new Set();
+const lv=['e','m','h'].map(l=>{const kk=s.qs.filter(q=>mLv(q.k)===l).length,m=MLV[l];return`<button type="button" class="lvp${S.has(l)?' on':''}" style="--c:var(${m[1]})"${kk?'':' disabled'} onclick="mdLvl('${l}')">${m[0]}</button>`}).join('');
+const inLv=q=>!S.size||S.has(mLv(q.k));
+const rl=MRO.map(r=>{const L=s.qs.filter(q=>mRl(q.k,q.key).includes(r));let t=0,m=0;L.forEach(q=>{t+=q.h.length;m+=q.miss});return`<button type="button" class="lvp${RS.has(r)?' on':''}" style="--c:var(--acc)"${L.length?'':' disabled'} onclick="mdRule('${r}')" title="${esc(MRL[r][1])}">${esc(MRL[r][0])}</button>`}).join('');
+const pool=s.qs.filter(q=>inLv(q)&&(!RS.size||mRl(q.k,q.key).some(r=>RS.has(r))));
+app.innerHTML=`<p style="margin:0 0 10px"><button class="g" onclick="go('mtrack')">‹ Back to targeted practice</button></p>
+<h1>∑ Ableitungen</h1><p class="mut" style="margin:0 0 14px">Choose what you want to practice. Your choice is kept when you go back.</p>
+<div class="card"><div class="lab" style="padding-left:0">Level</div><div class="mdg mdg3">${lv}</div></div>
+<div class="card" style="margin-top:12px"><div class="lab" style="padding-left:0">Rules <span class="mut" style="font-weight:400">· none picked = all rules</span></div><div class="mdg">${rl}</div>${RS.size?'<p style="margin:10px 0 0"><button class="g" onclick="mdRulesAll()">Clear rules</button></p>':''}</div>
+<div class="mt-go" style="margin-top:12px"><div>${S.size?`<b>${pool.length} question${pool.length===1?'':'s'}</b> <span class="mut">match your choice</span>`:'<span class="mut">Select at least one level.</span>'}</div><button onclick="go('mtrack')">Done</button></div>`};
+// ===== DERIVATIVES: LEVELS & RULE DRILLS =====
+// Level of a question: lv:'e' | 'm' | 'h'. A task without lv counts as Medium (so every older test question is Medium for now).
+// rl:[...] lists the derivative rules a task needs; older tasks get theirs from MRL_OLD (key "testId#index").
+const MLV={e:['Easy','--ok','one rule at a time'],m:['Medium','--amb','2–3 rules combined'],h:['Hard','--bad','everything mixed']};
+const mLv=k=>k.lv||'m';
+const MRL={power:['Power rule','Potenzregel'],sum:['Constant multiple & sum rule','Faktor- & Summenregel'],root:['Roots & reciprocals','Wurzeln, Kehrwerte als Potenzen'],exp:['Exponential e^x, a^x','Exponentialfunktion'],ln:['Natural logarithm','ln(x)'],trig:['Sine & cosine','Sinus, Kosinus'],tan:['Tangent','Tangens'],product:['Product rule','Produktregel'],quot:['Quotient rule','Quotientenregel'],chain:['Chain rule','Kettenregel']};
+// Hint = the formula(s) for each rule a question needs. Pressing it during a question marks that question as "still learning" (see mFlag / mTopicStats).
+const MRF={
+power:['(xⁿ)′ = n · xⁿ⁻¹','Use: x to a number. Bring the power down in front, then lower the power by 1.','Example: (x⁵)′ = 5x⁴','A constant disappears: (c)′ = 0  ·  (x)′ = 1'],
+sum:['(c · f(x))′ = c · f′(x)','(f(x) + g(x))′ = f′(x) + g′(x)','Use: differentiate term by term. A number in front stays in front.','Example: (4x³ + 2x)′ = 12x² + 2'],
+root:['ⁿ√x = x^(1/n)  →  (√x)′ = 1 / (2√x)','1/xⁿ = x⁻ⁿ  →  (1/x)′ = −1/x²','Use: first rewrite roots and fractions as powers, then use the power rule.','Example: (1/x³)′ = (x⁻³)′ = −3x⁻⁴'],
+exp:['(eˣ)′ = eˣ','(aˣ)′ = aˣ · ln a','Use: x sits in the exponent. eˣ stays itself; with an inside function add the chain rule.','Example: (e^(2x))′ = 2 · e^(2x)'],
+ln:['(ln x)′ = 1/x','(ln f(x))′ = f′(x) / f(x)','Use: ln of x or of an inside function. Inside derivative on top, inside function at the bottom.','Example: (ln(3x))′ = 3 / (3x) = 1/x'],
+trig:['(sin x)′ = cos x','(cos x)′ = −sin x','Use: with an inside function, add the chain rule (multiply by its derivative).','Example: (sin(3x))′ = 3 · cos(3x)'],
+tan:['(tan x)′ = 1 / cos²x = 1 + tan²x','Use: with an inside function, add the chain rule.','Example: (tan(2x))′ = 2 / cos²(2x)'],
+product:['(u(x) · v(x))′ = u′(x) · v(x) + u(x) · v′(x)','Use: two parts with x multiplied together. Derive the first and keep the second, then add: keep the first and derive the second.','Example: (x · ln x)′ = 1 · ln x + x · 1/x = ln x + 1'],
+quot:['(u(x) / v(x))′ = (u′(x) · v(x) − u(x) · v′(x)) / v(x)²','Use: x in the numerator and in the denominator. Order matters: top′ · bottom − top · bottom′, all over bottom².','Example: (x / (x + 1))′ = (1 · (x + 1) − x · 1) / (x + 1)² = 1 / (x + 1)²'],
+chain:['(f(g(x)))′ = f′(g(x)) · g′(x)','f = outer function, g = inner function','Use: a function inside another function. Derive the outside (keep the inside as it is), then multiply by the derivative of the inside.','Example: ((2x + 1)³)′ = 3(2x + 1)² · 2 = 6(2x + 1)²']};
+const mhFmt=f=>esc(f).replace(/\b([fguvc])(?=[(′])/g,'<i>$1</i>').replace(/(<\/i>|\))′/g,'$1<span class="pm">′</span>').replace(/([A-Za-z])′/g,'<i>$1</i><span class="pm">′</span>');
+const mHintBtn=(k,key,i)=>{const r=mRl(k,key);return r.length?`<div class="mhw"><button type="button" class="g" onclick="mHint(${i})">💡 Hint</button><div class="mhint" id="mh-${i}" style="display:none">${r.map(x=>`<div class="mhr"><b>${esc(MRL[x][0])}</b>${(MRF[x]||[]).map(f=>`<div class="${/^(Use|Example|A constant|f =)/.test(f)?'mhx':'mhf'}">${mhFmt(f)}</div>`).join('')}</div>`).join('')}<div class="mut" style="font-size:12px;margin-top:6px">Using a hint marks this topic as “still learning”.</div></div></div>`:''};
+function mHint(i){const d=document.getElementById('mh-'+i);if(!d)return;const open=d.style.display==='none';d.style.display=open?'':'none';if(open&&MT&&MT.started&&!MT.done){MT.hint=MT.hint||{};MT.hint[i]=1}}
+const MRO=Object.keys(MRL);
+const MRL_OLD={'ka-m1#8':['power','sum','root','quot','exp','tan','chain'],'ka-m2#9':['power','sum','root','quot','ln','trig','chain'],'zi-m1#5':['power','root','sum','trig','chain'],'bo-m1#8':['chain','trig','power','sum','root'],'kl-m1#10':['sum','power','trig'],'kl-m2#18':['sum','power','trig','chain'],'kl-m2#19':['power','sum'],'fu-m1#7':['power','trig','sum'],'ko-m1#5':['product','ln']};
+const mRl=(k,key)=>k.rl||MRL_OLD[k._src||key]||[];
+const mLvChip=k=>{const l=MLV[mLv(k)];return mChip(l[0],l[1],l[2])};
+const mRlChips=(k,key)=>mRl(k,key).map(r=>mChip(MRL[r][0],'--acc',MRL[r][1])).join(' ');
+const mRuleHint=k=>mLv(k)==='e'?mRlChips(k,''):'';
+function mRuleRevisit(t,m){const rc={};m.forEach(([c,i])=>mRl(t.tasks[i],t.id+'#'+i).forEach(r=>rc[r]=(rc[r]||0)+1));const e=Object.entries(rc).sort((a,b)=>b[1]-a[1]);
+return e.length?`<div class="lab" style="padding-left:0;margin-top:10px">Rules to revisit</div><div class="mtc">${e.map(([r,n])=>mChip(MRL[r][0]+(n>1?' ×'+n:''),'--bad')).join('')}</div>`:''}
+// ===== END MATH MISTAKE TRACKER =====
 // ===== BACK ARROW =====
 let NAV=[],NB=false;
 const navCur=()=>view==='test'&&T?{k:'test:'+T.test.id,v:'test',id:T.test.id}:view==='mtest'&&MT?{k:'mtest:'+MT.t.id,v:'mtest',id:MT.t.id}:{k:view,v:view};
@@ -2027,7 +2545,7 @@ const mm=D.tmeta[u]=D.tmeta[u]||{};if(!mm[day])mm[day]={t0:now-D.time[u][day]*10
 function pushTime(u,d){const s=D.time[u]&&D.time[u][d];if(!cloud||s==null)return;const m=(D.tmeta[u]||{})[d]||{},row={id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(s),t0:m.t0,ts:m.ts};if(row.t0==null||!okRow(row))return;cloud.set('time',row).catch(e=>{cloudOk=false;console.warn(e)})}
 function flushTime(){if(!tkD&&!DIRTY.size)return;tkD=false;save();if(cloud){DIRTY.forEach(k=>{const[u,d]=k.split('|');pushTime(u,d)});DIRTY.clear()}lbRefresh()}
 setInterval(()=>{const now=Date.now(),dt=Math.min(10,(now-tkL)/1000);tkL=now;
-if(D.me&&!document.hidden&&document.hasFocus()&&now-tkA<=IDLE){const K=D.me+((view==='math'||view==='mtest')?'~m':''),day=DAY(now),u=D.time[K]=D.time[K]||{},mm=D.tmeta[K]=D.tmeta[K]||{};
+if(D.me&&!document.hidden&&document.hasFocus()&&now-tkA<=IDLE){const K=D.me+((view==='math'||view==='mtest'||view==='mtrack')?'~m':''),day=DAY(now),u=D.time[K]=D.time[K]||{},mm=D.tmeta[K]=D.tmeta[K]||{};
 if(!mm[day])mm[day]={t0:now-(u[day]||0)*1000};mm[day].ts=now;u[day]=(u[day]||0)+dt;DIRTY.add(K+'|'+day);tkD=true}
 if(now-tkP>=30000){tkP=now;flushTime()}},5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flushTime()});addEventListener('pagehide',flushTime);
@@ -2066,7 +2584,7 @@ const rt=F.getDatabase(initializeApp(FIREBASE_CONFIG));cloud={set:(col,o)=>F.set
 const sub=(col,key)=>F.onValue(F.ref(rt,col),s=>{const v=s.val()||{},rows=Object.values(v).map(r=>{if(key==='attempts')r.mistakes=r.mistakes||[];return r}),ids=new Set(rows.map(r=>String(r.id))),loc=D[key];rows.forEach(r=>{if(!loc.some(x=>String(x.id)===String(r.id)))loc.push(r)});if(!seeded[col]){seeded[col]=1;loc.forEach(x=>{if(!ids.has(String(x.id)))push(col,x)})}cloudOk=true;save();hdr();if(['home','list','stats'].includes(view))R[view]();lbRefresh()},e=>{cloudOk=false;console.warn(e)});
 sub('attempts','attempts');sub('tests','tests');
 F.onValue(F.ref(rt,'edits'),sn=>{const v=sn.val()||{};let ch=false;Object.values(v).forEach(r=>{if(!r||!r.id)return;const l=D.edits[r.id];if(!l||(l.ts||0)<(r.ts||0)){D.edits[r.id]=r;ch=true}});Object.values(D.edits).forEach(l=>{const r=v[l.id];if(!r||(r.ts||0)<(l.ts||0))push('edits',l)});cloudOk=true;if(ch){save();if(['home','list','stats'].includes(view))R[view]()}},e=>{cloudOk=false;console.warn(e)});
-F.onValue(F.ref(rt,'mth'),sn=>{const v=sn.val()||{};D.mth=D.mth||{};Object.values(v).forEach(r=>{if(!r||!r.user||!r.id)return;const l=D.mth[r.user]=D.mth[r.user]||[];if(!l.some(x=>x.id===r.id))l.push(r)});Object.values(D.mth).forEach(l=>l.forEach(x=>{if(x.id&&!v[x.id])push('mth',x)}));cloudOk=true;save();lbRefresh()},e=>{cloudOk=false;console.warn(e)});
+F.onValue(F.ref(rt,'mth'),sn=>{const v=sn.val()||{};D.mth=D.mth||{};Object.values(v).forEach(r=>{if(!r||!r.user||!r.id)return;const l=D.mth[r.user]=D.mth[r.user]||[];if(!l.some(x=>x.id===r.id))l.push(r)});Object.values(D.mth).forEach(l=>l.forEach(x=>{if(x.id&&!v[x.id])push('mth',x)}));cloudOk=true;save();lbRefresh();if(view==='mtrack')R.mtrack()},e=>{cloudOk=false;console.warn(e)});
 F.onValue(F.ref(rt,'time'),sn=>{const v=sn.val()||{};RT={};Object.values(v).forEach(r=>{if(r&&r.user&&r.day&&r.id&&okRow(r))RT[r.id]=r});
 Object.values(RT).forEach(r=>{if(r.dev!==DEV||!USERS.includes(r.user.split('~')[0]))return;const u=D.time[r.user]=D.time[r.user]||{};if((u[r.day]||0)<r.secs){u[r.day]=r.secs;(D.tmeta[r.user]=D.tmeta[r.user]||{})[r.day]={t0:r.t0!=null?r.t0:Date.now()-r.secs*1000,ts:r.ts!=null?r.ts:Date.now()}}});
 if(!seeded.time){seeded.time=1;Object.entries(D.time).forEach(([u,m])=>Object.keys(m).forEach(d=>{const q=RT[u+'_'+d+'_'+DEV];if(!q||q.secs<m[d])pushTime(u,d)}))}
