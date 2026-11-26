@@ -199,6 +199,10 @@ body.nogl .gw{border-bottom:0;cursor:auto}
 .mqc{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin:16px 0 0}.mqv{font-weight:600;font-size:14px}.mhw{margin:10px 0 4px}.mhw>button{font-size:13px;padding:5px 12px}.mhint{margin-top:8px;border:1px solid var(--amb);border-radius:10px;padding:10px 14px;background:color-mix(in srgb,var(--amb) 10%,transparent)}.mhr+.mhr{margin-top:8px}.mhf{font-family:ui-serif,Georgia,serif;font-size:17px;margin-top:3px}
 .mhx{font-size:13px;line-height:1.4;margin-top:4px;color:var(--mut)}.mhx:first-letter{letter-spacing:0}
 .pm{margin-left:.16em}
+/* multi-answer fields: one box + "+" */
+.mfm .mxa{display:flex;align-items:center;gap:10px}
+.mfp .mprow{flex-basis:100%;display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px}.mfp .mprow .ml{min-width:0}
+.mpl{flex:none}
 </style></head><body>
 <header><button class="g" id="bk" onclick="goBack()" aria-label="Back" title="Back" style="display:none;padding:5px 11px;font-size:18px;line-height:1">←</button><span class="logo" id="logo">C-Test Prep</span><span class="sp"></span><span id="hdr" style="display:flex;gap:8px;align-items:center"></span></header>
 <main id="app"></main>
@@ -212,6 +216,7 @@ const $=s=>document.querySelector(s),app=$('#app');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const baseTests=()=>BUILTIN.concat(D.tests||[]),tests=()=>baseTests().map(t=>{const e=D.edits[t.id];return e&&!e.reset&&e.text?Object.assign({},t,{text:e.text}):t}),ctests=()=>tests().filter(t=>t.cat!=='task');
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+const isMV=v=>v==='math'||v==='mtest'||v==='mtrack'||v==='mderpick'||v==='mder';
 let view='users',T=null,stTab='sum';
 function parse(t){const tok=[];let last=0,i=0,m;const re=/\{([^|{}]*)\|([^{}]*)\}/g;while((m=re.exec(t.text))){tok.push(t.text.slice(last,m.index));tok.push({i:i++,g:m[1],m:m[2]});last=re.lastIndex}tok.push(t.text.slice(last));return tok}
 function best(u,id){return D.attempts.filter(a=>a.user===u&&a.testId===id).reduce((m,a)=>Math.max(m,a.correct/a.total),0)}
@@ -232,8 +237,8 @@ return`<div class="lab" style="padding-left:0">Leaderboard</div><div style="disp
 <p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Ties and categories without enough data get none. Time is tracked since this version was first opened; improvement needs 4+ attempts.</p><p class="mut" style="font-size:12px;margin:4px 0 0">${cloudOk?'☁ Synced across devices':'⚠ Cloud not connected – showing this device only'}</p>
 <details style="margin-top:12px"><summary>Progress charts</summary><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:8px">${S.map(x=>`<div><h3>${cap(x.u)}</h3><div class="lab" style="padding-left:0">Minutes per day · 14 days</div>${barSvg(x.u)}<div class="lab" style="padding-left:0">Accuracy per attempt · line = avg of 5</div>${trendSvg(x.s.A)}</div>`).join('')}</div></details>
 <details style="margin-top:10px"><summary>Head to head, best accuracy per test</summary><table style="margin-top:6px"><tr><th>Test</th>${USERS.map(u=>`<th>${cap(u)}</th>`).join('')}</tr>${tests().map(t=>{const v=USERS.map(u=>tstat(u,t.id).n?best(u,t.id):-1),mx=Math.max(...v),w=v.filter(x=>x>=0).length>1&&v.filter(x=>x===mx).length===1?v.indexOf(mx):-1;return`<tr><td>${esc(t.title)}</td>${v.map((x,i)=>`<td class="${w===i?'win':''}">${w===i?'👑 ':''}${x<0?'–':Math.round(x*100)+'%'}</td>`).join('')}</tr>`}).join('')}</table></details>`}
-function hdr(){$('#hdr').innerHTML=D.me?`<div class="dd"><button class="g" onclick="tm(event,'tasks')">Tasks ▾</button><div class="menu s" id="m-tasks" style="width:min(340px,calc(100vw - 24px))"></div></div><div class="dd"><button class="g" onclick="tm(event,'lb')">Leaderboard ▾</button><div class="menu" id="m-lb"></div></div><div class="dd"><button class="pill" onclick="tm(event,'acc')"><span class="av">${D.me[0]}</span>${D.me} ▾</button><div class="menu s" id="m-acc"><div class="lab">Switch account</div>${USERS.map(u=>`<div class="mi ${u===D.me?'on':''}" onclick="sw('${u}')"><span class="av">${u[0]}</span>${u}${u===D.me?' ✓':''}</div>`).join('')}<div class="lab">More</div><div class="mi" onclick="go('subject')">Switch subject</div><div class="mi" onclick="go('stats')">Statistics</div>${D.subj==='math'?`<div class="mi" onclick="go('mtrack')">Targeted practice</div>`:''}<div class="mi" onclick="go('add')">Add a C-test</div><div class="lab">Cloud sync: ${cloud?'on':'off'}</div></div></div>`:''}
-function tm(e,id){e.stopPropagation();const m=$('#m-'+id),was=m.classList.contains('open');cm();if(!was){if(id==='lb'){lbSec=(view==='math'||view==='mtest'||view==='mtrack')?'m':'g';m.innerHTML=lbHtml()}if(id==='tasks')m.innerHTML='<div class="lab">Other tasks</div>'+tests().filter(t=>t.cat==='task').map(t=>`<div class="mi" style="text-transform:none" onclick="openTest('${t.id}')">${esc(t.title)}</div>`).join('');m.classList.add('open')}}
+function hdr(){$('#hdr').innerHTML=D.me?`<div class="dd"><button class="g" onclick="tm(event,'tasks')">Tasks ▾</button><div class="menu s" id="m-tasks" style="width:min(340px,calc(100vw - 24px))"></div></div><div class="dd"><button class="g" onclick="tm(event,'lb')">Leaderboard ▾</button><div class="menu" id="m-lb"></div></div><div class="dd"><button class="pill" onclick="tm(event,'acc')"><span class="av">${D.me[0]}</span>${D.me} ▾</button><div class="menu s" id="m-acc"><div class="lab">Switch account</div>${USERS.map(u=>`<div class="mi ${u===D.me?'on':''}" onclick="sw('${u}')"><span class="av">${u[0]}</span>${u}${u===D.me?' ✓':''}</div>`).join('')}<div class="lab">More</div><div class="mi" onclick="go('subject')">Switch subject</div><div class="mi" onclick="go('stats')">Statistics</div>${D.subj==='math'?`<div class="mi" onclick="go('mtrack')">Targeted practice</div>`:''}<div class="mi" onclick="go('add')">Add a C-test</div><div class="lab">Cloud sync: ${cloud?(cloudOk?'on · German + Math':'connecting…'):'off'}</div></div></div>`:''}
+function tm(e,id){e.stopPropagation();const m=$('#m-'+id),was=m.classList.contains('open');cm();if(!was){if(id==='lb'){lbSec=isMV(view)?'m':'g';m.innerHTML=lbHtml()}if(id==='tasks')m.innerHTML='<div class="lab">Other tasks</div>'+tests().filter(t=>t.cat==='task').map(t=>`<div class="mi" style="text-transform:none" onclick="openTest('${t.id}')">${esc(t.title)}</div>`).join('');m.classList.add('open')}}
 function cm(){document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'))}
 document.addEventListener('click',e=>{if(!e.target.closest('.menu'))cm()});
 function sw(u){D.me=u;save();cm();go('subject')}
@@ -2106,6 +2111,65 @@ const MBANK=[
 ];
 const MALL=()=>MATH.concat(MBANK);
 
+/* ===== MULTI-ANSWER FIELDS =====
+   Fixed slots (x₁ =, x₂ =, ...) are replaced by ONE box with a "+" button, so the number of solutions is not given away.
+   Answers can be entered in any order. Points (x₁,y₁,x₂,y₂) become P( x ; y ) rows, also in any order. */
+const mSubD='₀₁₂₃₄₅₆₇₈₉';
+const mPtRe=/^((?:.*[\s)])?)([xy])([₁-₉])\s*=\s*$/,mXsRe=/^((?:.*[\s)])?)x([₁-₉])\s*=\s*$/;
+const mStem=l=>String(l||'').replace(/^oder\s+/i,'').replace(/\s*[₀-₉]+\s*=\s*$/,' =').replace(/\s+\d+\s*=\s*$/,' =').replace(/\s+/g,' ').trim();
+const mEnum=l=>String(l||'').replace(/^(?:[a-h]\)|\d+(?:\.\d+)*\)?)\s+/,'');
+const mStrip=f=>{const c=Object.assign({},f);delete c.l;delete c.p;delete c.g;return c};
+const mPlain=f=>!(f.cond||f.mc||f.gr||f.set||f.alt||f.multi||f.pts);
+const mCnt=f=>f.multi?f.multi.length:f.pts?f.pts.length*2:1;
+function mNormFields(F){
+ const used=new Set(),rep=new Map();
+ // 1) points: x₁ y₁ x₂ y₂ ...
+ const pk={};
+ F.forEach((f,i)=>{if(f.g||!mPlain(f))return;const m=mPtRe.exec(f.l||'');if(!m)return;const key=(f.p||'')+'|'+m[1],o=pk[key]=pk[key]||{};(o[m[3]]=o[m[3]]||{})[m[2]]={f,i}});
+ Object.keys(pk).forEach(key=>{const o=pk[key],subs=Object.keys(o).filter(s=>o[s].x&&o[s].y).sort();if(subs.length<2)return;
+  const idx=subs.flatMap(s=>[o[s].x.i,o[s].y.i]),f0=o[subs[0]].x.f,pre=mPtRe.exec(f0.l)[1],r={l:pre+'P',pts:subs.map(s=>({x:mStrip(o[s].x.f),y:mStrip(o[s].y.f)}))};
+  if(f0.p)r.p=f0.p;rep.set(Math.min(...idx),r);idx.forEach(i=>used.add(i))});
+ // 2) order-free groups (g) with the same stem: x₁/x₂, Zahl 1/Zahl 2, "x" + "oder x", sin(x) ×3 ...
+ const gk={};
+ F.forEach((f,i)=>{if(used.has(i)||!f.g||!mPlain(f))return;(gk[(f.p||'')+'|'+f.g+'|'+mStem(f.l)]=gk[(f.p||'')+'|'+f.g+'|'+mStem(f.l)]||[]).push(i)});
+ Object.values(gk).forEach(ix=>{if(ix.length<2)return;const f0=F[ix[0]],r={l:mStem(f0.l),multi:ix.map(i=>mStrip(F[i]))};if(f0.p)r.p=f0.p;rep.set(ix[0],r);ix.forEach(i=>used.add(i))});
+ // 3) plain x₁, x₂, ... (numbered 1..n) that were not marked order-free
+ const nk={};
+ F.forEach((f,i)=>{if(used.has(i)||f.g||!mPlain(f))return;const m=mXsRe.exec(f.l||'');if(!m)return;(nk[(f.p||'')+'|'+m[1]]=nk[(f.p||'')+'|'+m[1]]||[]).push({i,s:mSubD.indexOf(m[2])})});
+ Object.values(nk).forEach(a=>{if(a.length<2||!a.every((z,n)=>z.s===n+1))return;const f0=F[a[0].i],r={l:mStem(f0.l),multi:a.map(z=>mStrip(F[z.i]))};if(f0.p)r.p=f0.p;rep.set(a[0].i,r);a.forEach(z=>used.add(z.i))});
+ const out=[];F.forEach((f,i)=>{if(rep.has(i))out.push(rep.get(i));else if(!used.has(i))out.push(f)});return out}
+function mNormTask(k){if(!k||!Array.isArray(k.f)||k._mn)return;try{k.f=mNormFields(k.f)}catch(e){console.warn('mNorm',e)}Object.defineProperty(k,'_mn',{value:1,enumerable:false,writable:true})}
+// split "−2; 1" / "2 oder 3" typed into ONE box (not for pairs like (1;2) or sets)
+function mSplit(v,E){if(E.some(x=>x.set||x.alt||x.mc||String(x.a||'').startsWith('(')))return[v];const p=String(v).split(/;|\boder\b|\bund\b/i).map(z=>z.trim()).filter(Boolean);return p.length?p:[v]}
+const mPlusSt='min-width:46px;min-height:46px;font-size:22px;padding:0 14px';
+function mFhM(f,i,j){return `<div class="mf mfm"><label><span class="ml">${mxt(f.l)}</span><div class="mfld" data-t="${i}" data-f="${j}"></div></label><button type="button" class="g mpl" disabled data-t="${i}" data-f="${j}" data-lh="${esc(mxt(mEnum(f.l)))}" onclick="mAddM(this)" aria-label="Add another solution" title="Add another solution" style="${mPlusSt}">+</button><div class="mr" data-r="${i}-${j}"></div></div>`}
+const mProw=(i,j)=>`<div class="mprow"><span class="ml">P(</span><div class="mfld" data-t="${i}" data-f="${j}" data-c="0"></div><span class="ml">;</span><div class="mfld" data-t="${i}" data-f="${j}" data-c="1"></div><span class="ml">)</span></div>`;
+function mFhP(f,i,j){return `<div class="mf mfp">${mProw(i,j)}<button type="button" class="g mpl" disabled data-t="${i}" data-f="${j}" onclick="mAddP(this)" aria-label="Add another point" title="Add another point" style="${mPlusSt}">+</button><div class="mr" data-r="${i}-${j}"></div></div>`}
+function mAddM(btn){if(btn.disabled)return;const lb=document.createElement('label');lb.className='mxa';lb.innerHTML='<span class="ml">'+(btn.dataset.lh||'')+'</span>';const d=document.createElement('div');d.className='mfld';d.dataset.t=btn.dataset.t;d.dataset.f=btn.dataset.f;lb.appendChild(d);btn.before(lb);mfInit(d);d.disabled=false;d.focus()}
+function mAddP(btn){if(btn.disabled)return;const w=document.createElement('div');w.innerHTML=mProw(btn.dataset.t,btn.dataset.f);const row=w.firstChild;btn.before(row);row.querySelectorAll('.mfld').forEach(e=>{mfInit(e);e.disabled=false});row.querySelector('.mfld').focus()}
+const mPaint=(e,g)=>{if(!e)return;e.style.borderColor=g?'var(--ok)':'var(--bad)';e.style.color=g?'var(--ok)':'var(--bad)'};
+const mFin=(f,i)=>String(f.d||String(f.a).replace('.',','));
+function mGradeM(f,i,j,bad){const els=[...document.querySelectorAll(`.mfld[data-t="${i}"][data-f="${j}"]`)],E=f.multi,used=new Set();let hit=0,extra=0;
+ const rs=els.map(e=>{e.disabled=true;const v=String(e.value||'').trim();if(!v)return null;let all=true;
+  mSplit(v,E).forEach(p=>{const ix=E.findIndex((x,n)=>!used.has(n)&&mchk(x,p));if(ix>=0){used.add(ix);hit++}else{all=false;extra++}});return all});
+ els.forEach((e,n)=>{if(rs[n]!=null)mPaint(e,rs[n])});if(hit+extra===0&&els[0])mPaint(els[0],false);
+ document.querySelectorAll(`.mp[data-p="${i}"] .mpl`).forEach(b=>b.disabled=true);
+ const good=hit===E.length&&!extra,exc=Math.max(0,hit+extra-E.length);
+ if(!good){bad[i]=1;document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+E.map(x=>mfx(mFin(x))).join('; ')}
+ return[good?E.length:Math.max(0,hit-exc),E.length]}
+function mGradeP(f,i,j,bad){const els=[...document.querySelectorAll(`.mfld[data-t="${i}"][data-f="${j}"]`)],E=f.pts,used=new Set(),rows=[];let hit=0,extra=0;
+ for(let n=0;n<els.length;n+=2)rows.push([els[n],els[n+1]]);
+ rows.forEach(([a,b])=>{a.disabled=true;if(b)b.disabled=true;const va=String(a.value||'').trim(),vb=b?String(b.value||'').trim():'';if(!va&&!vb)return;
+  const ix=E.findIndex((e,n)=>!used.has(n)&&mchk(e.x,va)&&mchk(e.y,vb));if(ix>=0){used.add(ix);hit++}else extra++;mPaint(a,ix>=0);mPaint(b,ix>=0)});
+ if(hit+extra===0&&rows[0]){mPaint(rows[0][0],false);mPaint(rows[0][1],false)}
+ document.querySelectorAll(`.mp[data-p="${i}"] .mpl`).forEach(b=>b.disabled=true);
+ const good=hit===E.length&&!extra,exc=Math.max(0,hit+extra-E.length);
+ if(!good){bad[i]=1;document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+E.map(e=>'P('+mfx(mFin(e.x))+'; '+mfx(mFin(e.y))+')').join(' &nbsp;·&nbsp; ')}
+ return[2*(good?E.length:Math.max(0,hit-exc)),2*E.length]}
+MATH.concat(MBANK).forEach(mNormTask);
+// math sync status line (German and Math share one Firebase database; Math rows live under "mth" + "time" with user "name~m")
+const mCloudTxt=()=>cloudOk?'☁ Math results & time sync across devices':cloud?'☁ Connecting to cloud…':'⚠ Cloud not connected – math is saved on this device only';
+
 function mval(s,v,x){try{s=String(s).trim().replace(/^[a-zα-ω]['′″]*\s*(?:\([^)]*\))?\s*=\s*/i,'').replace(/−/g,'-').replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g,m=>'^'+[...m].map(c=>'⁰¹²³⁴⁵⁶⁷⁸⁹'.indexOf(c)).join('')).replace(/[·×]/g,'*').replace(/:/g,'/').replace(/,/g,'.').replace(/²/g,'^2').replace(/³/g,'^3').replace(/⁴/g,'^4').replace(/⁵/g,'^5').replace(/⁶/g,'^6').replace(/∛/g,'cbrt').replace(/√/g,'sqrt').replace(/π/g,'pi').replace(/\s+/g,'');
 if(!s)return NaN;if(s.startsWith('(')&&s.endsWith(')')&&s.includes(';'))return NaN;
 s=s.replace(/sqrt(\d+(\.\d+)?)/g,'sqrt($1)').replace(/cbrt(\d+(\.\d+)?)/g,'cbrt($1)');
@@ -2429,7 +2493,7 @@ document.addEventListener('scroll',gHide,true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')gHide()});
 // ===== END MATH WORD HELP =====
 const mHist=()=>(D.mth=D.mth||{})[D.me]||(D.mth[D.me]=[]);
-R.math=function(){app.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h1>∑ Mathe</h1><button onclick="go('mtrack')">Targeted practice</button></div><div class="card" style="padding:8px">${MATH.map(t=>{const A=mHist().filter(a=>a.tid===t.id),b=A.reduce((m,a)=>Math.max(m,a.ok/a.total),0),n=t.tasks.reduce((s,k)=>s+k.f.length,0);
+R.math=function(){app.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h1>∑ Mathe</h1><button onclick="go('mtrack')">Targeted practice</button></div><p class="mut" style="font-size:12px;margin:2px 4px 0">${mCloudTxt()}</p><div class="card" style="padding:8px">${MATH.map(t=>{const A=mHist().filter(a=>a.tid===t.id),b=A.reduce((m,a)=>Math.max(m,a.ok/a.total),0),n=t.tasks.reduce((s,k)=>s+k.f.reduce((a,f)=>a+mCnt(f),0),0);
 return`<div class="row" onclick="openMath('${t.id}')"><div><div class="rt">${esc(t.title)}</div><div class="mut">${esc(t.source)}</div></div><div class="rr"><span class="chip" style="--c:var(--${t.mins?'amb':'mut'})">${t.mins?t.mins+' min limit':'no time limit'}</span><span class="chip" style="--c:var(--${t.calc===true?'ok':t.calc===false?'bad':'mut'})">${calcTxt(t)}</span><span class="mut">${n} answers</span><b>${A.length?'best '+Math.round(b*100)+'%':'–'}</b></div></div>`}).join('')}</div>`};
 function openMath(id,jump){if(id==='prac'&&!MPR.last)return go('mtrack');navPush('mtest:'+id);if(MT&&MT.timer)clearInterval(MT.timer);view='mtest';MT={t:id==='prac'?MPR.last:MALL().find(x=>x.id===id),started:false,done:false,jump:jump==null?null:jump};R.mtest();window.scrollTo(0,0)}
 const mRow=p=>({a:[],p:p||null}),mCh=c=>({t:'c',c,p:null}),mIdx=n=>n.p.a.indexOf(n);
@@ -2514,7 +2578,7 @@ function mPtFor(el){const b=el&&el.closest&&el.closest('.mpt');if(!b)return;cons
 function mPtAll(){if(!MT)return;const pages=[...document.querySelectorAll('.mp')].filter(pg=>pg.querySelector('.mpt'));
 pages.forEach(pg=>{const bl=[...pg.querySelectorAll('.mpt')],cur=((MT.pt)||{})[+pg.dataset.p]||0;[...pg.querySelectorAll('.mpn button')].forEach((b,n)=>{const has=[...bl[n].querySelectorAll('.mfld')].some(e=>String(e.value||'').trim()),bad=[...bl[n].querySelectorAll('.mr')].some(e=>e.innerHTML.trim());b.className=(n===cur?'on ':'')+((MT.done||(MT.chk||{})[pg.dataset.p])?(bad?'bd':'ok'):(has?'dn':''))})});
 if(MT.done&&!MT.ptDone){MT.ptDone=1;pages.forEach(pg=>{const n=[...pg.querySelectorAll('.mpt')].findIndex(b=>[...b.querySelectorAll('.mr')].some(e=>e.innerHTML.trim()));if(n>=0)mPart(+pg.dataset.p,n,0)})}}
-function mFh(f,i,j){return f.gr?`<div class="mf mfg"><div class="mgl"><span class="ml">${mxt(f.l)}</span></div><div class="mfld" data-gr="1" data-t="${i}" data-f="${j}"></div><div class="mr" data-r="${i}-${j}"></div></div>`:f.mc?`<div class="mf"><div class="mch mfld" data-mc="1" data-t="${i}" data-f="${j}">${f.mc.map(([id,lbl])=>`<button type="button" disabled data-v="${id}"><span class="mcid">(${id})</span><span>${mfx(lbl)}</span></button>`).join('')}</div><div class="mr" data-r="${i}-${j}"></div></div>`:`<div class="mf"><label><span class="ml">${f.l.includes('∫')?mfx(f.l):mxt(f.l)}</span><div class="mfld" data-t="${i}" data-f="${j}"></div></label>${f.cond?`<button type="button" class="g mpl" disabled data-t="${i}" data-f="${j}" onclick="mAddF(this)" aria-label="Add another condition" style="min-width:46px;min-height:46px;font-size:22px;padding:0 14px">+</button>`:''}<div class="mr" data-r="${i}-${j}"></div></div>`}
+function mFh(f,i,j){return f.multi?mFhM(f,i,j):f.pts?mFhP(f,i,j):f.gr?`<div class="mf mfg"><div class="mgl"><span class="ml">${mxt(f.l)}</span></div><div class="mfld" data-gr="1" data-t="${i}" data-f="${j}"></div><div class="mr" data-r="${i}-${j}"></div></div>`:f.mc?`<div class="mf"><div class="mch mfld" data-mc="1" data-t="${i}" data-f="${j}">${f.mc.map(([id,lbl])=>`<button type="button" disabled data-v="${id}"><span class="mcid">(${id})</span><span>${mfx(lbl)}</span></button>`).join('')}</div><div class="mr" data-r="${i}-${j}"></div></div>`:`<div class="mf"><label><span class="ml">${f.l.includes('∫')?mfx(f.l):mxt(f.l)}</span><div class="mfld" data-t="${i}" data-f="${j}"></div></label>${f.cond?`<button type="button" class="g mpl" disabled data-t="${i}" data-f="${j}" onclick="mAddF(this)" aria-label="Add another condition" style="min-width:46px;min-height:46px;font-size:22px;padding:0 14px">+</button>`:''}<div class="mr" data-r="${i}-${j}"></div></div>`}
 function mTaskHtml(t,k,i,N,FL){const P=mParts(k);return `<div class="mp" data-p="${i}" style="display:${i?'none':'block'}">
 <div class="mh"><span class="mn">Aufgabe ${i+1} <small>/ ${N}</small></span><span class="mpb"><i style="width:${(i+1)/N*100}%"></i></span></div>
 <div class="mtc">${mTopChips(mTopicsOf(k).ids)} ${mLvChip(k)} ${mRuleHint(k)} ${mFlagChip(FL[i])}${k._src?` <span class="mut" style="font-size:12px">from ${esc(mSrcLabel(k._src))}</span>`:''}</div>
@@ -2578,7 +2642,7 @@ function mPage(i,keep){if(!MT)return;MT.p=i;document.querySelectorAll('.mp').for
 function mSq(bad){if(bad)MT.bad=bad;const b=MT.bad,ans={};document.querySelectorAll('.mfld').forEach(x=>{if(String(x.value||'').trim())ans[x.dataset.t]=1});document.querySelectorAll('#mnav button').forEach(el=>{const i=+el.dataset.s,c=(MT.p===i?'on ':'')+(b?(b[i]?'bd':'ok'):((MT.chk||{})[i]?(MT.cb[i]?'bd':'ok'):(ans[i]?'dn':'')));if(el.className!==c)el.className=c});mPtAll();if(MT.navP!==MT.p){MT.navP=MT.p;const nv=document.getElementById('mnav'),on=nv&&nv.querySelector('button.on');if(on&&nv.clientWidth){const x=on.offsetLeft-nv.clientWidth/2+on.offsetWidth/2;nv.scrollTo({left:x,behavior:Math.abs(x-nv.scrollLeft)>nv.clientWidth*2?'auto':'smooth'})}}}
 function mStart(){if(!MT||MT.started)return;const t=MT.t;MT.started=true;MT.t0=Date.now();$('#mb').style.cssText='';$('#mo').style.display='none';$('#mnav').style.display='';document.querySelectorAll('.mfld').forEach(e=>e.disabled=false);document.querySelectorAll('.mpl').forEach(b=>b.disabled=false);document.querySelectorAll('#mnav button').forEach(e=>e.disabled=false);$('#ms').disabled=true;$('#mk').disabled=false;document.querySelector('.mfld').focus();
 MT.timer=setInterval(()=>{const el=(Date.now()-MT.t0)/1000;if(t.mins){const rem=t.mins*60-el;$('#mc').textContent=fmt(Math.max(0,rem));if(rem<=0)mCheck()}else $('#mc').textContent=fmt(el)},250);if(MT.jump!=null){mPage(MT.jump);MT.jump=null}}
-function mGradeTask(t,k,i,bad){let ok=0,total=0;const used=new Set(),grp=k.f.filter(x=>x.g);k.f.forEach((f,j)=>{if(f.cond){const els=[...document.querySelectorAll(`.mfld[data-t="${i}"][data-f="${j}"]`)],r=ccheck(f.cond,els.map(e=>e.value));els.forEach((e,n)=>{e.disabled=true;if(r.per[n]!=null){e.style.borderColor=r.per[n]?'var(--ok)':'var(--bad)';e.style.color=r.per[n]?'var(--ok)':'var(--bad)'}});document.querySelectorAll(`.mp[data-p="${i}"] .mpl`).forEach(b=>b.disabled=true);total++;if(r.good)ok++;else{bad[i]=1;document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+mfx(f.d)}return}const el=document.querySelector(`.mfld[data-t="${i}"][data-f="${j}"]`),v=el.value;el.disabled=true;let good=false;
+function mGradeTask(t,k,i,bad){let ok=0,total=0;const used=new Set(),grp=k.f.filter(x=>x.g);k.f.forEach((f,j)=>{if(f.multi||f.pts){const r=f.multi?mGradeM(f,i,j,bad):mGradeP(f,i,j,bad);ok+=r[0];total+=r[1];return}if(f.cond){const els=[...document.querySelectorAll(`.mfld[data-t="${i}"][data-f="${j}"]`)],r=ccheck(f.cond,els.map(e=>e.value));els.forEach((e,n)=>{e.disabled=true;if(r.per[n]!=null){e.style.borderColor=r.per[n]?'var(--ok)':'var(--bad)';e.style.color=r.per[n]?'var(--ok)':'var(--bad)'}});document.querySelectorAll(`.mp[data-p="${i}"] .mpl`).forEach(b=>b.disabled=true);total++;if(r.good)ok++;else{bad[i]=1;document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: '+mfx(f.d)}return}const el=document.querySelector(`.mfld[data-t="${i}"][data-f="${j}"]`),v=el.value;el.disabled=true;let good=false;
 if(f.g){const ix=grp.findIndex((x,n)=>!used.has(n)&&mchk(x,v));if(ix>=0){used.add(ix);good=true}}else good=mchk(f,v);
 total++;if(good)ok++;else bad[i]=1;
 if(f.mc){el.querySelectorAll('button').forEach(b=>{if(b.dataset.v===f.a)b.classList.add('ok');else if(b.dataset.v===v&&!good)b.classList.add('bd')});if(!good)document.querySelector(`[data-r="${i}-${j}"]`).innerHTML='Correct: ('+f.a+')'}
@@ -2590,7 +2654,7 @@ mSq();const pg=document.querySelector(`.mp[data-p="${i}"]`);if(pg&&pg.querySelec
 function mCheck(){if(!MT||!MT.started||MT.done)return;MT.done=true;clearInterval(MT.timer);const t=MT.t;let secs=Math.round((Date.now()-MT.t0)/1000);if(t.mins)secs=Math.min(secs,t.mins*60);$('#mc').textContent=fmt(secs);let ok=0,total=0;const bad={};
 t.tasks.forEach((k,i)=>{const r=mGradeTask(t,k,i,bad);ok+=r[0];total+=r[1]});document.querySelectorAll('.mpl').forEach(b=>b.disabled=true);
 const qs=t.tasks.map((k,i)=>bad[i]?([...document.querySelectorAll('.mfld[data-t="'+i+'"]')].some(x=>x.value.trim())?'0':'2'):'1').join(''),hu=t.tasks.map((k,i)=>MT.hint&&MT.hint[i]?'1':'0').join(''),row=t.prac?{id:Date.now()+'-m-'+D.me,user:D.me,tid:'prac',ts:Date.now(),secs,ok,total,pq:t.tasks.map((k,i)=>k._src+':'+qs[i]).join(';'),hu}:{id:Date.now()+'-m-'+D.me,user:D.me,tid:t.id,ts:Date.now(),secs,ok,total,qs,hu};mHist().push(row);save();push('mth',row);mSq(bad);
-$('#mk').disabled=true;$('#mres').innerHTML=`<div style="text-align:center;margin-top:26px"><div class="big">${Math.round(ok/total*100)}%</div><p><b>${ok}/${total}</b> correct · ${fmt(secs)}</p>${t.prac?`<p><button onclick="${t.der?'mdAgain()':'mpStart()'}">New set</button> <button class="g" onclick="openMath('prac')">Retry same set</button> <button class="g" onclick="${t.der?"go('mder')":"MK.tab='prac';go('mtrack')"}">Back to topics</button></p>`:`<p><button onclick="openMath('${t.id}')">Retry</button> <button class="g" onclick="go('math')">All math tests</button></p>`}${mMissHtml(t,qs)}</div>`}
+$('#mk').disabled=true;$('#mres').innerHTML=`<div style="text-align:center;margin-top:26px"><div class="big">${Math.round(ok/total*100)}%</div><p><b>${ok}/${total}</b> correct · ${fmt(secs)}</p><p class="mut" style="font-size:12px;margin:-4px 0 8px">${mCloudTxt()}</p>${t.prac?`<p><button onclick="${t.der?'mdAgain()':'mpStart()'}">New set</button> <button class="g" onclick="openMath('prac')">Retry same set</button> <button class="g" onclick="${t.der?"go('mder')":"MK.tab='prac';go('mtrack')"}">Back to topics</button></p>`:`<p><button onclick="openMath('${t.id}')">Retry</button> <button class="g" onclick="go('math')">All math tests</button></p>`}${mMissHtml(t,qs)}</div>`}
 // ===== CONDITION FIELDS (one box, "+" adds more) =====
 const cnorm=c=>String(c).toLowerCase().replace(/−/g,'-').replace(/\s+/g,'').replace(/≠|<>/g,'!=').replace(/≥/g,'>=').replace(/≤/g,'<=');
 function cparse(c){const m=/^([a-zα-ω])(!=|>=|<=|>|<|=)(.+)$/.exec(cnorm(c));return m?{v:m[1],r:m[2],n:mval(m[3])}:null}
@@ -2611,7 +2675,7 @@ const win=cats.map(c=>{const v=S.map(c[3]),d=v.filter(z=>z!=null),mx=Math.max(..
 const bestOf=(u,id)=>((D.mth&&D.mth[u])||[]).filter(a=>a.tid===id).reduce((m,a)=>Math.max(m,a.ok/a.total),-1);
 return`<div class="lab" style="padding-left:0">Math leaderboard</div><div style="display:flex;gap:18px;flex-wrap:wrap;margin:4px 0 10px">${S.map((x,i)=>`<div><span style="font-size:22px;font-weight:600">${crowns[i]?'👑 ':''}${crowns[i]}</span> <span class="mut">${cap(x.u)}</span></div>`).join('')}</div>
 <table><tr><th>Category</th>${S.map(x=>`<th>${cap(x.u)}</th>`).join('')}</tr>${cats.map((c,r)=>`<tr><td>${c[0]}${c[1]?`<div class="mut" style="font-size:12px">${c[1]}</div>`:''}</td>${S.map((x,i)=>`<td class="${win[r]===i?'win':''}">${win[r]===i?'👑 ':''}${c[2](x)}</td>`).join('')}</tr>`).join('')}</table>
-<p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Math time and results are counted separately from German.</p>
+<p class="mut" style="font-size:12px;margin:8px 0 0">A crown goes to the clear leader of a category. Math time and results are counted separately from German.</p><p class="mut" style="font-size:12px;margin:4px 0 0">${mCloudTxt()}</p>
 <details style="margin-top:12px"><summary>Head to head, best accuracy per math test</summary><table style="margin-top:6px"><tr><th>Test</th>${USERS.map(u=>`<th>${cap(u)}</th>`).join('')}</tr>${MATH.map(t=>{const v=USERS.map(u=>bestOf(u,t.id)),mx=Math.max(...v),w=v.filter(x=>x>=0).length>1&&v.filter(x=>x===mx).length===1?v.indexOf(mx):-1;return`<tr><td>${esc(t.title)}</td>${v.map((x,i)=>`<td class="${w===i?'win':''}">${w===i?'👑 ':''}${x<0?'–':Math.round(x*100)+'%'}</td>`).join('')}</tr>`}).join('')}</table></details>`}
 function lbHtml(){return`<div class="tabs" style="margin:0 0 10px"><button class="${lbSec==='g'?'on':''}" onclick="event.stopPropagation();lbSec='g';lbR()">🇩🇪 Deutsch</button><button class="${lbSec==='m'?'on':''}" onclick="event.stopPropagation();lbSec='m';lbR()">∑ Mathe</button></div>`+(lbSec==='m'?mlbHtml():glbHtml())}
 // ===== MATH MISTAKE TRACKER =====
@@ -2792,10 +2856,10 @@ const mrow=(u,day)=>{const m=(D.tmeta[u]||{})[day]||{};return{user:u,day,secs:D.
 (function cleanTime(){const now=Date.now();Object.keys(D.time).forEach(u=>Object.keys(D.time[u]).forEach(day=>{
 if(!okRow(mrow(u,day))){delete D.time[u][day];if(D.tmeta[u])delete D.tmeta[u][day];return}
 const mm=D.tmeta[u]=D.tmeta[u]||{};if(!mm[day])mm[day]={t0:now-D.time[u][day]*1000,ts:now}}));save()})();
-function pushTime(u,d){const s=D.time[u]&&D.time[u][d];if(!cloud||s==null)return;const m=(D.tmeta[u]||{})[d]||{},row={id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(s),t0:m.t0,ts:m.ts};if(row.t0==null||!okRow(row))return;cloud.set('time',row).catch(e=>{cloudOk=false;console.warn(e)})}
+function pushTime(u,d){const s=D.time[u]&&D.time[u][d];if(!cloud||s==null)return;const m=(D.tmeta[u]||{})[d]||{},row={id:u+'_'+d+'_'+DEV,user:u,day:d,dev:DEV,secs:Math.round(s),t0:m.t0,ts:m.ts};if(row.t0==null||!okRow(row))return;push('time',row)}
 function flushTime(){if(!tkD&&!DIRTY.size)return;tkD=false;save();if(cloud){DIRTY.forEach(k=>{const[u,d]=k.split('|');pushTime(u,d)});DIRTY.clear()}lbRefresh()}
 setInterval(()=>{const now=Date.now(),dt=Math.min(10,(now-tkL)/1000);tkL=now;
-if(D.me&&!document.hidden&&document.hasFocus()&&now-tkA<=IDLE){const K=D.me+((view==='math'||view==='mtest'||view==='mtrack')?'~m':''),day=DAY(now),u=D.time[K]=D.time[K]||{},mm=D.tmeta[K]=D.tmeta[K]||{};
+if(D.me&&!document.hidden&&document.hasFocus()&&now-tkA<=IDLE){const K=D.me+(isMV(view)?'~m':''),day=DAY(now),u=D.time[K]=D.time[K]||{},mm=D.tmeta[K]=D.tmeta[K]||{};
 if(!mm[day])mm[day]={t0:now-(u[day]||0)*1000};mm[day].ts=now;u[day]=(u[day]||0)+dt;DIRTY.add(K+'|'+day);tkD=true}
 if(now-tkP>=30000){tkP=now;flushTime()}},5000);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flushTime()});addEventListener('pagehide',flushTime);
@@ -2827,14 +2891,14 @@ const FIREBASE_CONFIG={databaseURL:"https://c-test-f8f8f-default-rtdb.firebaseio
 // ============================================================================
 let cloud=null,cloudOk=false;const seeded={};
 D.attempts.forEach(a=>{a.id=a.id||a.ts+'-'+a.user});Object.entries(D.mth||{}).forEach(([u,l])=>l.forEach(a=>{a.user=u;a.id=a.id||a.ts+'-m-'+u}));
-function push(col,o){if(cloud)cloud.set(col,o).catch(e=>{cloudOk=false;console.warn(e)})}
+function push(col,o){if(!cloud)return;try{const p=cloud.set(col,o);if(p&&p.catch)p.catch(e=>{cloudOk=false;console.warn(e)})}catch(e){cloudOk=false;console.warn(e)}}
 (async()=>{try{if(!FIREBASE_CONFIG.databaseURL||FIREBASE_CONFIG.databaseURL.includes('YOUR'))return;
 const B='https://www.gstatic.com/firebasejs/10.12.2/',{initializeApp}=await import(B+'firebase-app.js'),F=await import(B+'firebase-database.js');
-const rt=F.getDatabase(initializeApp(FIREBASE_CONFIG));cloud={set:(col,o)=>F.set(F.ref(rt,col+'/'+String(o.id)),o)};
+const rt=F.getDatabase(initializeApp(FIREBASE_CONFIG));cloud={set:(col,o)=>F.set(F.ref(rt,col+'/'+String(o.id)),JSON.parse(JSON.stringify(o)))};
 const sub=(col,key)=>F.onValue(F.ref(rt,col),s=>{const v=s.val()||{},rows=Object.values(v).map(r=>{if(key==='attempts')r.mistakes=r.mistakes||[];return r}),ids=new Set(rows.map(r=>String(r.id))),loc=D[key];rows.forEach(r=>{if(!loc.some(x=>String(x.id)===String(r.id)))loc.push(r)});if(!seeded[col]){seeded[col]=1;loc.forEach(x=>{if(!ids.has(String(x.id)))push(col,x)})}cloudOk=true;save();hdr();if(['home','list','stats'].includes(view))R[view]();lbRefresh()},e=>{cloudOk=false;console.warn(e)});
 sub('attempts','attempts');sub('tests','tests');
 F.onValue(F.ref(rt,'edits'),sn=>{const v=sn.val()||{};let ch=false;Object.values(v).forEach(r=>{if(!r||!r.id)return;const l=D.edits[r.id];if(!l||(l.ts||0)<(r.ts||0)){D.edits[r.id]=r;ch=true}});Object.values(D.edits).forEach(l=>{const r=v[l.id];if(!r||(r.ts||0)<(l.ts||0))push('edits',l)});cloudOk=true;if(ch){save();if(['home','list','stats'].includes(view))R[view]()}},e=>{cloudOk=false;console.warn(e)});
-F.onValue(F.ref(rt,'mth'),sn=>{const v=sn.val()||{};D.mth=D.mth||{};Object.values(v).forEach(r=>{if(!r||!r.user||!r.id)return;const l=D.mth[r.user]=D.mth[r.user]||[];if(!l.some(x=>x.id===r.id))l.push(r)});Object.values(D.mth).forEach(l=>l.forEach(x=>{if(x.id&&!v[x.id])push('mth',x)}));cloudOk=true;save();lbRefresh();if(view==='mtrack')R.mtrack()},e=>{cloudOk=false;console.warn(e)});
+F.onValue(F.ref(rt,'mth'),sn=>{const v=sn.val()||{};D.mth=D.mth||{};Object.values(v).forEach(r=>{if(!r||!r.user||!r.id)return;const l=D.mth[r.user]=D.mth[r.user]||[];if(!l.some(x=>x.id===r.id))l.push(r)});Object.values(D.mth).forEach(l=>l.forEach(x=>{if(x.id&&!v[x.id])push('mth',x)}));cloudOk=true;save();lbRefresh();if(view==='mtrack')R.mtrack();if(view==='math')R.math();hdr()},e=>{cloudOk=false;console.warn(e)});
 F.onValue(F.ref(rt,'time'),sn=>{const v=sn.val()||{};RT={};Object.values(v).forEach(r=>{if(r&&r.user&&r.day&&r.id&&okRow(r))RT[r.id]=r});
 Object.values(RT).forEach(r=>{if(r.dev!==DEV||!USERS.includes(r.user.split('~')[0]))return;const u=D.time[r.user]=D.time[r.user]||{};if((u[r.day]||0)<r.secs){u[r.day]=r.secs;(D.tmeta[r.user]=D.tmeta[r.user]||{})[r.day]={t0:r.t0!=null?r.t0:Date.now()-r.secs*1000,ts:r.ts!=null?r.ts:Date.now()}}});
 if(!seeded.time){seeded.time=1;Object.entries(D.time).forEach(([u,m])=>Object.keys(m).forEach(d=>{const q=RT[u+'_'+d+'_'+DEV];if(!q||q.secs<m[d])pushTime(u,d)}))}
